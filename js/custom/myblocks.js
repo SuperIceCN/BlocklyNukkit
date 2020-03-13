@@ -243,3 +243,176 @@ Blockly.JavaScript['bn_register_repeat20'] = function(block) {
   var text=managertmp+".createLoopTask("+argument2+",40);\n"
   return text;
 };
+Blockly.Blocks['bn_config'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": 'yml:使用 %1 文件名 %2 分类 %3',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "MANAGER",
+		  "check": "BNManager"
+		},
+        {
+          "type": "input_value",
+          "name": "FILENAME",
+          "check": "String"
+        },
+		{
+		  "type": "input_value",
+		  "name": "FOLDER",
+		  "check": "String"
+		}
+      ],
+	  "output": "Config",
+      "colour": 65,
+      "tooltip": "获取yaml配置文件",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bn_config'] = function(block) {
+  //String or array length.
+  var argument1 = Blockly.JavaScript.valueToCode(block, 'FILENAME',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var argument2 = Blockly.JavaScript.valueToCode(block, 'FOLDER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var managertmp = Blockly.JavaScript.valueToCode(block, 'MANAGER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=managertmp+'.createConfig('+managertmp+'.getFile("'+argument2+'", "'+argument1+'.yml"), 2)'
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['bn_set_config'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": 'yml:对于 %1 设置键 %2 为 %3 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "FILE",
+		  "check": "Config"
+		},
+        {
+          "type": "input_value",
+          "name": "KEY",
+          "check": "String"
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": null
+        }
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 65,
+      "tooltip": "设置yml的键值",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bn_set_config'] = function(block) {
+  //String or array length.
+  var argument2 = Blockly.JavaScript.valueToCode(block, 'KEY',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var argument3 = Blockly.JavaScript.valueToCode(block, 'VALUE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var filetmp = Blockly.JavaScript.valueToCode(block, 'FILE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=filetmp+".set("+argument2+","+argument3+");\n"
+  return text;
+};
+Blockly.Blocks['bn_get_config'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": 'yml:对于 %1 获取键的值 %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "FILE",
+		  "check": "Config"
+		},
+        {
+          "type": "input_value",
+          "name": "KEY",
+          "check": "String"
+        }
+      ],
+	  "output": null,
+      "colour": 65,
+      "tooltip": "获取yml的键值",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bn_get_config'] = function(block) {
+  //String or array length.
+  var argument2 = Blockly.JavaScript.valueToCode(block, 'KEY',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var filetmp = Blockly.JavaScript.valueToCode(block, 'FILE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=filetmp+".get("+argument2+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.JavaScript['bn_set_config'] = function(block) {
+  //String or array length.
+  var argument2 = Blockly.JavaScript.valueToCode(block, 'KEY',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var argument3 = Blockly.JavaScript.valueToCode(block, 'VALUE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var filetmp = Blockly.JavaScript.valueToCode(block, 'FILE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=filetmp+".set("+argument2+","+argument3+");\n"
+  return text;
+};
+Blockly.Blocks['bn_getKeys_config'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": 'yml:对于 %1 获取所有键的名称',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "FILE",
+		  "check": "Config"
+		}
+      ],
+	  "output": "Array",
+      "colour": 65,
+      "tooltip": "获取yml的所有键的名称",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bn_getKeys_config'] = function(block) {
+  //String or array length.
+  var filetmp = Blockly.JavaScript.valueToCode(block, 'FILE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=filetmp+".getKeys()"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['bn_save_config'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": 'yml:保存 %1 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "FILE",
+		  "check": "Config"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 65,
+      "tooltip": "保存yml文件",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bn_save_config'] = function(block) {
+  //String or array length.
+  var filetmp = Blockly.JavaScript.valueToCode(block, 'FILE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=filetmp+".save();\n"
+  return text;
+};
