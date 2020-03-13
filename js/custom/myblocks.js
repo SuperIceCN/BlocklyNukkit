@@ -430,3 +430,4 @@ Blockly.JavaScript['nk_getname'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text=valtmp+".getName()"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
+}
