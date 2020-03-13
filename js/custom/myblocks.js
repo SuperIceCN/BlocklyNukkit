@@ -354,17 +354,7 @@ Blockly.JavaScript['bn_get_config'] = function(block) {
   var text=filetmp+".get("+argument2+")"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
-Blockly.JavaScript['bn_set_config'] = function(block) {
-  //String or array length.
-  var argument2 = Blockly.JavaScript.valueToCode(block, 'KEY',
-      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var argument3 = Blockly.JavaScript.valueToCode(block, 'VALUE',
-      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var filetmp = Blockly.JavaScript.valueToCode(block, 'FILE',
-      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text=filetmp+".set("+argument2+","+argument3+");\n"
-  return text;
-};
+
 Blockly.Blocks['bn_getKeys_config'] = {
   init: function() {
     this.jsonInit({
@@ -387,7 +377,7 @@ Blockly.JavaScript['bn_getKeys_config'] = function(block) {
   //String or array length.
   var filetmp = Blockly.JavaScript.valueToCode(block, 'FILE',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text=filetmp+".getKeys()"
+  var text='Java.type("java.util.Arrays").aslist('+filetmp+".getKeys())"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
 Blockly.Blocks['bn_save_config'] = {
@@ -416,3 +406,27 @@ Blockly.JavaScript['bn_save_config'] = function(block) {
   var text=filetmp+".save();\n"
   return text;
 };
+Blockly.Blocks['nk_getname'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取 %1 的名称',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": null
+		}
+      ],
+	  "output": "String",
+      "colour": 65,
+      "tooltip": "获取名称(getname)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['nk_getname'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getName()"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
