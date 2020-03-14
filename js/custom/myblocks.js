@@ -213,7 +213,7 @@ Blockly.JavaScript['bn_register_delay'] = function(block) {
 Blockly.Blocks['bn_register_repeat20'] = {
   init: function() {
     this.jsonInit({
-      "message0": '后台循环:使用 %1 回调函数名(tick) %2 并每20秒执行一次 ',
+      "message0": '后台循环:使用 %1 回调函数名(tick) %2 并每 %3 刻tick执行一次 ',
       "args0": [
 		{
 		  "type": "input_value",
@@ -224,12 +224,17 @@ Blockly.Blocks['bn_register_repeat20'] = {
           "type": "input_value",
           "name": "CALLBACK",
           "check": "String"
-        }
+        },
+		{
+		  "type": "input_value",
+		  "name": "DELAY",
+		  "check": "Number"
+		}
       ],
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 65,
-      "tooltip": "每20秒循环调用一个函数",
+      "tooltip": "循环调用一个函数",
       "helpUrl": "#"
     });
   }
@@ -240,7 +245,9 @@ Blockly.JavaScript['bn_register_repeat20'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var managertmp = Blockly.JavaScript.valueToCode(block, 'MANAGER',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text=managertmp+".createLoopTask("+argument2+",40);\n"
+  var delaytmp = Blockly.JavaScript.valueToCode(block, 'DELAY',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=managertmp+".createLoopTask("+argument2+","+delaytmp+");\n"
   return text;
 };
 Blockly.Blocks['bn_config'] = {
