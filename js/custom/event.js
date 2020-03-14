@@ -165,3 +165,137 @@ Blockly.JavaScript['event_setchatmessage'] = function(block) {
   var text=eventtmp+".setMessage("+mes+");\n"
   return text;
 };
+Blockly.Blocks['event_getentity'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取事件 %1 中的死亡的玩家',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Event"
+		}
+      ],
+	  "output": "Player",
+      "colour": 10,
+      "tooltip": "获取事件中死亡的玩家(getEntity)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_getentity'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getEntity()";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['event_getdeathmessage'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取事件 %1 的死亡消息',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Event"
+		}
+      ],
+	  "output": "String",
+      "colour": 10,
+      "tooltip": "获取事件的死亡消息(getDeathMessage)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_getdeathmessage'] = function(block) {
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getDeathMessage()";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['event_setkeepexperience'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '死亡不掉落经验 %1',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "EVENT",
+		  "check": "Event"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 10,
+      "tooltip": "死亡不掉落经验(setKeepExperience)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_setkeepexperience'] = function(block) {
+  //String or array length.
+  var eventtmp = Blockly.JavaScript.valueToCode(block, 'EVENT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=eventtmp+".setKeepExperience(true);\n"
+  return text;
+};
+Blockly.Blocks['event_setkeepinventory'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '死亡不掉落物品 %1',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "EVENT",
+		  "check": "Event"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 10,
+      "tooltip": "死亡不掉落物品(setKeepInventory)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_setkeepinventory'] = function(block) {
+  //String or array length.
+  var eventtmp = Blockly.JavaScript.valueToCode(block, 'EVENT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=eventtmp+".setKeepInventory(true);\n"
+  return text;
+};
+Blockly.Blocks['event_setdeathmessage'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置事件 %1 的死亡消息为 %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "EVENT",
+		  "check": "Event"
+		},
+		{
+		  "type": "input_value",
+		  "name": "MESSAGE",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 10,
+      "tooltip": "设置死亡消息(setDeathMessage)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_setdeathmessage'] = function(block) {
+  //String or array length.
+  var eventtmp = Blockly.JavaScript.valueToCode(block, 'EVENT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var mes = Blockly.JavaScript.valueToCode(block, 'MESSAGE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=eventtmp+".setDeathMessage("+mes+");\n"
+  return text;
+};

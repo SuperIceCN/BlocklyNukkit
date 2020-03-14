@@ -273,3 +273,96 @@ Blockly.JavaScript['player_clearTitle'] = function(block) {
   var text=playertmp+".clearTitle();\n"
   return text;
 };
+Blockly.Blocks['player_gethealth'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取玩家 %1 的血量',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		}
+      ],
+	  "output": "Number",
+      "colour": 180,
+      "tooltip": "获取玩家血量(getHealth)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_gethealth'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getHealth()"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['player_sethealth'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置玩家 %1 的血量为 %2',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "HEALTH",
+		  "check": "Number"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": "设置玩家血量(setHealth)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_sethealth'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var healthtmp = Blockly.JavaScript.valueToCode(block, 'HEALTH',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=playertmp+".setHealth("+healthtmp+");\n"
+  return text;
+};
+Blockly.Blocks['player_setmaxhealth'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置玩家 %1 的血量上限为 %2',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "HEALTH",
+		  "check": "Number"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": "设置玩家血量上限(setMaxHealth)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_setmaxhealth'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var healthtmp = Blockly.JavaScript.valueToCode(block, 'HEALTH',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=playertmp+".setMaxHealth("+healthtmp+");\n"
+  return text;
+};
