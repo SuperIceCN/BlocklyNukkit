@@ -108,7 +108,7 @@ Blockly.JavaScript['event_setJoinMessage'] = function(block) {
   var text=eventtmp+".setJoinMessage("+mes+");\n"
   return text;
 };
-Blockly.Blocks['event_getchatformat'] = {
+Blockly.Blocks['event_getchatmessage'] = {
   init: function() {
     this.jsonInit({
       "message0": '获取事件 %1 的聊天消息',
@@ -121,19 +121,19 @@ Blockly.Blocks['event_getchatformat'] = {
       ],
 	  "output": "String",
       "colour": 10,
-      "tooltip": "获取事件的聊天消息(getFormat)",
+      "tooltip": "获取事件的聊天消息(getmessage)",
       "helpUrl": "#"
     });
   }
 };
-Blockly.JavaScript['event_getchatformat'] = function(block) {
+Blockly.JavaScript['event_getchatmessage'] = function(block) {
   //String or array length.
   var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text=valtmp+".getFormat()";
+  var text=valtmp+".getmessage()";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
-Blockly.Blocks['event_setchatformat'] = {
+Blockly.Blocks['event_setchatmessage'] = {
   init: function() {
     this.jsonInit({
       "message0": '设置事件 %1 的聊天消息为 %2 ',
@@ -152,17 +152,17 @@ Blockly.Blocks['event_setchatformat'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 10,
-      "tooltip": "设置聊天消息(setFormat)",
+      "tooltip": "设置聊天消息(setmessage)",
       "helpUrl": "#"
     });
   }
 };
-Blockly.JavaScript['event_setchatformat'] = function(block) {
+Blockly.JavaScript['event_setchatmessage'] = function(block) {
   //String or array length.
   var eventtmp = Blockly.JavaScript.valueToCode(block, 'EVENT',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var mes = Blockly.JavaScript.valueToCode(block, 'MESSAGE',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text=eventtmp+".setFormat("+mes+");\n"
+  var text=eventtmp+".setmessage("+mes+");\n"
   return text;
 };
