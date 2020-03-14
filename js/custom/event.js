@@ -121,7 +121,7 @@ Blockly.Blocks['event_getchatmessage'] = {
       ],
 	  "output": "String",
       "colour": 10,
-      "tooltip": "获取事件的聊天消息(getmessage)",
+      "tooltip": "获取事件的聊天消息(getMessage)",
       "helpUrl": "#"
     });
   }
@@ -129,7 +129,7 @@ Blockly.Blocks['event_getchatmessage'] = {
 Blockly.JavaScript['event_getchatmessage'] = function(block) {
   var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text=valtmp+".getmessage()";
+  var text=valtmp+".getMessage()";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
 Blockly.Blocks['event_setchatmessage'] = {
@@ -151,7 +151,7 @@ Blockly.Blocks['event_setchatmessage'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 10,
-      "tooltip": "设置聊天消息(setmessage)",
+      "tooltip": "设置聊天消息(setMessage)",
       "helpUrl": "#"
     });
   }
@@ -162,6 +162,6 @@ Blockly.JavaScript['event_setchatmessage'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var mes = Blockly.JavaScript.valueToCode(block, 'MESSAGE',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text=eventtmp+".setmessage("+mes+");\n"
+  var text=eventtmp+".setMessage("+mes+");\n"
   return text;
 };
