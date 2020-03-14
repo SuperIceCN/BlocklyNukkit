@@ -1,4 +1,4 @@
-
+//保存文件程序
 function savecode(filename, text) {
 	var element = document.createElement('a');
 	element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -8,7 +8,7 @@ function savecode(filename, text) {
 	element.click();
 	document.body.removeChild(element);
 }
-
+//监控按键
 document.onkeydown = function(){
 	var oEvent = window.event;
 	if (oEvent.keyCode == 83 && oEvent.altKey) {
