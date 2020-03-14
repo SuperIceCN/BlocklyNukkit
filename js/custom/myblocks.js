@@ -98,7 +98,7 @@ Blockly.JavaScript['nklogger_warning'] = function(block) {
 Blockly.Blocks['onlineplayers'] = {
   init: function() {
     this.jsonInit({
-      "message0": '在线的玩家列表',
+      "message0": '在线的玩家的列表',
       "output": "Array",
       "colour": 260,
       "tooltip": "返回在线的玩家列表",
@@ -107,8 +107,8 @@ Blockly.Blocks['onlineplayers'] = {
   }
 };
 Blockly.JavaScript['onlineplayers'] = function(block) {
-  return ['players', Blockly.JavaScript.ORDER_MEMBER];
-};
+  return ['Java.type("cn.nukkit.Server").getInstance().getOnlinePlayers().values()', Blockly.JavaScript.ORDER_MEMBER];
+};//Java.type("java.util.Arrays").asList(
 Blockly.Blocks['bnmanager'] = {
   init: function() {
     this.jsonInit({
@@ -418,7 +418,7 @@ Blockly.Blocks['nk_getname'] = {
 		}
       ],
 	  "output": "String",
-      "colour": 65,
+      "colour": 20,
       "tooltip": "获取名称(getname)",
       "helpUrl": "#"
     });
