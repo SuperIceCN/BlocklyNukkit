@@ -139,3 +139,139 @@ Blockly.JavaScript['player_sendPopup'] = function(block) {
   var text=playertmp+".sendPopup("+mes+");\n"
   return text;
 };
+Blockly.Blocks['player_sendActionBar'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '向玩家 %1 发送字符串 %2 作为动态提示条',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "MESSAGE",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 180,
+      "tooltip": "向玩家发送消息(sendActionBar)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_sendActionBar'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var mes = Blockly.JavaScript.valueToCode(block, 'MESSAGE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=playertmp+".sendActionBar("+mes+");\n"
+  return text;
+};
+Blockly.Blocks['player_setSubtitle'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '向玩家 %1 发送字符串 %2 作为副标题',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "MESSAGE",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 180,
+      "tooltip": "向玩家发送消息(setSubtitle)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_setSubtitle'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var mes = Blockly.JavaScript.valueToCode(block, 'MESSAGE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=playertmp+".setSubtitle("+mes+");\n"
+  return text;
+};
+Blockly.Blocks['player_sendTitle'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '向玩家 %1 发送字符串 %2 作为标题',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "MESSAGE",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 180,
+      "tooltip": "向玩家发送消息(sendTitle)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_sendTitle'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var mes = Blockly.JavaScript.valueToCode(block, 'MESSAGE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=playertmp+".sendTitle("+mes+");\n"
+  return text;
+};
+Blockly.JavaScript['player_setSubtitle'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var mes = Blockly.JavaScript.valueToCode(block, 'MESSAGE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=playertmp+".setSubtitle("+mes+");\n"
+  return text;
+};
+Blockly.Blocks['player_clearTitle'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '清空玩家 %1 的标题',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 180,
+      "tooltip": "清空玩家的标题(clearTitle)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_clearTitle'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var mes = Blockly.JavaScript.valueToCode(block, 'MESSAGE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=playertmp+".clearTitle();\n"
+  return text;
+};
