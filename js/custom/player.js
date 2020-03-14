@@ -106,3 +106,36 @@ Blockly.JavaScript['player_sendMessage'] = function(block) {
   var text=playertmp+".sendMessage("+mes+");\n"
   return text;
 };
+Blockly.Blocks['player_sendPopup'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '向玩家 %1 发送字符串 %2 作为物品栏提示',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "MESSAGE",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 180,
+      "tooltip": "向玩家发送消息(sendMessage)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_sendPopup'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var mes = Blockly.JavaScript.valueToCode(block, 'MESSAGE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=playertmp+".sendPopup("+mes+");\n"
+  return text;
+};
