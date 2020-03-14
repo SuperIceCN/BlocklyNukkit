@@ -270,8 +270,6 @@ Blockly.JavaScript['player_clearTitle'] = function(block) {
   //String or array length.
   var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var mes = Blockly.JavaScript.valueToCode(block, 'MESSAGE',
-      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text=playertmp+".clearTitle();\n"
   return text;
 };
