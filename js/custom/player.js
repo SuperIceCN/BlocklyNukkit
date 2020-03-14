@@ -23,6 +23,31 @@ Blockly.JavaScript['player_getbyname'] = function(block) {
   var text="server.getPlayer("+valtmp+")"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['player_playedbefore'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '玩家 %1 以前是否进服过',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		}
+      ],
+	  "output": "Boolen",
+      "colour": 180,
+      "tooltip": "玩家以前是否进服过(playedBefore)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_playedbefore'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".playedBefore()";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
 Blockly.Blocks['player_getbyuuid'] = {
   init: function() {
     this.jsonInit({
