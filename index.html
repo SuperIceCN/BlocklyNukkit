@@ -10,6 +10,7 @@
 		<script src="./js/javascript_compressed.js"></script>
 		<script src="./js/custom/myblocks.js"></script>
 		<script src="./js/custom/player.js"></script>
+		<script src="./js/appengine/storage.js"></script>
 		<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"></xml>
 		
 	</head>
@@ -375,6 +376,7 @@
 		</div>
 		
 		<script>
+			
 			/* TODO: Change toolbox XML ID if necessary. Can export toolbox XML from Workspace Factory. */
 			var toolbox = document.getElementById("toolbox");
 			
@@ -413,7 +415,10 @@
 			
 			/* Load blocks to workspace. */
 			Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
-			
+			//
+			window.setTimeout(BlocklyStorage.restoreBlocks, 0);
+			BlocklyStorage.backupOnUnload();
+			//
 			function myUpdateFunction(event) {
 			  var code = Blockly.JavaScript.workspaceToCode(workspace);
 			  document.getElementById('jspreview').value = code;
