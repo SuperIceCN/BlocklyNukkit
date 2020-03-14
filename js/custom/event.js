@@ -127,7 +127,6 @@ Blockly.Blocks['event_getchatmessage'] = {
   }
 };
 Blockly.JavaScript['event_getchatmessage'] = function(block) {
-  //String or array length.
   var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text=valtmp+".getmessage()";
