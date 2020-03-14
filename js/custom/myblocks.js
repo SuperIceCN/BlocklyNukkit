@@ -107,7 +107,7 @@ Blockly.Blocks['onlineplayers'] = {
   }
 };
 Blockly.JavaScript['onlineplayers'] = function(block) {
-  return ['Java.type("cn.nukkit.Server").getInstance().getOnlinePlayers().values()', Blockly.JavaScript.ORDER_MEMBER];
+  return ['Java.type("cn.nukkit.Server").getInstance().getOnlinePlayers().values().toArray()', Blockly.JavaScript.ORDER_MEMBER];
 };//Java.type("java.util.Arrays").asList(
 Blockly.Blocks['bnmanager'] = {
   init: function() {
