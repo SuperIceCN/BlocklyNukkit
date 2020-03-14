@@ -12,6 +12,10 @@
 		<script src="./js/custom/player.js"></script>
 		<script src="./js/custom/event.js"></script>
 		<script src="./js/appengine/storage.js"></script>
+		
+		<script src="https://cdn.bootcss.com/prism/9000.0.1/prism.min.js"></script>
+		<link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css" rel="stylesheet">
+		
 		<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"></xml>
 		
 	</head>
@@ -373,7 +377,13 @@
 		</xml>
 		<div style="float: left;width: 98vw;height: 50vw;">
 			<div id="blocklyDiv" style="width:78vw;height:95vh; display:inline-block;"></div>
-			<textarea id="jspreview" style="width: 18vw;height: 95vh;top: 0; display:inline-block;"></textarea>
+			<!--<textarea id="jspreview" style="width: 18vw;height: 95vh;top: 0; display:inline-block;"></textarea>!-->
+			<div id="aaaa" style="width: 18vw;height: 95vh;top: 0; display:inline-block;">
+			<pre style="height: 91.25vh;">
+<code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"> 
+</code>				</pre>
+			</div>
+
 		</div>
 		
 		<script>
@@ -422,7 +432,8 @@
 			//
 			function myUpdateFunction(event) {
 			  var code = Blockly.JavaScript.workspaceToCode(workspace);
-			  document.getElementById('jspreview').value = code;
+			  document.getElementById('jspreview').innerHTML = code;
+			  Prism.highlightAll();
 			}
 			workspace.addChangeListener(myUpdateFunction);
 		</script>
