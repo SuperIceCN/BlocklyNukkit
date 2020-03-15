@@ -13,6 +13,7 @@
 		<script src="./js/custom/event.js"></script>
 		<script src="./js/appengine/storage.js"></script>
 		<script src="./js/custom/save.js"></script>
+		<script src="./js/custom/pos.js"></script>
 
 		<script src="https://cdn.bootcss.com/prism/9000.0.1/prism.min.js"></script>
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css" rel="stylesheet">
@@ -373,6 +374,10 @@
 				  <block type="event_setkeepinventory"></block>
 				  <block type="event_setdeathmessage"></block>
 			  </category>
+			  <category name="位置" colour=133>
+				  <block type="pos_getlevelbyname"></block>
+				  <block type="pos_formobject"></block>
+			  </category>
 		  </category>
 		  
 		</xml>
@@ -382,8 +387,8 @@
 			<!--<textarea id="jspreview" style="width: 18vw;height: 95vh;top: 0; display:inline-block;"></textarea>!-->
 			<div id="aaaa" style="width: 18vw;height: 95vh;top: 0; display:inline-block;">
 			<pre style="height: 91.25vh;">
-<code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"> 
-</code>				</pre>
+<code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"> </code>				
+</pre>
 			</div>
 		<marquee><span style="font-size: 12px;">小提示：同时按下ALT和S键，可以保存你写的代码到本地哦！</span></marquee>
 		</div>

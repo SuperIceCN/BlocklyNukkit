@@ -34,7 +34,7 @@ Blockly.Blocks['player_playedbefore'] = {
 		  "check": "Player"
 		}
       ],
-	  "output": "Boolen",
+	  "output": "Boolean",
       "colour": 180,
       "tooltip": "玩家以前是否进服过(playedBefore)",
       "helpUrl": "#"
