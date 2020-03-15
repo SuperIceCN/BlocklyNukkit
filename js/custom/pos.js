@@ -169,3 +169,37 @@ Blockly.JavaScript['pos_getlevel'] = function(block) {
   var text=valtmp+".getLevel()"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['pos_setlevel'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置位置 %1 的世界为 %2',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "POS",
+		  "check": "Position"
+		},
+		{
+		  "type": "input_value",
+		  "name": "LEVEL",
+		  "check": "Level"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": "设置世界(setLevel)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_setlevel'] = function(block) {
+  //String or array length.
+  var leveltmp = Blockly.JavaScript.valueToCode(block, 'LEVEL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=postmp+".setLevel("+leveltmp+");\n"
+  return text;
+};
