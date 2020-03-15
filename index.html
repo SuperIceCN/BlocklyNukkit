@@ -12,6 +12,8 @@
 		<script src="./js/custom/player.js"></script>
 		<script src="./js/custom/event.js"></script>
 		<script src="./js/appengine/storage.js"></script>
+		<script src="./js/custom/FileSaver.js"></script>
+		<script src="./js/custom/Blob.js"></script>
 		<script src="./js/custom/save.js"></script>
 		<script src="./js/custom/pos.js"></script>
 
@@ -399,7 +401,12 @@
 		</div>
 		<div id="dg" style="z-index: 9999; position: fixed ! important; right: 0px; top: 0px;">
 		<table width="100%" style="position: absolute; right: 0px; top: 0px;">
-			<input type="image" src="js/media/down.png" onclick=downjs() style="width:40px;" title="下载JS文件"/>
+			<a id="downjs"  download="myplugin.js" title="下载JS文件"><img src="js/media/down.png" style="width:40px;"/></a>
+			<script>
+			    var content = document.getElementById("jspreview").innerText;
+			    let blob = new Blob([content],{type:'text/plain'})
+			    document.getElementById('downjs').href = URL.createObjectURL(blob)
+			</script>
 		</table>
 		</div>
 		<script>
