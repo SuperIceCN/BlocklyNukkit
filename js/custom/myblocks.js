@@ -27,6 +27,20 @@ Blockly.Blocks['nklogger'] = {
 Blockly.JavaScript['nklogger'] = function(block) {
   return ['logger', Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['nkgetConsoleSender'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": 'nk控制台命令发送器',
+      "output": "Sender",
+      "colour": 20,
+      "tooltip": "返回nukkit的控制台命令发送器",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['nkgetConsoleSender'] = function(block) {
+  return ['server.getConsoleSender()', Blockly.JavaScript.ORDER_MEMBER];
+};
 Blockly.Blocks['nklogger_info'] = {
   init: function() {
     this.jsonInit({
@@ -58,7 +72,7 @@ Blockly.JavaScript['nklogger_info'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var argument1 = Blockly.JavaScript.valueToCode(block, 'OUT',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text=argument0+".info("+argument1+");"
+  var text=argument0+".info("+argument1+");\n"
   return text;
 };
 Blockly.Blocks['nklogger_warning'] = {
@@ -92,7 +106,7 @@ Blockly.JavaScript['nklogger_warning'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var argument1 = Blockly.JavaScript.valueToCode(block, 'OUT',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text=argument0+".warning("+argument1+");"
+  var text=argument0+".warning("+argument1+");\n"
   return text;
 };
 Blockly.Blocks['onlineplayers'] = {
@@ -438,3 +452,37 @@ Blockly.JavaScript['nk_getname'] = function(block) {
   var text=valtmp+".getName()"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 }
+Blockly.Blocks['nkdispatchcommand'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '让 %1 执行命令 %2',
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": ["Player","Sender"]
+        },
+		{
+		  "type": "input_value",
+		  "name": "CMD",
+		  "check": "String"
+		}
+      ],
+	  "inputsInline": true,
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 20,
+      "tooltip": "执行命令(dispatchCommand)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['nkdispatchcommand'] = function(block) {
+  //String or array length.
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'VALUE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var argument1 = Blockly.JavaScript.valueToCode(block, 'CMD',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text='server.dispatchCommand('+argument0+","+argument1+");\n"
+  return text;
+};
