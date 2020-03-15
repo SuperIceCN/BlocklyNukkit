@@ -273,7 +273,7 @@ function decodeQuotedPrintableHelper(str, prefix) {
 
 function decodeQuotedPrintable(str) {
   str = str.replace(/_/g, " ")  
-  return decodeQuotedPrintableHelper(str, "=");
+  return decodeQuotedPrintableHelper(str, "_");
 }
 
 
