@@ -188,7 +188,7 @@ Blockly.Blocks['pos_setlevel'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
 	  "inputsInline": true,
-      "colour": 180,
+      "colour": 133,
       "tooltip": "设置世界(setLevel)",
       "helpUrl": "#"
     });
@@ -201,5 +201,53 @@ Blockly.JavaScript['pos_setlevel'] = function(block) {
   var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text=postmp+".setLevel("+leveltmp+");\n"
+  return text;
+};
+Blockly.Blocks['pos_setxyz'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置位置 %1 的x %2 y %3 z %4',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "POS",
+		  "check": "Position"
+		},
+		{
+		  "type": "input_value",
+		  "name": "X",
+		  "check": "Number"
+		},
+		{
+		  "type": "input_value",
+		  "name": "Y",
+		  "check": "Number"
+		},
+		{
+		  "type": "input_value",
+		  "name": "Z",
+		  "check": "Number"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 133,
+      "tooltip": "设置xyz(setComponents)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_setxyz'] = function(block) {
+  //String or array length.
+  var xtmp = Blockly.JavaScript.valueToCode(block, 'X',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var ytmp = Blockly.JavaScript.valueToCode(block, 'Y',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var ztmp = Blockly.JavaScript.valueToCode(block, 'Z',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=postmp+".setComponents("+xtmp+","+ytmp+","+ztmp+");\n"
   return text;
 };
