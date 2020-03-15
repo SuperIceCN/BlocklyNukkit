@@ -390,3 +390,37 @@ Blockly.JavaScript['player_getposition'] = function(block) {
   var text=valtmp+".getPosition()";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['player_teleport'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '传送玩家 %1 到 %2',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "POS",
+		  "check": "Position"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": "传送玩家(teleport)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_teleport'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=playertmp+".teleport("+postmp+");\n"
+  return text;
+};
