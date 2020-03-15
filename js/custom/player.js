@@ -366,3 +366,27 @@ Blockly.JavaScript['player_setmaxhealth'] = function(block) {
   var text=playertmp+".setMaxHealth("+healthtmp+");\n"
   return text;
 };
+Blockly.Blocks['player_getposition'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取玩家 %1 的位置',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Event"
+		}
+      ],
+	  "output": "Position",
+      "colour": 180,
+      "tooltip": "获取玩家的位置(getPosition)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_getposition'] = function(block) {
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getPosition()";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};

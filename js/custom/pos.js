@@ -11,7 +11,7 @@ Blockly.Blocks['pos_getlevelbyname'] = {
       ],
 	  "output": "Level",
       "colour": 133,
-      "tooltip": "获取玩家(getLevelByName)",
+      "tooltip": "获取世界(getLevelByName)",
       "helpUrl": "#"
     });
   }
@@ -67,5 +67,105 @@ Blockly.JavaScript['pos_formobject'] = function(block) {
   var ztmp = Blockly.JavaScript.valueToCode(block, 'Z',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text='Java.type("cn.nukkit.level.Position").fromObject(manager.buildvec3('+xtmp+','+ytmp+','+ztmp+'),'+leveltmp+')'
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_getx'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取 %1 位置的x',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Position"
+		}
+      ],
+	  "output": "Number",
+      "colour": 133,
+      "tooltip": "获取位置的x(getX)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getx'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getX()"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_gety'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取 %1 位置的y',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Position"
+		}
+      ],
+	  "output": "Number",
+      "colour": 133,
+      "tooltip": "获取位置的y(getY)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_gety'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getY()"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_getz'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取 %1 位置的z',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Position"
+		}
+      ],
+	  "output": "Number",
+      "colour": 133,
+      "tooltip": "获取位置的z(getZ)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getz'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getZ()"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_getlevel'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取 %1 位置的世界',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Position"
+		}
+      ],
+	  "output": "Level",
+      "colour": 133,
+      "tooltip": "获取位置的世界(getLevel)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getlevel'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getLevel()"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
