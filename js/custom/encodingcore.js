@@ -801,12 +801,20 @@ function escapeToQuotedPrintable(str, encoding) {
   return encodeQuotedPrintable(data_bytes);
 }
 
-function qp(str){
-	return escapeToQuotedPrintable(str, 'utf8')
+function qp(str,mode){
+	if (mode == 1){
+		return escapeToQuotedPrintable(str, 'utf8')
+	} else if (mode==2){
+		return unescapeFromQuotedPrintable(str, 'utf8')
+	}
 }
 
-function QP(str){
-	return escapeToQuotedPrintable(str, 'utf8')
+function QP(str,mode){
+	if (mode == 1){
+		return escapeToQuotedPrintable(str, 'utf8')
+	} else if (mode==2){
+		return unescapeFromQuotedPrintable(str, 'utf8')
+	}
 }
 
 function escapeToUrl(str, encoding) {
