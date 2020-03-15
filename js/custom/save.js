@@ -17,6 +17,7 @@ document.onkeydown = function(){
 			if (name != null) {
 			    var name1 = name+".js"
 				savecode(name1, content);
-			}	
+			}
+			
 	}
 }
