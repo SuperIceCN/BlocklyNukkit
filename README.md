@@ -9,3 +9,4 @@ blocklynukkit友好界面中文插件编辑器是由超神的冰凉发起的开�
 
 [![超神的冰凉/BlocklyNukkit](https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/widgets/widget_card.svg?colors=393222,ebdfc1,fffae5,d8ca9f,393222,a28b40)](https://gitee.com/Kingdom_of_dragon/BlocklyNukkit)
 ![](https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/raw/master/afdian-%E8%B6%85%E7%A5%9E%E7%9A%84%E5%86%B0%E5%87%89%20(1).png)
+<img src="https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/raw/master/afdian-%E8%B6%85%E7%A5%9E%E7%9A%84%E5%86%B0%E5%87%89%20(1).png"  height="300" width="300">
