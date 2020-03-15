@@ -273,7 +273,7 @@ function decodeQuotedPrintableHelper(str, prefix) {
 
 function decodeQuotedPrintable(str) {
   str = str.replace(/_/g, " ")  
-  return decodeQuotedPrintableHelper(str, "_");
+  return decodeQuotedPrintableHelper(str, "=");
 }
 
 
@@ -300,7 +300,7 @@ function encodeQuotedPrintable(data_bytes) {
   var should_escape = function(b) {
     return b < 32 || b > 126 || b == EQUAL_SIGN || b == QUESTION_MARK;
   };
-  return encodeQuotedPrintableHelper(data_bytes, '_', should_escape);
+  return encodeQuotedPrintableHelper(data_bytes, '=', should_escape);
 }
 
 var URL_SAFE =
@@ -803,19 +803,26 @@ function escapeToQuotedPrintable(str, encoding) {
 
 function qp(str,mode){
 	if (mode == 1){
-		return escapeToQuotedPrintable(str, 'utf8')
+		var a = escapeToQuotedPrintable(str, 'utf8')
+		var b = a.replace(/\=/g,"_");
+		return b
 	} else if (mode==2){
-		return unescapeFromQuotedPrintable(str, 'utf8')
+		var c = str.replace(/_/g,"=");
+		return unescapeFromQuotedPrintable(c, 'utf8')
 	}
 }
 
 function QP(str,mode){
 	if (mode == 1){
-		return escapeToQuotedPrintable(str, 'utf8')
+		var a = escapeToQuotedPrintable(str, 'utf8')
+		var b = a.replace(/\=/g,"_");
+		return b
 	} else if (mode==2){
-		return unescapeFromQuotedPrintable(str, 'utf8')
+		var c = str.replace(/_/g,"=");
+		return unescapeFromQuotedPrintable(c, 'utf8')
 	}
 }
+
 
 function escapeToUrl(str, encoding) {
   var unicode_codes = convertStringToUnicodeCodePoints(str);
