@@ -424,3 +424,37 @@ Blockly.JavaScript['player_teleport'] = function(block) {
   var text=playertmp+".teleport("+postmp+");\n"
   return text;
 };
+Blockly.Blocks['player_buildskin'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置玩家 %1 的皮肤为名称是 %2 的皮肤',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "SKINNAME",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": "更改皮肤(manager.buildskin)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_buildskin'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var skintmp = Blockly.JavaScript.valueToCode(block, 'SKINNAME',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager.buildskin("+playertmp+","+skintmp+");\n"
+  return text;
+};
