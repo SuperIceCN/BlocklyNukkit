@@ -403,17 +403,18 @@
 		  </category>
 		  
 		</xml>
-
-		<div style="float: left;width: 98vw;height: 50vw;">
-			<div id="blocklyDiv" style="width:78vw;height:95vh; display:inline-block;"></div>
-			<!--<textarea id="jspreview" style="width: 18vw;height: 95vh;top: 0; display:inline-block;"></textarea>!-->
-			<div id="aaaa" style="width: 18vw;height: 95vh;top: 0; display:inline-block;">
-			<img src="BlocklyNukkit.png" style="width: 17vw;top: 0;">
-			<pre style="height: 86.038vh;">
+		<div style="width:98vw;height:98vh;display:inline-block;" id="blocklyArea">
+			<div id="blocklyDiv" style="position: absolute;width: 78vw;height: 98vh;"></div>
+			<div style="position: absolute;width: 20vw;height: 98vh;left:78vw">
+				<img src="BlocklyNukkit.png" style="width: 19.9vw;display:inline-block;height: 5.519vw;">
+				<div style="width: 100%; position: absolute; top: 5.519vw ; left: 0 ; bottom: 0;">
+				<pre style="width: 19.9vw;height: 98vh-5.519vw;height: 100%;font-weight: bold;">
 <code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"> </code>				
-</pre>
+</pre>	
+				</div>
 			</div>
-		<marquee><span style="font-size: 12px;">小提示：同时按下ALT和S键，可以保存你写的代码到本地哦！</span></marquee>\
+			
+		</div>
 		<script>
 			
 			/* TODO: Change toolbox XML ID if necessary. Can export toolbox XML from Workspace Factory. */
