@@ -406,14 +406,32 @@
 		<div style="width:98vw;height:98vh;display:inline-block;" id="blocklyArea">
 			<div id="blocklyDiv" style="position: absolute;width: 78vw;height: 98vh;"></div>
 			<div style="position: absolute;width: 20vw;height: 98vh;left:78vw">
-				<img src="BlocklyNukkit.png" style="width: 19.9vw;display:inline-block;height: 5.519vw;">
+				<img src="BlocklyNukkit.png" style="width: 19.9vw;display:inline-block;height: 5.519vw;" data-toggle="modal" data-target="#settingsmodal">
+				<div class="alert alert-success alert-dismissible fade show" style="z-index: 1;">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>BlocklyNukkit.jar最新版是1.0.4</strong>
+				</div>
 				<div style="width: 100%; position: absolute; top: 5.519vw ; left: 0 ; bottom: 0;">
-				<pre style="width: 19.9vw;height: 98vh-5.519vw;height: 100%;font-weight: bold;">
-<code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"> </code>				
-</pre>	
+					<pre style="width: 19.9vw;height: 98vh-5.519vw;height: 100%;font-weight: bold;"><code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"></code></pre>	
 				</div>
 			</div>
-			
+		</div>
+		<div class="modal fade" id="settingsmodal">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">功能</h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      <div class="modal-body">
+		        具体内容
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		      </div>
+		 
+		    </div>
+		  </div>
 		</div>
 		<script>
 			
