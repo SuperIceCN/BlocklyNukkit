@@ -2,7 +2,7 @@
 Blockly.Blocks['nkserver'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'nk服务器实例',
+      "message0": 'nukkit服务器实例',
       "output": "NukkitServer",
       "colour": 20,
       "tooltip": "返回nukkit的服务器实例",
@@ -16,7 +16,7 @@ Blockly.JavaScript['nkserver'] = function(block) {
 Blockly.Blocks['nklogger'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'nk控制台实例',
+      "message0": 'nukkit控制台实例',
       "output": "NukkitLogger",
       "colour": 20,
       "tooltip": "返回nukkit的控制台实例",
