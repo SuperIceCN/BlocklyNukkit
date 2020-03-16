@@ -3,6 +3,14 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>BlocklyNukkit</title>
+		<!-- 新 Bootstrap4 核心 CSS 文件 -->
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+		<!-- jQuery文件 -->
+		<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+		<!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+		<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		
 		<script src="./js/custom/encodingcore.js"></script>		
 		<script src="./js/blockly_compressed.js"></script>
@@ -23,7 +31,6 @@
 		
 	</head>
 	<body>
-		
 		<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
 		  <category name="核心">
 			  <category name="逻辑" colour="#5b80a5">
@@ -401,22 +408,12 @@
 			<div id="blocklyDiv" style="width:78vw;height:95vh; display:inline-block;"></div>
 			<!--<textarea id="jspreview" style="width: 18vw;height: 95vh;top: 0; display:inline-block;"></textarea>!-->
 			<div id="aaaa" style="width: 18vw;height: 95vh;top: 0; display:inline-block;">
-			<pre style="height: 91.25vh;">
+			<img src="BlocklyNukkit.png" style="width: 17vw;top: 0;">
+			<pre style="height: 86.038vh;">
 <code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"> </code>				
 </pre>
 			</div>
-		<marquee><span style="font-size: 12px;">小提示：同时按下ALT和S键，可以保存你写的代码到本地哦！</span></marquee>
-		</div>
-		<div id="dg" style="z-index: 9999; position: fixed ! important; right: 0px; top: 0px;">
-		<table width="100%" style="position: absolute; right: 0px; top: 0px;">
-			<a id="downjs"  download="myplugin.js" title="下载JS文件"><img src="js/media/down.png" style="width:40px;"/></a>
-			<script>
-			    var content = document.getElementById("jspreview").innerText;
-			    let blob = new Blob([content],{type:'text/plain'})
-			    document.getElementById('downjs').href = URL.createObjectURL(blob)
-			</script>
-		</table>
-		</div>
+		<marquee><span style="font-size: 12px;">小提示：同时按下ALT和S键，可以保存你写的代码到本地哦！</span></marquee>\
 		<script>
 			
 			/* TODO: Change toolbox XML ID if necessary. Can export toolbox XML from Workspace Factory. */
