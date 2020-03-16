@@ -251,3 +251,62 @@ Blockly.JavaScript['pos_setxyz'] = function(block) {
   var text=postmp+".setComponents("+xtmp+","+ytmp+","+ztmp+");\n"
   return text;
 };
+Blockly.Blocks['pos_getsafespawn'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取世界 %1 的重生点',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Level"
+		}
+      ],
+	  "output": "Position",
+      "colour": 133,
+      "tooltip": "获取世界重生点(getSafeSpawn)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getsafespawn'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getSafeSpawn()"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_setspawnlocation'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置世界 %1 的重生点为位置 %2',
+      "args0": [
+		  {
+		  "type": "input_value",
+		  "name": "LEVEL",
+		  "check": "Level"
+		},
+		{
+		  "type": "input_value",
+		  "name": "POS",
+		  "check": "Position"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 133,
+      "tooltip": "设置世界(setSpawnLocation)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_setspawnlocation'] = function(block) {
+  //String or array length.
+  var leveltmp = Blockly.JavaScript.valueToCode(block, 'LEVEL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=leveltmp+".setSpawnLocation(manager.buildvec3("+postmp+".getX(),"+postmp+".getY(),"+postmp+".getZ()));\n"
+  return text;
+};

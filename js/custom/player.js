@@ -374,7 +374,7 @@ Blockly.Blocks['player_getposition'] = {
 		{
 		  "type": "input_value",
 		  "name": "VAL",
-		  "check": "Event"
+		  "check": "Player"
 		}
       ],
 	  "output": "Position",
