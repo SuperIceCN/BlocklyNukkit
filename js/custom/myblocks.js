@@ -486,3 +486,28 @@ Blockly.JavaScript['nkdispatchcommand'] = function(block) {
   var text='server.dispatchCommand('+argument0+","+argument1+");\n"
   return text;
 };
+Blockly.Blocks['bn_getfunction'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取函数通过名称 %1 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "FILE",
+		  "check": "String"
+		}
+      ],
+	  "output": "String",
+      "colour": 65,
+      "tooltip": "获取函数通过名称",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bn_getfunction'] = function(block) {
+  //String or array length.
+  var filetmp = Blockly.JavaScript.valueToCode(block, 'FILE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=qp(filetmp,1);
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
