@@ -302,7 +302,7 @@ Blockly.JavaScript['event_setdeathmessage'] = function(block) {
 Blockly.Blocks['event_window_simple_getEventResponseText'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 中被点击的按钮名称',
+      "message0": '获取事件 %1 中简单窗口被点击的按钮名称',
       "args0": [
 		{
 		  "type": "input_value",
@@ -312,7 +312,7 @@ Blockly.Blocks['event_window_simple_getEventResponseText'] = {
       ],
 	  "output": "String",
       "colour": 10,
-      "tooltip": "获取事件中被点击的按钮名称(getEventResponseText)",
+      "tooltip": "获取事件中简单窗口被点击的按钮名称(getEventResponseText)",
       "helpUrl": "#"
     });
   }
@@ -321,5 +321,29 @@ Blockly.JavaScript['event_window_simple_getEventResponseText'] = function(block)
   var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text="window.getEventResponseText("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['event_window_modal_getEventResponseModal'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取事件 %1 中对话框被点击的按钮名称',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Event"
+		}
+      ],
+	  "output": "String",
+      "colour": 10,
+      "tooltip": "获取事件中对话框被点击的按钮名称(getEventResponseModal)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_window_modal_getEventResponseModal'] = function(block) {
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="window.getEventResponseModal("+valtmp+")";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
