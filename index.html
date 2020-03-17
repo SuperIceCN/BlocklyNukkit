@@ -435,8 +435,18 @@
 		      </div>
 		      <div class="modal-body">
 				  <div class="row">
+					<div class="col"><button type="button" class="btn btn-outline-primary" id="downjar">下载插件</button></div>
+					<script>
+						var $downj = $("#downjar");
+						        $downj.click(function(){
+						            var $eleForm = $("<form method='get'></form>");
+						            $eleForm.attr("action","https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/raw/master/BlocklyNukkit.jar");
+						            $(document.body).append($eleForm);
+						            $eleForm.submit();
+						        });
+					</script>
+					
 				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#savefile">保存源码</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
 				  </div>
