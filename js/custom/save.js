@@ -21,3 +21,9 @@ document.onkeydown = function(){
 			
 	}
 }
+							//PC保存文件
+							function pcsave(){
+								var f = $("#save").val()+".js";
+								var c = document.getElementById("jspreview").innerText;
+								savecode(f, c);
+							}

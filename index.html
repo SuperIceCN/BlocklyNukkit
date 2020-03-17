@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>BlocklyNukkit</title>
+		<link rel="icon" href="favicon.ico">
 		<!-- 新 Bootstrap4 核心 CSS 文件 -->
 		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 		<!-- jQuery文件 -->
@@ -424,7 +425,19 @@
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		      </div>
 		      <div class="modal-body">
-		        具体内容
+				  <div class="row">
+				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#savefile">保存源码</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
+				  </div>
+					<h1></h1>
+				  <div class="row">
+				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
+				  </div>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
@@ -433,6 +446,37 @@
 		    </div>
 		  </div>
 		</div>
+		<div class="modal fade" id="savefile">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">保存源码</h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      <div class="modal-body">
+				<div class="container mt-3">
+				  <h2>保存JavaScript源码到本地</h2>
+				  <p>在输入框输入欲保存的文件名，不需要输入.js文件后缀。</p>
+				  <form>
+				    <label for="demo">请输入您的文件名:</label>
+				    <div class="input-group mb-3">
+				      <input type="text" class="form-control" placeholder="请输入文件名，不需要文件后缀。例如输入'myjs'" id="save">
+				      <div class="input-group-append">
+				        <button type="submit" class="btn btn-primary" onclick="pcsave()">保存!</button>
+				      </div>
+				    </div>
+				  </form>
+				</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		      </div>
+		 
+		    </div>
+		  </div>
+		</div>
+		
+		
 		<script>
 			
 			/* TODO: Change toolbox XML ID if necessary. Can export toolbox XML from Workspace Factory. */
