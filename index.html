@@ -24,6 +24,7 @@
 		<script src="./js/appengine/storage.js"></script>
 		<script src="./js/custom/save.js"></script>
 		<script src="./js/custom/pos.js"></script>
+		<script src="./js/custom/window.js"></script>
 
 		<script src="https://cdn.bootcss.com/prism/9000.0.1/prism.min.js"></script>
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css" rel="stylesheet">
@@ -339,7 +340,7 @@
 		  <category name="插件">
 			  <category name="BN插件" colour="#9fa55b">
 				  <block type="bnmanager"></block>
-				  <block type="bn_register_command"></block>
+				  <block type="bn_register_command"><value name="CALLBACK"><block type="bn_getfunction"></block></value></block>
 				  <block type="bn_register_delay"></block>
 				  <block type="bn_register_repeat20"></block>
 				  <block type="bn_getfunction"></block>
@@ -375,6 +376,7 @@
 				  <block type="player_getposition"></block>
 				  <block type="player_teleport"></block>
 				  <block type="player_buildskin"></block>
+				  <block type="player_buildskinfor"></block>
 			  </category>
 			  <category name="事件" colour=10>
 				  <block type="event_setCancelled"></block>
@@ -388,6 +390,7 @@
 				  <block type="event_setkeepexperience"></block>
 				  <block type="event_setkeepinventory"></block>
 				  <block type="event_setdeathmessage"></block>
+				  <block type="event_window_simple_getEventResponseText"></block>
 			  </category>
 			  <category name="位置" colour=133>
 				  <block type="pos_getlevelbyname"></block>
@@ -400,6 +403,12 @@
 				  <block type="pos_setxyz"></block>
 				  <block type="pos_getsafespawn"></block>
 				  <block type="pos_setspawnlocation"></block>
+			  </category>
+			  <category name="窗口" colour=240>
+				  <block type="window_getSimpleWindowBuilder"></block>
+				  <block type="window_buildButton"></block>
+				  <block type="window_showToPlayer"><value name="CALLBACK"><block type="bn_getfunction"></block></value></block>
+			  
 			  </category>
 		  </category>
 		  

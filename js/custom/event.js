@@ -299,3 +299,27 @@ Blockly.JavaScript['event_setdeathmessage'] = function(block) {
   var text=eventtmp+".setDeathMessage("+mes+");\n"
   return text;
 };
+Blockly.Blocks['event_window_simple_getEventResponseText'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取事件 %1 中被点击的按钮名称',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Event"
+		}
+      ],
+	  "output": "String",
+      "colour": 10,
+      "tooltip": "获取事件中被点击的按钮名称(getEventResponseText)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_window_simple_getEventResponseText'] = function(block) {
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="window.getEventResponseText("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};

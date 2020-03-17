@@ -458,3 +458,43 @@ Blockly.JavaScript['player_buildskin'] = function(block) {
   var text="manager.buildskin("+playertmp+","+skintmp+");\n"
   return text;
 };
+Blockly.Blocks['player_buildskinfor'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置玩家 %1 的皮肤为名称是 %2 的皮肤并展示给 %3 玩家',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "SKINNAME",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "TO",
+		  "check": "Player"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 180,
+      "tooltip": "更改皮肤(manager.buildskinfor)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_buildskinfor'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var skintmp = Blockly.JavaScript.valueToCode(block, 'SKINNAME',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var playerto = Blockly.JavaScript.valueToCode(block, 'TO',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager.buildskinfor("+playertmp+","+skintmp+","+playerto+");\n"
+  return text;
+};
