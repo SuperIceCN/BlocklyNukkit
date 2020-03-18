@@ -440,16 +440,37 @@
 					<div class="col"><button type="button" class="btn btn-outline-primary" id="downjar">下载插件</button></div>
 					<script>
 						var $downj = $("#downjar");
-						        $downj.click(function(){
-						            var $eleForm = $("<form method='get'></form>");
-						            $eleForm.attr("action","https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/raw/master/BlocklyNukkit.jar");
-						            $(document.body).append($eleForm);
-						            $eleForm.submit();
-						        });
+						$downj.click(function(){
+							var $eleForm = $("<form method='get'></form>");
+							$eleForm.attr("action","https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/raw/master/BlocklyNukkit.jar");
+							$(document.body).append($eleForm);
+							$eleForm.submit();
+						});
 					</script>
 					
 				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#savefile">保存源码</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" id="jscloud">js云同步</button></div>
+					<script>
+						jQuery.support.cors = true;
+						var $jscloud = $("#jscloud");
+						$jscloud.click(function(){
+							var jsname = prompt("请输入js的名称(无后缀名)","");
+							$.ajax({
+								type : "POST",
+								crossDomain: true,
+            					contentType: "Content-Type:application/x-www-form-urlencoded;charset=UTF-8",
+            					url : "https://service-ph7gsebv-1259395953.bj.apigw.tencentcs.com/release/BlocklyNukkitCloud",
+            					data : jsname+".js&&&"+document.getElementById("jspreview").innerText,
+            					success : function(result) {
+            					    alert("文件名是"+result.split(";")[1])
+            					},
+            					error : function(e){
+            					    console.log(e.status);
+            					    console.log(e.responseText);
+            					}
+							});
+						});
+					</script>
 				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
 				  </div>
 					<h1></h1>
