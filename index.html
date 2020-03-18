@@ -455,7 +455,7 @@
 						var $jscloud = $("#jscloud");
 						$jscloud.click(function(){
 							var jsname = prompt("请输入js的名称(无后缀名)","");
-							if(jsname!=null&&jsname!=""&&jsname!="null")
+							if(jsname!=null&&jsname!=""&&jsname!="null"){
 							$.ajax({
 								type : "POST",
 								crossDomain: true,
@@ -469,7 +469,7 @@
             					    console.log(e.status);
             					    console.log(e.responseText);
             					}
-							});
+							});}
 						});
 					</script>
 				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
