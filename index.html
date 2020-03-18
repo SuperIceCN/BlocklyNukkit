@@ -455,6 +455,7 @@
 						var $jscloud = $("#jscloud");
 						$jscloud.click(function(){
 							var jsname = prompt("请输入js的名称(无后缀名)","");
+							if(jsname!=null&&jsname!=""&&jsname!="null")
 							$.ajax({
 								type : "POST",
 								crossDomain: true,
