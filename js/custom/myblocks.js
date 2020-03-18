@@ -398,7 +398,8 @@ Blockly.JavaScript['bn_getKeys_config'] = function(block) {
   //String or array length.
   var filetmp = Blockly.JavaScript.valueToCode(block, 'FILE',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text='Java.type("java.util.Arrays").asList('+filetmp+".getKeys())"
+  //var text='Java.type("java.util.Arrays").asList('+filetmp+".getKeys())"
+  var text=filetmp+".getKeys()"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
 Blockly.Blocks['bn_save_config'] = {
