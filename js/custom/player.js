@@ -498,3 +498,71 @@ Blockly.JavaScript['player_buildskinfor'] = function(block) {
   var text="manager.buildskinfor("+playertmp+","+skintmp+","+playerto+");\n"
   return text;
 };
+Blockly.Blocks['player_getmoney'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取玩家 %1 的金钱',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		}
+      ],
+	  "output": "Number",
+      "colour": 180,
+      "tooltip": "获取玩家的金钱(getMoney)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_getmoney'] = function(block) {
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager.getMoney("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['player_opmoney'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": ' %1 玩家 %2 的金钱 %3 ',
+      "args0": [
+		 {
+		    "type": "field_dropdown",
+		    "name": "OP",
+		    "options": [
+			  ["增加", "add"],
+		      ["减少", "reduce"],
+		      ["设置", "set"]
+		    ]
+		},
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "MONEY",
+		  "check": "Number"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": "操作金钱(manager.?Money)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_opmoney'] = function(block) {
+  //String or array length.
+  var optmp = block.getFieldValue("OP")
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var moneytmp = Blockly.JavaScript.valueToCode(block, 'MONEY',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager."+optmp+"Money("+playertmp+","+moneytmp+");\n"
+  return text;
+};

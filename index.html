@@ -359,6 +359,8 @@
 				  <block type="onlineplayers"></block>
 				  <block type="nk_getname"></block>
 				  <block type="nkdispatchcommand"></block>
+				  <block type="nkputEasy"></block>
+				  <block type="nkgetEasy"></block>
 			  </category>
 			  <category name="玩家" colour=180>
 				  <block type="player_getbyname"></block>
@@ -377,6 +379,8 @@
 				  <block type="player_teleport"></block>
 				  <block type="player_buildskin"></block>
 				  <block type="player_buildskinfor"></block>
+				  <block type="player_getmoney"></block>
+				  <block type="player_opmoney"><field name="OP">set</field></block>
 			  </category>
 			  <category name="事件" colour=10>
 				  <block type="event_setCancelled"></block>
@@ -392,6 +396,7 @@
 				  <block type="event_setdeathmessage"></block>
 				  <block type="event_window_simple_getEventResponseText"></block>
 				  <block type="event_window_modal_getEventResponseModal"></block>
+				  <block type="event_window_custom_getEventCustomVar"><field name="MODE">input</field></block>
 			  </category>
 			  <category name="位置" colour=133>
 				  <block type="pos_getlevelbyname"></block>
@@ -411,6 +416,11 @@
 				  <block type="window_showToPlayer"><value name="CALLBACK"><block type="bn_getfunction"></block></value></block>
 				  <block type="window_getModalWindowBuilder"></block>
 				  <block type="window_setModalButtons"></block>
+				  <block type="window_getCustomWindowBuilder"></block>
+				  <block type="window_buildLabel"></block>
+				  <block type="window_buildInput"></block>
+				  <block type="window_buildToggle"></block>
+				  <block type="window_buildDropdown"></block>
 			  </category>
 		  </category>
 		  

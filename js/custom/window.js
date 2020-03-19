@@ -78,7 +78,7 @@ Blockly.Blocks['window_showToPlayer'] = {
 		{
 		  "type": "input_value",
 		  "name": "BUILDER",
-		  "check": ["SimpleWindowBuilder","ModalWindowBuilder"]
+		  "check": ["SimpleWindowBuilder","ModalWindowBuilder","CustomWindowBuilder"]
 		},
 		{
 		  "type": "input_value",
@@ -126,7 +126,7 @@ Blockly.Blocks['window_getModalWindowBuilder'] = {
 		  "check": "String"
 		}
       ],
-	  "output": "SimpleWindowBuilder",
+	  "output": "ModalWindowBuilder",
       "colour": 240,
       "tooltip": "构造对话框管理器(getModalWindowBuilder)",
       "helpUrl": "#"
@@ -149,7 +149,7 @@ Blockly.Blocks['window_setModalButtons'] = {
 		{
 		  "type": "input_value",
 		  "name": "BUILDER",
-		  "check": "SimpleWindowBuilder"
+		  "check": "ModalWindowBuilder"
 		},
 		{
 		  "type": "input_value",
@@ -179,5 +179,175 @@ Blockly.JavaScript['window_setModalButtons'] = function(block) {
   var text2tmp = Blockly.JavaScript.valueToCode(block, 'TEXT2',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text=buildertmp+".setButton1("+text1tmp+");\n"+buildertmp+".setButton2("+text2tmp+");\n"
+  return text;
+};
+Blockly.Blocks['window_getCustomWindowBuilder'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '构造一个标题为 %1 的高级窗口管理器',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "TITLE",
+		  "check": "String"
+		}
+      ],
+	  "output": "CustomWindowBuilder",
+      "colour": 240,
+      "tooltip": "构造高级窗口管理器(getCustomWindowBuilder)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_getModalWindowBuilder'] = function(block) {
+  var titletmp = Blockly.JavaScript.valueToCode(block, 'TITLE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text='window.getCustomWindowBuilder('+titletmp+')';
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['window_buildLabel'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '向高级窗口 %1 添加内容为 %2 的文本元素',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "BUILDER",
+		  "check": "CustomWindowBuilder"
+		},
+		{
+		  "type": "input_value",
+		  "name": "TEXT",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 240,
+      "tooltip": "添加文本元素(buildLabel)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_buildLabel'] = function(block) {
+  //String or array length.
+  var buildertmp = Blockly.JavaScript.valueToCode(block, 'BUILDER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var texttmp = Blockly.JavaScript.valueToCode(block, 'TEXT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=buildertmp+".buildLabel("+texttmp+");\n"
+  return text;
+};
+Blockly.Blocks['window_buildInput'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '向高级窗口 %1 添加标题为 %2 提示语为 %3 的输入框元素',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "BUILDER",
+		  "check": "CustomWindowBuilder"
+		},
+		{
+		  "type": "input_value",
+		  "name": "TEXT",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "PLACEHOLDER",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 240,
+      "tooltip": "添加输入框元素(buildInput)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_buildInput'] = function(block) {
+  //String or array length.
+  var buildertmp = Blockly.JavaScript.valueToCode(block, 'BUILDER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var texttmp = Blockly.JavaScript.valueToCode(block, 'TEXT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var placeholder = Blockly.JavaScript.valueToCode(block, 'PLACEHOLDER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=buildertmp+".buildInput("+texttmp+","+placeholder+");\n"
+  return text;
+};
+Blockly.Blocks['window_buildToggle'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '向高级窗口 %1 添加标题为 %2 的开关元素',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "BUILDER",
+		  "check": "CustomWindowBuilder"
+		},
+		{
+		  "type": "input_value",
+		  "name": "TEXT",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 240,
+      "tooltip": "添加开关元素(buildToggle)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_buildToggle'] = function(block) {
+  //String or array length.
+  var buildertmp = Blockly.JavaScript.valueToCode(block, 'BUILDER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var texttmp = Blockly.JavaScript.valueToCode(block, 'TEXT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=buildertmp+".buildToggle("+texttmp+");\n"
+  return text;
+};
+Blockly.Blocks['window_buildDropdown'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '向高级窗口 %1 添加标题为 %2 选择项为 %3 的选择框元素',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "BUILDER",
+		  "check": "CustomWindowBuilder"
+		},
+		{
+		  "type": "input_value",
+		  "name": "TEXT",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "INNER",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 240,
+      "tooltip": "添加选择框元素(buildDropdown)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_buildDropdown'] = function(block) {
+  //String or array length.
+  var buildertmp = Blockly.JavaScript.valueToCode(block, 'BUILDER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var texttmp = Blockly.JavaScript.valueToCode(block, 'TEXT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var innertmp = Blockly.JavaScript.valueToCode(block, 'INNER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=buildertmp+".buildDropdown("+texttmp+","+innertmp+");\n"
   return text;
 };

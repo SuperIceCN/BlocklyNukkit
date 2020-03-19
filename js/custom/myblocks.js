@@ -512,3 +512,62 @@ Blockly.JavaScript['bn_getfunction'] = function(block) {
   var text=qp(filetmp,1);
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['nkputEasy'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '临时存储：键 %1 值 %2',
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": "String"
+        },
+		{
+		  "type": "input_value",
+		  "name": "CMD",
+		  "check": "String"
+		}
+      ],
+	  "inputsInline": true,
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 20,
+      "tooltip": "临时存储(putEasy)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['nkputEasy'] = function(block) {
+  //String or array length.
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'VALUE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var argument1 = Blockly.JavaScript.valueToCode(block, 'CMD',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text='manager.putEasy('+argument0+","+argument1+");\n"
+  return text;
+};
+Blockly.Blocks['nkgetEasy'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '临时存储：获取键 %1 的值',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "String"
+		}
+      ],
+	  "output": "String",
+      "colour": 20,
+      "tooltip": "临时存储(getEasy)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['nkgetEasy'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager.getEasy("+valtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+}

@@ -347,3 +347,45 @@ Blockly.JavaScript['event_window_modal_getEventResponseModal'] = function(block)
   var text="window.getEventResponseModal("+valtmp+")";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['event_window_custom_getEventCustomVar'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取事件 %1 中高级窗口第 %2 个元素 %3 模式的返回值',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Event"
+		},
+		{
+		  "type": "input_value",
+		  "name": "ID",
+		  "check": "Number"
+		},
+		{
+		    "type": "field_dropdown",
+		    "name": "MODE",
+		    "options": [
+			  ["输入框", "input"],
+		      ["开关", "toggle"],
+		      ["选择框", "dropdown"]
+		    ]
+		}
+      ],
+	  "output": "String",
+      "colour": 10,
+      "tooltip": "获取事件中高级窗口元素值(getEventCustomVar)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_window_custom_getEventCustomVar'] = function(block) {
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var idtmp = Blockly.JavaScript.valueToCode(block, 'ID',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var modetmp = Blockly.JavaScript.valueToCode(block, 'MODE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="window.getEventCustomVar("+valtmp+","+idtmp+","+modetmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
