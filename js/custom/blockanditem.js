@@ -15,7 +15,7 @@ Blockly.Blocks['bi_buildBlock'] = {
 		  "check": "Number"
 		}
       ],
-	  "output": "Item",
+	  "output": "Blocks",
       "colour": 47,
       "tooltip": "构造方块(buildBlock)",
       "helpUrl": "#"
