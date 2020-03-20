@@ -34,6 +34,15 @@
 		
 	</head>
 	<body>
+		<style>
+			#md-large-widget-content hover img {  
+			    box-shadow: 6px 6px 6px rgba(0,0,0,0.3);  
+			}  
+			.ct-coll-item a.ct-coll-thumb:hover img{  
+			    box-shadow: 6px 6px 6px rgba(0,0,0,0.3);  
+			    opacity: 0.9;  
+			}  
+		</style>
 		<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
 		  <category name="核心">
 			  <category name="逻辑" colour="#5b80a5">
@@ -434,6 +443,8 @@
 				  <block type="window_buildInput"></block>
 				  <block type="window_buildToggle"></block>
 				  <block type="window_buildDropdown"></block>
+				  <block type="window_updateAllScoreBoard"></block>
+				  <block type="window_updateOneScoreBoard"></block>
 			  </category>
 			  <category name="方块物品" colour=47>
 				  <block type="bi_buildBlock"></block>
@@ -450,10 +461,15 @@
 		<div style="width:98vw;height:98vh;display:inline-block;" id="blocklyArea">
 			<div id="blocklyDiv" style="position: absolute;width: 78vw;height: 98vh;"></div>
 			<div style="position: absolute;width: 20vw;height: 98vh;left:78vw">
-				<img src="BlocklyNukkit.png" style="width: 19.9vw;display:inline-block;height: 5.519vw;" data-toggle="modal" data-target="#settingsmodal">
+				<div class="ct-coll-item" style="width: 19.9vw;display:inline-block;height: 5.519vw;">  
+					<a class="ct-coll-thumb" style="width: 100%;height: 100%;" href="#">  
+						<img src="BlocklyNukkit.png" style="width: 100%;height: 100%;" data-toggle="modal" data-target="#settingsmodal">
+					</a>  
+				</div>  
+				
 				<div class="alert alert-success alert-dismissible fade show" style="z-index: 1;">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>BlocklyNukkit.jar最新版是1.1.0(3/20更新)</strong>
+					<strong>BlocklyNukkit.jar最新版是1.1.1(3/20更新)</strong>
 				</div>
 				<div style="width: 100%; position: absolute; top: 5.519vw ; left: 0 ; bottom: 0;">
 					<pre style="width: 19.9vw;height: 98vh-5.519vw;height: 100%;font-weight: bold;"><code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"></code></pre>	
@@ -470,45 +486,13 @@
 		      <div class="modal-body">
 				  <div class="row">
 					<div class="col"><button type="button" class="btn btn-outline-primary" id="downjar">下载插件</button></div>
-					<script>
-						var $downj = $("#downjar");
-						$downj.click(function(){
-							var $eleForm = $("<form method='get'></form>");
-							$eleForm.attr("action","https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/raw/master/BlocklyNukkit.jar");
-							$(document.body).append($eleForm);
-							$eleForm.submit();
-						});
-					</script>
-					
 				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#savefile">保存源码</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary" id="jscloud">云端同步</button></div>
-					<script>
-						jQuery.support.cors = true;
-						var $jscloud = $("#jscloud");
-						$jscloud.click(function(){
-							var jsname = prompt("请输入js的名称(无后缀名)","");
-							if(jsname!=null&&jsname!=""&&jsname!="null"){
-							$.ajax({
-								type : "POST",
-								crossDomain: true,
-            					contentType: "Content-Type:application/x-www-form-urlencoded;charset=UTF-8",
-            					url : "https://service-ph7gsebv-1259395953.bj.apigw.tencentcs.com/release/BlocklyNukkitCloud",
-            					data : jsname+".js&&&"+document.getElementById("jspreview").innerText,
-            					success : function(result) {
-            					    alert("文件名是"+result.split(";")[1])
-            					},
-            					error : function(e){
-            					    console.log(e.status);
-            					    console.log(e.responseText);
-            					}
-							});}
-						});
-					</script>
 				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
 				  </div>
 					<h1></h1>
 				  <div class="row">
-				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" id="downpre">下载前置</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
@@ -603,6 +587,42 @@
 			}
 			workspace.addChangeListener(myUpdateFunction);
 			
+		</script>
+		<script>
+			var $downj = $("#downjar");
+			$downj.click(function(){
+				var $eleForm = $("<form method='get'></form>");
+				$eleForm.attr("action","https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/raw/master/BlocklyNukkit.jar");
+				$(document.body).append($eleForm);
+				$eleForm.submit();
+			});
+			var $downj = $("#downpre");
+			$downj.click(function(){
+				var $eleForm = $("<form method='get'></form>");
+				$eleForm.attr("action","https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/raw/master/pre/ScoreboardAPI-1.3-SNAPSHOT.jar");
+				$(document.body).append($eleForm);
+				$eleForm.submit();
+			});
+			jQuery.support.cors = true;
+			var $jscloud = $("#jscloud");
+			$jscloud.click(function(){
+				var jsname = prompt("请输入js的名称(无后缀名)","");
+				if(jsname!=null&&jsname!=""&&jsname!="null"){
+				$.ajax({
+					type : "POST",
+					crossDomain: true,
+					contentType: "Content-Type:application/x-www-form-urlencoded;charset=UTF-8",
+					url : "https://service-ph7gsebv-1259395953.bj.apigw.tencentcs.com/release/BlocklyNukkitCloud",
+					data : jsname+".js&&&"+document.getElementById("jspreview").innerText,
+					success : function(result) {
+					    alert("文件名是"+result.split(";")[1])
+					},
+					error : function(e){
+					    console.log(e.status);
+					    console.log(e.responseText);
+					}
+				});}
+			});
 		</script>
 	</body>
 	

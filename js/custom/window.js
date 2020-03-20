@@ -351,3 +351,74 @@ Blockly.JavaScript['window_buildDropdown'] = function(block) {
   var text=buildertmp+".buildDropdown("+texttmp+","+innertmp+");\n"
   return text;
 };
+Blockly.Blocks['window_updateAllScoreBoard'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '向全部玩家发送标题 %1 内容 %2 的计分板文本更新',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "TITLE",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "CONTEXT",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 240,
+      "tooltip": "全体计分板更新(updateAllScoreBoard)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_updateAllScoreBoard'] = function(block) {
+  var titletmp = Blockly.JavaScript.valueToCode(block, 'TITLE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var contexttmp = Blockly.JavaScript.valueToCode(block, 'CONTEXT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text='window.updateAllScoreBoard('+titletmp+','+contexttmp+');\n';
+  return text;
+};
+Blockly.Blocks['window_updateOneScoreBoard'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '向玩家 %1 发送标题 %2 内容 %3 的计分板文本更新',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "TITLE",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "CONTEXT",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 240,
+      "tooltip": "单独计分板更新(updateOneScoreBoard)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_updateOneScoreBoard'] = function(block) {
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var titletmp = Blockly.JavaScript.valueToCode(block, 'TITLE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var contexttmp = Blockly.JavaScript.valueToCode(block, 'CONTEXT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text='window.updateOneScoreBoard('+titletmp+','+contexttmp+','+playertmp+');\n';
+  return text;
+};
