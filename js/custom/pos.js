@@ -423,7 +423,7 @@ Blockly.Blocks['pos_getBlock'] = {
 		  "check": "Position"
 		}
       ],
-	  "output": "Block",
+	  "output": "Blocks",
       "colour": 133,
       "tooltip": "获取方块(getBlock)",
       "helpUrl": "#"
@@ -587,7 +587,7 @@ Blockly.Blocks['pos_setBlock'] = {
 		{
 		  "type": "input_value",
 		  "name": "BLOCK",
-		  "check": "Block"
+		  "check": "Blocks"
 		},
 		{
 		  "type": "input_value",
@@ -606,7 +606,7 @@ Blockly.Blocks['pos_setBlock'] = {
 };
 Blockly.JavaScript['pos_setBlock'] = function(block) {
   //String or array length.
-  var leveltmp = Blockly.JavaScript.valueToCode(block, 'Block',
+  var leveltmp = Blockly.JavaScript.valueToCode(block, 'BLOCK',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
