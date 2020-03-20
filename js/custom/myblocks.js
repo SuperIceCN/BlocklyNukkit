@@ -525,7 +525,7 @@ Blockly.Blocks['nkputEasy'] = {
 		{
 		  "type": "input_value",
 		  "name": "CMD",
-		  "check": "String"
+		  "check": ["String","Number", "Boolean", "Position", "Player", "Item" ,"Block"]
 		}
       ],
 	  "inputsInline": true,
@@ -549,17 +549,30 @@ Blockly.JavaScript['nkputEasy'] = function(block) {
 Blockly.Blocks['nkgetEasy'] = {
   init: function() {
     this.jsonInit({
-      "message0": '临时存储：获取键 %1 的值',
+      "message0": '临时存储：获取键 %1 的值( %2 )',
       "args0": [
 		{
 		  "type": "input_value",
 		  "name": "VAL",
 		  "check": "String"
+		},
+		{
+		    "type": "field_dropdown",
+		    "name": "TYPE",
+		    "options": [
+			  ["字符串","String"],
+			  ["数字", "Number"],
+		      ["对错", "Boolean"],
+		      ["位置", "Position"],
+			  ["玩家", "Player"],
+			  ["物品(堆)", "Item"],
+			  ["方块", "Block"]
+		    ]
 		}
       ],
-	  "output": "String",
+	  "output": ["String","Number", "Boolean", "Position", "Player", "Item" ,"Block"],
       "colour": 20,
-      "tooltip": "临时存储(getEasy)",
+      "tooltip": "临时存储(getEasyString)",
       "helpUrl": "#"
     });
   }
@@ -568,6 +581,7 @@ Blockly.JavaScript['nkgetEasy'] = function(block) {
   //String or array length.
   var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text="manager.getEasy("+valtmp+")"
+  var typetmp=block.getFieldValue("TYPE");
+  var text="manager.getEasy"+typetmp+"("+valtmp+")"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 }
