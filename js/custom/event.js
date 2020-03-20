@@ -389,3 +389,28 @@ Blockly.JavaScript['event_window_custom_getEventCustomVar'] = function(block) {
   var text="window.getEventCustomVar("+valtmp+","+idtmp+","+modetmp+")";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['event_getblock'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取事件 %1 的方块',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Event"
+		}
+      ],
+	  "output": "Blocks",
+      "colour": 10,
+      "tooltip": "获取事件的方块(getBlock)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_getblock'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getBlock()";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
