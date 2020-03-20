@@ -310,3 +310,308 @@ Blockly.JavaScript['pos_setspawnlocation'] = function(block) {
   var text=leveltmp+".setSpawnLocation(manager.buildvec3("+postmp+".getX(),"+postmp+".getY(),"+postmp+".getZ()));\n"
   return text;
 };
+Blockly.Blocks['pos_makeSound'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '在位置 %1 播放声音 %2',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "POS",
+		  "check": "Position"
+		},
+		{
+		  "type": "input_value",
+		  "name": "MUSIC",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 133,
+      "tooltip": "播放声音(makeSound)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_makeSound'] = function(block) {
+  //String or array length.
+  var leveltmp = Blockly.JavaScript.valueToCode(block, 'MUSIC',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.makeSound("+postmp+","+leveltmp+");\n"
+  return text;
+};
+Blockly.Blocks['pos_makeExpBall'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '在位置 %1 生成包含 %2 点经验值的经验球',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "POS",
+		  "check": "Position"
+		},
+		{
+		  "type": "input_value",
+		  "name": "POINT",
+		  "check": "Number"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 133,
+      "tooltip": "经验球(makeExpBall)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_makeExpBall'] = function(block) {
+  //String or array length.
+  var leveltmp = Blockly.JavaScript.valueToCode(block, 'POINT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.makeExpBall("+postmp+","+leveltmp+");\n"
+  return text;
+};
+Blockly.Blocks['pos_makeDropItem'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '在位置 %1 生成与 %2 相同的掉落物',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "POS",
+		  "check": "Position"
+		},
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Item"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 133,
+      "tooltip": "生成掉落物(makeDropItem)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_makeDropItem'] = function(block) {
+  //String or array length.
+  var leveltmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.makeDropItem("+postmp+","+leveltmp+");\n"
+  return text;
+};
+Blockly.Blocks['pos_getBlock'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取位置 %1 的方块',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Position"
+		}
+      ],
+	  "output": "Block",
+      "colour": 133,
+      "tooltip": "获取方块(getBlock)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getBlock'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.getBlock("+valtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_getLevelEntities'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取位置 %1 所在世界的生物列表',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Position"
+		}
+      ],
+	  "output": "Array",
+      "colour": 133,
+      "tooltip": "获取位置所在世界的生物列表(getLevelEntities)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getLevelEntities'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.getLevelEntities("+valtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_getLevelPlayers'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取位置 %1 所在世界的玩家列表',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Position"
+		}
+      ],
+	  "output": "Array",
+      "colour": 133,
+      "tooltip": "获取位置所在世界的玩家列表(getLevelPlayers)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getLevelPlayers'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.getLevelPlayers("+valtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_getIsSunny'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取位置 %1 所在世界是否天气晴朗',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Position"
+		}
+      ],
+	  "output": "Boolean",
+      "colour": 133,
+      "tooltip": "获取位置所在世界是否天气晴朗(getIsSunny)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getIsSunny'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.getIsSunny("+valtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_isDay'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取位置 %1 所在世界是否白天',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Position"
+		}
+      ],
+	  "output": "Boolean",
+      "colour": 133,
+      "tooltip": "获取位置所在世界是否白天(isDay)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_isDay'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.isDay("+valtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_setLevelWeather'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置位置 %1 天气为 %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "POS",
+		  "check": "Position"
+		},
+		{
+		    "type": "field_dropdown",
+		    "name": "WEATHER",
+		    "options": [
+			  ["晴天", "clear"],
+		      ["雨天", "rain"],
+		      ["雷暴", "thunder"]
+		    ]
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 133,
+      "tooltip": "设置天气(setLevelWeather)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_setLevelWeather'] = function(block) {
+  //String or array length.
+  var weathertmp = block.getFieldValue("WEATHER");
+  var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.setLevelWeather("+postmp+",'"+weathertmp+"');\n"
+  return text;
+};
+Blockly.Blocks['pos_setBlock'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置位置 %1 方块为 %2 是否掉落粒子 %3 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "POS",
+		  "check": "Position"
+		},
+		{
+		  "type": "input_value",
+		  "name": "BLOCK",
+		  "check": "Block"
+		},
+		{
+		  "type": "input_value",
+		  "name": "PAR",
+		  "check": "Boolean"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 133,
+      "tooltip": "设置方块(setBlock)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_setBlock'] = function(block) {
+  //String or array length.
+  var leveltmp = Blockly.JavaScript.valueToCode(block, 'Block',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var partmp = Blockly.JavaScript.valueToCode(block, 'PAR',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.setBlock("+postmp+","+leveltmp+","+partmp+");\n"
+  return text;
+};

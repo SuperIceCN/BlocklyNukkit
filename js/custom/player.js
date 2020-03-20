@@ -566,3 +566,61 @@ Blockly.JavaScript['player_opmoney'] = function(block) {
   var text="manager."+optmp+"Money("+playertmp+","+moneytmp+");\n"
   return text;
 };
+Blockly.Blocks['player_getItemInHand'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取玩家 %1 手上的物品',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		}
+      ],
+	  "output": "Item",
+      "colour": 180,
+      "tooltip": "获取玩家手上的物品(getItemInHand)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_getItemInHand'] = function(block) {
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.getItemInHand("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['player_setItemInHand'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置玩家 %1 手上的物品为 %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Item"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": "更改手上物品(setItemInHand)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_setItemInHand'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.setItemInHand("+playertmp+","+itemtmp+");\n"
+  return text;
+};

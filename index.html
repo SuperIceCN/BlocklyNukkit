@@ -365,7 +365,6 @@
 			  <category name="玩家" colour=180>
 				  <block type="player_getbyname"></block>
 				  <block type="player_sendMessage"></block>
-				  <block type="player_getbyuuid"></block>
 				  <block type="player_playedbefore"></block>
 				  <block type="player_sendPopup"></block>
 				  <block type="player_sendActionBar"></block>
@@ -381,6 +380,8 @@
 				  <block type="player_buildskinfor"></block>
 				  <block type="player_getmoney"></block>
 				  <block type="player_opmoney"><field name="OP">set</field></block>
+				  <block type="player_getItemInHand"></block>
+				  <block type="player_setItemInHand"></block>
 			  </category>
 			  <category name="事件" colour=10>
 				  <block type="event_setCancelled"></block>
@@ -409,6 +410,16 @@
 				  <block type="pos_setxyz"></block>
 				  <block type="pos_getsafespawn"></block>
 				  <block type="pos_setspawnlocation"></block>
+				  <block type="pos_makeSound"></block>
+				  <block type="pos_makeExpBall"></block>
+				  <block type="pos_makeDropItem"></block>
+				  <block type="pos_getBlock"></block>
+				  <block type="pos_getLevelEntities"></block>
+				  <block type="pos_getLevelPlayers"></block>
+				  <block type="pos_getIsSunny"></block>
+				  <block type="pos_isDay"></block>
+				  <block type="pos_setLevelWeather"></block>
+				  <block type="pos_setBlock"></block>
 			  </category>
 			  <category name="窗口" colour=240>
 				  <block type="window_getSimpleWindowBuilder"></block>
