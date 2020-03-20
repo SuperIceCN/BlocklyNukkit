@@ -172,7 +172,7 @@ Blockly.Blocks['bi_getItemInfo'] = {
 		{
 		  "type": "input_value",
 		  "name": "ITEM",
-		  "check": "item"
+		  "check": "Item"
 		},
 		{
 		    "type": "field_dropdown",
@@ -198,5 +198,41 @@ Blockly.JavaScript['bi_getItemInfo'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var optmp = block.getFieldValue("OP");
   var text=itemtmp+".get"+optmp+"()";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['bi_getBlockInfo'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取方块 %1 的 %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "BLOCK",
+		  "check": "Blocks"
+		},
+		{
+		    "type": "field_dropdown",
+		    "name": "OP",
+		    "options": [
+			  ["世界","level"],
+			  ["x", "x"],
+		      ["y", "y"],
+		      ["z", "z"]
+		    ]
+		}
+      ],
+	  "output": ["Number","Level"],
+      "colour": 47,
+      "tooltip": "获取方块信息(bi_getBlockInfo)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_getBlockInfo'] = function(block) {
+  //String or array length.
+  var blocktmp = Blockly.JavaScript.valueToCode(block, 'BLOCK',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var optmp = block.getFieldValue("OP");
+  var text=blocktmp+"."+optmp;
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
