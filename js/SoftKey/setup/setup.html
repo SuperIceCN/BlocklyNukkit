@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <!--
+    $Id: setup.html 753 2011-05-05 20:35:49Z wingedfox $
+ 
+    Keyboard setup script
+
+    This software is protected by patent No.2009611147 issued on 20.02.2009 by Russian Federal Service for Intellectual Property Patents and Trademarks.
+
+    @author Ilya Lebedev
+    @copyright 2006-2011 Ilya Lebedev <ilya@lebedev.net>
+    @version $Rev: 753 $
+    @lastchange $Author: wingedfox $ $Date: 2011-05-06 00:35:49 +0400 (Пт., 06 мая 2011) $
+ -->
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>Virtual Keyboard layouts setup page</title>
+ <script type="text/javascript" src="io.js"></script>
+ <script type="text/javascript" src="../extensions/helpers.js"></script>
+ <script type="text/javascript" src="../extensions/ext/array.js"></script>
+ <script type="text/javascript" src="../extensions/ext/string.js"></script>
+ <script type="text/javascript" src="../extensions/ext/number.js"></script>
+ <script type="text/javascript" src="vk.inc.js"></script>
+ <script type="text/javascript">
+
+  var layouts = {}
+
+  /**
+   *  Converts plaintext keyboard layout to the valid javascript code and saves it
+   *
+   *  @param VirtualKeyboardLayout $f layout object
+   *  @return boolean conversion state
+   *  @scope public
+   */
+  function cvt () {
+
+      var res = null
+         ,tb = document.getElementById('targetkbd').tBodies[0]
+         ,cnt = 0
+         ,ads = {}
+         ,nl = "\n";
+
+      /*
+      *  prepare layouts file;
+      */
+      var $VK_ADDONS = {}
+         ,llist = []
+         ,report = []
+
+      for (var i in layouts) {
+          var el = document.getElementsByName(i)[0];
+          if (el.checked) {
+              $addon = layouts[i].getAddon();
+              $code  = layouts[i].getCode();
+          
+              if ($addon && !$VK_ADDONS[$code]) {
+                  $addon = file_get_contents($addon);
+                  if ($addon) {
+                      $VK_ADDONS[$code] = $addon;
+                  }
+              }
+              var type;
+              if (document.getElementById('group1').checked) {
+                 type = document.getElementById('group1').value;
+              } else if (document.getElementById('group2').checked) {
+                 type = document.getElementById('group2').value;
+              }
+              llist.push(layouts[i].serialize(type));
+              report.push(layouts[i].getCode()+'\t'+layouts[i].getName()+'\t'+layouts[i].getCopyright())
+              tb.rows[cnt].cells[4].innerHTML = "<b style=\"color: green\">Yes</b>";
+          }
+          cnt++;
+      }
+      if (llist.length) {
+          var tarr = [];
+          for (var i in $VK_ADDONS) {
+              if ($VK_ADDONS.hasOwnProperty(i))
+                  tarr.push($VK_ADDONS[i]);
+          }
+          $s  = tarr.join("\n");
+          $s += "VirtualKeyboard.addLayoutList(\n" + llist.join(",\n") + "\n)";
+          try {
+              var of = IOsys.OpenTextFile(gcf()+'out/layouts.js',2,true,0);
+              of.Write($s);
+              of.Close();
+              var of = IOsys.OpenTextFile(gcf()+'out/layouts.tsv',2,true,0);
+              of.Write(report.join("\r\n"));
+              of.Close();
+          } catch (e) {
+//              tb.rows[cnt].cells[5].innerHTML = "<b style=\"color: red\">Error: "+e.description+"</b>";
+          }
+      }
+
+  }
+ </script>
+<body >
+<p>Keyboard layouts converter</p>
+<div style="height: 400px; overflow: auto;">
+ <table id="targetkbd" border="0">
+  <thead>
+   <tr>
+    <th><input type="checkbox" onclick="var els=this.parentNode.parentNode.parentNode.parentNode.tBodies[0].getElementsByTagName('input'); for(var i in els) els[i].checked=this.checked;"</th>
+    <th>Layout Code</th>
+    <th>Layout Name</th>
+    <th>Copyright</th>
+    <th>Saved</th>
+   </tr>
+  </thead>
+  <tbody>
+  </tbody>
+ </table>
+</div>
+<strong>Group languages by</strong><br />
+<label for="group1"><input type="radio" name="group" id="group1" value="lng" checked="true" />Language code (en-<strong>US</strong>)</label>&nbsp;
+<label for="group2"><input type="radio" name="group" id="group2" value="domain" />Language domain (<strong>en</strong>-US)</label>
+<br />
+<br />
+<button onclick="cvt()">Process selected</button>
+<script type="text/javascript">
+  /**
+   *  Function returns current folder in the filesystem
+   *
+   *  @return {String}
+   *  @scope public
+   */
+  function gcf() {
+      return unescape((document.location.href.substring(document.location.href.indexOf("///")+3,
+                                                        document.location.href.lastIndexOf('/')+1)))
+  }
+
+  var curpath = gcf()                   // current location
+     ,inpath  = curpath+'in/'           // .klc files location
+     ,outpath = curpath+'../'           // target for .js file, by default -- location of virtualkeyboard.js
+     ,fl = IOsys.GetFolder(inpath).GetFiles()
+     ,fc = new Enumerator(fl)
+     ,tb = document.getElementById('targetkbd').tBodies[0]
+     ,tr = td = null
+
+  for (; !fc.atEnd(); fc.moveNext()) {
+      var of = fc.item();
+      if (!of.Name.match(/\.klc$/)) continue;
+      tr = tb.insertRow();
+      td = tr.insertCell();
+      td.innerHTML = "<input type=\"checkbox\" name=\""+of.Name+"\" />";
+      layouts[of.Name] = new VirtualKeyboardLayout(of.Path);
+      td = tr.insertCell();
+      td.innerHTML = layouts[of.Name].getCode();
+      td = tr.insertCell();
+      td.innerHTML = layouts[of.Name].getName();
+      td = tr.insertCell();
+      td.innerHTML = layouts[of.Name].getCopyright();
+      td = tr.insertCell();
+      td.innerHTML = "<b style=\"color: red\">No</b>";
+
+//      tr.innerHTML = "<td></td><td></td><td></td><td></td>"//<input type=\"checkbox\" name=\""+/*of.Name+*/"\" />"+of.Name+"</td>";
+  }
+
+
+</script>
+</body>
+</html>
+	

@@ -1,0 +1,1 @@
+VirtualKeyboard.Langs.KR.charProcessor;

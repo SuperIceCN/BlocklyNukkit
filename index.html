@@ -25,7 +25,8 @@
 		<script src="./js/custom/save.js"></script>
 		<script src="./js/custom/pos.js"></script>
 		<script src="./js/custom/window.js"></script>
-		<script src="./js/custom/blockanditem.js"></script>
+		<script src="./js/custom/blockanditem.js"></script>	
+		<script src="./js/softkey/vk_loader.js?vk_skin=flat_gray"></script>	
 
 		<script src="https://cdn.bootcss.com/prism/9000.0.1/prism.min.js"></script>
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css" rel="stylesheet">
@@ -488,8 +489,8 @@
 				  <div class="row">
 					<div class="col"><button type="button" class="btn btn-outline-primary" id="downjar">下载插件</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#savefile">保存源码</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" id="jscloud">云端同步</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" id="toxml">导出项目</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#jscloud">云端同步</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#toxml">导出项目</button></div>
 				  </div>
 					<h1></h1>
 				  <div class="row">
@@ -538,11 +539,11 @@
 		      <div class="modal-body">
 				<div class="container mt-3">
 				  <h2>保存JavaScript源码到本地</h2>
-				  <p>在输入框输入欲保存的文件名，不需要输入.js文件后缀。</p>
+				  <p id="hex1">在输入框输入欲保存的文件名，不需要输入.js文件后缀。</p>
 				  <form>
 				    <label for="demo">请输入您的文件名:</label>
 				    <div class="input-group mb-3">
-				      <input type="text" class="form-control" placeholder="请输入文件名，不需要文件后缀。例如输入'myjs'" id="save">
+				      <input type="text" class="form-control" placeholder="请输入文件名，不需要文件后缀。例如输入'myjs'" id="save" onblur="VirtualKeyboard.toggle('save','hex1');">
 				      <div class="input-group-append">
 				        <button type="submit" class="btn btn-primary" onclick="pcsave()">保存!</button>
 				      </div>
@@ -557,8 +558,105 @@
 		    </div>
 		  </div>
 		</div>
-		
-		
+		<div class="modal fade" id="jscloud">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">云端同步</h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      <div class="modal-body">
+				<div class="container mt-3">
+				  <h2>同步JavaScript脚本到云端</h2>
+				  <p id="hex">在输入框输入欲同步的文件名，不需要输入.js文件后缀。</p>
+				  <form>
+				    <label for="demo">请输入您的文件名:</label>
+				    <div class="input-group mb-3">
+				      <input type="text" class="form-control" placeholder="请输入文件名，不需要文件后缀。例如输入'myjs'" id="cloudsave" onblur="VirtualKeyboard.toggle('cloudsave','hex');">
+				      <div class="input-group-append">
+				        <button type="submit" class="btn btn-primary" onclick="jsclouds()">同步!</button>
+				      </div>
+				    </div>
+				  </form>
+				</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		      </div>
+		 
+		    </div>
+		  </div>
+		</div>		
+		<div class="modal fade" id="jswjm1">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">同步成功</h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      <div class="modal-body">
+				<div class="container mt-3">
+				  <h2>您的文件名为：</h2>
+				  <h2 id="jswjm"></h2>
+				</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		      </div>
+		 
+		    </div>
+		  </div>
+		</div>			
+
+		<div class="modal fade" id="toxml">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">导出项目</h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      <div class="modal-body">
+				<div class="container mt-3">
+				  <h2>导出JavaScript项目到本地以便下次编辑</h2>
+				  <p id="hex2">在输入框输入欲同步的文件名，不需要输入文件后缀。</p>
+				  <form>
+				    <label for="demo">请输入您的文件名:</label>
+				    <div class="input-group mb-3">
+				      <input type="text" class="form-control" placeholder="请输入文件名，不需要文件后缀。例如输入'myjs'" id="toxmltext" onblur="VirtualKeyboard.toggle('toxmltext','hex2');">
+				      <div class="input-group-append">
+				        <button type="submit" class="btn btn-primary" onclick="toxmldc()">导出!</button>
+				      </div>
+				    </div>
+				  </form>
+				</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		      </div>
+		 
+		    </div>
+		  </div>
+		</div>		
+		<div class="modal fade" id="jswjm2">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">导出成功</h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      <div class="modal-body">
+				<div class="container mt-3">
+				  <h2>您的项目文件名为：</h2>
+				  <h2 id="jswjm3"></h2>
+				</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		      </div>
+		 
+		    </div>
+		  </div>
+		</div>			
 		<script>
 			
 			/* TODO: Change toolbox XML ID if necessary. Can export toolbox XML from Workspace Factory. */
@@ -612,6 +710,20 @@
 			
 		</script>
 		<script>
+		var jsnum1;
+		var jsnum3;
+			$(function () {
+				$("input[id='save']").click(function () {
+				loadKeyboard(this, false);
+				});
+				$("input[id='cloudsave']").click(function () {
+				loadKeyboard(this, false);
+				});
+				$("input[id='toxmltext']").click(function () {
+				loadKeyboard(this, false);
+				});
+				
+			});
 			var $showxml = $("#showxml");
 			$showxml.click(function(){
 				var reader = new FileReader();
@@ -629,11 +741,10 @@
 					
 			})
 			jQuery.support.cors = true;
-			var $toxml = $("#toxml");
-			$toxml.click(function(){
+			function toxmldc(){
 				var xml = Blockly.Xml.workspaceToDom(workspace);
 				var xml_text = Blockly.Xml.domToText(xml);
-				var xmlname = prompt("请输入项目的名称(无后缀名)","");
+				var xmlname = $("#toxmltext").val();
 				if(xmlname!=null&&xmlname!=""&&xmlname!="null"){
 				$.ajax({
 					type : "POST",
@@ -642,7 +753,9 @@
 					url : "https://service-ph7gsebv-1259395953.bj.apigw.tencentcs.com/release/BlocklyNukkitCloud",
 					data : xmlname+".bn&&&"+xml_text,
 					success : function(result) {
-					    alert("项目导出成功!\n"+result.split(";")[1])
+						var jsnum4 = result.split(";")[1];
+						jsnum3 = jsnum4.split(":")[1];
+						$('#jswjm2').modal('show');
 						var $eleForm = $("<form method='get'></form>");
 						$eleForm.attr("action","https://blocklynukkitxml-1259395953.cos.ap-beijing.myqcloud.com/"+xmlname+".bn");
 						$(document.body).append($eleForm);
@@ -653,6 +766,9 @@
 					    console.log(e.responseText);
 					}
 				});}
+			}
+			$('#jswjm2').on('show.bs.modal', function () {
+				$('#jswjm3').text(jsnum3);
 			})
 			var $downj = $("#downjar");
 			$downj.click(function(){
@@ -668,9 +784,9 @@
 				$(document.body).append($eleForm);
 				$eleForm.submit();
 			});
-			var $jscloud = $("#jscloud");
-			$jscloud.click(function(){
-				var jsname = prompt("请输入js的名称(无后缀名)","");
+
+			function jsclouds(){
+				var jsname = $("#cloudsave").val()
 				if(jsname!=null&&jsname!=""&&jsname!="null"){
 				$.ajax({
 					type : "POST",
@@ -679,14 +795,23 @@
 					url : "https://service-ph7gsebv-1259395953.bj.apigw.tencentcs.com/release/BlocklyNukkitCloud",
 					data : jsname+".js&&&"+document.getElementById("jspreview").innerText,
 					success : function(result) {
-					    alert("文件名是"+result.split(";")[1])
+						var jsnum = result.split(";")[1];
+						jsnum1 = jsnum.split(":")[1];
+						$('#jswjm1').modal('show');
+						console.log(result);
 					},
 					error : function(e){
 					    console.log(e.status);
 					    console.log(e.responseText);
 					}
 				});}
-			});
+				
+			}
+			$('#jswjm1').on('show.bs.modal', function () {
+				$('#jswjm').text(jsnum1);
+			})
+			
+
 		</script>
 	</body>
 	

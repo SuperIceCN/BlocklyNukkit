@@ -1,0 +1,16 @@
+<html>
+<head>
+<script type="text/javascript" src="vk_loader.js?vk_layout=CN%20Chinese%20Simpl.%20Pinyin&vk_skin=flat_gray" ></script>
+<script type="text/javascript" src="jquery-1.8.2.min.js" ></script>
+<script>
+function test(){
+VirtualKeyboard.toggle('txt_Search', 'softkey');
+$("#kb_langselector,#kb_mappingselector,#copyrights").css("display", "none");
+}
+</script>
+</head>
+<body>
+<input type="text" id="txt_Search" onfocus='test();' onblur="VirtualKeyboard.toggle('txt_Search','softkey');" />
+<div id="softkey"></div>
+</body>
+</html>

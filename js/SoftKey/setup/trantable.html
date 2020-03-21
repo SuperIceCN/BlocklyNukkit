@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <!--
+    $Id: trantable.html 643 2009-07-09 15:19:14Z wingedfox $
+ 
+    Keyboard translation table build script
+
+    This software is protected by patent No.2009611147 issued on 20.02.2009 by Russian Federal Service for Intellectual Property Patents and Trademarks.
+
+    @author Ilya Lebedev
+    @copyright 2006-2009 Ilya Lebedev <ilya@lebedev.net>
+    @version $Rev: 643 $
+    @lastchange $Author: wingedfox $ $Date: 2009-07-09 19:19:14 +0400 (Чт., 09 июля 2009) $
+ -->
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>Virtual Keyboard keyboard maps builder</title>
+ <script type="text/javascript" src="io.js"></script>
+ <script type="text/javascript" src="../extensions/helpers.js"></script>
+ <script type="text/javascript" src="../extensions/ext/array.js"></script>
+ <script type="text/javascript">
+
+  function cvt () {
+
+      var res = null
+         ,cnt = 0
+         ,tb = document.getElementById('targetkbd').tBodies[0]
+         ,ads = {}
+         ,str = ""
+         ,f = null
+         ,nl = "\n"
+         ,mappings = ""
+         ,map;
+             
+
+      for (var i in layouts) {
+          var el = document.getElementsByName(i)[0];
+          str = "";
+          if (el.checked) {
+              res = layouts[i].getConvertedLayout();
+              map = "\""+res.map(function(a){var chr=String.fromCharCode(a);
+                                            return /[a-z0-9]/i.test(chr)
+                                                  ?chr
+                                                  :chr //"\\u00"+parseInt(a).toString(16)
+                                           }).join("")+"\"";
+              if (mappings.indexOf(map)==-1) {
+                  tb.rows[cnt].cells[4].innerHTML = "<b style=\"color: green\">Yes</b>";
+
+                  str += "       ,'";
+                  str += String.fromCharCode(res[14])
+                  str += String.fromCharCode(res[15])
+                  str += String.fromCharCode(res[16])
+                  str += String.fromCharCode(res[17])
+                  str += String.fromCharCode(res[18])
+                  str += String.fromCharCode(res[19])
+
+                  str += " "+layouts[i].name
+                  str += "' "
+                  str += ": "+map+nl;
+
+                  try {
+                      var of = IOsys.OpenTextFile(gcf()+'out/mappings.js',8,true,-1);
+                      of.Write(str);
+                      of.Close();
+                      tb.rows[cnt].cells[4].innerHTML = "<b style=\"color: green\">Yes</b>";
+                      mappings += "\n"+str
+                  } catch (e) {
+                      tb.rows[cnt].cells[4].innerHTML = "<b style=\"color: red\">Error: "+e.description+"</b>";
+                  }
+              } else {
+                  tb.rows[cnt].cells[4].innerHTML = "<b style=\"color: red\">No</b>";
+              }
+          }
+          cnt++;
+      }
+  }
+ </script>
+<body >
+<p>Keyboard layouts converter</p>
+<div style="height: 400px; overflow: auto;">
+ <table id="targetkbd" border="0">
+  <thead>
+   <tr>
+    <th><input type="checkbox" onclick="var els=this.parentNode.parentNode.parentNode.parentNode.tBodies[0].getElementsByTagName('input'); for(var i in els) els[i].checked=this.checked;"</th>
+    <th>Layout Name</th>
+    <th>Copyright</th>
+    <th>Verified</th>
+    <th>Saved</th>
+   </tr>
+  </thead>
+  <tbody>
+  </tbody>
+ </table>
+</div>
+<br />
+<br />
+<button onclick="cvt()">Process selected</button>
+<script type="text/javascript">
+  /**
+   *  Function returns current folder in the filesystem
+   *
+   *  @return {String}
+   *  @scope public
+   */
+  function gcf() {
+      return unescape((document.location.href.substring(document.location.href.indexOf("///")+3,
+                                                        document.location.href.lastIndexOf('/')+1)))
+  }
+
+  var curpath = gcf()                   // current location
+     ,inpath  = curpath+'in/'           // .klc files location
+     ,outpath = curpath+'../'           // target for .js file, by default -- location of virtualkeyboard.js
+     ,fl = IOsys.GetFolder(inpath).GetFiles()
+     ,fc = new Enumerator(fl)
+     ,tb = document.getElementById('targetkbd').tBodies[0]
+     ,tr = td = null
+     ,of
+
+  var ConverterLayout = function (file) {
+      var self = this
+         ,fs = IOsys.readString(file);
+
+      self.path = file;
+
+      self.name = fs.match(/^kbd[^"]+\"([^"]+)/mi)[1].split(/\s-\s/)[0]
+      self.copyright = fs.match(/^copyright[^"]+\"([^"]+)/mi)[1]
+      if (self.copyright.match(/ilya lebedev/i)) self.copyright = ""
+      /**
+       *   String format
+       *
+       *   HexCode \t KeyId \t CapsEnabled \t NormalKey \t ShiftKey \t
+       *
+       *   @type {String}
+       */
+      self.strings = fs.replace(/(.|[\r\n])+?(^\d{2})/m,"$2").replace(/(\r\n){2,}(.|[\r\n])+/m,"").split(/[\r\n]+/).filter(function(a){return a.indexOf('-1')==0?"":a});
+
+      self.getConvertedLayout = function () {
+          var fs = self.strings
+             ,mapping_codes = {
+                  'OEM_7'      : 192
+                 ,'OEM_MINUS'  : 109 // 189
+                 ,'OEM_PLUS'   : 61  // 187
+                 ,'OEM_5'      : 220
+                 ,'OEM_4'      : 219
+                 ,'OEM_6'      : 221
+                 ,'OEM_1'      : 59  // 186
+                 ,'OEM_3'      : 222
+                 ,'OEM_COMMA'  : 188
+                 ,'OEM_PERIOD' : 190
+                 ,'OEM_2'      : 191
+                 ,'OEM_8'      : 223
+                 ,'OEM_BS'     : 8
+                 ,'OEM_TAB'    : 9
+                 ,'OEM_ENTER'  : 13
+                 ,'OEM_CAPS'   : 20
+                 ,'OEM_SHIFT'  : 16
+                 ,'OEM_CTRL'   : 17
+                 ,'OEM_ALT'    : 18
+                 ,'OEM_SPACE'  : 32
+                 ,'OEM_DEL'    : 46
+              };
+          /*
+          *  Swap lines for MSKLC, because it save first key last
+          */
+          if (!self.strings.swapped) {
+              fs.splice(12,0,String(fs.splice(36,1)));
+              fs.splice(0,0,String(fs.splice(35,1)));
+/*
+              fs.splice(14,0,'OEM_BS');
+              fs.splice(15,0,'OEM_TAB');
+              fs.splice(28,0,'OEM_CAPS');
+              fs.splice(29,0,'OEM_ENTER');
+              fs.splice(41,0,'OEM_SHIFT');
+              fs.splice(52,0,'OEM_SHIFT');
+              fs.splice(53,0,'OEM_DEL');
+              fs.splice(54,0,'OEM_CTRL');
+              fs.splice(55,0,'OEM_ALT');
+              fs.splice(56,0,'OEM_SPACE');
+              fs.splice(57,0,'OEM_ALT');
+              fs.splice(58,0,'OEM_CTRL');
+*/
+              self.strings.swapped = true;
+          }
+
+          if (fs.length>47) fs.length = 47;
+
+          var res = [];
+           
+          for (var z=0,fsL=fs.length; z<fsL; z++) {
+              var fr = fs[z].split(/\t/);
+              if (!fr[1]) fr = ["",fr[0]];
+
+              res.push(mapping_codes[fr[1]] || fr[1].charCodeAt(0));
+          }
+         return res;
+      }
+  }
+
+  var layouts = {
+  }
+
+  for (; !fc.atEnd(); fc.moveNext()) {
+      of = fc.item();
+      if (!of.Name.match(/\.klc$/)) continue;
+      tr = tb.insertRow();
+      td = tr.insertCell();
+      td.innerHTML = "<input type=\"checkbox\" name=\""+of.Name+"\" />";
+      layouts[of.Name] = new ConverterLayout(of.Path);
+      td = tr.insertCell();
+      td.innerHTML = layouts[of.Name].name;
+      td = tr.insertCell();
+      td.innerHTML = layouts[of.Name].copyright;
+      td = tr.insertCell();
+      td.innerHTML = "<b style=\"color: red\">No</b>";
+      td = tr.insertCell();
+      td.innerHTML = "<b style=\"color: red\">No</b>";
+  }
+
+
+</script>
+</body>
+</html>
+

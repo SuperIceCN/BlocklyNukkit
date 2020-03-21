@@ -1,0 +1,1 @@
+VirtualKeyboard.Langs.JP.processChar;
