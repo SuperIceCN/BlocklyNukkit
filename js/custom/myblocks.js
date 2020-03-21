@@ -585,3 +585,83 @@ Blockly.JavaScript['nkgetEasy'] = function(block) {
   var text="manager.getEasy"+typetmp+"("+valtmp+")"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 }
+Blockly.Blocks['bn_forEachBlockInArea'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '对位置 %1 到位置 %2 是否包含空气 %3 的每一个方块 回调函数名(block) %4 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "POS1",
+		  "check": "Position"
+		},
+        {
+          "type": "input_value",
+          "name": "POS2",
+          "check": "Position"
+        },
+		{
+		  "type": "input_value",
+		  "name": "ISAIR",
+		  "check": "Boolean"
+		},
+		{
+		  "type": "input_value",
+		  "name": "CALLBACK",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 65,
+      "tooltip": "区域方块回调",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bn_forEachBlockInArea'] = function(block) {
+  //String or array length.
+  var pos1 = Blockly.JavaScript.valueToCode(block, 'POS1',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var pos2 = Blockly.JavaScript.valueToCode(block, 'POS2',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var isair = Blockly.JavaScript.valueToCode(block, 'ISAIR',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var callback = Blockly.JavaScript.valueToCode(block, 'CALLBACK',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="algorithm.forEachBlockInArea("+pos1+","+pos2+","+isair+","+callback+");\n"
+  return text;
+};
+Blockly.Blocks['bn_forLinkedBlock'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '对位置 %1 的每一个相邻同种方块 回调函数名(block) %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "POS1",
+		  "check": "Position"
+		},
+		{
+		  "type": "input_value",
+		  "name": "CALLBACK",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 65,
+      "tooltip": "相邻方块回调",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bn_forLinkedBlock'] = function(block) {
+  //String or array length.
+  var pos1 = Blockly.JavaScript.valueToCode(block, 'POS1',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var callback = Blockly.JavaScript.valueToCode(block, 'CALLBACK',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="algorithm.forLinkedBlock("+pos1+","+callback+");\n"
+  return text;
+};

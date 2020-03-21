@@ -236,3 +236,62 @@ Blockly.JavaScript['bi_getBlockInfo'] = function(block) {
   var text=blocktmp+"."+optmp;
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['bi_getItemLore'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取物品 %1 的lore字符串',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Item"
+		}
+      ],
+	  "output": "String",
+      "colour": 47,
+      "tooltip": "获取lore(getItemLore)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_getItemLore'] = function(block) {
+  //String or array length.
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.getItemLore("+itemtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['bi_setItemLore'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置物品堆 %1 的lore字符串为 %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Item"
+		},
+		{
+		  "type": "input_value",
+		  "name": "VALUE",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 47,
+      "tooltip": "设置物品堆lore(bi_setItemLore)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_setItemLore'] = function(block) {
+  //String or array length.
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var valuetmp = Blockly.JavaScript.valueToCode(block, 'VALUE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.setItemLore("+itemtmp+","+valuetmp+");\n"
+  return text;
+};
