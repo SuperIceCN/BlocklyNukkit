@@ -469,7 +469,7 @@
 				
 				<div class="alert alert-success alert-dismissible fade show" style="z-index: 1;">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>BlocklyNukkit.jar最新版是1.1.1(3/20更新)</strong>
+					<strong>BlocklyNukkit.jar最新版是1.1.2(3/21更新)</strong>
 				</div>
 				<div style="width: 100%; position: absolute; top: 5.519vw ; left: 0 ; bottom: 0;">
 					<pre style="width: 19.9vw;height: 98vh-5.519vw;height: 100%;font-weight: bold;"><code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"></code></pre>	
@@ -488,17 +488,39 @@
 					<div class="col"><button type="button" class="btn btn-outline-primary" id="downjar">下载插件</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#savefile">保存源码</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary" id="jscloud">云端同步</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" id="toxml">导出项目</button></div>
 				  </div>
 					<h1></h1>
 				  <div class="row">
 				    <div class="col"><button type="button" class="btn btn-outline-primary" id="downpre">下载前置</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#importfile">导入项目</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
 				  </div>
 		      </div>
 		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		      </div>
+		 
+		    </div>
+		  </div>
+		</div>
+		<div class="modal fade" id="importfile">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">导入项目</h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      <div class="modal-body">
+				<div class="container mt-3">
+				  <h2>导入本地项目</h2>
+				  <div class="col"><input type="file" name="file" class="btn btn-outline-primary" id="importxml"></input></div>
+				  
+				</div>
+		      </div>
+		      <div class="modal-footer">
+				<button type="button" class="btn btn-outline-primary" id="showxml">确认导入</button>
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
 		      </div>
 		 
@@ -589,6 +611,48 @@
 			
 		</script>
 		<script>
+			var $showxml = $("#showxml");
+			$showxml.click(function(){
+				var reader = new FileReader();
+				    reader.onload = function() 
+				    {
+				        var str = this.result
+						if(str!=undefined&&str.length>=10){
+						console.log(str);
+						var xml = Blockly.Xml.textToDom(str);
+						Blockly.Xml.domToWorkspace(xml, workspace);
+					}
+				    }
+				    var f = document.getElementById("importxml").files[0];
+				    reader.readAsText(f);
+					
+			})
+			jQuery.support.cors = true;
+			var $toxml = $("#toxml");
+			$toxml.click(function(){
+				var xml = Blockly.Xml.workspaceToDom(workspace);
+				var xml_text = Blockly.Xml.domToText(xml);
+				var xmlname = prompt("请输入项目的名称(无后缀名)","");
+				if(xmlname!=null&&xmlname!=""&&xmlname!="null"){
+				$.ajax({
+					type : "POST",
+					crossDomain: true,
+					contentType: "Content-Type:application/x-www-form-urlencoded;charset=UTF-8",
+					url : "https://service-ph7gsebv-1259395953.bj.apigw.tencentcs.com/release/BlocklyNukkitCloud",
+					data : xmlname+".bn&&&"+xml_text,
+					success : function(result) {
+					    alert("项目导出成功!\n"+result.split(";")[1])
+						var $eleForm = $("<form method='get'></form>");
+						$eleForm.attr("action","https://blocklynukkitxml-1259395953.cos.ap-beijing.myqcloud.com/"+xmlname+".bn");
+						$(document.body).append($eleForm);
+						$eleForm.submit();
+					},
+					error : function(e){
+					    console.log(e.status);
+					    console.log(e.responseText);
+					}
+				});}
+			})
 			var $downj = $("#downjar");
 			$downj.click(function(){
 				var $eleForm = $("<form method='get'></form>");
@@ -603,7 +667,6 @@
 				$(document.body).append($eleForm);
 				$eleForm.submit();
 			});
-			jQuery.support.cors = true;
 			var $jscloud = $("#jscloud");
 			$jscloud.click(function(){
 				var jsname = prompt("请输入js的名称(无后缀名)","");
