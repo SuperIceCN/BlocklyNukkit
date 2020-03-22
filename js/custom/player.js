@@ -624,3 +624,92 @@ Blockly.JavaScript['player_setItemInHand'] = function(block) {
   var text="blockitem.setItemInHand("+playertmp+","+itemtmp+");\n"
   return text;
 };
+Blockly.Blocks['player_PlayerIsOP'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取玩家 %1 是否是op',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		}
+      ],
+	  "output": "Boolean",
+      "colour": 180,
+      "tooltip": "获取玩家是否为op(PlayerIsOP)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_PlayerIsOP'] = function(block) {
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager.PlayerIsOP("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['player_addItemToPlayer'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '向玩家 %1 背包添加物品 %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Item"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": "背包添加物品(addItemToPlayer)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_addItemToPlayer'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.addItemToPlayer("+playertmp+","+itemtmp+");\n"
+  return text;
+};
+Blockly.Blocks['player_hasItemToPlayer'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取玩家 %1 背包里是否拥有 %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Item"
+		}
+      ],
+	  "output": "Boolean",
+      "colour": 180,
+      "tooltip": "获取玩家背包是否有物品(hasItemToPlayer)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_hasItemToPlayer'] = function(block) {
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.hasItemToPlayer("+valtmp+","+itemtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
