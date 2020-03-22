@@ -635,7 +635,7 @@ Blockly.JavaScript['bn_forEachBlockInArea'] = function(block) {
 Blockly.Blocks['bn_forLinkedBlock'] = {
   init: function() {
     this.jsonInit({
-      "message0": '对位置 %1 的每一个相邻同种方块 回调函数名(block) %2 ',
+      "message0": '对位置 %1 的每一个相邻同种方块 回调函数名(Position) %2 ',
       "args0": [
 		{
 		  "type": "input_value",

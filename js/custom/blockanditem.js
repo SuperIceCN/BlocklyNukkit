@@ -92,7 +92,7 @@ Blockly.JavaScript['bi_buildItemFromBlock'] = function(block) {
   //String or array length.
   var blocktmp = Blockly.JavaScript.valueToCode(block, 'BLOCK',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text="blockitem.buildItemFromBlock("+block+")"
+  var text="blockitem.buildItemFromBlock("+blocktmp+")"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
 Blockly.Blocks['bi_block_getId'] = {
