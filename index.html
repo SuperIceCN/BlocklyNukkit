@@ -462,6 +462,22 @@
 				  <block type="bi_getBlockInfo"></block>
 				  <block type="bi_getItemLore"></block>
 				  <block type="bi_setItemLore"></block>
+				  <block type="bi_addShapelessCraft"></block>
+				  <block type="bi_addShapedCraft">
+					<value name="SHAPE">
+					  <block type="bi_shapearray">
+					    <value name="A"><block type="bi_shapestr"></block></value>
+						<value name="B"><block type="bi_shapestr"></block></value>
+						<value name="C"><block type="bi_shapestr"></block></value>
+					  </block>
+					</value>
+					<value name="APPEND">
+					  <shadow type="lists_create_with">
+					    <mutation items="0"></mutation>
+					  </shadow>
+					</value>
+				  </block>
+				  
 			  </category>
 		  </category>
 		  

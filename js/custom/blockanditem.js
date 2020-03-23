@@ -254,13 +254,7 @@ Blockly.Blocks['bi_getItemLore'] = {
     });
   }
 };
-Blockly.JavaScript['bi_getItemLore'] = function(block) {
-  //String or array length.
-  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
-      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text="blockitem.getItemLore("+itemtmp+")";
-  return [text, Blockly.JavaScript.ORDER_MEMBER];
-};
+
 Blockly.Blocks['bi_setItemLore'] = {
   init: function() {
     this.jsonInit({
@@ -294,4 +288,163 @@ Blockly.JavaScript['bi_setItemLore'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text="blockitem.setItemLore("+itemtmp+","+valuetmp+");\n"
   return text;
+};
+Blockly.JavaScript['bi_getItemLore'] = function(block) {
+  //String or array length.
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.getItemLore("+itemtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['bi_addShapelessCraft'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '无序合成：原料(列表) %1 生成(物品) %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Array"
+		},
+		{
+		  "type": "input_value",
+		  "name": "VALUE",
+		  "check": "Item"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 47,
+      "tooltip": "添加无序合成(addShapelessCraft)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_addShapelessCraft'] = function(block) {
+  //String or array length.
+  var itemstmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var valuetmp = Blockly.JavaScript.valueToCode(block, 'VALUE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.addShapelessCraft(Java.to("+itemstmp+",'cn.nukkit.item.Item[]'),"+valuetmp+");\n"
+  return text;
+};
+Blockly.Blocks['bi_addShapedCraft'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '有序合成：形状 %1 合成结果 %2 追加结果 %3',
+      "args0": [
+	    {
+	      "type": "input_value",
+	      "name": "SHAPE",
+	      "check": "Array"
+	    },
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Item"
+		},
+		{
+		  "type": "input_value",
+		  "name": "APPEND",
+		  "check": "Array"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 47,
+      "tooltip": "添加有序合成(addShapedCraft)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_addShapedCraft'] = function(block) {
+  //String or array length.
+  var shapetmp = Blockly.JavaScript.valueToCode(block, 'SHAPE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var appendtmp = Blockly.JavaScript.valueToCode(block, 'APPEND',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.addShapedCraft(Java.to("+shapetmp+",'java.lang.String[]'),"+itemtmp+",Java.to("+appendtmp+",'cn.nukkit.item.Item[]'));\n"
+  return text;
+};
+Blockly.Blocks['bi_shapestr'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": ' %1  %2  %3',
+      "args0": [
+	    {
+	      "type": "input_value",
+	      "name": "A",
+	      "check": "String"
+	    },
+		{
+		  "type": "input_value",
+		  "name": "B",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "C",
+		  "check": "String"
+		}
+      ],
+	  "output": "String",
+      "colour": 47,
+	  "inputsInline": true,
+      "tooltip": "形状(shapestr)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_shapestr'] = function(block) {
+  //String or array length.
+  var atmp = Blockly.JavaScript.valueToCode(block, 'A',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\' \'';
+  var btmp = Blockly.JavaScript.valueToCode(block, 'B',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\' \'';
+  var ctmp = Blockly.JavaScript.valueToCode(block, 'C',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\' \'';
+  var text= atmp+"+"+btmp+"+"+ctmp
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['bi_shapearray'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": ' %1  %2  %3',
+      "args0": [
+	    {
+	      "type": "input_value",
+	      "name": "A",
+	      "check": "String"
+	    },
+		{
+		  "type": "input_value",
+		  "name": "B",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "C",
+		  "check": "String"
+		}
+      ],
+	  "output": "Array",
+      "colour": 47,
+      "tooltip": "形状(shapearray)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_shapearray'] = function(block) {
+  //String or array length.
+  var atmp = Blockly.JavaScript.valueToCode(block, 'A',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var btmp = Blockly.JavaScript.valueToCode(block, 'B',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var ctmp = Blockly.JavaScript.valueToCode(block, 'C',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text= "["+atmp+","+btmp+","+ctmp+"]"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
