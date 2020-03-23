@@ -448,3 +448,77 @@ Blockly.JavaScript['bi_shapearray'] = function(block) {
   var text= "["+atmp+","+btmp+","+ctmp+"]"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['bi_addItemEnchant'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '向物品堆 %1 添加附魔 %2 等级 %3',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Item"
+		},
+		{
+		    "type": "field_dropdown",
+		    "name": "OP",
+		    "options": [
+			  ["保护","0"],
+			  ["火焰保护", "1"],
+		      ["跌落保护", "2"],
+		      ["爆炸保护", "3"],
+			  ["弹射物保护", "4"],
+			  ["荆棘", "5"],
+			  ["水下呼吸", "6"],
+			  ["深海探索者", "7"],
+			  ["水下挖掘", "8"],
+			  ["锋利", "9"],
+			  ["亡灵杀手", "10"],
+			  ["节肢杀手", "11"],
+			  ["击退", "12"],
+			  ["火焰附加", "13"],
+			  ["掠夺", "14"],
+			  ["效率", "15"],
+			  ["精准采集", "16"],
+			  ["耐久", "17"],
+			  ["时运", "18"],
+			  ["力量", "19"],
+			  ["冲击", "20"],
+			  ["火矢", "21"],
+			  ["无限", "22"],
+			  ["海之眷顾", "23"],
+			  ["饵钓", "24"],
+			  ["冰霜行者", "25"],
+			  ["经验修补", "26"],
+			  ["绑定诅咒", "27"],
+			  ["消失诅咒", "28"],
+			  ["穿刺", "29"],
+			  ["激流", "30"],
+			  ["忠诚", "31"],
+			  ["引雷", "32"]
+		    ]
+		},
+		{
+		  "type": "input_value",
+		  "name": "VALUE",
+		  "check": "Number"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 47,
+      "tooltip": "添加附魔(addItemEnchant)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_addItemEnchant'] = function(block) {
+  //String or array length.
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var valuetmp = Blockly.JavaScript.valueToCode(block, 'VALUE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var optmp = block.getFieldValue("OP");
+  var text="blockitem.addItemEnchant("+itemtmp+","+optmp+","+valuetmp+");\n"
+  return text;
+  }
