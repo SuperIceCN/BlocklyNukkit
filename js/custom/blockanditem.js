@@ -522,3 +522,49 @@ Blockly.JavaScript['bi_addItemEnchant'] = function(block) {
   var text="blockitem.addItemEnchant("+itemtmp+","+optmp+","+valuetmp+");\n"
   return text;
   }
+Blockly.Blocks['bi_isSame'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '比较物品是否相同 %1 于 %2 检测数据值 %3 检测nbt %4',
+      "args0": [
+	    {
+	      "type": "input_value",
+	      "name": "A",
+	      "check": "Item"
+	    },
+		{
+		  "type": "input_value",
+		  "name": "B",
+		  "check": "Item"
+		},
+		{
+		  "type": "input_value",
+		  "name": "DAMAGE",
+		  "check": "Boolean"
+		},
+		{
+		  "type": "input_value",
+		  "name": "NBT",
+		  "check": "Boolean"
+		}
+      ],
+	  "output": "Boolean",
+      "colour": 47,
+      "tooltip": "物品是否一样(isSame)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_isSame'] = function(block) {
+  //String or array length.
+  var atmp = Blockly.JavaScript.valueToCode(block, 'A',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var btmp = Blockly.JavaScript.valueToCode(block, 'B',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var damagetmp = Blockly.JavaScript.valueToCode(block, 'DAMAGE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var nbttmp = Blockly.JavaScript.valueToCode(block, 'NBT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text= "blockitem.isSame("+atmp+","+btmp+","+damagetmp+","+nbttmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
