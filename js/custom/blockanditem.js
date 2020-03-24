@@ -568,3 +568,36 @@ Blockly.JavaScript['bi_isSame'] = function(block) {
   var text= "blockitem.isSame("+atmp+","+btmp+","+damagetmp+","+nbttmp+")"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['bi_addFurnaceCraft'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '冶炼合成：原料(物品) %1 生成(物品) %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Item"
+		},
+		{
+		  "type": "input_value",
+		  "name": "VALUE",
+		  "check": "Item"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 47,
+      "tooltip": "添加冶炼合成(addFurnaceCraft)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_addFurnaceCraft'] = function(block) {
+  //String or array length.
+  var itemstmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var valuetmp = Blockly.JavaScript.valueToCode(block, 'VALUE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.addFurnaceCraft("+itemstmp+","+valuetmp+");\n"
+  return text;
+};
