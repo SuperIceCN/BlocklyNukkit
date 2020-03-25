@@ -601,3 +601,97 @@ Blockly.JavaScript['bi_addFurnaceCraft'] = function(block) {
   var text="blockitem.addFurnaceCraft("+itemstmp+","+valuetmp+");\n"
   return text;
 };
+Blockly.Blocks['bi_addBNCraft'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": 'BN合成：种类(字符串) %1 描述(字符串) %2 原料(物品列表) %3 生成(物品列表) %4 耗时(整数) %5 成功率(0~1) %6 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "TYPE",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "DESCRIPTION",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "INPUT",
+		  "check": "Array"
+		},
+		{
+		  "type": "input_value",
+		  "name": "OUTPUT",
+		  "check": "Array"
+		},
+		{
+		  "type": "input_value",
+		  "name": "DELAY",
+		  "check": "Number"
+		},
+		{
+		  "type": "input_value",
+		  "name": "PERCENT",
+		  "check": "Number"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 47,
+      "tooltip": "添加BN高级合成(addBNCraft)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_addBNCraft'] = function(block) {
+  //String or array length.
+  var typetmp = Blockly.JavaScript.valueToCode(block, 'TYPE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var descriptiontmp = Blockly.JavaScript.valueToCode(block, 'DESCRIPTION',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var inputtmp = Blockly.JavaScript.valueToCode(block, 'INPUT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var outputtmp = Blockly.JavaScript.valueToCode(block, 'OUTPUT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var delaytmp = Blockly.JavaScript.valueToCode(block, 'DELAY',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var percenttmp = Blockly.JavaScript.valueToCode(block, 'PERCENT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.addBNCraft("+typetmp+","+descriptiontmp+",Java.to("+inputtmp+",'cn.nukkit.item.Item[]'),Java.to("+outputtmp+",'cn.nukkit.item.Item[]'),"+delaytmp+","+percenttmp+");\n"
+  return text;
+};
+Blockly.Blocks['bi_BNCraftForPlayer'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '打开 %1 种类的bn合成给玩家 %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "TYPE",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 47,
+      "tooltip": "打开特定种类的BN合成(openBNCraftForPlayer)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_BNCraftForPlayer'] = function(block) {
+  //String or array length.
+  var typetmp = Blockly.JavaScript.valueToCode(block, 'TYPE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.openBNCraftForPlayer("+typetmp+","+playertmp+");\n"
+  return text;
+};
