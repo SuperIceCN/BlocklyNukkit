@@ -12,7 +12,6 @@
 		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
 		<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
 		<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-		
 		<script src="./js/custom/encodingcore.js"></script>		
 		<script src="./js/blockly_compressed.js"></script>
 		<script src="./js/blocks_compressed.js"></script>
@@ -527,8 +526,8 @@
 				  <div class="row">
 				    <div class="col"><button type="button" class="btn btn-outline-primary" id="downpre">下载前置</button></div>
 					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#importfile">导入项目</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary">预留按钮</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" id="newpj">新建项目</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://docs.qq.com/doc/DRkRpS0xmV2ZJbGdi')">打开教程</button></div>
 				  </div>
 		      </div>
 		      <div class="modal-footer">
@@ -815,7 +814,12 @@
 				$(document.body).append($eleForm);
 				$eleForm.submit();
 			});
-
+			var $newpj = $("#newpj");
+			$newpj.click(function(){
+					$("#jspreview").html("");
+					$(".blocklyBlockCanvas").empty();
+					workspace.clear()
+			});
 			function jsclouds(){
 				var jsname = $("#cloudsave").val()
 				if(jsname!=null&&jsname!=""&&jsname!="null"){
