@@ -120,6 +120,31 @@ Blockly.JavaScript['bi_block_getId'] = function(block) {
   var text=blocktmp+".getId()";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['bi_block_getDamage'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取方块 %1 的特殊值',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "BLOCK",
+		  "check": "Blocks"
+		}
+      ],
+	  "output": "Number",
+      "colour": 47,
+      "tooltip": "获取方块特殊值(getDamage)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_block_getDamage'] = function(block) {
+  //String or array length.
+  var blocktmp = Blockly.JavaScript.valueToCode(block, 'BLOCK',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=blocktmp+".getDamage()";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
 Blockly.Blocks['bi_setItem'] = {
   init: function() {
     this.jsonInit({
@@ -604,7 +629,7 @@ Blockly.JavaScript['bi_addFurnaceCraft'] = function(block) {
 Blockly.Blocks['bi_addBNCraft'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'BN合成：种类(字符串) %1 描述(字符串) %2 原料(物品列表) %3 生成(物品列表) %4 耗时(整数) %5 成功率(0~1) %6 ',
+      "message0": 'BN合成：种类(字符串) %1 描述(字符串) %2 原料(物品列表) %3 生成(物品列表) %4 耗时(整数/刻) %5 成功率(0~1) %6 ',
       "args0": [
 		{
 		  "type": "input_value",
