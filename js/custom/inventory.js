@@ -249,3 +249,30 @@ Blockly.JavaScript['inv_removeItemFromInv'] = function(block) {
   var text="inventory.removeItemFromInv("+invtmp+","+itemtmp+");\n"
   return text;
 };
+Blockly.Blocks['inv_getItemsInInv'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '物品栏 %1 的全部物品列表 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "INV",
+		  "check": "Inventory"
+		}
+      ],
+	  "output": "Array",
+      "colour": 290,
+      "tooltip": "物品列表(getItemsInInv)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['inv_getItemsInInv'] = function(block) {
+  //String or array length.
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var invtmp = Blockly.JavaScript.valueToCode(block, 'INV',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="inventory.getItemsInInv("+invtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
