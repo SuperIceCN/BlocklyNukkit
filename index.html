@@ -25,6 +25,7 @@
 		<script src="./js/custom/pos.js"></script>
 		<script src="./js/custom/window.js"></script>
 		<script src="./js/custom/blockanditem.js"></script>	
+		<script src="./js/custom/inventory.js"></script>
 		<script src="./js/SoftKey/vk_loader.js?vk_skin=flat_gray"></script>	
 		<script src="https://cdn.bootcss.com/prism/9000.0.1/prism.min.js"></script>
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css" rel="stylesheet">
@@ -396,6 +397,9 @@
 				  <block type="player_PlayerIsOP"></block>
 				  <block type="player_addItemToPlayer"></block>
 				  <block type="player_hasItemToPlayer"></block>
+				  <block type="player_removeItemToPlayer"></block>
+				  <block type="player_getPlayerInv"></block>
+				  <block type="player_setPlayerInv"></block>
 			  </category>
 			  <category name="事件" colour=10>
 				  <block type="event_setCancelled"></block>
@@ -414,6 +418,7 @@
 				  <block type="event_window_custom_getEventCustomVar"><field name="MODE">input</field></block>
 				  <block type="event_getblock"></block>
 				  <block type="event_getitem"></block>
+				  <block type="event_getSlot"></block>
 			  </category>
 			  <category name="位置" colour=133>
 				  <block type="pos_getlevelbyname"></block>
@@ -436,6 +441,8 @@
 				  <block type="pos_isDay"></block>
 				  <block type="pos_setLevelWeather"></block>
 				  <block type="pos_setBlock"></block>
+				  <block type="pos_getBlockInv"></block>
+				  <block type="pos_setBlockInv"></block>
 			  </category>
 			  <category name="窗口" colour=240>
 				  <block type="window_getSimpleWindowBuilder"></block>
@@ -485,7 +492,15 @@
 				  	<value name="INPUT"><shadow type="lists_create_with"><mutation items="1"></mutation></shadow></value>
 				  	<value name="OUTPUT"><shadow type="lists_create_with"><mutation items="1"></mutation></shadow></value>
 				  </block>
-				  
+			  </category>
+			  <category name="物品栏" colour=290>
+				<block type="inv_addInv"></block>
+				<block type="inv_showFakeInv"></block>
+				<block type="inv_editInv"></block>
+				<block type="inv_editInvBySlot"></block>
+				<block type="inv_containsItemInInv"></block>
+				<block type="inv_addItemToInv"></block>
+				<block type="inv_removeItemFromInv"></block>
 			  </category>
 		  </category>
 		  

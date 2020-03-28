@@ -439,3 +439,28 @@ Blockly.JavaScript['event_getitem'] = function(block) {
   var text=valtmp+".getItem()";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['event_getSlot'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取事件 %1 的操作槽位',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Event"
+		}
+      ],
+	  "output": "Number",
+      "colour": 10,
+      "tooltip": "获取事件的槽位(getAction.getSlot)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_getSlot'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getAction().getSlot()";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};

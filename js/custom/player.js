@@ -682,6 +682,40 @@ Blockly.JavaScript['player_addItemToPlayer'] = function(block) {
   var text="blockitem.addItemToPlayer("+playertmp+","+itemtmp+");\n"
   return text;
 };
+Blockly.Blocks['player_removeItemToPlayer'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '从玩家 %1 背包移除物品 %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Item"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": "背包移除物品(removeItemToPlayer)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_removeItemToPlayer'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.removeItemToPlayer("+playertmp+","+itemtmp+");\n"
+  return text;
+};
 Blockly.Blocks['player_hasItemToPlayer'] = {
   init: function() {
     this.jsonInit({
@@ -712,4 +746,63 @@ Blockly.JavaScript['player_hasItemToPlayer'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text="blockitem.hasItemToPlayer("+valtmp+","+itemtmp+")";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['player_getPlayerInv'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取玩家 %1 的物品栏',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		}
+      ],
+	  "output": "Inventory",
+      "colour": 180,
+      "tooltip": "获取玩家物品栏(getPlayerInv)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_getPlayerInv'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="inventory.getPlayerInv("+valtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['player_setPlayerInv'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置玩家 %1 物品栏为 %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "POS",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "INV",
+		  "check": "Inventory"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": "设置玩家物品栏(setPlayerInv)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_setPlayerInv'] = function(block) {
+  //String or array length.
+  var invtmp = Blockly.JavaScript.valueToCode(block, 'INV',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="inventory.setPlayerInv("+postmp+","+invtmp+");\n"
+  return text;
 };

@@ -615,3 +615,62 @@ Blockly.JavaScript['pos_setBlock'] = function(block) {
   var text="blockitem.setBlock("+postmp+","+leveltmp+","+partmp+");\n"
   return text;
 };
+Blockly.Blocks['pos_getBlockInv'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取位置 %1 方块的物品栏',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Position"
+		}
+      ],
+	  "output": "Inventory",
+      "colour": 133,
+      "tooltip": "获取方块物品栏(getBlockInv)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getBlockInv'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="inventory.getBlockInv("+valtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_setBlockInv'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置位置 %1 方块物品栏为 %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "POS",
+		  "check": "Position"
+		},
+		{
+		  "type": "input_value",
+		  "name": "INV",
+		  "check": "Inventory"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 133,
+      "tooltip": "设置方块物品栏(setBlockInv)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_setBlockInv'] = function(block) {
+  //String or array length.
+  var invtmp = Blockly.JavaScript.valueToCode(block, 'INV',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="inventory.setBlockInv("+postmp+","+invtmp+");\n"
+  return text;
+};

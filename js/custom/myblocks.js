@@ -525,7 +525,7 @@ Blockly.Blocks['nkputEasy'] = {
 		{
 		  "type": "input_value",
 		  "name": "CMD",
-		  "check": ["String","Number", "Boolean", "Position", "Player", "Item" ,"Block"]
+		  "check": ["String","Number", "Boolean", "Position", "Player", "Item" ,"Blocks"]
 		}
       ],
 	  "inputsInline": true,
@@ -570,7 +570,7 @@ Blockly.Blocks['nkgetEasy'] = {
 		    ]
 		}
       ],
-	  "output": ["String","Number", "Boolean", "Position", "Player", "Item" ,"Block"],
+	  "output": ["String","Number", "Boolean", "Position", "Player", "Item" ,"Blocks"],
       "colour": 20,
       "tooltip": "临时存储(getEasyString)",
       "helpUrl": "#"
