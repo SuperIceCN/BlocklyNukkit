@@ -590,7 +590,7 @@ Blockly.JavaScript['bi_isSame'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var nbttmp = Blockly.JavaScript.valueToCode(block, 'NBT',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text= "blockitem.isSame("+atmp+","+btmp+","+damagetmp+","+nbttmp+")"
+  var text= atmp+".equals("+btmp+","+damagetmp+","+nbttmp+")"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
 Blockly.Blocks['bi_addFurnaceCraft'] = {
