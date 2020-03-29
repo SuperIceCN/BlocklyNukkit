@@ -464,3 +464,28 @@ Blockly.JavaScript['event_getSlot'] = function(block) {
   var text=valtmp+".getAction().getSlot()";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['event_getInventory'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取事件 %1 的虚拟物品栏',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Event"
+		}
+      ],
+	  "output": "Inventory",
+      "colour": 10,
+      "tooltip": "获取事件的槽位(getAction.getInventory)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_getInventory'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getInventory()";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
