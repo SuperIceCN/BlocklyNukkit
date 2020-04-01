@@ -674,3 +674,75 @@ Blockly.JavaScript['pos_setBlockInv'] = function(block) {
   var text="inventory.setBlockInv("+postmp+","+invtmp+");\n"
   return text;
 };
+Blockly.Blocks['pos_loadlevel'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '强制加载名称为 %1 的世界',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "LEVEL",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 133,
+      "tooltip": "加载世界(loadLevel)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_loadlevel'] = function(block) {
+  //String or array length.
+  var leveltmp = Blockly.JavaScript.valueToCode(block, 'LEVEL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="world.loadLevel("+leveltmp+");\n"
+  return text;
+};
+Blockly.Blocks['pos_genLevel'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '生成种子 %1 世界名 %2 种类 %3 的世界',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "SEED",
+		  "check": "Number"
+		},
+		{
+		  "type": "input_value",
+		  "name": "LEVEL",
+		  "check": "String"
+		},
+		{
+		    "type": "field_dropdown",
+		    "name": "OP",
+		    "options": [
+			  ["无限世界","NORMAL"],
+			  ["超平坦", "FLAT"],
+		      ["虚空世界", "VOID"],
+		      ["下界世界", "NETHER"]
+		    ]
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 133,
+      "tooltip": "生成世界(genLevel)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_genLevel'] = function(block) {
+  //String or array length.
+  var leveltmp = Blockly.JavaScript.valueToCode(block, 'LEVEL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var seedtmp = Blockly.JavaScript.valueToCode(block, 'SEED',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var optmp = block.getFieldValue("OP");
+  var text="world.genLevel("+leveltmp+","+seedtmp+","+optmp+");\n"
+  return text;
+};

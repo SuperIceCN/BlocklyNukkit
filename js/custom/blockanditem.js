@@ -720,3 +720,32 @@ Blockly.JavaScript['bi_BNCraftForPlayer'] = function(block) {
   var text="blockitem.openBNCraftForPlayer("+typetmp+","+playertmp+");\n"
   return text;
 };
+Blockly.Blocks['bi_addToCreativeBar'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '设置物品堆 %1 到创造物品栏 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Item"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 47,
+      "tooltip": "设置物品堆lore(addToCreativeBar)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_addToCreativeBar'] = function(block) {
+  //String or array length.
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var valuetmp = Blockly.JavaScript.valueToCode(block, 'VALUE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.addToCreativeBar("+itemtmp+");\n"
+  return text;
+};
