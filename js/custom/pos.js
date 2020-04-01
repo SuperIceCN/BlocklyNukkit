@@ -743,6 +743,6 @@ Blockly.JavaScript['pos_genLevel'] = function(block) {
   var seedtmp = Blockly.JavaScript.valueToCode(block, 'SEED',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var optmp = block.getFieldValue("OP");
-  var text="world.genLevel("+leveltmp+","+seedtmp+","+optmp+");\n"
+  var text="world.genLevel("+leveltmp+","+seedtmp+",\""+optmp+"\");\n"
   return text;
 };
