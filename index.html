@@ -26,6 +26,7 @@
 		<script src="./js/custom/window.js"></script>
 		<script src="./js/custom/blockanditem.js"></script>	
 		<script src="./js/custom/inventory.js"></script>
+		<script src="./js/custom/utils.js"></script>
 		<script src="./js/SoftKey/vk_loader.js?vk_skin=flat_gray"></script>	
 		<script src="https://cdn.bootcss.com/prism/9000.0.1/prism.min.js"></script>
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css" rel="stylesheet">
@@ -508,6 +509,24 @@
 				<block type="inv_getItemsInInv"></block>
 			  </category>
 		  </category>
+		  <category name="拓展">
+			  <category name="实用工具" colour=97>
+				  <label text="请注意,此模块处于测试中"></label>
+				  <label text="我们不保证这些块一定正常工作"></label>
+				  <label text="如有问题,请随时联系我们"></label>
+				  <block type="utils_buildPositionfromPlayer"></block>
+				  <block type="utils_buildPositionfromBlock"></block>
+				  <block type="utils_buildPositionfromEntity"></block>
+				  <label text="数据库功能目前不稳定,慎用"></label>
+				  <block type="utils_database_databaseOpen"></block>
+				  <block type="utils_database_databaseUpdate"></block>
+				  <block type="utils_database_databaseQuery"></block>
+			  </category>
+			  <category name="起床战争" colour=35>
+				  <label text="Sorry,GameSDK for Bedwars"></label>
+				  <label text="is not avilable now."></label>
+			  </category>
+		  </category>
 		  
 		</xml>
 		<div style="width:98vw;height:98vh;display:inline-block;" id="blocklyArea">
@@ -521,7 +540,7 @@
 				
 				<div class="alert alert-success alert-dismissible fade show" style="z-index: 1;">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>BlocklyNukkit.jar最新版是1.1.8(4/1更新)</strong>
+					<strong>BlocklyNukkit.jar最新版是1.1.9(4/6更新)</strong>
 				</div>
 				<div style="width: 100%; position: absolute; top: 5.519vw ; left: 0 ; bottom: 0;">
 					<pre style="width: 19.9vw;height: 98vh-5.519vw;height: 100%;font-weight: bold;"><code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"></code></pre>	
