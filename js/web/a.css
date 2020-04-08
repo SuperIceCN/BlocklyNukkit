@@ -1,0 +1,361 @@
+				.main .slogan,
+				.sp {
+					cursor: pointer
+				}
+				
+				body {
+					font-size: 12px;
+					font-family: microsoft yahei, Arial;
+					background: #181818;
+					overflow-x: hidden;
+					height:100##
+				}
+				
+				blockquote,
+				body,
+				dd,
+				div,
+				dl,
+				dt,
+				fieldset,
+				form,
+				h1,
+				h2,
+				h3,
+				h4,
+				h5,
+				h6,
+				input,
+				li,
+				ol,
+				p,
+				pre,
+				td,
+				textarea,
+				th,
+				ul {
+					padding: 0;
+					margin: 0
+				}
+				
+				abbr,
+				acronym,
+				img {
+					border: 0
+				}
+				
+				address,
+				caption,
+				cite,
+				code,
+				dfn,
+				em,
+				th,
+				var {
+					font-weight: 400;
+					font-style: normal
+				}
+				
+				ol,
+				ul {
+					list-style: none
+				}
+				
+				button,
+				input,
+				optgroup,
+				option,
+				select,
+				textarea {
+					font-family: inherit;
+					font-size: inherit;
+					font-style: inherit;
+					font-weight: inherit;
+					outline: 0
+				}
+				
+				table {
+					border-collapse: collapse;
+					border-spacing: 0
+				}
+				
+				textarea {
+					resize: none
+				}
+				
+				a:hover,
+				a:link,
+				a:visited {
+					text-decoration: none
+				}
+				
+				a:focus {
+					outline: 0
+				}
+				
+				
+				html {
+					*overflow-x: hidden
+				}
+				
+				.clearfix,
+				.floatG {
+					*zoom: 1
+				}
+				
+				.clearfix:after,
+				.floatG:after {
+					content: ".";
+					display: block;
+					height: 0;
+					clear: both;
+					visibility: hidden
+				}
+				
+				.bgbody,
+				.bgr {
+					height: 100##;
+					width: 100##;
+					
+
+				}
+				
+				.clearb {
+					clear: both
+				}
+				
+				.alignC {
+					text-align: center
+				}
+				
+				.alignR {
+					text-align: right
+				}
+				
+				.box_r2,
+				.mbtn {
+					text-align: center
+				}
+				
+				.floatG li,
+				.floatL {
+					float: left;
+					_display: inline
+				}
+				
+				.floatR {
+					float: right;
+					_display: inline
+				}
+				
+				.pa {
+					position: absolute
+				}
+				
+				.bgbody,
+				.btn1,
+				.main,
+				.sharebox {
+					position: relative
+				}
+				
+				.bgbody {
+					padding-top: 1px
+				}
+				
+				.bgr {
+					z-index: 2;
+					top: 0;
+					left: 0;
+					background: url("https://s1.ax1x.com/2020/04/08/GW8KWd.png")
+				}
+				
+				.dropdown-content span:hover {
+					color: #ff0
+				}
+				
+				.dropdown-content span {
+					color: #fff;
+					display:block;
+					cursor: pointer;
+				}
+				.dropdown {
+	  position: relative;
+	  display: inline-block;
+	}
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: rgba(0,0,0,0.5);
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  padding: 12px 16px;
+	  font-size:15px;
+	  top:20px
+	}
+	.dropdown:hover .dropdown-content {
+	  display: block;
+	}
+				
+				.sp {
+					background: url("https://s1.ax1x.com/2020/04/08/GWGFhQ.png") no-repeat
+				}
+				
+				.ico_dl {
+					background-position: -40px 0
+				}
+				
+				.ico_box {
+					margin: 10px auto 2px;
+					width: 38px;
+					height: 43px;
+					background-position: -200px 0
+				}
+				
+				
+				.btn1,
+				.mbtn span {
+					display: block
+				}
+				
+				
+				.main {
+					z-index: 9;
+					margin: 125px auto 0;
+					width: 668px
+				}
+				
+				.main .inner {
+					margin: 0 auto;
+					width: 302px
+				}
+				
+				.mbtn {
+					color: #fff
+				}
+				
+				.btn1 {
+					margin-bottom: 13px;
+					height: 52px;
+					line-height: 52px;
+					border: 4px solid #fff;
+					font-size: 24px
+				}
+				
+				.btn1 i {
+					top: -10px;
+					right: -10px;
+					background: #fff;
+					width: 6px;
+					height: 6px
+				}
+				
+				.btn2,
+				.btn3 {
+					height: 79px
+				}
+				
+				.btn1:hover,
+				.btn1:hover i {
+					border-color: #e4ebf6;
+					color: #e4ebf6;
+					box-shadow: 0 0 10px #000;
+					text-shadow: 0 0 10px #000
+				}
+				
+				.btn2 {
+					width: 216px;
+					background: #7195ff
+				}
+				
+				.btn2 .cn {
+					font-size: 30px;
+					font-weight: 700;
+					padding: 12px 0 2px
+				}
+				
+				.btn2 .en {
+					font-size: 12px;
+					font-family: fk
+				}
+				
+				.btn2:hover {
+					background: #a1aaff
+				}
+				
+				.btn3 {
+					width: 77px;
+					background: #ffb400
+				}
+				
+				.btn3:hover {
+					background: #ff9c00
+				}
+				
+				.box_r {
+					height: 0;
+					overflow: hidden
+				}
+				
+				.box_r2 {
+					font-size: 16px;
+					color: #fff;
+					line-height: 34px;
+					display: none
+				}
+				
+				.box_r1,
+				.box_r2 {
+					padding: 20px 0;
+					border: 1px solid #706b89;
+					background: url("https://s1.ax1x.com/2020/04/08/GWJ6G4.png")
+				}
+				
+				.bgv {
+					top: 0;
+					left: 50##;
+					margin-left: -960px;
+					width: 100##;
+					height: 100##;
+				}
+				
+				@media screen and (min-width:600px) {
+					body {
+						width: 100##
+					}
+				}
+				.pub_footer {
+					background: #181818;
+					clear: both;
+					font-size: 12px;
+					padding: 25px 0;
+					width: 100##;
+					height: 20##;
+				}
+				.pub_footerin {
+					margin: 0 auto;
+					width: 100##
+				}
+				
+				
+				.footertxt {
+					color: #4e9cea;
+					float: left;
+					line-height: 21px;
+					padding: 0 0 0 20px;
+					width: 705px
+				}
+				
+				.pub_footer .gap {
+					padding-left: 5px
+				}
+				
+				.pub_footer .footertxt a {
+					display: inline-block;
+					margin: 0 5px
+				}
+				
+				.pub_footer .footertxt a,
+				.pub_footer .footertxt a:hover {
+					color: #4e9cea;
+				}
