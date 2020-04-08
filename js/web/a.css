@@ -8,7 +8,7 @@
 					font-family: microsoft yahei, Arial;
 					background: #181818;
 					overflow-x: hidden;
-					height:100##
+					height:100%
 				}
 				
 				blockquote,
@@ -321,7 +321,7 @@
 				
 				@media screen and (min-width:600px) {
 					body {
-						width: 100##
+						width: 100%
 					}
 				}
 				.pub_footer {
@@ -334,7 +334,7 @@
 				}
 				.pub_footerin {
 					margin: 0 auto;
-					width: 100##
+					width: 100%
 				}
 				
 				
