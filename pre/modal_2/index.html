@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>%servername%</title>
+		<style type="text/css">
+			.head_channel {
+				height: 100vh;
+				width: 100vw;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.head_channel .blur_bj {
+				position: absolute;
+				height: 100##;
+				width: 100##;
+				top: 0;
+				z-index: -1;
+				-webkit-filter: blur(5px);
+				filter: blur(15px);
+				transform: scale(1.2);
+			}
+
+			.head_channel .blur_bj img {
+				width: 100##;
+				height: 120##;
+			}
+
+			.head_channel .blur_bj_gray {
+				position: absolute;
+				height: 100##;
+				width: 100##;
+				top: 0;
+				background: rgba(0, 0, 0, .2);
+				z-index: -1;
+				opacity: 0.5;
+			}
+			
+			.box2{
+			position: absolute;
+			left: 50##;
+			top: 25##;
+			/* 设置元素的相对于自身的偏移度为负50%(也就是元素自身尺寸的一半)*/
+			transform: translate(-50##, -50##);
+			text-align: center;
+			font-size: 50px;
+			color: white;
+			}
+			.box_subtitle{
+			position: absolute;
+			left: 50##;
+			top: 35##;
+			/* 设置元素的相对于自身的偏移度为负50%(也就是元素自身尺寸的一半)*/
+			transform: translate(-50##, -50##);
+			text-align: center;
+			font-size: 20px;
+			font-style: initial;
+			color: skyblue;
+			}
+			.box_normal{
+			text-align: center;
+			font-size: 16px;
+			font-style: initial;
+			color: black;
+			}
+			.box_form{
+			position: absolute;
+			left: 50##;
+			top: 60##;
+			/* 设置元素的相对于自身的偏移度为负50%(也就是元素自身尺寸的一半)*/
+			transform: translate(-50##, -50##);
+			}
+			.box_btm{
+			position: absolute;
+			left: 50##;
+			top: 85##;
+			/* 设置元素的相对于自身的偏移度为负50%(也就是元素自身尺寸的一半)*/
+			transform: translate(-50##, -50##);
+			text-align: center;
+			font-size: 20px;
+			font-style: initial;
+			color: skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="head_channel">
+			<div class="head_box">
+				<h1 class="box2">%servername%</h1>
+				<h2 class="box_subtitle">%subtitle%</h2>
+				<div class="box_form">
+					<p class="box_normal">服务器ip</p>
+					<p class="box_normal">%serverip%</p>
+					<p class="box_normal">在线人数:%server_online%/%server_max_players%</p>
+					<p class="box_normal">服务器tps:%server_tps%tps/秒</p>
+					<p class="box_normal">内存使用: %server_ram_used%/%server_ram_max% MB</p>
+				</div>
+				<h2 class="box_btm">北京时间 %time% ,blocklynukkit强力驱动</h2>
+			</div>
+			<div class="blur_bj">
+				<img src="https://s1.ax1x.com/2020/04/07/G2iPoD.jpg" alt="Alternate Text">
+			</div>
+			<div class="blur_bj_gray"></div>
+		</div>
+	</body>
+</html>
