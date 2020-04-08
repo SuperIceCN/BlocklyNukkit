@@ -156,7 +156,7 @@ Blockly.JavaScript['utils_database_databaseUpdate'] = function(block) {
   var text="database.databaseUpdate("+stttmp+",Java.to("+objstmp+",'java.lang.Object[]'));\n"
   return text;
 };
-Blockly.Blocks['utils_database_databaseQuery'] = {
+Blockly.Blocks['utils_database_databaseQuery'] = { 
   init: function() {
     this.jsonInit({
       "message0": '查询数据库 sql语句: %1 列: %2 参数列表: %3',
@@ -195,4 +195,38 @@ Blockly.JavaScript['utils_database_databaseQuery'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text="database.databaseQuery("+valtmp+","+coltmp+",Java.to("+objstmp+",'java.lang.Object[]'))";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['utils_setHTMLPlaceholder'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '自定义网页placeholder：名称 %1 替换 %2',
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": "String"
+        },
+		{
+		  "type": "input_value",
+		  "name": "CMD",
+		  "check": "String"
+		}
+      ],
+	  "inputsInline": true,
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 97,
+      "tooltip": "设置html的自定义placeholder(setHTMLPlaceholder)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['utils_setHTMLPlaceholder'] = function(block) {
+  //String or array length.
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'VALUE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var argument1 = Blockly.JavaScript.valueToCode(block, 'CMD',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text='manager.setHTMLPlaceholder('+argument0+","+argument1+");\n"
+  return text;
 };

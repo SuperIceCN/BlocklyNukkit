@@ -27,6 +27,7 @@
 		<script src="./js/custom/blockanditem.js"></script>	
 		<script src="./js/custom/inventory.js"></script>
 		<script src="./js/custom/utils.js"></script>
+		<script src="./js/custom/entity.js"></script>
 		<script src="./js/SoftKey/vk_loader.js?vk_skin=flat_gray"></script>	
 		<script src="https://cdn.bootcss.com/prism/9000.0.1/prism.min.js"></script>
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css" rel="stylesheet">
@@ -431,6 +432,7 @@
 				  <block type="pos_getlevel"></block>
 				  <block type="pos_setlevel"></block>
 				  <block type="pos_setxyz"></block>
+				  <block type="pos_getlevelname"></block>
 				  <block type="pos_getsafespawn"></block>
 				  <block type="pos_setspawnlocation"></block>
 				  <block type="pos_makeSound"></block>
@@ -447,6 +449,8 @@
 				  <block type="pos_setBlockInv"></block>
 				  <block type="pos_genLevel"></block>
 				  <block type="pos_loadlevel"></block>
+				  <block type="pos_getDropItems"></block>
+				  <block type="pos_getEntities"></block>
 			  </category>
 			  <category name="窗口" colour=240>
 				  <block type="window_getSimpleWindowBuilder"></block>
@@ -496,7 +500,7 @@
 				  	<value name="INPUT"><shadow type="lists_create_with"><mutation items="1"></mutation></shadow></value>
 				  	<value name="OUTPUT"><shadow type="lists_create_with"><mutation items="1"></mutation></shadow></value>
 				  </block>
-				  <block type="bi_addToCreativeBar"></block>
+				  <block type="bi_addToCreativeBar"></block> 
 			  </category>
 			  <category name="物品栏" colour=290>
 				<block type="inv_addInv"></block>
@@ -507,6 +511,14 @@
 				<block type="inv_addItemToInv"></block>
 				<block type="inv_removeItemFromInv"></block>
 				<block type="inv_getItemsInInv"></block>
+			  </category>
+			  <category name="生物" colour=248>
+				<block type="entity_getDropItemStack"></block>
+				<block type="entity_removeEntity"></block>
+				<block type="entity_setEntityName"></block>
+				<block type="entity_setEntityNameTagAlwaysVisable"></block>
+				<block type="entity_setEntityHealth"></block>
+				<block type="entity_getEntityHealth"></block>
 			  </category>
 		  </category>
 		  <category name="拓展">
@@ -521,6 +533,8 @@
 				  <block type="utils_database_databaseOpen"></block>
 				  <block type="utils_database_databaseUpdate"></block>
 				  <block type="utils_database_databaseQuery"></block>
+				  <label text="设置自定义服务器网站placeholder"></label>
+				  <block type="utils_setHTMLPlaceholder"></block>
 			  </category>
 			  <category name="起床战争" colour=35>
 				  <label text="Sorry,GameSDK for Bedwars"></label>
@@ -540,7 +554,7 @@
 				
 				<div class="alert alert-success alert-dismissible fade show" style="z-index: 1;">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>BlocklyNukkit.jar最新版是1.1.9(4/6更新)</strong>
+					<strong>BlocklyNukkit.jar最新版是1.1.9(4/8更新)</strong>
 				</div>
 				<div style="width: 100%; position: absolute; top: 5.519vw ; left: 0 ; bottom: 0;">
 					<pre style="width: 19.9vw;height: 98vh-5.519vw;height: 100%;font-weight: bold;"><code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"></code></pre>	

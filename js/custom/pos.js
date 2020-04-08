@@ -746,3 +746,78 @@ Blockly.JavaScript['pos_genLevel'] = function(block) {
   var text="world.genLevel("+leveltmp+","+seedtmp+",\""+optmp+"\");\n"
   return text;
 };
+Blockly.Blocks['pos_getlevelname'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取 %1 世界的名称',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Level"
+		}
+      ],
+	  "output": "String",
+      "colour": 133,
+      "tooltip": "获取世界的名称(getLevelName)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getlevelname'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.getLevelName("+valtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_getDropItems'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取 %1 世界的掉落物列表',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Level"
+		}
+      ],
+	  "output": "Array",
+      "colour": 133,
+      "tooltip": "获取世界的掉落物列表(getDropItems)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getDropItems'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.getDropItems("+valtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_getEntities'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取 %1 世界的生物列表',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Level"
+		}
+      ],
+	  "output": "Array",
+      "colour": 133,
+      "tooltip": "获取世界的生物列表(getEntities)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getEntities'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.getEntities("+valtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
