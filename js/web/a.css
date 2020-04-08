@@ -114,8 +114,8 @@
 				
 				.bgbody,
 				.bgr {
-					height: 100##;
-					width: 100##;
+					height: 100%;
+					width: 100%;
 					
 
 				}
@@ -313,10 +313,10 @@
 				
 				.bgv {
 					top: 0;
-					left: 50##;
+					left: 50%;
 					margin-left: -960px;
-					width: 100##;
-					height: 100##;
+					width: 100%;
+					height: 100%;
 				}
 				
 				@media screen and (min-width:600px) {
@@ -329,8 +329,8 @@
 					clear: both;
 					font-size: 12px;
 					padding: 25px 0;
-					width: 100##;
-					height: 20##;
+					width: 100%;
+					height: 20%;
 				}
 				.pub_footerin {
 					margin: 0 auto;
