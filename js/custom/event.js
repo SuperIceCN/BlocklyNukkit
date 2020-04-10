@@ -489,3 +489,28 @@ Blockly.JavaScript['event_getInventory'] = function(block) {
   var text=valtmp+".getInventory()";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['event_getradio'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取事件 %1 的红石音乐电台',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Event"
+		}
+      ],
+	  "output": "Radio",
+      "colour": 10,
+      "tooltip": "获取事件的红石音乐电台(getSongPlayer)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_getradio'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getSongPlayer()";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};

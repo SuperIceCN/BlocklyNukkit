@@ -230,3 +230,53 @@ Blockly.JavaScript['utils_setHTMLPlaceholder'] = function(block) {
   var text='manager.setHTMLPlaceholder('+argument0+","+argument1+");\n"
   return text;
 };
+Blockly.Blocks['utils_checkIsBear'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '检测玩家 %1 是否是熊孩子(基于BlackBE云黑)',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		}
+      ],
+	  "output": "Boolean",
+      "colour": 97,
+      "tooltip": "检测玩家是否是熊孩子(基于BlackBE云黑)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['utils_checkIsBear'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager.checkIsBear("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['utils_getPlayerArea'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取玩家 %1 的地理位置(基于IP逆向侦察)',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		}
+      ],
+	  "output": "String",
+      "colour": 97,
+      "tooltip": "获取玩家 %1 的地理位置(基于IP逆向侦察)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['utils_getPlayerArea'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager.getPlayerArea("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};

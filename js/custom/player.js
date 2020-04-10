@@ -806,3 +806,37 @@ Blockly.JavaScript['player_setPlayerInv'] = function(block) {
   var text="inventory.setPlayerInv("+postmp+","+invtmp+");\n"
   return text;
 };
+Blockly.Blocks['player_kickPlayer'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '踢了玩家 %1 发送原因 %2 ',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "MESSAGE",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": "T了玩家(kickPlayer)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_kickPlayer'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var mes = Blockly.JavaScript.valueToCode(block, 'MESSAGE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager.kickPlayer("+playertmp+","+mes+");\n"
+  return text;
+};
