@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>BlocklyNukkit JS编辑器</title>
+		<!-- 新 Bootstrap4 核心 CSS 文件 --> 
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+		<!-- jQuery文件 -->
+		<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+		<!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+		<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="https://cdn.bootcss.com/ace/1.4.6/ace.js"></script>
+		<script src="https://cdn.bootcss.com/ace/1.4.6/ext-beautify.js"></script>
+		<script src="https://cdn.bootcss.com/ace/1.4.6/ext-language_tools.js"></script>
+		<script src="https://cdn.bootcss.com/ace/1.4.6/mode-javascript.js"></script>
+		<script src="https://cdn.bootcss.com/ace/1.4.6/theme-monokai.js"></script>
+	</head>
+	<body style="background-color: #272822;">
+		<div style="position:absolute;left: 0px;top:98vh;">
+			<button type="button" class="btn btn-outline-primary" id="search" onclick="press_Ctrl_F()" style="position:relative;left: 0px;top:-40px;z-index: 999;">Search</button>
+		</div>
+		<pre id="code" class="ace_editor" style="width: 97vw;height: 98vh;position:absolute;left: 0px;top:0px;"><textarea class="ace_text-input"></textarea></pre>
+
+		<script>
+			//初始化对象
+			editor = ace.edit("code");
+
+			//设置风格和语言（更多风格和语言，请到github上相应目录查看）
+			theme = "monokai"
+			language = "javascript"
+			editor.setTheme("ace/theme/" + theme);
+			editor.session.setMode("ace/mode/" + language);
+
+			//字体大小
+			editor.setFontSize(18);
+
+			//设置只读（true时只读，用于展示代码）
+			editor.setReadOnly(false);
+
+			//自动换行,设置为off关闭
+			editor.setOption("wrap", "free")
+
+			//启用提示菜单
+			ace.require("ace/ext/language_tools");
+			editor.setOptions({
+				enableBasicAutocompletion: true,
+				enableSnippets: true,
+				enableLiveAutocompletion: true
+			});
+			//设置自动补全
+			var setCompleteData = function(data) {
+			    var langTools = ace.require("ace/ext/language_tools");
+			    langTools.addCompleter({
+			        getCompletions: function(editor, session, pos, prefix, callback) {
+			            if (prefix.length === 0) {
+			                return callback(null, []);
+			            } else {
+			                return callback(null, data);
+			            }
+			        }
+			    });
+			}
+			//
+			setCompleteData(
+				[
+					{meta: "BN_foundation", caption: "logger", value: "logger", score:1},
+					{meta: "BN_foundation", caption: "server", value: "server", score:1},
+					{meta: "BN_foundation", caption: "plugin", value: "plugin", score:1},
+					{meta: "BN_foundation", caption: "manager", value: "manager", score:1},
+					{meta: "BN_foundation", caption: "window", value: "window", score:1},
+					{meta: "BN_foundation", caption: "blockitem", value: "blockitem", score:1},
+					{meta: "BN_foundation", caption: "algorithm", value: "algorithm", score:1},
+					{meta: "BN_foundation", caption: "inventory", value: "inventory", score:1},
+					{meta: "BN_foundation", caption: "world", value: "world", score:1},
+					{meta: "BN_foundation", caption: "entity", value: "entity", score:1},
+					{meta: "BN_foundation", caption: "database", value: "database", score:1},
+					{meta: "BN_foundation", caption: "notemusic", value: "notemusic", score:1}
+				]
+			);
+		</script>
+		<script>
+			function press_Ctrl_F(){
+				editor.execCommand('find');
+			}
+			
+		</script>
+	</body>
+</html>
