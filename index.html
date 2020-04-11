@@ -28,6 +28,7 @@
 		<script src="./js/custom/inventory.js"></script>
 		<script src="./js/custom/utils.js"></script>
 		<script src="./js/custom/entity.js"></script>
+		<script src="./js/custom/notemusic.js"></script>
 		<script src="./js/SoftKey/vk_loader.js?vk_skin=flat_gray"></script>	
 		<script src="https://cdn.bootcss.com/prism/9000.0.1/prism.min.js"></script>
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css" rel="stylesheet">
@@ -545,6 +546,16 @@
 				  <label text="Sorry,GameSDK for Bedwars"></label>
 				  <label text="is not avilable now."></label>
 			  </category>
+			  <category name="红石音乐" colour=168>
+				  <label text="功能测试中,可能不稳定"></label>
+				  <block type="notemusic_getSongFromFile"></block>
+				  <block type="notemusic_getSongInfo"></block>
+				  <block type="notemusic_buildRadio"></block>
+				  <block type="notemusic_makePlayerToRadio"></block>
+				  <block type="notemusic_getPlayerInRadio"></block>
+				  <block type="notemusic_setRadioStatus"></block>
+				  <block type="notemusic_getSongInRadio"></block>
+			  </category>
 		  </category>
 		  
 		</xml>
@@ -559,8 +570,9 @@
 				
 				<div class="alert alert-success alert-dismissible fade show" style="z-index: 1;">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>BlocklyNukkit.jar最新版是1.1.9(4/8更新)</strong>
+					<strong>BlocklyNukkit.jar最新版是1.2.0(4/11更新)</strong>
 				</div>
+				
 				<div style="width: 100%; position: absolute; top: 5.519vw ; left: 0 ; bottom: 0;">
 					<pre style="width: 19.9vw;height: 98vh-5.519vw;height: 100%;font-weight: bold;"><code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"></code></pre>	
 				</div>
