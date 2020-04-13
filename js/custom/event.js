@@ -384,8 +384,7 @@ Blockly.JavaScript['event_window_custom_getEventCustomVar'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var idtmp = Blockly.JavaScript.valueToCode(block, 'ID',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var modetmp = Blockly.JavaScript.valueToCode(block, 'MODE',
-      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var modetmp = block.getFieldValue("MODE");
   var text="window.getEventCustomVar("+valtmp+","+idtmp+","+modetmp+")";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
