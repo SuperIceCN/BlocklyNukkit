@@ -199,7 +199,7 @@ Blockly.Blocks['window_getCustomWindowBuilder'] = {
     });
   }
 };
-Blockly.JavaScript['window_getModalWindowBuilder'] = function(block) {
+Blockly.JavaScript['window_getCustomWindowBuilder'] = function(block) {
   var titletmp = Blockly.JavaScript.valueToCode(block, 'TITLE',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text='window.getCustomWindowBuilder('+titletmp+')';
