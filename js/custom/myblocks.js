@@ -665,3 +665,37 @@ Blockly.JavaScript['bn_forLinkedBlock'] = function(block) {
   var text="algorithm.forLinkedBlock("+pos1+","+callback+");\n"
   return text;
 };
+Blockly.Blocks['nkevent_privatecall'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '将公有事件 %1 映射到私有事件 %2',
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": "String"
+        },
+		{
+		  "type": "input_value",
+		  "name": "OUT",
+		  "check": "String"
+		}
+      ],
+	  "inputsInline": true,
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 20,
+      "tooltip": "映射私有事件",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['nkevent_privatecall'] = function(block) {
+  //String or array length.
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'VALUE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var argument1 = Blockly.JavaScript.valueToCode(block, 'OUT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager.setPrivateCall("+argument0+","+argument1+");\n"
+  return text;
+};
