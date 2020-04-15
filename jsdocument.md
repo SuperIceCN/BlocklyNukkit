@@ -250,3 +250,264 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |红石音乐电台被摧毁|SongDestroyingEvent|
 |红石音乐电台歌曲播放结束|SongEndEvent|
 |红石音乐电台暂停|SongStoppedEvent|
+
+## 常用java类/对象的成员函数
+注:这部分由于不属于bn类库范畴,所以不会加说明,应该看参数和函数名能看懂,不懂的看图形编辑器生成的代码或者直接qq联系开发组或者issue,谢谢  
+注:这部分的java对象不加-J了,因为太多  
+注:xxx[]代表xxx类型的数组,需要使用Java基对象的方法转换  
+注:bn解释器会自动执行部分类型转换,比如js的数字转为java的整形int,浮点型float,双精度型double,Player转为CommandSender等等,如果不能自动转会报错  
+注:标注static的函数是直接从类调用而不是对象,未标注static是从对象调用的  
+注:类/对象 继承自某包意味着这个类/对象能够使用被继承的包里面可以用的方法/函数  
+### windowbuilder三件套
+1.Custom
+- void setTitle(String title)
+- void showToPlayer(Player-J p, String callback)
+- void buildLabel(String text)
+- void buildInput(String title,String placeholder)
+- void buildToggle(String title)
+- void buildDropdown(String title,String inner)
+2.Modal-J
+- void setTitle(String title)
+- void setContext(String context)
+- void setButton1(String text)
+- void setButton2(String text)
+- void showToPlayer(Player-J p, String callback)
+3.Simple-J
+- void setTitle(String title)
+- void setContext(String context)
+- void buildButton(String text,String img)
+- void showToPlayer(Player-J p,String callback)
+
+### logger常用招式
+- void info(String s)
+- void warning(String s)
+
+### server常用招式
+#### cn.nukkit.Server
+|返回值类型|函数名|
+|-|-|
+|void|addOp(String name)|
+|void|addPlayer(String identifier, Player player)|
+|void|addRecipe(Recipe recipe)|
+|void|addWhitelist(String name)|
+|void|batchPackets(Player[] players, DataPacket[] packets)|
+|void|batchPackets(Player[] players, DataPacket[] packets, boolean forceSync)|
+|int|broadcast(String message, String permissions)|
+|int|broadcastMessage(String message)|
+|static void|broadcastPacket(Collection<Player> players, DataPacket packet)|
+|static void|broadcastPacket(Player[] players, DataPacket packet)|
+|void|broadcastPacketsCallback(byte[] data, List<String> identifiers)|
+|void|disablePlugins()|
+|boolean|dispatchCommand(CommandSender sender, String commandLine)|
+|void|doAutoSave()|
+|void|forceShutdown()|
+|String|getApiVersion()|
+|boolean|getAutoSave()|
+|ConsoleCommandSender|getConsoleSender()|
+|String|getDataPath()|
+|int|getDefaultGamemode()|
+|Level|getDefaultLevel()|
+|int|getDifficulty()|
+|static int|getDifficultyFromString(String str)|
+|String|getFilePath()|
+|boolean|getForceGamemode()|
+|int|getGamemode()|
+|static int|getGamemodeFromString(String str)|
+|static String|getGamemodeString(int mode)|
+|static String|getGamemodeString(int mode, boolean direct)|
+|boolean|getGenerateStructures()|
+|static Server|getInstance()|
+|Level|getLevel(int levelId)|
+|Level|getLevelByName(String name)|
+|Map<Integer,Level>|getLevels()|
+|int|getMaxPlayers()|
+|String|getMotd()|
+|String|getName()|
+|BanList|getNameBans()|
+|Map<UUID,Player>|getOnlinePlayers()|
+|Player|getPlayer(String name)|
+|PluginManager|getPluginManager()|
+|String|getPluginPath()|
+|int|getPort()|
+|ServerScheduler|getScheduler()|
+|UUID|getServerUniqueId()|
+|ServiceManager|getServiceManager()|
+|int|getSpawnRadius()|
+|String|getSubMotd()|
+|int|getTick()|
+|float|getTicksPerSecond()|
+|float|getTicksPerSecondAverage()|
+|float|getTickUsage()|
+|float|getTickUsageAverage()|
+|String|getVersion()|
+|int|getViewDistance()|
+|Config|getWhitelist()|
+|boolean|hasWhitelist()|
+|boolean|isLevelGenerated(String name)|
+|boolean|isLevelLoaded(String name)|
+|boolean|isNetherAllowed()|
+|boolean|isOp(String name)|
+|boolean|isWhitelisted(String name)|
+|boolean|loadLevel(String name)|
+|void|reload()|
+|void|reloadWhitelist()|
+|void|removeOnlinePlayer(Player player)|
+|void|removeOp(String name)|
+|void|removeWhitelist(String name)|
+|void|sendRecipeList(Player player)|
+|void|setAutoSave(boolean autoSave)|
+|void|setDefaultLevel(Level defaultLevel)|
+|void|setMaxPlayers(int maxPlayers)|
+|boolean|shouldSavePlayerData()|
+|void|shutdown()|
+|void|start()|
+|void|tickProcessor()|
+|void|titleTick()|
+|boolean|unloadLevel(Level level)|
+
+### Player常用函数
+#### cn.nukkit.Player
+继承自 cn.nukkit.math.Vector3  
+继承自 cn.nukkit.level.Position  
+继承自 cn.nukkit.level.Location  
+继承自 cn.nukkit.entity.Entity  
+继承自 cn.nukkit.entity.EntityLiving  
+继承自 cn.nukkit.entity.EntityCreature  
+继承自 cn.nukkit.entity.EntityHumanType  
+继承自 cn.nukkit.entity.EntityHuman  
+
+|返回值类型|函数名|
+|-|-|
+|void|addExperience(int add)|
+|void|addMovement(double x, double y, double z, double yaw, double pitch, double headYaw)|
+|int|addWindow(Inventory inventory)|
+|int|addWindow(Inventory inventory, Integer forceId)|
+|boolean|attack(EntityDamageEvent source)|
+|boolean|batchDataPacket(DataPacket packet)|
+|boolean|canCollideWith(Entity entity)|
+|boolean|canInteract(Vector3 pos, double maxDistance)|
+|boolean|canSee(Player player)|
+|boolean|chat(String message) //Sends a chat message as this player.|
+|void|clearTitle()|
+|void|close(String message)|
+|void|close(String message, String reason)//The same as kick.|
+|boolean|dataPacket(DataPacket packet)|
+|int|dataPacket(DataPacket packet, boolean needACK)|
+|boolean|directDataPacket(DataPacket packet)|
+|int|directDataPacket(DataPacket packet, boolean needACK)|
+|boolean|dropItem(Item item)//Drops an item on the ground in front of the player.|
+|String|getAddress()|
+|AdventureSettings|getAdventureSettings()|
+|boolean|getAllowFlight()|
+|PlayerCursorInventory|getCursorInventory()|
+|String|getDisplayName()|
+|Item[]|getDrops()|
+|EntityInteractable|getEntityPlayerLookingAt(int maxDistance)//Returns the Entity the player is looking at currently|
+|int|getExperience()|
+|int|getExperienceLevel()|
+|Long|getFirstPlayed()//Returns the time this player first played in this server.|
+|PlayerFood|getFoodData()|
+|int|getGamemode()|
+|int|getInAirTicks()|
+|Entity|getKiller()|
+|int|getLastChorusFruitTeleport()|
+|int|getLastEnderPearlThrowingTick()|
+|Long|getLastPlayed()//Returns the time this player last joined in this server.|
+|String|getName()|
+|Position|getNextPosition()|
+|int|getPing()|
+|int|getPort()|
+|Server|getServer()|
+|Position|getSpawn()|
+|PlayerUIInventory|getUIInventory()|
+|int|getViewDistance()|
+|BlockEnderChest|getViewingEnderChest()|
+|Inventory|getWindowById(int id)|
+|int|getWindowId(Inventory inventory)|
+|void|handleDataPacket(DataPacket packet)|
+|boolean|hasAutoJump()|
+|boolean|hasPermission(Permission permission)|
+|boolean|hasPermission(String name)|
+|boolean|hasPlayedBefore()|
+|void|hidePlayer(Player player)|
+|protected void|initEntity()|
+|boolean|isAdventure()|
+|boolean|isBanned()|
+|boolean|isBreakingBlock()|
+|boolean|isCreative()|
+|boolean|isFoodEnabled()|
+|boolean|isOnline()|
+|boolean|isOp()|
+|boolean|isPermissionSet(Permission permission)|
+|boolean|isPermissionSet(String name)|
+|boolean|isSleeping()|
+|boolean|isSpectator()|
+|boolean|isSurvival()|
+|boolean|isUsingItem()//Returns whether the player is currently using an item (right-click and hold).|
+|boolean|isWhitelisted()|
+|boolean|kick()|
+|boolean|kick(String reason)|
+|void|kill()|
+|void|removeAllWindows()|
+|void|resetFallDistance()|
+|void|resetInAirTicks()|
+|void|resetTitleSettings()//Resets both title animation times and subtitle for the next shown title|
+|void|save()|
+|void|sendActionBar(String title)|
+|void|sendActionBar(String title, int fadein, int duration, int fadeout)|
+|void|sendChat(String message)|
+|void|sendChat(String source, String message)|
+|void|sendExperience()|
+|void|sendExperience(int exp)|
+|void|sendExperienceLevel()|
+|void|sendExperienceLevel(int level)|
+|void|sendMessage(String message)|
+|void|sendMessage(TextContainer message)|
+|void|sendPopup(String message)|
+|void|sendPopup(String message, String subtitle)|
+|void|sendPosition(Vector3 pos)|
+|void|sendPosition(Vector3 pos, double yaw)|
+|void|sendPosition(Vector3 pos, double yaw, double pitch)|
+|void|sendTip(String message)|
+|void|sendTitle(String title)|
+|void|sendTitle(String title, String subtitle)|
+|void|sendTitle(String title, String subtitle, int fadeIn, int stay, int fadeOut)|
+|void|setAllowFlight(boolean value)|
+|void|setAllowInteract(boolean value)|
+|void|setAllowInteract(boolean value, boolean containers)|
+|void|setAutoJump(boolean value)|
+|void|setBanned(boolean value)//Sets this player to be banned or to be pardoned.|
+|void|setCheckMovement(boolean checkMovement)|
+|void|setDisplayName(String displayName)|
+|void|setEnableClientCommand(boolean enable)|
+|void|setExperience(int exp)|
+|void|setExperience(int exp, int level)|
+|void|setFoodEnabled(boolean foodEnabled)|
+|boolean|setGamemode(int gamemode)|
+|boolean|setGamemode(int gamemode, boolean clientSide)|
+|boolean|setGamemode(int gamemode, boolean clientSide, AdventureSettings newSettings)|
+|void|setHealth(float health)|
+|void|setMaxHealth(int maxHealth)|
+|void|setMovementSpeed(float speed)|
+|void|setMovementSpeed(float speed, boolean send)|
+|void|setOp(boolean value)//Sets this object to be an operator or not to be.|
+|void|setSpawn(Vector3 pos)|
+|void|setSubtitle(String subtitle)|
+|void|setTitleAnimationTimes(int fadein, int duration, int fadeout)|
+|void|setViewDistance(int distance)|
+|void|setViewingEnderChest(BlockEnderChest chest)|
+|void|setWhitelisted(boolean value//Adds this player to the white list, or removes it from the whitelist.|
+|int|showFormWindow(FormWindow window)|
+|int|showFormWindow(FormWindow window, int id)//Be Warped by BlocklyNukkit,use window base object instead|
+|void|showPlayer(Player player)|
+|boolean|sleepOn(Vector3 pos)|
+|void|spawnTo(Player player)|
+|void|startAction()|
+|void|startFishing(Item fishingRod)|
+|void|stopAction()|
+|void|stopFishing(boolean click)|
+|void|stopSleep()|
+|boolean|switchLevel(Level level)|
+|void|transfer(InetSocketAddress address)|
+|void|unloadChunk(int x, int z)|
+|void|unloadChunk(int x, int z, Level level)|
