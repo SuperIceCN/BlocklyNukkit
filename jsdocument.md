@@ -258,6 +258,11 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 注:bn解释器会自动执行部分类型转换,比如js的数字转为java的整形int,浮点型float,双精度型double,Player转为CommandSender等等,如果不能自动转会报错  
 注:标注static的函数是直接从类调用而不是对象,未标注static是从对象调用的  
 注:类/对象 继承自某包意味着这个类/对象能够使用被继承的包里面可以用的方法/函数  
+
+> 温馨提示:  
+> 下面的只是冰山一角!  
+> 更多的用法请去[nukkit官方文档](https://ci.nukkitx.com/job/NukkitX/job/Nukkit/job/master/javadoc/index.html?overview-summary.html)查看  
+
 ### windowbuilder三件套
 1.Custom
 - void setTitle(String title)
@@ -266,12 +271,14 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 - void buildInput(String title,String placeholder)
 - void buildToggle(String title)
 - void buildDropdown(String title,String inner)
+
 2.Modal-J
 - void setTitle(String title)
 - void setContext(String context)
 - void setButton1(String text)
 - void setButton2(String text)
 - void showToPlayer(Player-J p, String callback)
+
 3.Simple-J
 - void setTitle(String title)
 - void setContext(String context)
@@ -367,14 +374,14 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 
 ### Player常用函数
 #### cn.nukkit.Player
-继承自 cn.nukkit.math.Vector3  
-继承自 cn.nukkit.level.Position  
-继承自 cn.nukkit.level.Location  
-继承自 cn.nukkit.entity.Entity  
-继承自 cn.nukkit.entity.EntityLiving  
-继承自 cn.nukkit.entity.EntityCreature  
-继承自 cn.nukkit.entity.EntityHumanType  
-继承自 cn.nukkit.entity.EntityHuman  
+- 继承自 cn.nukkit.math.Vector3  
+- 继承自 cn.nukkit.level.Position  
+- 继承自 cn.nukkit.level.Location  
+- 继承自 cn.nukkit.entity.Entity  
+- 继承自 cn.nukkit.entity.EntityLiving  
+- 继承自 cn.nukkit.entity.EntityCreature  
+- 继承自 cn.nukkit.entity.EntityHumanType  
+- 继承自 cn.nukkit.entity.EntityHuman  
 
 |返回值类型|函数名|
 |-|-|
@@ -511,3 +518,112 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |void|transfer(InetSocketAddress address)|
 |void|unloadChunk(int x, int z)|
 |void|unloadChunk(int x, int z, Level level)|
+
+### Event常用函数
+#### cn.nukkit.event.Event
+|返回值类型|函数名|
+|-|-|
+|String|getEventName()|
+|boolean|isCancelled()|
+|void|setCancelled()|
+|Player|getPlayer()|
+|String|getJoinMessage()|
+|void|setJoinMessage(String mes)|
+|String|getMessage()//Chat Message|
+|void|setMessage(String mes)|
+|Entity|getEntity()|
+|String|getDeathMessage()|
+|void|setKeepExperience(boolean s)|
+|void|setKeepInventory(boolean s)|
+|void|setDeathMessage(String mes)|
+|Block|getBlock()|
+|Item|getItem()|
+|int|getAction().getSlot()//get the slot that player use in the event about inventory|
+|Inventory|getInventory()|
+|SongPlayer|getSongPlayer()|
+
+### Vector3常用方法
+#### cn.nukkit.math.Vector3
+|返回值类型|函数名|
+|-|-|
+|Vector3|add(double x, double y, double z)|
+|Vector3|add(Vector3 x)|
+|Vector3|ceil()//turn vector xyz into integer|
+|double|distance(Vector3 pos)//return distance between the object Vector3 and pos|
+|int|getChunkX()|
+|int|getChunkZ()|
+|int|getFloorX()|
+|int|getFloorY()|
+|int|getFloorZ()|
+|double|getX()|
+|double|getY()|
+|double|getZ()|
+
+### Position常用方法
+#### cn.nukkit.level.Position
+- 继承自 cn.nukkit.math.Vector3
+
+|返回值类型|函数名|
+|-|-|
+|static Position|fromObject(Vector3 pos)//if it no level,the default level will be used|
+|static Position|fromObject(Vector3 pos, Level level)|
+|FullChunk|getChunk()|
+|Level|getLevel()|
+|Block|getLevelBlock()|
+|Location|getLocation()|
+|Position|setComponents(double x, double y, double z)|
+|Position|setLevel(Level level)|
+
+### Item常用方法
+#### cn.nukkit.item.Item
+|返回值类型|函数名|
+|-|-|
+|boolean|canBeActivated()|
+|boolean|canBePlaced()|
+|Item|clearCustomBlockData()|
+|Item|clearCustomName()|
+|Item|clearNamedTag()|
+|Item|clone()|
+|int|getAttackDamage()|
+|Block|getBlock()|
+|byte[]|getCompoundTag()|
+|int|getCount()|
+|CompoundTag|getCustomBlockData()|
+|String|getCustomName()|
+|int|getDamage()|
+|int|getDestroySpeed(Block block, Player player)|
+|int|getEnchantAbility()|
+|Enchantment|getEnchantment(int id)|
+|Enchantment[]|getEnchantments()|
+|int|getFuelTime()|
+|int|getId()|
+|String[]|getLore()|
+|int|getMaxDurability()|
+|int|getMaxStackSize()|
+|String|getName()|
+|CompoundTag|getNamedTag()|
+|int|getTier()|
+|boolean|hasCustomBlockData()|
+|boolean|hasCustomName()|
+|boolean|hasEnchantments()|
+|boolean|isArmor()|
+|boolean|isAxe()|
+|boolean|isBoots()|
+|boolean|isChestplate()|
+|boolean|isHelmet()|
+|boolean|isHoe()|
+|boolean|isLeggings()|
+|boolean|isNull()|
+|boolean|isPickaxe()|
+|boolean|isShears()|
+|boolean|isShovel()|
+|boolean|isSword()|
+|boolean|isTool()|
+|boolean|isUnbreakable()|
+|Item|setCompoundTag(CompoundTag tag)|
+|void|setCount(int count)|
+|Item|setCustomBlockData(CompoundTag compoundTag)|
+|Item|setCustomName(String name)|
+|void|setDamage(int meta)|
+|Item|setLore(String[] lines)|
+|Item|setNamedTag(CompoundTag tag)|
