@@ -280,3 +280,44 @@ Blockly.JavaScript['utils_getPlayerArea'] = function(block) {
   var text="manager.getPlayerArea("+valtmp+")";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['utils_httpRequest'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '向 %1 发送 %2 类型 包含数据 %3 的http请求并获取返回值',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "URL",
+		  "check": "String"
+		},
+		{
+		    "type": "field_dropdown",
+		    "name": "OP",
+		    "options": [
+			  ["GET", "GET"],
+		      ["POST", "POST"]
+		    ]
+		},
+		{
+		  "type": "input_value",
+		  "name": "DATA",
+		  "check": "String"
+		}
+      ],
+	  "output": "String",
+      "colour": 97,
+      "tooltip": "发送http请求并获取返回值",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['utils_httpRequest'] = function(block) {
+  //String or array length.
+  var optmp = block.getFieldValue("OP");
+  var urltmp = Blockly.JavaScript.valueToCode(block, 'URL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var datatmp = Blockly.JavaScript.valueToCode(block, 'DATA',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager.httpRequest(\""+optmp+"\","+urltmp+","+datatmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};

@@ -231,7 +231,7 @@
 				{
 					"tabTrigger": "FASTTHREAD",
 					"name": "FASTTHREAD",
-					"content": "var Run = Java.type(\"java.lang.Runnable\");\nvar ${1:MyRun} = Java.extend(Run, {\n    run: function() {\n        ${2://do something}\n    }\n});\nvar Thread = Java.type(\"java.lang.Thread\");\nvar ${3:th} = new Thread(new ${1:MyRun}());\n${3:th}.run();"
+					"content": "var Run = Java.type(\"java.lang.Runnable\");\nvar ${1:MyRun} = Java.extend(Run, {\n    run: function() {\n        ${2://do something}\n    }\n});\nvar Thread = Java.type(\"java.lang.Thread\");\nvar ${3:th} = new Thread(new ${1:MyRun}());\n${3:th}.start();"
 				},
 				{
 				    "tabTrigger": "foreach",

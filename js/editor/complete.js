@@ -37,6 +37,7 @@ var complete = [
 	{meta: "BN_manager", caption: "getPlayerArea", value: "getPlayerArea", score:1},
 	{meta: "BN_manager", caption: "checklsBear", value: "checklsBear", score:1},
 	{meta: "BN_manager", caption: "buildvec3", value: "buildvec3", score:1},
+	{meta: "BN_manager", caption: "httpRequest", value: "httpRequest", score:1}
 	{meta: "BN_algorithm", caption: "buildPositionfromPlayer", value: "buildPositionfromPlayer", score:1},
 	{meta: "BN_algorithm", caption: "buildPositionfromBlock", value: "buildPositionfromBlock", score:1},
 	{meta: "BN_algorithm", caption: "buildPositionfromEntity", value: "buildPositionfromEntity", score:1},

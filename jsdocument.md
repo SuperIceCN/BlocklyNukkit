@@ -67,6 +67,7 @@
 |getPlayerArea|Player-J player|String|获取玩家的地理位置字符串|
 |checkIsBear|Player-J player|boolean|使用BlackBE云黑检查玩家是否为熊孩子|
 |buildvec3|double x,double y,double z|Vector3-J|从xyz构建三维向量|
+|httpRequest|String method,String url,String data|String|发送method(GET/POST)类型的http请求并获取返回值|
 
 ### algorithm基对象
 
