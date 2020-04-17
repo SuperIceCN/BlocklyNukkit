@@ -181,7 +181,7 @@
 			//启用提示菜单
 			ace.require("ace/ext/language_tools");
 			editor.setOptions({
-				enableBasicAutocompletion: false,
+				enableBasicAutocompletion: true,
 				enableSnippets: true,
 				enableLiveAutocompletion: true
 			});
@@ -200,6 +200,45 @@
 			}
 			//
 			setCompleteData(complete);
+			
+			var snippetManager = require("ace/snippets").snippetManager
+			snippetManager.register([
+			    {
+			        "tabTrigger": "FASTCMD",
+			        "name": "FASTCMD",
+			        "content": "manager.createCommand(\"${1?:name}\",\"${2?:description}\",\"${3?:callback}\");"
+			    },
+				{
+					"tabTrigger": "FASTTIME",
+					"name": "FASTTIME",
+					"content": "var date = Java.type(\"java.time.LocalDateTime\").now();\nvar year = date.getYear();\nvar month = date.getMonth().getValue();\nvar day = date.getDayOfMonth();\nvar hour = date.getHour();\nvar minute = date.getMinute();\nvar second = date.getSecond();"
+				},
+				{
+				    "tabTrigger": "FASTINFO",
+				    "name": "FASTINFO",
+				    "content": "logger.info(\"${1?:text}\");"
+				},
+				{
+				    "tabTrigger": "FASTWARNING",
+				    "name": "FASTWARNING",
+				    "content": "logger.warning(\"${1?:text}\");"
+				},
+				{
+				    "tabTrigger": "FASTMAP",
+				    "name": "FASTMAP",
+				    "content": "var HashMap = Java.type(\"java.util.HashMap\");\nvar map = new HashMap();\n${1?:/*\nmap.put(key, value);\nmap.get(key);\nfor each (key in hm.keySet()) //do something\nfor each (val in hm.values()) //do something\n*/}"
+				},
+				{
+					"tabTrigger": "FASTTHREAD",
+					"name": "FASTTHREAD",
+					"content": "var Run = Java.type(\"java.lang.Runnable\");\nvar ${1:MyRun} = Java.extend(Run, {\n    run: function() {\n        ${2://do something}\n    }\n});\nvar Thread = Java.type(\"java.lang.Thread\");\nvar ${3:th} = new Thread(new ${1:MyRun}());\n${3:th}.run();"
+				},
+				{
+				    "tabTrigger": "foreach",
+				    "name": "foreach",
+				    "content": "for each(var ${1?:i} in ${2?:iarr}) {\n    ${3?://do something}\n}"
+				}
+			], "javascript")
 			
 			editor.getSession().selection.on('changeCursor', function(e) {
 				var tmp = editor.selection.getCursor();
