@@ -456,6 +456,7 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |boolean|kick()|
 |boolean|kick(String reason)|
 |void|kill()|
+|void|teleport(Position pos)|
 |void|removeAllWindows()|
 |void|resetFallDistance()|
 |void|resetInAirTicks()|
@@ -628,3 +629,68 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |void|setDamage(int meta)|
 |Item|setLore(String[] lines)|
 |Item|setNamedTag(CompoundTag tag)|
+
+### Block常用方法
+#### cn.nukkit.block.Block
+- 继承自 cn.nukkit.level.Position
+- 继承自 cn.nukkit.math.Vector3
+
+|返回值类型		|函数名																										|
+|-				|-																											|
+|boolean		|canBeActivated()																							|
+|boolean		|canBeBrokenWith(Item item)																					|
+|boolean		|canBeClimbed()																								|
+|boolean		|canBeFlowedInto()																							|
+|boolean		|canBePlaced()																								|
+|boolean		|canBePushed()																								|
+|boolean		|canBeReplaced()																							|
+|boolean		|canHarvestWithHand()																						|
+|boolean		|canPassThrough()																							|
+|boolean		|canSilkTouch()																								|
+|Block			|clone()																									|
+|Block			|down()																										|
+|Block			|down(int step)																								|
+|Block			|east()																										|
+|Block			|east(int step)																								|
+|static boolean	|equals(Block b1, Block b2)																					|
+|static boolean	|equals(Block b1, Block b2, boolean checkDamage)															|
+|static Block	|get(int id)																								|
+|static Block	|get(int id, int data)																						|
+|static Block	|get(int id, Integer meta)																					|
+|static Block	|get(int id, Integer meta, Position pos)																	|
+|static Block	|get(int fullId, Level level, int x, int y, int z)															|
+|double			|getBreakTime(Item item, Player player)																		|
+|int			|getBurnAbility()																							|
+|BlockColor		|getColor()																									|
+|int			|getComparatorInputOverride()																				|
+|int			|getDamage()																								|
+|int			|getDropExp()																								|
+|Item[]			|getDrops(Item item)																						|
+|int			|getFullId()																								|
+|double			|getHardness()																								|
+|abstract int	|getId()																									|
+|int			|getLightLevel()																							|
+|int			|getStrongPower(BlockFace side)																				|
+|int			|getToolType()																								|
+|int			|getWeakPower(BlockFace face)																				|
+|boolean		|hasComparatorInputOverride()																				|
+|boolean		|hasEntityCollision()																						|
+|boolean		|isBreakable(Item item)																						|
+|boolean		|isNormalBlock()																							|
+|boolean		|isPowerSource()																							|
+|boolean		|isSolid()																									|
+|boolean		|isTransparent()																							|
+|Block			|north()																									|
+|Block			|north(int step)																							|
+|boolean		|place(Item item, Block block, Block target, BlockFace face, double fx, double fy, double fz, Player player)|
+|void			|setDamage(int meta)																						|
+|void			|setDamage(Integer meta)																					|
+|Block			|south()																									|
+|Block			|south(int step)																							|
+|int			|tickRate()																									|
+|Item			|toItem()																									|
+|String			|toString()																									|
+|Block			|up()																										|
+|Block			|up(int step)																								|
+|Block			|west()																										|
+|Block			|west(int step)																								|
