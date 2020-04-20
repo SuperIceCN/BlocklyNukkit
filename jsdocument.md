@@ -65,7 +65,7 @@
 |kickPlayer|Player-J player,String reason|void|踢出玩家player并发送踢出原因reason|
 |setHTMLPlaceholder|String key,String value|void|设置速建官网功能的自定义placeholder|
 |getPlayerArea|Player-J player|String|获取玩家的地理位置字符串|
-|checkIsBear|Player-J player|boolean|使用BlackBE云黑检查玩家是否为熊孩子|
+|checkIsBear|Player-J player|String|使用BlackBE云黑检查玩家是否为熊孩子|
 |buildvec3|double x,double y,double z|Vector3-J|从xyz构建三维向量|
 |httpRequest|String method,String url,String data|String|发送method(GET/POST)类型的http请求并获取返回值|
 
@@ -107,6 +107,7 @@
 |addToCreativeBar|Item-J item|void|把物品堆添加到创造物品栏|
 |setItemLore|Item-J item,String str|void|设置物品item的lore为str(多行lore用";"连接)|
 |addShapelessCraft|Array<Item-J> i,Item-J o|void|添加无序合成,原料列表i,产物o|
+|addFurnaceCraft|Item-J i,Item-J o|void|添加熔炉配方,原料i,产物o|
 |addShapedCraft|Array<String> shape,Item-J output,Array<Item-J> append|void|添加有序合成(详见图形编辑器)|
 |addItemEnchant|Item-J item,int i,int l|void|给item添加ID为i,等级为l的附魔(可去wiki查找id)|
 |isSame|Item i1,Item i2,boolean d,boolean n|boolean|检测i1和i2是否相同(d是否毕竟数据值,n是否比较nbt,数量不会比较)|
