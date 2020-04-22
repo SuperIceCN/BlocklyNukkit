@@ -252,6 +252,8 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |红石音乐电台被摧毁|SongDestroyingEvent|
 |红石音乐电台歌曲播放结束|SongEndEvent|
 |红石音乐电台暂停|SongStoppedEvent|
+|玩家退出事件|PlayerQuitEvent|
+|物品合成事件|CraftItemEvent|
 
 ## 常用java类/对象的成员函数
 注:这部分由于不属于bn类库范畴,所以不会加说明,应该看参数和函数名能看懂,不懂的看图形编辑器生成的代码或者直接qq联系开发组或者issue,谢谢  

@@ -170,6 +170,8 @@ var complete = [
 	{meta: "红石电台摧毁", caption: "SongDestroyingEvent", value: "SongDestroyingEvent", score:1},
 	{meta: "红石电台播放结束", caption: "SongEndEvent", value: "SongEndEvent", score:1},
 	{meta: "红石电台暂停", caption: "SongStoppedEvent", value: "SongStoppedEvent", score:1},
+	{meta: "物品合成事件", caption: "CraftItemEvent", value: "CraftItemEvent", score:1},
+	{meta: "玩家退出事件", caption: "PlayerQuitEvent", value: "PlayerQuitEvent", score:1},
 	{meta: "WindowBuilder", caption: "setTitle", value: "setTitle", score:1},
 	{meta: "WindowBuilder", caption: "showToPlayer", value: "showToPlayer", score:1},
 	{meta: "WindowBuilder", caption: "buildLabel", value: "buildLabel", score:1},

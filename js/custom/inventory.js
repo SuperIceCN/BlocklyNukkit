@@ -37,7 +37,7 @@ Blockly.JavaScript['inv_addInv'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var titletmp = Blockly.JavaScript.valueToCode(block, 'TITLE',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text="inventory.addInv("+optmp+","+itemstmp+","+titletmp+")";
+  var text="inventory.addInv("+optmp+",Java.to("+itemstmp+",'cn.nukkit.item.Item[]'),"+titletmp+")";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
 Blockly.Blocks['inv_showFakeInv'] = {
@@ -105,7 +105,7 @@ Blockly.JavaScript['inv_editInv'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var invtmp = Blockly.JavaScript.valueToCode(block, 'INV',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text="inventory.editInv("+invtmp+","+itemstmp+");\n"
+  var text="inventory.editInv("+invtmp+",Java.to("+itemstmp+",'cn.nukkit.item.Item[]'));\n"
   return text;
 };
 Blockly.Blocks['inv_editInvBySlot'] = {
