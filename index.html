@@ -34,7 +34,11 @@
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css" rel="stylesheet">
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
 		<script src="https://cdn.bootcss.com/prism/9000.0.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
-		
+		<script>
+			document.body.addEventListener('touchmove', function (e) {
+			        e.preventDefault() // 阻止默认的处理方式(阻止下拉滑动的效果)
+			    }, {passive: false}) // passive 参数不能省略，用来兼容ios和android
+		</script>
 		<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"></xml>
 		
 	</head>
