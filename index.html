@@ -32,6 +32,8 @@
 		<script src="./js/SoftKey/vk_loader.js?vk_skin=flat_gray"></script>	
 		<script src="https://cdn.bootcss.com/prism/9000.0.1/prism.min.js"></script>
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/prism/9000.0.1/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+		<script src="https://cdn.bootcss.com/prism/9000.0.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
 		
 		<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"></xml>
 		
@@ -566,7 +568,7 @@
 		  
 		</xml>
 		<div style="width:98vw;height:98vh;display:inline-block;" id="blocklyArea">
-			<div id="blocklyDiv" style="position: absolute;width: 78vw;height: 98vh;"></div>
+			<div id="blocklyDiv" style="position: absolute;width: 78vw;height: 98vh;transform: translateZ(0);"></div>
 			<div style="position: absolute;width: 20vw;height: 98vh;left:78vw">
 				<div class="ct-coll-item" style="width: 19.9vw;display:inline-block;height: 5.519vw;">  
 					<a class="ct-coll-thumb" style="width: 100%;height: 100%;" href="#">  
@@ -810,7 +812,8 @@
 			function myUpdateFunction(event) {
 			  var code = Blockly.JavaScript.workspaceToCode(workspace);
 			  document.getElementById('jspreview').innerHTML = code;
-			  Prism.highlightAll();
+			  Prism.highlightElement(document.getElementById("jspreview"))
+			  $('pre').addClass("line-numbers").css("white-space", "pre-wrap");
 			}
 			workspace.addChangeListener(myUpdateFunction);
 			

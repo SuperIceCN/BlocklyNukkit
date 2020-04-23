@@ -10,3 +10,16 @@ blocklynukkit友好界面中文插件编辑器是由超神的冰凉发起的开�
 [![超神的冰凉/BlocklyNukkit](https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/widgets/widget_card.svg?colors=393222,ebdfc1,fffae5,d8ca9f,393222,a28b40)](https://gitee.com/Kingdom_of_dragon/BlocklyNukkit)
 
 <img src="https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/raw/master/afdian-%E8%B6%85%E7%A5%9E%E7%9A%84%E5%86%B0%E5%87%89%20(1).png"  height="337" width="262">
+
+# 一些正式发布的bn插件：
+- 乐色桶：[mcbbs下载](https://www.mcbbs.net/thread-1026281-1-1.html)
+- 空岛科技：[mcbbs下载](https://www.mcbbs.net/thread-1025826-1-1.html)
+- OP查背包：[mcbbs下载](https://www.mcbbs.net/thread-1023528-1-1.html)
+- 铁块电梯：[mcbbs下载](https://www.mcbbs.net/thread-1022615-1-1.html)
+- 一键砍树：[mcbbs下载](https://www.mcbbs.net/thread-993246-1-1.html)
+- 一键收割作物：[mcbbs下载](https://www.mcbbs.net/thread-997816-1-1.html)
+- 红石音乐：[mcbbs下载](https://www.mcbbs.net/thread-1015627-1-1.html)
+- 死亡传送：[mcbbs下载](https://www.mcbbs.net/thread-1013139-1-1.html)
+- 虚空拉回：[mcbbs下载](https://www.mcbbs.net/thread-1010990-1-1.html)
+- 箱子整理：[mcbbs下载](https://www.mcbbs.net/thread-1000413-1-1.html)
+- 自动刷石机：[mcbbs下载](https://www.mcbbs.net/thread-995834-1-1.html)
