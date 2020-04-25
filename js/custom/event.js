@@ -2,7 +2,7 @@
 Blockly.Blocks['event_setCancelled'] = {
   init: function() {
     this.jsonInit({
-      "message0": '取消事件 %1',
+      "message0": event_line_5,
       "args0": [
 		{
 		  "type": "input_value",
@@ -13,7 +13,7 @@ Blockly.Blocks['event_setCancelled'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 10,
-      "tooltip": "取消事件(setCancelled)",
+      "tooltip": event_line_16,
       "helpUrl": "#"
     });
   }
@@ -28,7 +28,7 @@ Blockly.JavaScript['event_setCancelled'] = function(block) {
 Blockly.Blocks['event_getplayer'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 的玩家',
+      "message0": event_line_31,
       "args0": [
 		{
 		  "type": "input_value",
@@ -38,7 +38,7 @@ Blockly.Blocks['event_getplayer'] = {
       ],
 	  "output": "Player",
       "colour": 10,
-      "tooltip": "获取事件的玩家(getPlayer)",
+      "tooltip": event_line_41,
       "helpUrl": "#"
     });
   }
@@ -53,7 +53,7 @@ Blockly.JavaScript['event_getplayer'] = function(block) {
 Blockly.Blocks['event_getjoinmessage'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 的进服消息',
+      "message0": event_line_56,
       "args0": [
 		{
 		  "type": "input_value",
@@ -63,7 +63,7 @@ Blockly.Blocks['event_getjoinmessage'] = {
       ],
 	  "output": "String",
       "colour": 10,
-      "tooltip": "获取事件的进服消息(getJoinMessage)",
+      "tooltip": event_line_66,
       "helpUrl": "#"
     });
   }
@@ -78,7 +78,7 @@ Blockly.JavaScript['event_getjoinmessage'] = function(block) {
 Blockly.Blocks['event_setJoinMessage'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置事件 %1 的进服消息为 %2 ',
+      "message0": event_line_81,
       "args0": [
 		{
 		  "type": "input_value",
@@ -94,7 +94,7 @@ Blockly.Blocks['event_setJoinMessage'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 10,
-      "tooltip": "设置进服消息(setJoinMessage)",
+      "tooltip": event_line_97,
       "helpUrl": "#"
     });
   }
@@ -111,7 +111,7 @@ Blockly.JavaScript['event_setJoinMessage'] = function(block) {
 Blockly.Blocks['event_getchatmessage'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 的聊天消息',
+      "message0": event_line_114,
       "args0": [
 		{
 		  "type": "input_value",
@@ -121,7 +121,7 @@ Blockly.Blocks['event_getchatmessage'] = {
       ],
 	  "output": "String",
       "colour": 10,
-      "tooltip": "获取事件的聊天消息(getMessage)",
+      "tooltip": event_line_124,
       "helpUrl": "#"
     });
   }
@@ -135,7 +135,7 @@ Blockly.JavaScript['event_getchatmessage'] = function(block) {
 Blockly.Blocks['event_setchatmessage'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置事件 %1 的聊天消息为 %2 ',
+      "message0": event_line_138,
       "args0": [
 		{
 		  "type": "input_value",
@@ -151,7 +151,7 @@ Blockly.Blocks['event_setchatmessage'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 10,
-      "tooltip": "设置聊天消息(setMessage)",
+      "tooltip": event_line_154,
       "helpUrl": "#"
     });
   }
@@ -168,7 +168,7 @@ Blockly.JavaScript['event_setchatmessage'] = function(block) {
 Blockly.Blocks['event_getentity'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 中的死亡的玩家',
+      "message0": event_line_171,
       "args0": [
 		{
 		  "type": "input_value",
@@ -178,7 +178,7 @@ Blockly.Blocks['event_getentity'] = {
       ],
 	  "output": "Player",
       "colour": 10,
-      "tooltip": "获取事件中死亡的玩家(getEntity)",
+      "tooltip": event_line_181,
       "helpUrl": "#"
     });
   }
@@ -193,7 +193,7 @@ Blockly.JavaScript['event_getentity'] = function(block) {
 Blockly.Blocks['event_getdeathmessage'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 的死亡消息',
+      "message0": event_line_196,
       "args0": [
 		{
 		  "type": "input_value",
@@ -203,7 +203,7 @@ Blockly.Blocks['event_getdeathmessage'] = {
       ],
 	  "output": "String",
       "colour": 10,
-      "tooltip": "获取事件的死亡消息(getDeathMessage)",
+      "tooltip": event_line_206,
       "helpUrl": "#"
     });
   }
@@ -217,7 +217,7 @@ Blockly.JavaScript['event_getdeathmessage'] = function(block) {
 Blockly.Blocks['event_setkeepexperience'] = {
   init: function() {
     this.jsonInit({
-      "message0": '死亡不掉落经验 %1',
+      "message0": event_line_220,
       "args0": [
 		{
 		  "type": "input_value",
@@ -228,7 +228,7 @@ Blockly.Blocks['event_setkeepexperience'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 10,
-      "tooltip": "死亡不掉落经验(setKeepExperience)",
+      "tooltip": event_line_231,
       "helpUrl": "#"
     });
   }
@@ -243,7 +243,7 @@ Blockly.JavaScript['event_setkeepexperience'] = function(block) {
 Blockly.Blocks['event_setkeepinventory'] = {
   init: function() {
     this.jsonInit({
-      "message0": '死亡不掉落物品 %1',
+      "message0": event_line_246,
       "args0": [
 		{
 		  "type": "input_value",
@@ -254,7 +254,7 @@ Blockly.Blocks['event_setkeepinventory'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 10,
-      "tooltip": "死亡不掉落物品(setKeepInventory)",
+      "tooltip": event_line_257,
       "helpUrl": "#"
     });
   }
@@ -269,7 +269,7 @@ Blockly.JavaScript['event_setkeepinventory'] = function(block) {
 Blockly.Blocks['event_setdeathmessage'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置事件 %1 的死亡消息为 %2 ',
+      "message0": event_line_272,
       "args0": [
 		{
 		  "type": "input_value",
@@ -285,7 +285,7 @@ Blockly.Blocks['event_setdeathmessage'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 10,
-      "tooltip": "设置死亡消息(setDeathMessage)",
+      "tooltip": event_line_288,
       "helpUrl": "#"
     });
   }
@@ -302,7 +302,7 @@ Blockly.JavaScript['event_setdeathmessage'] = function(block) {
 Blockly.Blocks['event_window_simple_getEventResponseText'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 中简单窗口被点击的按钮名称',
+      "message0": event_line_305,
       "args0": [
 		{
 		  "type": "input_value",
@@ -312,7 +312,7 @@ Blockly.Blocks['event_window_simple_getEventResponseText'] = {
       ],
 	  "output": "String",
       "colour": 10,
-      "tooltip": "获取事件中简单窗口被点击的按钮名称(getEventResponseText)",
+      "tooltip": event_line_315,
       "helpUrl": "#"
     });
   }
@@ -326,7 +326,7 @@ Blockly.JavaScript['event_window_simple_getEventResponseText'] = function(block)
 Blockly.Blocks['event_window_modal_getEventResponseModal'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 中对话框被点击的按钮名称',
+      "message0": event_line_329,
       "args0": [
 		{
 		  "type": "input_value",
@@ -336,7 +336,7 @@ Blockly.Blocks['event_window_modal_getEventResponseModal'] = {
       ],
 	  "output": "String",
       "colour": 10,
-      "tooltip": "获取事件中对话框被点击的按钮名称(getEventResponseModal)",
+      "tooltip": event_line_339,
       "helpUrl": "#"
     });
   }
@@ -350,7 +350,7 @@ Blockly.JavaScript['event_window_modal_getEventResponseModal'] = function(block)
 Blockly.Blocks['event_window_custom_getEventCustomVar'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 中高级窗口第 %2 个元素 %3 模式的返回值',
+      "message0": event_line_353,
       "args0": [
 		{
 		  "type": "input_value",
@@ -366,15 +366,15 @@ Blockly.Blocks['event_window_custom_getEventCustomVar'] = {
 		    "type": "field_dropdown",
 		    "name": "MODE",
 		    "options": [
-			  ["输入框", "input"],
-		      ["开关", "toggle"],
-		      ["选择框", "dropdown"]
+			  [event_line_369, "input"],
+		      [event_line_370, "toggle"],
+		      [event_line_371, "dropdown"]
 		    ]
 		}
       ],
 	  "output": "String",
       "colour": 10,
-      "tooltip": "获取事件中高级窗口元素值(getEventCustomVar)",
+      "tooltip": event_line_377,
       "helpUrl": "#"
     });
   }
@@ -391,7 +391,7 @@ Blockly.JavaScript['event_window_custom_getEventCustomVar'] = function(block) {
 Blockly.Blocks['event_getblock'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 的方块',
+      "message0": event_line_394,
       "args0": [
 		{
 		  "type": "input_value",
@@ -401,7 +401,7 @@ Blockly.Blocks['event_getblock'] = {
       ],
 	  "output": "Blocks",
       "colour": 10,
-      "tooltip": "获取事件的方块(getBlock)",
+      "tooltip": event_line_404,
       "helpUrl": "#"
     });
   }
@@ -416,7 +416,7 @@ Blockly.JavaScript['event_getblock'] = function(block) {
 Blockly.Blocks['event_getitem'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 的物品',
+      "message0": event_line_419,
       "args0": [
 		{
 		  "type": "input_value",
@@ -426,7 +426,7 @@ Blockly.Blocks['event_getitem'] = {
       ],
 	  "output": "Item",
       "colour": 10,
-      "tooltip": "获取事件的物品(getItem)",
+      "tooltip": event_line_429,
       "helpUrl": "#"
     });
   }
@@ -441,7 +441,7 @@ Blockly.JavaScript['event_getitem'] = function(block) {
 Blockly.Blocks['event_getSlot'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 的操作槽位',
+      "message0": event_line_444,
       "args0": [
 		{
 		  "type": "input_value",
@@ -466,7 +466,7 @@ Blockly.JavaScript['event_getSlot'] = function(block) {
 Blockly.Blocks['event_getInventory'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 的虚拟物品栏',
+      "message0": event_line_469,
       "args0": [
 		{
 		  "type": "input_value",
@@ -491,7 +491,7 @@ Blockly.JavaScript['event_getInventory'] = function(block) {
 Blockly.Blocks['event_getradio'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 的红石音乐电台',
+      "message0": event_line_494,
       "args0": [
 		{
 		  "type": "input_value",
@@ -501,7 +501,7 @@ Blockly.Blocks['event_getradio'] = {
       ],
 	  "output": "Radio",
       "colour": 10,
-      "tooltip": "获取事件的红石音乐电台(getSongPlayer)",
+      "tooltip": event_line_504,
       "helpUrl": "#"
     });
   }
@@ -516,7 +516,7 @@ Blockly.JavaScript['event_getradio'] = function(block) {
 Blockly.Blocks['event_getDamager'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 的发起伤害实体',
+      "message0": event_line_519,
       "args0": [
 		{
 		  "type": "input_value",
@@ -526,7 +526,7 @@ Blockly.Blocks['event_getDamager'] = {
       ],
 	  "output": "Entity",
       "colour": 10,
-      "tooltip": "获取事件的发起伤害实体(getDamager)",
+      "tooltip": event_line_529,
       "helpUrl": "#"
     });
   }
@@ -541,7 +541,7 @@ Blockly.JavaScript['event_getDamager'] = function(block) {
 Blockly.Blocks['event_getDamage'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 的伤害值',
+      "message0": event_line_544,
       "args0": [
 		{
 		  "type": "input_value",
@@ -551,7 +551,7 @@ Blockly.Blocks['event_getDamage'] = {
       ],
 	  "output": "Number",
       "colour": 10,
-      "tooltip": "获取事件的伤害值(getDamage)",
+      "tooltip": event_line_554,
       "helpUrl": "#"
     });
   }
@@ -566,7 +566,7 @@ Blockly.JavaScript['event_getDamage'] = function(block) {
 Blockly.Blocks['event_getKnockBack'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取事件 %1 的伤害击退距离',
+      "message0": event_line_569,
       "args0": [
 		{
 		  "type": "input_value",
@@ -576,7 +576,7 @@ Blockly.Blocks['event_getKnockBack'] = {
       ],
 	  "output": "Number",
       "colour": 10,
-      "tooltip": "获取事件的伤害击退距离(getKnockBack)",
+      "tooltip": event_line_579,
       "helpUrl": "#"
     });
   }

@@ -1,7 +1,7 @@
 Blockly.Blocks['pos_getlevelbyname'] = {
   init: function() {
     this.jsonInit({
-      "message0": '根据名称 %1 获取世界',
+      "message0": pos_line_4,
       "args0": [
 		{
 		  "type": "input_value",
@@ -11,7 +11,7 @@ Blockly.Blocks['pos_getlevelbyname'] = {
       ],
 	  "output": "Level",
       "colour": 133,
-      "tooltip": "获取世界(getLevelByName)",
+      "tooltip": pos_line_14,
       "helpUrl": "#"
     });
   }
@@ -26,7 +26,7 @@ Blockly.JavaScript['pos_getlevelbyname'] = function(block) {
 Blockly.Blocks['pos_formobject'] = {
   init: function() {
     this.jsonInit({
-      "message0": '构建位置 世界: %1 x: %2 y: %3 z: %4 ',
+      "message0": pos_line_29,
       "args0": [
 		{
 		  "type": "input_value",
@@ -51,7 +51,7 @@ Blockly.Blocks['pos_formobject'] = {
       ],
 	  "output": "Position",
       "colour": 133,
-      "tooltip": "构建位置(Position.fromObject)",
+      "tooltip": pos_line_54,
       "helpUrl": "#"
     });
   }
@@ -72,7 +72,7 @@ Blockly.JavaScript['pos_formobject'] = function(block) {
 Blockly.Blocks['pos_getx'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取 %1 位置的x',
+      "message0": pos_line_75,
       "args0": [
 		{
 		  "type": "input_value",
@@ -82,7 +82,7 @@ Blockly.Blocks['pos_getx'] = {
       ],
 	  "output": "Number",
       "colour": 133,
-      "tooltip": "获取位置的x(getX)",
+      "tooltip": pos_line_85,
       "helpUrl": "#"
     });
   }
@@ -97,7 +97,7 @@ Blockly.JavaScript['pos_getx'] = function(block) {
 Blockly.Blocks['pos_gety'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取 %1 位置的y',
+      "message0": pos_line_100,
       "args0": [
 		{
 		  "type": "input_value",
@@ -107,7 +107,7 @@ Blockly.Blocks['pos_gety'] = {
       ],
 	  "output": "Number",
       "colour": 133,
-      "tooltip": "获取位置的y(getY)",
+      "tooltip": pos_line_110,
       "helpUrl": "#"
     });
   }
@@ -122,7 +122,7 @@ Blockly.JavaScript['pos_gety'] = function(block) {
 Blockly.Blocks['pos_getz'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取 %1 位置的z',
+      "message0": pos_line_125,
       "args0": [
 		{
 		  "type": "input_value",
@@ -132,7 +132,7 @@ Blockly.Blocks['pos_getz'] = {
       ],
 	  "output": "Number",
       "colour": 133,
-      "tooltip": "获取位置的z(getZ)",
+      "tooltip": pos_line_135,
       "helpUrl": "#"
     });
   }
@@ -147,7 +147,7 @@ Blockly.JavaScript['pos_getz'] = function(block) {
 Blockly.Blocks['pos_getlevel'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取 %1 位置的世界',
+      "message0": pos_line_150,
       "args0": [
 		{
 		  "type": "input_value",
@@ -157,7 +157,7 @@ Blockly.Blocks['pos_getlevel'] = {
       ],
 	  "output": "Level",
       "colour": 133,
-      "tooltip": "获取位置的世界(getLevel)",
+      "tooltip": pos_line_160,
       "helpUrl": "#"
     });
   }
@@ -172,7 +172,7 @@ Blockly.JavaScript['pos_getlevel'] = function(block) {
 Blockly.Blocks['pos_setlevel'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置位置 %1 的世界为 %2',
+      "message0": pos_line_175,
       "args0": [
 		{
 		  "type": "input_value",
@@ -189,7 +189,7 @@ Blockly.Blocks['pos_setlevel'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 133,
-      "tooltip": "设置世界(setLevel)",
+      "tooltip": pos_line_192,
       "helpUrl": "#"
     });
   }
@@ -206,7 +206,7 @@ Blockly.JavaScript['pos_setlevel'] = function(block) {
 Blockly.Blocks['pos_setxyz'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置位置 %1 的x %2 y %3 z %4',
+      "message0": pos_line_209,
       "args0": [
 		{
 		  "type": "input_value",
@@ -233,7 +233,7 @@ Blockly.Blocks['pos_setxyz'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 133,
-      "tooltip": "设置xyz(setComponents)",
+      "tooltip": pos_line_236,
       "helpUrl": "#"
     });
   }
@@ -254,7 +254,7 @@ Blockly.JavaScript['pos_setxyz'] = function(block) {
 Blockly.Blocks['pos_getsafespawn'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取世界 %1 的重生点',
+      "message0": pos_line_257,
       "args0": [
 		{
 		  "type": "input_value",
@@ -264,7 +264,7 @@ Blockly.Blocks['pos_getsafespawn'] = {
       ],
 	  "output": "Position",
       "colour": 133,
-      "tooltip": "获取世界重生点(getSafeSpawn)",
+      "tooltip": pos_line_267,
       "helpUrl": "#"
     });
   }
@@ -279,7 +279,7 @@ Blockly.JavaScript['pos_getsafespawn'] = function(block) {
 Blockly.Blocks['pos_setspawnlocation'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置世界 %1 的重生点为位置 %2',
+      "message0": pos_line_282,
       "args0": [
 		  {
 		  "type": "input_value",
@@ -296,7 +296,7 @@ Blockly.Blocks['pos_setspawnlocation'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 133,
-      "tooltip": "设置世界(setSpawnLocation)",
+      "tooltip": pos_line_299,
       "helpUrl": "#"
     });
   }
@@ -313,7 +313,7 @@ Blockly.JavaScript['pos_setspawnlocation'] = function(block) {
 Blockly.Blocks['pos_makeSound'] = {
   init: function() {
     this.jsonInit({
-      "message0": '在位置 %1 播放声音 %2',
+      "message0": pos_line_316,
       "args0": [
 		{
 		  "type": "input_value",
@@ -330,7 +330,7 @@ Blockly.Blocks['pos_makeSound'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 133,
-      "tooltip": "播放声音(makeSound)",
+      "tooltip": pos_line_333,
       "helpUrl": "#"
     });
   }
@@ -347,7 +347,7 @@ Blockly.JavaScript['pos_makeSound'] = function(block) {
 Blockly.Blocks['pos_makeExpBall'] = {
   init: function() {
     this.jsonInit({
-      "message0": '在位置 %1 生成包含 %2 点经验值的经验球',
+      "message0": pos_line_350,
       "args0": [
 		{
 		  "type": "input_value",
@@ -364,7 +364,7 @@ Blockly.Blocks['pos_makeExpBall'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 133,
-      "tooltip": "经验球(makeExpBall)",
+      "tooltip": pos_line_367,
       "helpUrl": "#"
     });
   }
@@ -381,7 +381,7 @@ Blockly.JavaScript['pos_makeExpBall'] = function(block) {
 Blockly.Blocks['pos_makeDropItem'] = {
   init: function() {
     this.jsonInit({
-      "message0": '在位置 %1 生成与 %2 相同的掉落物',
+      "message0": pos_line_384,
       "args0": [
 		{
 		  "type": "input_value",
@@ -398,7 +398,7 @@ Blockly.Blocks['pos_makeDropItem'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 133,
-      "tooltip": "生成掉落物(makeDropItem)",
+      "tooltip": pos_line_401,
       "helpUrl": "#"
     });
   }
@@ -415,7 +415,7 @@ Blockly.JavaScript['pos_makeDropItem'] = function(block) {
 Blockly.Blocks['pos_getBlock'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取位置 %1 的方块',
+      "message0": pos_line_418,
       "args0": [
 		{
 		  "type": "input_value",
@@ -425,7 +425,7 @@ Blockly.Blocks['pos_getBlock'] = {
       ],
 	  "output": "Blocks",
       "colour": 133,
-      "tooltip": "获取方块(getBlock)",
+      "tooltip": pos_line_428,
       "helpUrl": "#"
     });
   }
@@ -440,7 +440,7 @@ Blockly.JavaScript['pos_getBlock'] = function(block) {
 Blockly.Blocks['pos_getLevelEntities'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取位置 %1 所在世界的生物列表',
+      "message0": pos_line_443,
       "args0": [
 		{
 		  "type": "input_value",
@@ -450,7 +450,7 @@ Blockly.Blocks['pos_getLevelEntities'] = {
       ],
 	  "output": "Array",
       "colour": 133,
-      "tooltip": "获取位置所在世界的生物列表(getLevelEntities)",
+      "tooltip": pos_line_453,
       "helpUrl": "#"
     });
   }
@@ -465,7 +465,7 @@ Blockly.JavaScript['pos_getLevelEntities'] = function(block) {
 Blockly.Blocks['pos_getLevelPlayers'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取位置 %1 所在世界的玩家列表',
+      "message0": pos_line_468,
       "args0": [
 		{
 		  "type": "input_value",
@@ -475,7 +475,7 @@ Blockly.Blocks['pos_getLevelPlayers'] = {
       ],
 	  "output": "Array",
       "colour": 133,
-      "tooltip": "获取位置所在世界的玩家列表(getLevelPlayers)",
+      "tooltip": pos_line_478,
       "helpUrl": "#"
     });
   }
@@ -490,7 +490,7 @@ Blockly.JavaScript['pos_getLevelPlayers'] = function(block) {
 Blockly.Blocks['pos_getIsSunny'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取位置 %1 所在世界是否天气晴朗',
+      "message0": pos_line_493,
       "args0": [
 		{
 		  "type": "input_value",
@@ -500,7 +500,7 @@ Blockly.Blocks['pos_getIsSunny'] = {
       ],
 	  "output": "Boolean",
       "colour": 133,
-      "tooltip": "获取位置所在世界是否天气晴朗(getIsSunny)",
+      "tooltip": pos_line_503,
       "helpUrl": "#"
     });
   }
@@ -515,7 +515,7 @@ Blockly.JavaScript['pos_getIsSunny'] = function(block) {
 Blockly.Blocks['pos_isDay'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取位置 %1 所在世界是否白天',
+      "message0": pos_line_518,
       "args0": [
 		{
 		  "type": "input_value",
@@ -525,7 +525,7 @@ Blockly.Blocks['pos_isDay'] = {
       ],
 	  "output": "Boolean",
       "colour": 133,
-      "tooltip": "获取位置所在世界是否白天(isDay)",
+      "tooltip": pos_line_528,
       "helpUrl": "#"
     });
   }
@@ -540,7 +540,7 @@ Blockly.JavaScript['pos_isDay'] = function(block) {
 Blockly.Blocks['pos_setLevelWeather'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置位置 %1 天气为 %2 ',
+      "message0": pos_line_543,
       "args0": [
 		{
 		  "type": "input_value",
@@ -551,9 +551,9 @@ Blockly.Blocks['pos_setLevelWeather'] = {
 		    "type": "field_dropdown",
 		    "name": "WEATHER",
 		    "options": [
-			  ["晴天", "clear"],
-		      ["雨天", "rain"],
-		      ["雷暴", "thunder"]
+			  [pos_line_554, "clear"],
+		      [pos_line_555, "rain"],
+		      [pos_line_556, "thunder"]
 		    ]
 		}
       ],
@@ -561,7 +561,7 @@ Blockly.Blocks['pos_setLevelWeather'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 133,
-      "tooltip": "设置天气(setLevelWeather)",
+      "tooltip": pos_line_564,
       "helpUrl": "#"
     });
   }
@@ -577,7 +577,7 @@ Blockly.JavaScript['pos_setLevelWeather'] = function(block) {
 Blockly.Blocks['pos_setBlock'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置位置 %1 方块为 %2 是否掉落粒子 %3 ',
+      "message0": pos_line_580,
       "args0": [
 		{
 		  "type": "input_value",
@@ -599,7 +599,7 @@ Blockly.Blocks['pos_setBlock'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 133,
-      "tooltip": "设置方块(setBlock)",
+      "tooltip": pos_line_602,
       "helpUrl": "#"
     });
   }
@@ -618,7 +618,7 @@ Blockly.JavaScript['pos_setBlock'] = function(block) {
 Blockly.Blocks['pos_getBlockInv'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取位置 %1 方块的物品栏',
+      "message0": pos_line_621,
       "args0": [
 		{
 		  "type": "input_value",
@@ -628,7 +628,7 @@ Blockly.Blocks['pos_getBlockInv'] = {
       ],
 	  "output": "Inventory",
       "colour": 133,
-      "tooltip": "获取方块物品栏(getBlockInv)",
+      "tooltip": pos_line_631,
       "helpUrl": "#"
     });
   }
@@ -643,7 +643,7 @@ Blockly.JavaScript['pos_getBlockInv'] = function(block) {
 Blockly.Blocks['pos_setBlockInv'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置位置 %1 方块物品栏为 %2 ',
+      "message0": pos_line_646,
       "args0": [
 		{
 		  "type": "input_value",
@@ -660,7 +660,7 @@ Blockly.Blocks['pos_setBlockInv'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 133,
-      "tooltip": "设置方块物品栏(setBlockInv)",
+      "tooltip": pos_line_663,
       "helpUrl": "#"
     });
   }
@@ -677,7 +677,7 @@ Blockly.JavaScript['pos_setBlockInv'] = function(block) {
 Blockly.Blocks['pos_loadlevel'] = {
   init: function() {
     this.jsonInit({
-      "message0": '强制加载名称为 %1 的世界',
+      "message0": pos_line_680,
       "args0": [
 		{
 		  "type": "input_value",
@@ -689,7 +689,7 @@ Blockly.Blocks['pos_loadlevel'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 133,
-      "tooltip": "加载世界(loadLevel)",
+      "tooltip": pos_line_692,
       "helpUrl": "#"
     });
   }
@@ -704,7 +704,7 @@ Blockly.JavaScript['pos_loadlevel'] = function(block) {
 Blockly.Blocks['pos_genLevel'] = {
   init: function() {
     this.jsonInit({
-      "message0": '生成种子 %1 世界名 %2 种类 %3 的世界',
+      "message0": pos_line_707,
       "args0": [
 		{
 		  "type": "input_value",
@@ -720,10 +720,10 @@ Blockly.Blocks['pos_genLevel'] = {
 		    "type": "field_dropdown",
 		    "name": "OP",
 		    "options": [
-			  ["无限世界","NORMAL"],
-			  ["超平坦", "FLAT"],
-		      ["虚空世界", "VOID"],
-		      ["下界世界", "NETHER"]
+			  [pos_line_723,"NORMAL"],
+			  [pos_line_724, "FLAT"],
+		      [pos_line_725, "VOID"],
+		      [pos_line_726, "NETHER"]
 		    ]
 		}
       ],
@@ -731,7 +731,7 @@ Blockly.Blocks['pos_genLevel'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 133,
-      "tooltip": "生成世界(genLevel)",
+      "tooltip": pos_line_734,
       "helpUrl": "#"
     });
   }
@@ -749,7 +749,7 @@ Blockly.JavaScript['pos_genLevel'] = function(block) {
 Blockly.Blocks['pos_getlevelname'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取 %1 世界的名称',
+      "message0": pos_line_752,
       "args0": [
 		{
 		  "type": "input_value",
@@ -759,7 +759,7 @@ Blockly.Blocks['pos_getlevelname'] = {
       ],
 	  "output": "String",
       "colour": 133,
-      "tooltip": "获取世界的名称(getLevelName)",
+      "tooltip": pos_line_762,
       "helpUrl": "#"
     });
   }
@@ -774,7 +774,7 @@ Blockly.JavaScript['pos_getlevelname'] = function(block) {
 Blockly.Blocks['pos_getDropItems'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取 %1 位置所在世界的掉落物列表',
+      "message0": pos_line_777,
       "args0": [
 		{
 		  "type": "input_value",
@@ -784,7 +784,7 @@ Blockly.Blocks['pos_getDropItems'] = {
       ],
 	  "output": "Array",
       "colour": 133,
-      "tooltip": "获取世界的掉落物列表(getDropItems)",
+      "tooltip": pos_line_787,
       "helpUrl": "#"
     });
   }
@@ -799,7 +799,7 @@ Blockly.JavaScript['pos_getDropItems'] = function(block) {
 Blockly.Blocks['pos_getEntities'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取 %1 世界的生物列表',
+      "message0": pos_line_802,
       "args0": [
 		{
 		  "type": "input_value",
@@ -809,7 +809,7 @@ Blockly.Blocks['pos_getEntities'] = {
       ],
 	  "output": "Array",
       "colour": 133,
-      "tooltip": "获取世界的生物列表(getEntities)",
+      "tooltip": pos_line_812,
       "helpUrl": "#"
     });
   }
@@ -824,10 +824,10 @@ Blockly.JavaScript['pos_getEntities'] = function(block) {
 Blockly.Blocks['pos_getServerLevels'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取服务器的世界列表',
+      "message0": pos_line_827,
 	  "output": "Array",
       "colour": 133,
-      "tooltip": "获取服务器的世界列表(getServerLevels)",
+      "tooltip": pos_line_830,
       "helpUrl": "#"
     });
   }
@@ -840,7 +840,7 @@ Blockly.JavaScript['pos_getServerLevels'] = function(block) {
 Blockly.Blocks['pos_getEntityByLevelAndID'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取 %1 世界中id为 %2 的生物',
+      "message0": pos_line_843,
       "args0": [
 		{
 		  "type": "input_value",
@@ -855,7 +855,7 @@ Blockly.Blocks['pos_getEntityByLevelAndID'] = {
       ],
 	  "output": "Entity",
       "colour": 133,
-      "tooltip": "获取世界的生物(getEntityByLevelAndID)",
+      "tooltip": pos_line_858,
       "helpUrl": "#"
     });
   }
@@ -872,7 +872,7 @@ Blockly.JavaScript['pos_getEntityByLevelAndID'] = function(block) {
 Blockly.Blocks['pos_getLevelFloatingText'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取 %1 世界中的浮空字实体列表',
+      "message0": pos_line_875,
       "args0": [
 		{
 		  "type": "input_value",
@@ -882,7 +882,7 @@ Blockly.Blocks['pos_getLevelFloatingText'] = {
       ],
 	  "output": "Array",
       "colour": 133,
-      "tooltip": "获取世界的浮空字列表(getLevelFloatingText)",
+      "tooltip": pos_line_885,
       "helpUrl": "#"
     });
   }

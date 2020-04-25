@@ -2,10 +2,10 @@
 Blockly.Blocks['nkserver'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'nukkit服务器实例',
+      "message0": myblocks_line_5,
       "output": "NukkitServer",
       "colour": 20,
-      "tooltip": "返回nukkit的服务器实例",
+      "tooltip": myblocks_line_8,
       "helpUrl": "#"
     });
   }
@@ -16,10 +16,10 @@ Blockly.JavaScript['nkserver'] = function(block) {
 Blockly.Blocks['nklogger'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'nukkit控制台实例',
+      "message0": myblocks_line_19,
       "output": "NukkitLogger",
       "colour": 20,
-      "tooltip": "返回nukkit的控制台实例",
+      "tooltip": myblocks_line_22,
       "helpUrl": "#"
     });
   }
@@ -30,10 +30,10 @@ Blockly.JavaScript['nklogger'] = function(block) {
 Blockly.Blocks['nkgetConsoleSender'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'nk控制台命令发送器',
+      "message0": myblocks_line_33,
       "output": "Sender",
       "colour": 20,
-      "tooltip": "返回nukkit的控制台命令发送器",
+      "tooltip": myblocks_line_36,
       "helpUrl": "#"
     });
   }
@@ -44,7 +44,7 @@ Blockly.JavaScript['nkgetConsoleSender'] = function(block) {
 Blockly.Blocks['nklogger_info'] = {
   init: function() {
     this.jsonInit({
-      "message0": '使用 %1 输出控制台信息 %2',
+      "message0": myblocks_line_47,
       "args0": [
         {
           "type": "input_value",
@@ -61,7 +61,7 @@ Blockly.Blocks['nklogger_info'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 20,
-      "tooltip": "输出控制台信息",
+      "tooltip": myblocks_line_64,
       "helpUrl": "#"
     });
   }
@@ -78,7 +78,7 @@ Blockly.JavaScript['nklogger_info'] = function(block) {
 Blockly.Blocks['nklogger_warning'] = {
   init: function() {
     this.jsonInit({
-      "message0": '使用 %1 输出控制台警告 %2',
+      "message0": myblocks_line_81,
       "args0": [
         {
           "type": "input_value",
@@ -95,7 +95,7 @@ Blockly.Blocks['nklogger_warning'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 20,
-      "tooltip": "输出控制台警告",
+      "tooltip": myblocks_line_98,
       "helpUrl": "#"
     });
   }
@@ -112,10 +112,10 @@ Blockly.JavaScript['nklogger_warning'] = function(block) {
 Blockly.Blocks['onlineplayers'] = {
   init: function() {
     this.jsonInit({
-      "message0": '在线的玩家的列表',
+      "message0": myblocks_line_115,
       "output": "Array",
       "colour": 260,
-      "tooltip": "返回在线的玩家列表",
+      "tooltip": myblocks_line_118,
       "helpUrl": "#"
     });
   }
@@ -126,10 +126,10 @@ Blockly.JavaScript['onlineplayers'] = function(block) {
 Blockly.Blocks['bnmanager'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'BN插件管理器',
+      "message0": myblocks_line_129,
       "output": "BNManager",
       "colour": 65,
-      "tooltip": "返回BN插件管理器",
+      "tooltip": myblocks_line_132,
       "helpUrl": "#"
     });
   }
@@ -140,7 +140,7 @@ Blockly.JavaScript['bnmanager'] = function(block) {
 Blockly.Blocks['bn_register_command'] = {
   init: function() {
     this.jsonInit({
-      "message0": '注册命令:使用 %1 命令名 %2 描述 %3 回调函数名(sender,args) %4 ',
+      "message0": myblocks_line_143,
       "args0": [
 		{
 		  "type": "input_value",
@@ -166,7 +166,7 @@ Blockly.Blocks['bn_register_command'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 65,
-      "tooltip": "注册一个命令",
+      "tooltip": myblocks_line_169,
       "helpUrl": "#"
     });
   }
@@ -187,7 +187,7 @@ Blockly.JavaScript['bn_register_command'] = function(block) {
 Blockly.Blocks['bn_register_delay'] = {
   init: function() {
     this.jsonInit({
-      "message0": '延迟调用:使用 %1 回调函数名(tick) %2 延迟(刻) %3 ',
+      "message0": myblocks_line_190,
       "args0": [
 		{
 		  "type": "input_value",
@@ -208,7 +208,7 @@ Blockly.Blocks['bn_register_delay'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 65,
-      "tooltip": "延时调用一个函数",
+      "tooltip": myblocks_line_211,
       "helpUrl": "#"
     });
   }
@@ -227,7 +227,7 @@ Blockly.JavaScript['bn_register_delay'] = function(block) {
 Blockly.Blocks['bn_register_repeat20'] = {
   init: function() {
     this.jsonInit({
-      "message0": '后台循环:使用 %1 回调函数名(tick) %2 并每 %3 刻tick执行一次 ',
+      "message0": myblocks_line_230,
       "args0": [
 		{
 		  "type": "input_value",
@@ -248,7 +248,7 @@ Blockly.Blocks['bn_register_repeat20'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 65,
-      "tooltip": "循环调用一个函数",
+      "tooltip": myblocks_line_251,
       "helpUrl": "#"
     });
   }
@@ -267,7 +267,7 @@ Blockly.JavaScript['bn_register_repeat20'] = function(block) {
 Blockly.Blocks['bn_config'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'yml:使用 %1 文件名 %2 分类 %3',
+      "message0": myblocks_line_270,
       "args0": [
 		{
 		  "type": "input_value",
@@ -287,7 +287,7 @@ Blockly.Blocks['bn_config'] = {
       ],
 	  "output": "Config",
       "colour": 65,
-      "tooltip": "获取yaml配置文件",
+      "tooltip": myblocks_line_290,
       "helpUrl": "#"
     });
   }
@@ -307,7 +307,7 @@ Blockly.JavaScript['bn_config'] = function(block) {
 Blockly.Blocks['bn_set_config'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'yml:对于 %1 设置键 %2 为 %3 ',
+      "message0": myblocks_line_310,
       "args0": [
 		{
 		  "type": "input_value",
@@ -328,7 +328,7 @@ Blockly.Blocks['bn_set_config'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 65,
-      "tooltip": "设置yml的键值",
+      "tooltip": myblocks_line_331,
       "helpUrl": "#"
     });
   }
@@ -347,7 +347,7 @@ Blockly.JavaScript['bn_set_config'] = function(block) {
 Blockly.Blocks['bn_get_config'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'yml:对于 %1 获取键的值 %2 ',
+      "message0": myblocks_line_350,
       "args0": [
 		{
 		  "type": "input_value",
@@ -362,7 +362,7 @@ Blockly.Blocks['bn_get_config'] = {
       ],
 	  "output": null,
       "colour": 65,
-      "tooltip": "获取yml的键值",
+      "tooltip": myblocks_line_365,
       "helpUrl": "#"
     });
   }
@@ -380,7 +380,7 @@ Blockly.JavaScript['bn_get_config'] = function(block) {
 Blockly.Blocks['bn_getKeys_config'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'yml:对于 %1 获取所有键的名称',
+      "message0": myblocks_line_383,
       "args0": [
 		{
 		  "type": "input_value",
@@ -390,7 +390,7 @@ Blockly.Blocks['bn_getKeys_config'] = {
       ],
 	  "output": "Array",
       "colour": 65,
-      "tooltip": "获取yml的所有键的名称",
+      "tooltip": myblocks_line_393,
       "helpUrl": "#"
     });
   }
@@ -406,7 +406,7 @@ Blockly.JavaScript['bn_getKeys_config'] = function(block) {
 Blockly.Blocks['bn_save_config'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'yml:保存 %1 ',
+      "message0": myblocks_line_409,
       "args0": [
 		{
 		  "type": "input_value",
@@ -417,7 +417,7 @@ Blockly.Blocks['bn_save_config'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 65,
-      "tooltip": "保存yml文件",
+      "tooltip": myblocks_line_420,
       "helpUrl": "#"
     });
   }
@@ -432,7 +432,7 @@ Blockly.JavaScript['bn_save_config'] = function(block) {
 Blockly.Blocks['nk_getname'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取 %1 的名称',
+      "message0": myblocks_line_435,
       "args0": [
 		{
 		  "type": "input_value",
@@ -442,7 +442,7 @@ Blockly.Blocks['nk_getname'] = {
       ],
 	  "output": "String",
       "colour": 20,
-      "tooltip": "获取名称(getname)",
+      "tooltip": myblocks_line_445,
       "helpUrl": "#"
     });
   }
@@ -457,7 +457,7 @@ Blockly.JavaScript['nk_getname'] = function(block) {
 Blockly.Blocks['nkdispatchcommand'] = {
   init: function() {
     this.jsonInit({
-      "message0": '让 %1 执行命令 %2',
+      "message0": myblocks_line_460,
       "args0": [
         {
           "type": "input_value",
@@ -474,7 +474,7 @@ Blockly.Blocks['nkdispatchcommand'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 20,
-      "tooltip": "执行命令(dispatchCommand)",
+      "tooltip": myblocks_line_477,
       "helpUrl": "#"
     });
   }
@@ -491,7 +491,7 @@ Blockly.JavaScript['nkdispatchcommand'] = function(block) {
 Blockly.Blocks['bn_getfunction'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取函数通过名称 %1 ',
+      "message0": myblocks_line_494,
       "args0": [
 		{
 		  "type": "input_value",
@@ -501,7 +501,7 @@ Blockly.Blocks['bn_getfunction'] = {
       ],
 	  "output": "String",
       "colour": 65,
-      "tooltip": "获取函数通过名称",
+      "tooltip": myblocks_line_504,
       "helpUrl": "#"
     });
   }
@@ -516,7 +516,7 @@ Blockly.JavaScript['bn_getfunction'] = function(block) {
 Blockly.Blocks['nkputEasy'] = {
   init: function() {
     this.jsonInit({
-      "message0": '临时存储：键 %1 值 %2',
+      "message0": myblocks_line_519,
       "args0": [
         {
           "type": "input_value",
@@ -533,7 +533,7 @@ Blockly.Blocks['nkputEasy'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 20,
-      "tooltip": "临时存储(putEasy)",
+      "tooltip": myblocks_line_536,
       "helpUrl": "#"
     });
   }
@@ -550,7 +550,7 @@ Blockly.JavaScript['nkputEasy'] = function(block) {
 Blockly.Blocks['nkgetEasy'] = {
   init: function() {
     this.jsonInit({
-      "message0": '临时存储：获取键 %1 的值( %2 )',
+      "message0": myblocks_line_553,
       "args0": [
 		{
 		  "type": "input_value",
@@ -561,19 +561,19 @@ Blockly.Blocks['nkgetEasy'] = {
 		    "type": "field_dropdown",
 		    "name": "TYPE",
 		    "options": [
-			  ["字符串","String"],
-			  ["数字", "Number"],
-		      ["对错", "Boolean"],
-		      ["位置", "Position"],
-			  ["玩家", "Player"],
-			  ["物品(堆)", "Item"],
-			  ["方块", "Block"]
+			  [myblocks_line_564,"String"],
+			  [myblocks_line_565, "Number"],
+		      [myblocks_line_566, "Boolean"],
+		      [myblocks_line_567, "Position"],
+			  [myblocks_line_568, "Player"],
+			  [myblocks_line_569, "Item"],
+			  [myblocks_line_570, "Block"]
 		    ]
 		}
       ],
 	  "output": ["String","Number", "Boolean", "Position", "Player", "Item" ,"Blocks"],
       "colour": 20,
-      "tooltip": "临时存储(getEasyString)",
+      "tooltip": myblocks_line_576,
       "helpUrl": "#"
     });
   }
@@ -589,7 +589,7 @@ Blockly.JavaScript['nkgetEasy'] = function(block) {
 Blockly.Blocks['bn_forEachBlockInArea'] = {
   init: function() {
     this.jsonInit({
-      "message0": '对位置 %1 到位置 %2 是否包含空气 %3 的每一个方块 回调函数名(block) %4 ',
+      "message0": myblocks_line_592,
       "args0": [
 		{
 		  "type": "input_value",
@@ -615,7 +615,7 @@ Blockly.Blocks['bn_forEachBlockInArea'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 65,
-      "tooltip": "区域方块回调",
+      "tooltip": myblocks_line_618,
       "helpUrl": "#"
     });
   }
@@ -636,7 +636,7 @@ Blockly.JavaScript['bn_forEachBlockInArea'] = function(block) {
 Blockly.Blocks['bn_forLinkedBlock'] = {
   init: function() {
     this.jsonInit({
-      "message0": '对位置 %1 的每一个相邻同种方块 回调函数名(Position) %2 ',
+      "message0": myblocks_line_639,
       "args0": [
 		{
 		  "type": "input_value",
@@ -652,7 +652,7 @@ Blockly.Blocks['bn_forLinkedBlock'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 65,
-      "tooltip": "相邻方块回调",
+      "tooltip": myblocks_line_655,
       "helpUrl": "#"
     });
   }
@@ -669,7 +669,7 @@ Blockly.JavaScript['bn_forLinkedBlock'] = function(block) {
 Blockly.Blocks['nkevent_privatecall'] = {
   init: function() {
     this.jsonInit({
-      "message0": '将公有事件 %1 映射到私有事件 %2',
+      "message0": myblocks_line_672,
       "args0": [
         {
           "type": "input_value",
@@ -686,7 +686,7 @@ Blockly.Blocks['nkevent_privatecall'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 20,
-      "tooltip": "映射私有事件",
+      "tooltip": myblocks_line_689,
       "helpUrl": "#"
     });
   }

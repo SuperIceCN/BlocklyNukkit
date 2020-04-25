@@ -2,7 +2,7 @@
 Blockly.Blocks['entity_getDropItemStack'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取 %1 掉落物的物品堆',
+      "message0": entity_line_5,
       "args0": [
 		{
 		  "type": "input_value",
@@ -12,7 +12,7 @@ Blockly.Blocks['entity_getDropItemStack'] = {
       ],
 	  "output": "Item",
       "colour": 248,
-      "tooltip": "获取掉落物的物品堆(getDropItemStack)",
+      "tooltip": entity_line_15,
       "helpUrl": "#"
     });
   }
@@ -27,7 +27,7 @@ Blockly.JavaScript['entity_getDropItemStack'] = function(block) {
 Blockly.Blocks['entity_removeEntity'] = {
   init: function() {
     this.jsonInit({
-      "message0": '移除生物 %1 ',
+      "message0": entity_line_30,
       "args0": [
 		{
 		  "type": "input_value",
@@ -39,7 +39,7 @@ Blockly.Blocks['entity_removeEntity'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 248,
-      "tooltip": "移除生物(removeEntity)",
+      "tooltip": entity_line_42,
       "helpUrl": "#"
     });
   }
@@ -54,7 +54,7 @@ Blockly.JavaScript['entity_removeEntity'] = function(block) {
 Blockly.Blocks['entity_setEntityName'] = {
   init: function() {
     this.jsonInit({
-      "message0": '修改生物 %1 名称为 %2 ',
+      "message0": entity_line_57,
       "args0": [
 		{
 		  "type": "input_value",
@@ -71,7 +71,7 @@ Blockly.Blocks['entity_setEntityName'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 248,
-      "tooltip": "修改名称(setEntityName)",
+      "tooltip": entity_line_74,
       "helpUrl": "#"
     });
   }
@@ -88,7 +88,7 @@ Blockly.JavaScript['entity_setEntityName'] = function(block) {
 Blockly.Blocks['entity_setEntityNameTagAlwaysVisable'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置生物 %1 名称高亮状态 %2 ',
+      "message0": entity_line_91,
       "args0": [
 		{
 		  "type": "input_value",
@@ -105,7 +105,7 @@ Blockly.Blocks['entity_setEntityNameTagAlwaysVisable'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 248,
-      "tooltip": "设置高亮(setEntityNameTagAlwaysVisable)",
+      "tooltip": entity_line_108,
       "helpUrl": "#"
     });
   }
@@ -122,7 +122,7 @@ Blockly.JavaScript['entity_setEntityNameTagAlwaysVisable'] = function(block) {
 Blockly.Blocks['entity_setEntityHealth'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置生物 %1 的 %2 血量 %3 ',
+      "message0": entity_line_125,
       "args0": [
 		{
 		  "type": "input_value",
@@ -133,8 +133,8 @@ Blockly.Blocks['entity_setEntityHealth'] = {
 		    "type": "field_dropdown",
 		    "name": "OP",
 		    "options": [
-			  ["现有",""],
-			  ["最大", "Max"]
+			  [entity_line_136,""],
+			  [entity_line_137, "Max"]
 		    ]
 		},
 		{
@@ -147,7 +147,7 @@ Blockly.Blocks['entity_setEntityHealth'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 248,
-      "tooltip": "设置血量(setEntityHealth)",
+      "tooltip": entity_line_150,
       "helpUrl": "#"
     });
   }
@@ -165,7 +165,7 @@ Blockly.JavaScript['entity_setEntityHealth'] = function(block) {
 Blockly.Blocks['entity_getEntityHealth'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取 %1 的 %2 ',
+      "message0": entity_line_168,
       "args0": [
 		{
 		  "type": "input_value",
@@ -176,14 +176,14 @@ Blockly.Blocks['entity_getEntityHealth'] = {
 		    "type": "field_dropdown",
 		    "name": "OP",
 		    "options": [
-			  ["现有血量",""],
-			  ["最大血量", "Max"]
+			  [entity_line_179,""],
+			  [entity_line_180, "Max"]
 		    ]
 		}
       ],
 	  "output": "Number",
       "colour": 248,
-      "tooltip": "获取生物血量(getEntityHealth)",
+      "tooltip": entity_line_186,
       "helpUrl": "#"
     });
   }
@@ -199,7 +199,7 @@ Blockly.JavaScript['entity_getEntityHealth'] = function(block) {
 Blockly.Blocks['entity_clearEntityEffect'] = {
   init: function() {
     this.jsonInit({
-      "message0": '移除生物 %1 的所有药水状态',
+      "message0": entity_line_202,
       "args0": [
 		{
 		  "type": "input_value",
@@ -211,7 +211,7 @@ Blockly.Blocks['entity_clearEntityEffect'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 248,
-      "tooltip": "移除生物的所有药水状态(clearEntityEffect)",
+      "tooltip": entity_line_214,
       "helpUrl": "#"
     });
   }
@@ -226,7 +226,7 @@ Blockly.JavaScript['entity_clearEntityEffect'] = function(block) {
 Blockly.Blocks['entity_addEntityEffect'] = {
   init: function() {
     this.jsonInit({
-      "message0": '给生物 %1 添加药水效果 %2 等级 %3 持续 %4 刻',
+      "message0": entity_line_229,
       "args0": [
 		{
 		  "type": "input_value",
@@ -237,33 +237,33 @@ Blockly.Blocks['entity_addEntityEffect'] = {
 		    "type": "field_dropdown",
 		    "name": "OP",
 		    "options": [
-			  ["速度","1"],
-			  ["缓慢","2"],
-			  ["挖掘急迫","3"],
-			  ["挖掘疲劳","4"],
-			  ["力量","5"],
-			  ["瞬间治疗","6"],
-			  ["瞬间伤害","7"],
-			  ["跳跃提升","8"],
-			  ["反胃","9"],
-			  ["生命恢复","10"],
-			  ["抗性提升","11"],
-			  ["防火","12"],
-			  ["水下呼吸","13"],
-			  ["隐形","14"],
-			  ["失明","15"],
-			  ["夜视","16"],
-			  ["饥饿","17"],
-			  ["虚弱","18"],
-			  ["中毒","19"],
-			  ["凋零","20"],
-			  ["生命提升","21"],
-			  ["伤害吸收","22"],
-			  ["饱和","23"],
-			  ["漂浮","24"],
-			  ["中毒(一直到死)","25"],
-			  ["潮涌能量","26"],
-			  ["缓降","27"]
+			  [entity_line_240,"1"],
+			  [entity_line_241,"2"],
+			  [entity_line_242,"3"],
+			  [entity_line_243,"4"],
+			  [entity_line_244,"5"],
+			  [entity_line_245,"6"],
+			  [entity_line_246,"7"],
+			  [entity_line_247,"8"],
+			  [entity_line_248,"9"],
+			  [entity_line_249,"10"],
+			  [entity_line_250,"11"],
+			  [entity_line_251,"12"],
+			  [entity_line_252,"13"],
+			  [entity_line_253,"14"],
+			  [entity_line_254,"15"],
+			  [entity_line_255,"16"],
+			  [entity_line_256,"17"],
+			  [entity_line_257,"18"],
+			  [entity_line_258,"19"],
+			  [entity_line_259,"20"],
+			  [entity_line_260,"21"],
+			  [entity_line_261,"22"],
+			  [entity_line_262,"23"],
+			  [entity_line_263,"24"],
+			  [entity_line_264,"25"],
+			  [entity_line_265,"26"],
+			  [entity_line_266,"27"]
 		    ]
 		},
 		{
@@ -281,7 +281,7 @@ Blockly.Blocks['entity_addEntityEffect'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 248,
-      "tooltip": "给生物添加药水效果(addEntityEffect)",
+      "tooltip": entity_line_284,
       "helpUrl": "#"
     });
   }
@@ -301,7 +301,7 @@ Blockly.JavaScript['entity_addEntityEffect'] = function(block) {
 Blockly.Blocks['entity_getEntityID'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取 %1 的实体标识id',
+      "message0": entity_line_304,
       "args0": [
 		{
 		  "type": "input_value",
@@ -311,7 +311,7 @@ Blockly.Blocks['entity_getEntityID'] = {
       ],
 	  "output": "String",
       "colour": 248,
-      "tooltip": "获取生物实体标识id(getEntityID)",
+      "tooltip": entity_line_314,
       "helpUrl": "#"
     });
   }
@@ -326,7 +326,7 @@ Blockly.JavaScript['entity_getEntityID'] = function(block) {
 Blockly.Blocks['entity_getEntityLevel'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取实体 %1 所在的世界',
+      "message0": entity_line_329,
       "args0": [
 		{
 		  "type": "input_value",
@@ -336,7 +336,7 @@ Blockly.Blocks['entity_getEntityLevel'] = {
       ],
 	  "output": "Level",
       "colour": 248,
-      "tooltip": "获取实体所在世界(getEntityLevel)",
+      "tooltip": entity_line_339,
       "helpUrl": "#"
     });
   }
@@ -351,7 +351,7 @@ Blockly.JavaScript['entity_getEntityLevel'] = function(block) {
 Blockly.Blocks['entity_getEntityName'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取实体 %1 的名字',
+      "message0": entity_line_354,
       "args0": [
 		{
 		  "type": "input_value",
@@ -361,7 +361,7 @@ Blockly.Blocks['entity_getEntityName'] = {
       ],
 	  "output": "String",
       "colour": 248,
-      "tooltip": "获取实体名字(getEntityName)",
+      "tooltip": entity_line_364,
       "helpUrl": "#"
     });
   }
@@ -376,7 +376,7 @@ Blockly.JavaScript['entity_getEntityName'] = function(block) {
 Blockly.Blocks['entity_getEntityPosition'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取实体 %1 的位置',
+      "message0": entity_line_379,
       "args0": [
 		{
 		  "type": "input_value",
@@ -386,7 +386,7 @@ Blockly.Blocks['entity_getEntityPosition'] = {
       ],
 	  "output": "Position",
       "colour": 248,
-      "tooltip": "获取实体位置(getEntityPosition)",
+      "tooltip": entity_line_389,
       "helpUrl": "#"
     });
   }
@@ -401,7 +401,7 @@ Blockly.JavaScript['entity_getEntityPosition'] = function(block) {
 Blockly.Blocks['entity_setEntityPosition'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置实体 %1 的位置为 %2 ',
+      "message0": entity_line_404,
       "args0": [
 		{
 		  "type": "input_value",
@@ -418,7 +418,7 @@ Blockly.Blocks['entity_setEntityPosition'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 248,
-      "tooltip": "设置实体的位置(setEntityPosition)",
+      "tooltip": entity_line_421,
       "helpUrl": "#"
     });
   }
@@ -435,7 +435,7 @@ Blockly.JavaScript['entity_setEntityPosition'] = function(block) {
 Blockly.Blocks['entity_buildFloatingText'] = {
   init: function() {
     this.jsonInit({
-      "message0": '构建文字为 %1 位置为 %2 的浮空字实体并每 %3 刻回调函数名为 %4 的函数(entity)',
+      "message0": entity_line_438,
       "args0": [
 		{
 		  "type": "input_value",
@@ -461,7 +461,7 @@ Blockly.Blocks['entity_buildFloatingText'] = {
 	  "output": "Entity",
       "colour": 248,
 	  "inputsInline": false,
-      "tooltip": "构建浮空字实体(buildFloatingText)",
+      "tooltip": entity_line_464,
       "helpUrl": "#"
     });
   }
@@ -482,7 +482,7 @@ Blockly.JavaScript['entity_buildFloatingText'] = function(block) {
 Blockly.Blocks['entity_startDisplayFloatingText'] = {
   init: function() {
     this.jsonInit({
-      "message0": '启动浮空字实体 %1 显示',
+      "message0": entity_line_485,
       "args0": [
 		{
 		  "type": "input_value",
@@ -494,7 +494,7 @@ Blockly.Blocks['entity_startDisplayFloatingText'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 248,
-      "tooltip": "启动浮空字(startDisplayFloatingText)",
+      "tooltip": entity_line_497,
       "helpUrl": "#"
     });
   }
@@ -509,10 +509,10 @@ Blockly.JavaScript['entity_startDisplayFloatingText'] = function(block) {
 Blockly.Blocks['entity_BNdeafultFloatingTextCallBack'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'BN默认浮空字回调函数',
+      "message0": entity_line_512,
 	  "output": "String",
       "colour": 248,
-      "tooltip": "BN默认浮空字回调函数",
+      "tooltip": entity_line_515,
       "helpUrl": "#"
     });
   }

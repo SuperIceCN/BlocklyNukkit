@@ -2,7 +2,7 @@
 Blockly.Blocks['utils_buildPositionfromPlayer'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取玩家 %1 的位置',
+      "message0": utils_line_5,
       "args0": [
 		{
 		  "type": "input_value",
@@ -12,7 +12,7 @@ Blockly.Blocks['utils_buildPositionfromPlayer'] = {
       ],
 	  "output": "Position",
       "colour": 97,
-      "tooltip": "获取玩家的位置(buildPositionfromPlayer)",
+      "tooltip": utils_line_15,
       "helpUrl": "#"
     });
   }
@@ -27,7 +27,7 @@ Blockly.JavaScript['utils_buildPositionfromPlayer'] = function(block) {
 Blockly.Blocks['utils_buildPositionfromBlock'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取方块 %1 的位置',
+      "message0": utils_line_30,
       "args0": [
 		{
 		  "type": "input_value",
@@ -37,7 +37,7 @@ Blockly.Blocks['utils_buildPositionfromBlock'] = {
       ],
 	  "output": "Position",
       "colour": 97,
-      "tooltip": "获取方块的位置(buildPositionfromBlock)",
+      "tooltip": utils_line_40,
       "helpUrl": "#"
     });
   }
@@ -52,7 +52,7 @@ Blockly.JavaScript['utils_buildPositionfromBlock'] = function(block) {
 Blockly.Blocks['utils_buildPositionfromEntity'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取生物 %1 的位置',
+      "message0": utils_line_55,
       "args0": [
 		{
 		  "type": "input_value",
@@ -62,7 +62,7 @@ Blockly.Blocks['utils_buildPositionfromEntity'] = {
       ],
 	  "output": "Position",
       "colour": 97,
-      "tooltip": "获取生物的位置(buildPositionfromEntity)",
+      "tooltip": utils_line_65,
       "helpUrl": "#"
     });
   }
@@ -77,7 +77,7 @@ Blockly.JavaScript['utils_buildPositionfromEntity'] = function(block) {
 Blockly.Blocks['utils_database_databaseOpen'] = {
   init: function() {
     this.jsonInit({
-      "message0": '连接数据库url: %1 用户名 %2 密码 %3 表名 %4 ',
+      "message0": utils_line_80,
       "args0": [
 		{
 		  "type": "input_value",
@@ -104,7 +104,7 @@ Blockly.Blocks['utils_database_databaseOpen'] = {
 	  "previousStatement": null,
 	  "inputsInline": false,
       "colour": 97,
-      "tooltip": "连接数据库(databaseOpen)",
+      "tooltip": utils_line_107,
       "helpUrl": "#"
     });
   }
@@ -125,7 +125,7 @@ Blockly.JavaScript['utils_database_databaseOpen'] = function(block) {
 Blockly.Blocks['utils_database_databaseUpdate'] = {
   init: function() {
     this.jsonInit({
-      "message0": '更新数据库 sql语句: %1 参数列表 %2',
+      "message0": utils_line_128,
       "args0": [
 		{
 		  "type": "input_value",
@@ -142,7 +142,7 @@ Blockly.Blocks['utils_database_databaseUpdate'] = {
 	  "previousStatement": null,
 	  "inputsInline": false,
       "colour": 97,
-      "tooltip": "更新数据库(databaseUpdate)",
+      "tooltip": utils_line_145,
       "helpUrl": "#"
     });
   }
@@ -159,7 +159,7 @@ Blockly.JavaScript['utils_database_databaseUpdate'] = function(block) {
 Blockly.Blocks['utils_database_databaseQuery'] = { 
   init: function() {
     this.jsonInit({
-      "message0": '查询数据库 sql语句: %1 列: %2 参数列表: %3',
+      "message0": utils_line_162,
       "args0": [
 		{
 		  "type": "input_value",
@@ -180,7 +180,7 @@ Blockly.Blocks['utils_database_databaseQuery'] = {
 	  "output": "Array",
       "colour": 97,
 	  "inputsInline": false,
-      "tooltip": "查询数据库(databaseQuery)",
+      "tooltip": utils_line_183,
       "helpUrl": "#"
     });
   }
@@ -199,7 +199,7 @@ Blockly.JavaScript['utils_database_databaseQuery'] = function(block) {
 Blockly.Blocks['utils_setHTMLPlaceholder'] = {
   init: function() {
     this.jsonInit({
-      "message0": '自定义网页placeholder：名称 %1 替换 %2',
+      "message0": utils_line_202,
       "args0": [
         {
           "type": "input_value",
@@ -216,7 +216,7 @@ Blockly.Blocks['utils_setHTMLPlaceholder'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 97,
-      "tooltip": "设置html的自定义placeholder(setHTMLPlaceholder)",
+      "tooltip": utils_line_219,
       "helpUrl": "#"
     });
   }
@@ -233,7 +233,7 @@ Blockly.JavaScript['utils_setHTMLPlaceholder'] = function(block) {
 Blockly.Blocks['utils_checkIsBear'] = {
   init: function() {
     this.jsonInit({
-      "message0": '检测玩家 %1 是否是熊孩子(基于BlackBE云黑)返回查询结果',
+      "message0": utils_line_236,
       "args0": [
 		{
 		  "type": "input_value",
@@ -243,7 +243,7 @@ Blockly.Blocks['utils_checkIsBear'] = {
       ],
 	  "output": "String",
       "colour": 97,
-      "tooltip": "检测玩家是否是熊孩子(基于BlackBE云黑)",
+      "tooltip": utils_line_246,
       "helpUrl": "#"
     });
   }
@@ -258,7 +258,7 @@ Blockly.JavaScript['utils_checkIsBear'] = function(block) {
 Blockly.Blocks['utils_getPlayerArea'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取玩家 %1 的地理位置(基于IP逆向侦察)',
+      "message0": utils_line_261,
       "args0": [
 		{
 		  "type": "input_value",
@@ -268,7 +268,7 @@ Blockly.Blocks['utils_getPlayerArea'] = {
       ],
 	  "output": "String",
       "colour": 97,
-      "tooltip": "获取玩家 %1 的地理位置(基于IP逆向侦察)",
+      "tooltip": utils_line_271,
       "helpUrl": "#"
     });
   }
@@ -283,7 +283,7 @@ Blockly.JavaScript['utils_getPlayerArea'] = function(block) {
 Blockly.Blocks['utils_httpRequest'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向 %1 发送 %2 类型 包含数据 %3 的http请求并获取返回值',
+      "message0": utils_line_286,
       "args0": [
 		{
 		  "type": "input_value",
@@ -306,7 +306,7 @@ Blockly.Blocks['utils_httpRequest'] = {
       ],
 	  "output": "String",
       "colour": 97,
-      "tooltip": "发送http请求并获取返回值",
+      "tooltip": utils_line_309,
       "helpUrl": "#"
     });
   }

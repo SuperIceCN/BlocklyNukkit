@@ -2,14 +2,14 @@
 Blockly.Blocks['inv_addInv'] = {
   init: function() {
     this.jsonInit({
-      "message0": '构造虚拟 %1 物品栏,物品列表 %2 标题 %3 ',
+      "message0": inventory_line_5,
       "args0": [
 		{
 		    "type": "field_dropdown",
 		    "name": "OP",
 		    "options": [
-			  ["大箱子", "true"],
-		      ["小箱子", "false"]
+			  [inventory_line_11, "true"],
+		      [inventory_line_12, "false"]
 		    ]
 		},
 		{
@@ -25,7 +25,7 @@ Blockly.Blocks['inv_addInv'] = {
       ],
 	  "output": "Inventory",
       "colour": 290,
-      "tooltip": "构造物品栏(addInv)",
+      "tooltip": inventory_line_28,
       "helpUrl": "#"
     });
   }
@@ -43,7 +43,7 @@ Blockly.JavaScript['inv_addInv'] = function(block) {
 Blockly.Blocks['inv_showFakeInv'] = {
   init: function() {
     this.jsonInit({
-      "message0": '给玩家 %1 展示虚拟物品栏 %2 ',
+      "message0": inventory_line_46,
       "args0": [
 		{
 		  "type": "input_value",
@@ -60,7 +60,7 @@ Blockly.Blocks['inv_showFakeInv'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 290,
-      "tooltip": "给玩家展示虚拟物品栏(showFakeInv)",
+      "tooltip": inventory_line_63,
       "helpUrl": "#"
     });
   }
@@ -77,7 +77,7 @@ Blockly.JavaScript['inv_showFakeInv'] = function(block) {
 Blockly.Blocks['inv_editInv'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置物品栏 %1 所有物品为列表 %2 中的物品',
+      "message0": inventory_line_80,
       "args0": [
 		{
 		  "type": "input_value",
@@ -94,7 +94,7 @@ Blockly.Blocks['inv_editInv'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 290,
-      "tooltip": "设置物品栏物品(editInv)",
+      "tooltip": inventory_line_97,
       "helpUrl": "#"
     });
   }
@@ -111,7 +111,7 @@ Blockly.JavaScript['inv_editInv'] = function(block) {
 Blockly.Blocks['inv_editInvBySlot'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置物品栏 %1 第 %2 个槽位的物品为 %3 ',
+      "message0": inventory_line_114,
       "args0": [
 		{
 		  "type": "input_value",
@@ -133,7 +133,7 @@ Blockly.Blocks['inv_editInvBySlot'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 290,
-      "tooltip": "设置物品栏物品(editInvBySlot)",
+      "tooltip": inventory_line_136,
       "helpUrl": "#"
     });
   }
@@ -152,7 +152,7 @@ Blockly.JavaScript['inv_editInvBySlot'] = function(block) {
 Blockly.Blocks['inv_containsItemInInv'] = {
   init: function() {
     this.jsonInit({
-      "message0": '物品栏 %1 是否包含物品 %2 ',
+      "message0": inventory_line_155,
       "args0": [
 		{
 		  "type": "input_value",
@@ -167,7 +167,7 @@ Blockly.Blocks['inv_containsItemInInv'] = {
       ],
 	  "output": "Boolean",
       "colour": 290,
-      "tooltip": "检查物品(containsItemInInv)",
+      "tooltip": inventory_line_170,
       "helpUrl": "#"
     });
   }
@@ -184,7 +184,7 @@ Blockly.JavaScript['inv_containsItemInInv'] = function(block) {
 Blockly.Blocks['inv_addItemToInv'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向物品栏 %1 添加物品 %2 ',
+      "message0": inventory_line_187,
       "args0": [
 		{
 		  "type": "input_value",
@@ -201,7 +201,7 @@ Blockly.Blocks['inv_addItemToInv'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 290,
-      "tooltip": "添加物品栏物品(addItemToInv)",
+      "tooltip": inventory_line_204,
       "helpUrl": "#"
     });
   }
@@ -218,7 +218,7 @@ Blockly.JavaScript['inv_addItemToInv'] = function(block) {
 Blockly.Blocks['inv_removeItemFromInv'] = {
   init: function() {
     this.jsonInit({
-      "message0": '从物品栏 %1 移除物品 %2 ',
+      "message0": inventory_line_221,
       "args0": [
 		{
 		  "type": "input_value",
@@ -235,7 +235,7 @@ Blockly.Blocks['inv_removeItemFromInv'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 290,
-      "tooltip": "移除物品栏物品(removeItemFromInv)",
+      "tooltip": inventory_line_238,
       "helpUrl": "#"
     });
   }
@@ -252,7 +252,7 @@ Blockly.JavaScript['inv_removeItemFromInv'] = function(block) {
 Blockly.Blocks['inv_getItemsInInv'] = {
   init: function() {
     this.jsonInit({
-      "message0": '物品栏 %1 的全部物品列表 ',
+      "message0": inventory_line_255,
       "args0": [
 		{
 		  "type": "input_value",
@@ -262,7 +262,7 @@ Blockly.Blocks['inv_getItemsInInv'] = {
       ],
 	  "output": "Array",
       "colour": 290,
-      "tooltip": "物品列表(getItemsInInv)",
+      "tooltip": inventory_line_265,
       "helpUrl": "#"
     });
   }

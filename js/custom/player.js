@@ -1,7 +1,7 @@
 Blockly.Blocks['player_getbyname'] = {
   init: function() {
     this.jsonInit({
-      "message0": '根据名称 %1 获取玩家',
+      "message0": player_line_4,
       "args0": [
 		{
 		  "type": "input_value",
@@ -11,7 +11,7 @@ Blockly.Blocks['player_getbyname'] = {
       ],
 	  "output": "Player",
       "colour": 180,
-      "tooltip": "获取玩家(getPlayer)",
+      "tooltip": player_line_14,
       "helpUrl": "#"
     });
   }
@@ -26,7 +26,7 @@ Blockly.JavaScript['player_getbyname'] = function(block) {
 Blockly.Blocks['player_playedbefore'] = {
   init: function() {
     this.jsonInit({
-      "message0": '玩家 %1 以前是否进服过',
+      "message0": player_line_29,
       "args0": [
 		{
 		  "type": "input_value",
@@ -36,7 +36,7 @@ Blockly.Blocks['player_playedbefore'] = {
       ],
 	  "output": "Boolean",
       "colour": 180,
-      "tooltip": "玩家以前是否进服过(playedBefore)",
+      "tooltip": player_line_39,
       "helpUrl": "#"
     });
   }
@@ -51,7 +51,7 @@ Blockly.JavaScript['player_playedbefore'] = function(block) {
 Blockly.Blocks['player_getbyuuid'] = {
   init: function() {
     this.jsonInit({
-      "message0": '根据uuid %1 获取玩家',
+      "message0": player_line_54,
       "args0": [
 		{
 		  "type": "input_value",
@@ -61,7 +61,7 @@ Blockly.Blocks['player_getbyuuid'] = {
       ],
 	  "output": "Player",
       "colour": 180,
-      "tooltip": "获取玩家(getPlayer)",
+      "tooltip": player_line_64,
       "helpUrl": "#"
     });
   }
@@ -76,7 +76,7 @@ Blockly.JavaScript['player_getbyuuid'] = function(block) {
 Blockly.Blocks['player_sendMessage'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向 %1 发送消息 %2 ',
+      "message0": player_line_79,
       "args0": [
 		{
 		  "type": "input_value",
@@ -92,7 +92,7 @@ Blockly.Blocks['player_sendMessage'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 180,
-      "tooltip": "向玩家发送消息(sendMessage)",
+      "tooltip": player_line_95,
       "helpUrl": "#"
     });
   }
@@ -109,7 +109,7 @@ Blockly.JavaScript['player_sendMessage'] = function(block) {
 Blockly.Blocks['player_sendPopup'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向玩家 %1 发送字符串 %2 作为物品栏提示',
+      "message0": player_line_112,
       "args0": [
 		{
 		  "type": "input_value",
@@ -125,7 +125,7 @@ Blockly.Blocks['player_sendPopup'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 180,
-      "tooltip": "向玩家发送消息(sendMessage)",
+      "tooltip": player_line_128,
       "helpUrl": "#"
     });
   }
@@ -142,7 +142,7 @@ Blockly.JavaScript['player_sendPopup'] = function(block) {
 Blockly.Blocks['player_sendActionBar'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向玩家 %1 发送字符串 %2 作为动态提示条',
+      "message0": player_line_145,
       "args0": [
 		{
 		  "type": "input_value",
@@ -158,7 +158,7 @@ Blockly.Blocks['player_sendActionBar'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 180,
-      "tooltip": "向玩家发送消息(sendActionBar)",
+      "tooltip": player_line_161,
       "helpUrl": "#"
     });
   }
@@ -175,7 +175,7 @@ Blockly.JavaScript['player_sendActionBar'] = function(block) {
 Blockly.Blocks['player_setSubtitle'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向玩家 %1 发送字符串 %2 作为副标题',
+      "message0": player_line_178,
       "args0": [
 		{
 		  "type": "input_value",
@@ -191,7 +191,7 @@ Blockly.Blocks['player_setSubtitle'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 180,
-      "tooltip": "向玩家发送消息(setSubtitle)",
+      "tooltip": player_line_194,
       "helpUrl": "#"
     });
   }
@@ -208,7 +208,7 @@ Blockly.JavaScript['player_setSubtitle'] = function(block) {
 Blockly.Blocks['player_sendTitle'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向玩家 %1 发送字符串 %2 作为标题',
+      "message0": player_line_211,
       "args0": [
 		{
 		  "type": "input_value",
@@ -224,7 +224,7 @@ Blockly.Blocks['player_sendTitle'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 180,
-      "tooltip": "向玩家发送消息(sendTitle)",
+      "tooltip": player_line_227,
       "helpUrl": "#"
     });
   }
@@ -250,7 +250,7 @@ Blockly.JavaScript['player_setSubtitle'] = function(block) {
 Blockly.Blocks['player_clearTitle'] = {
   init: function() {
     this.jsonInit({
-      "message0": '清空玩家 %1 的标题',
+      "message0": player_line_253,
       "args0": [
 		{
 		  "type": "input_value",
@@ -261,7 +261,7 @@ Blockly.Blocks['player_clearTitle'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 180,
-      "tooltip": "清空玩家的标题(clearTitle)",
+      "tooltip": player_line_264,
       "helpUrl": "#"
     });
   }
@@ -276,7 +276,7 @@ Blockly.JavaScript['player_clearTitle'] = function(block) {
 Blockly.Blocks['player_gethealth'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取玩家 %1 的血量',
+      "message0": player_line_279,
       "args0": [
 		{
 		  "type": "input_value",
@@ -286,7 +286,7 @@ Blockly.Blocks['player_gethealth'] = {
       ],
 	  "output": "Number",
       "colour": 180,
-      "tooltip": "获取玩家血量(getHealth)",
+      "tooltip": player_line_289,
       "helpUrl": "#"
     });
   }
@@ -301,7 +301,7 @@ Blockly.JavaScript['player_gethealth'] = function(block) {
 Blockly.Blocks['player_sethealth'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置玩家 %1 的血量为 %2',
+      "message0": player_line_304,
       "args0": [
 		{
 		  "type": "input_value",
@@ -318,7 +318,7 @@ Blockly.Blocks['player_sethealth'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 180,
-      "tooltip": "设置玩家血量(setHealth)",
+      "tooltip": player_line_321,
       "helpUrl": "#"
     });
   }
@@ -335,7 +335,7 @@ Blockly.JavaScript['player_sethealth'] = function(block) {
 Blockly.Blocks['player_setmaxhealth'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置玩家 %1 的血量上限为 %2',
+      "message0": player_line_338,
       "args0": [
 		{
 		  "type": "input_value",
@@ -352,7 +352,7 @@ Blockly.Blocks['player_setmaxhealth'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 180,
-      "tooltip": "设置玩家血量上限(setMaxHealth)",
+      "tooltip": player_line_355,
       "helpUrl": "#"
     });
   }
@@ -369,7 +369,7 @@ Blockly.JavaScript['player_setmaxhealth'] = function(block) {
 Blockly.Blocks['player_getposition'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取玩家 %1 的位置',
+      "message0": player_line_372,
       "args0": [
 		{
 		  "type": "input_value",
@@ -379,7 +379,7 @@ Blockly.Blocks['player_getposition'] = {
       ],
 	  "output": "Position",
       "colour": 180,
-      "tooltip": "获取玩家的位置(getPosition)",
+      "tooltip": player_line_382,
       "helpUrl": "#"
     });
   }
@@ -393,7 +393,7 @@ Blockly.JavaScript['player_getposition'] = function(block) {
 Blockly.Blocks['player_teleport'] = {
   init: function() {
     this.jsonInit({
-      "message0": '传送玩家 %1 到 %2',
+      "message0": player_line_396,
       "args0": [
 		{
 		  "type": "input_value",
@@ -410,7 +410,7 @@ Blockly.Blocks['player_teleport'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 180,
-      "tooltip": "传送玩家(teleport)",
+      "tooltip": player_line_413,
       "helpUrl": "#"
     });
   }
@@ -427,7 +427,7 @@ Blockly.JavaScript['player_teleport'] = function(block) {
 Blockly.Blocks['player_buildskin'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置玩家 %1 的皮肤为名称是 %2 的皮肤',
+      "message0": player_line_430,
       "args0": [
 		{
 		  "type": "input_value",
@@ -461,7 +461,7 @@ Blockly.JavaScript['player_buildskin'] = function(block) {
 Blockly.Blocks['player_buildskinfor'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置玩家 %1 的皮肤为名称是 %2 的皮肤并展示给 %3 玩家',
+      "message0": player_line_464,
       "args0": [
 		{
 		  "type": "input_value",
@@ -501,7 +501,7 @@ Blockly.JavaScript['player_buildskinfor'] = function(block) {
 Blockly.Blocks['player_getmoney'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取玩家 %1 的金钱',
+      "message0": player_line_504,
       "args0": [
 		{
 		  "type": "input_value",
@@ -511,7 +511,7 @@ Blockly.Blocks['player_getmoney'] = {
       ],
 	  "output": "Number",
       "colour": 180,
-      "tooltip": "获取玩家的金钱(getMoney)",
+      "tooltip": player_line_514,
       "helpUrl": "#"
     });
   }
@@ -525,15 +525,15 @@ Blockly.JavaScript['player_getmoney'] = function(block) {
 Blockly.Blocks['player_opmoney'] = {
   init: function() {
     this.jsonInit({
-      "message0": ' %1 玩家 %2 的金钱 %3 ',
+      "message0": player_line_528,
       "args0": [
 		 {
 		    "type": "field_dropdown",
 		    "name": "OP",
 		    "options": [
-			  ["增加", "add"],
-		      ["减少", "reduce"],
-		      ["设置", "set"]
+			  [player_line_534, "add"],
+		      [player_line_535, "reduce"],
+		      [player_line_536, "set"]
 		    ]
 		},
 		{
@@ -569,7 +569,7 @@ Blockly.JavaScript['player_opmoney'] = function(block) {
 Blockly.Blocks['player_getItemInHand'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取玩家 %1 手上的物品',
+      "message0": player_line_572,
       "args0": [
 		{
 		  "type": "input_value",
@@ -579,7 +579,7 @@ Blockly.Blocks['player_getItemInHand'] = {
       ],
 	  "output": "Item",
       "colour": 180,
-      "tooltip": "获取玩家手上的物品(getItemInHand)",
+      "tooltip": player_line_582,
       "helpUrl": "#"
     });
   }
@@ -593,7 +593,7 @@ Blockly.JavaScript['player_getItemInHand'] = function(block) {
 Blockly.Blocks['player_setItemInHand'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置玩家 %1 手上的物品为 %2 ',
+      "message0": player_line_596,
       "args0": [
 		{
 		  "type": "input_value",
@@ -610,7 +610,7 @@ Blockly.Blocks['player_setItemInHand'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 180,
-      "tooltip": "更改手上物品(setItemInHand)",
+      "tooltip": player_line_613,
       "helpUrl": "#"
     });
   }
@@ -627,7 +627,7 @@ Blockly.JavaScript['player_setItemInHand'] = function(block) {
 Blockly.Blocks['player_PlayerIsOP'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取玩家 %1 是否是op',
+      "message0": player_line_630,
       "args0": [
 		{
 		  "type": "input_value",
@@ -637,7 +637,7 @@ Blockly.Blocks['player_PlayerIsOP'] = {
       ],
 	  "output": "Boolean",
       "colour": 180,
-      "tooltip": "获取玩家是否为op(PlayerIsOP)",
+      "tooltip": player_line_640,
       "helpUrl": "#"
     });
   }
@@ -651,7 +651,7 @@ Blockly.JavaScript['player_PlayerIsOP'] = function(block) {
 Blockly.Blocks['player_addItemToPlayer'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向玩家 %1 背包添加物品 %2 ',
+      "message0": player_line_654,
       "args0": [
 		{
 		  "type": "input_value",
@@ -668,7 +668,7 @@ Blockly.Blocks['player_addItemToPlayer'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 180,
-      "tooltip": "背包添加物品(addItemToPlayer)",
+      "tooltip": player_line_671,
       "helpUrl": "#"
     });
   }
@@ -685,7 +685,7 @@ Blockly.JavaScript['player_addItemToPlayer'] = function(block) {
 Blockly.Blocks['player_removeItemToPlayer'] = {
   init: function() {
     this.jsonInit({
-      "message0": '从玩家 %1 背包移除物品 %2 ',
+      "message0": player_line_688,
       "args0": [
 		{
 		  "type": "input_value",
@@ -702,7 +702,7 @@ Blockly.Blocks['player_removeItemToPlayer'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 180,
-      "tooltip": "背包移除物品(removeItemToPlayer)",
+      "tooltip": player_line_705,
       "helpUrl": "#"
     });
   }
@@ -719,7 +719,7 @@ Blockly.JavaScript['player_removeItemToPlayer'] = function(block) {
 Blockly.Blocks['player_hasItemToPlayer'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取玩家 %1 背包里是否拥有 %2 ',
+      "message0": player_line_722,
       "args0": [
 		{
 		  "type": "input_value",
@@ -734,7 +734,7 @@ Blockly.Blocks['player_hasItemToPlayer'] = {
       ],
 	  "output": "Boolean",
       "colour": 180,
-      "tooltip": "获取玩家背包是否有物品(hasItemToPlayer)",
+      "tooltip": player_line_737,
       "helpUrl": "#"
     });
   }
@@ -750,7 +750,7 @@ Blockly.JavaScript['player_hasItemToPlayer'] = function(block) {
 Blockly.Blocks['player_getPlayerInv'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取玩家 %1 的物品栏',
+      "message0": player_line_753,
       "args0": [
 		{
 		  "type": "input_value",
@@ -760,7 +760,7 @@ Blockly.Blocks['player_getPlayerInv'] = {
       ],
 	  "output": "Inventory",
       "colour": 180,
-      "tooltip": "获取玩家物品栏(getPlayerInv)",
+      "tooltip": player_line_763,
       "helpUrl": "#"
     });
   }
@@ -775,7 +775,7 @@ Blockly.JavaScript['player_getPlayerInv'] = function(block) {
 Blockly.Blocks['player_setPlayerInv'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置玩家 %1 物品栏为 %2 ',
+      "message0": player_line_778,
       "args0": [
 		{
 		  "type": "input_value",
@@ -792,7 +792,7 @@ Blockly.Blocks['player_setPlayerInv'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 180,
-      "tooltip": "设置玩家物品栏(setPlayerInv)",
+      "tooltip": player_line_795,
       "helpUrl": "#"
     });
   }
@@ -809,7 +809,7 @@ Blockly.JavaScript['player_setPlayerInv'] = function(block) {
 Blockly.Blocks['player_kickPlayer'] = {
   init: function() {
     this.jsonInit({
-      "message0": '踢了玩家 %1 发送原因 %2 ',
+      "message0": player_line_812,
       "args0": [
 		{
 		  "type": "input_value",
@@ -826,7 +826,7 @@ Blockly.Blocks['player_kickPlayer'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 180,
-      "tooltip": "T了玩家(kickPlayer)",
+      "tooltip": player_line_829,
       "helpUrl": "#"
     });
   }

@@ -2,7 +2,7 @@
 Blockly.Blocks['bi_buildBlock'] = {
   init: function() {
     this.jsonInit({
-      "message0": '构建id %1 特殊值 %2 的方块',
+      "message0": blockanditem_line_5,
       "args0": [
 		{
 		  "type": "input_value",
@@ -17,7 +17,7 @@ Blockly.Blocks['bi_buildBlock'] = {
       ],
 	  "output": "Blocks",
       "colour": 47,
-      "tooltip": "构造方块(buildBlock)",
+      "tooltip": blockanditem_line_20,
       "helpUrl": "#"
     });
   }
@@ -34,7 +34,7 @@ Blockly.JavaScript['bi_buildBlock'] = function(block) {
 Blockly.Blocks['bi_buildItem'] = {
   init: function() {
     this.jsonInit({
-      "message0": '构建id %1 特殊值 %2 数量为 %3 的物品堆',
+      "message0": blockanditem_line_37,
       "args0": [
 		{
 		  "type": "input_value",
@@ -54,7 +54,7 @@ Blockly.Blocks['bi_buildItem'] = {
       ],
 	  "output": "Item",
       "colour": 47,
-      "tooltip": "构造物品堆(buildItem)",
+      "tooltip": blockanditem_line_57,
       "helpUrl": "#"
     });
   }
@@ -73,7 +73,7 @@ Blockly.JavaScript['bi_buildItem'] = function(block) {
 Blockly.Blocks['bi_buildItemFromBlock'] = {
   init: function() {
     this.jsonInit({
-      "message0": '从方块 %1 构建物品堆',
+      "message0": blockanditem_line_76,
       "args0": [
 		{
 		  "type": "input_value",
@@ -83,7 +83,7 @@ Blockly.Blocks['bi_buildItemFromBlock'] = {
       ],
 	  "output": "Item",
       "colour": 47,
-      "tooltip": "从方块构造物品(buildItemFromBlock)",
+      "tooltip": blockanditem_line_86,
       "helpUrl": "#"
     });
   }
@@ -98,7 +98,7 @@ Blockly.JavaScript['bi_buildItemFromBlock'] = function(block) {
 Blockly.Blocks['bi_block_getId'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取方块 %1 的id',
+      "message0": blockanditem_line_101,
       "args0": [
 		{
 		  "type": "input_value",
@@ -108,7 +108,7 @@ Blockly.Blocks['bi_block_getId'] = {
       ],
 	  "output": "Number",
       "colour": 47,
-      "tooltip": "获取方块id(getId)",
+      "tooltip": blockanditem_line_111,
       "helpUrl": "#"
     });
   }
@@ -123,7 +123,7 @@ Blockly.JavaScript['bi_block_getId'] = function(block) {
 Blockly.Blocks['bi_block_getDamage'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取方块 %1 的特殊值',
+      "message0": blockanditem_line_126,
       "args0": [
 		{
 		  "type": "input_value",
@@ -133,7 +133,7 @@ Blockly.Blocks['bi_block_getDamage'] = {
       ],
 	  "output": "Number",
       "colour": 47,
-      "tooltip": "获取方块特殊值(getDamage)",
+      "tooltip": blockanditem_line_136,
       "helpUrl": "#"
     });
   }
@@ -148,7 +148,7 @@ Blockly.JavaScript['bi_block_getDamage'] = function(block) {
 Blockly.Blocks['bi_setItem'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置物品堆 %1 的 %2 为 %3 ',
+      "message0": blockanditem_line_151,
       "args0": [
 		{
 		  "type": "input_value",
@@ -159,9 +159,9 @@ Blockly.Blocks['bi_setItem'] = {
 		    "type": "field_dropdown",
 		    "name": "OP",
 		    "options": [
-			  ["数量", "Count"],
-		      ["数据值", "Damage"],
-		      ["名称", "CustomName"]
+			  [blockanditem_line_162, "Count"],
+		      [blockanditem_line_163, "Damage"],
+		      [blockanditem_line_164, "CustomName"]
 		    ]
 		},
 		{
@@ -174,7 +174,7 @@ Blockly.Blocks['bi_setItem'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 47,
-      "tooltip": "设置物品堆(bi_setItem)",
+      "tooltip": blockanditem_line_177,
       "helpUrl": "#"
     });
   }
@@ -192,7 +192,7 @@ Blockly.JavaScript['bi_setItem'] = function(block) {
 Blockly.Blocks['bi_getItemInfo'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取物品 %1 的 %2 ',
+      "message0": blockanditem_line_195,
       "args0": [
 		{
 		  "type": "input_value",
@@ -204,15 +204,15 @@ Blockly.Blocks['bi_getItemInfo'] = {
 		    "name": "OP",
 		    "options": [
 			  ["ID","Id"],
-			  ["数量", "Count"],
-		      ["数据值", "Damage"],
-		      ["名称", "CustomName"]
+			  [blockanditem_line_207, "Count"],
+		      [blockanditem_line_208, "Damage"],
+		      [blockanditem_line_209, "CustomName"]
 		    ]
 		}
       ],
 	  "output": ["Number","String"],
       "colour": 47,
-      "tooltip": "获取物品信息(bi_getItemInfo)",
+      "tooltip": blockanditem_line_215,
       "helpUrl": "#"
     });
   }
@@ -228,7 +228,7 @@ Blockly.JavaScript['bi_getItemInfo'] = function(block) {
 Blockly.Blocks['bi_getBlockInfo'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取方块 %1 的 %2 ',
+      "message0": blockanditem_line_231,
       "args0": [
 		{
 		  "type": "input_value",
@@ -239,7 +239,7 @@ Blockly.Blocks['bi_getBlockInfo'] = {
 		    "type": "field_dropdown",
 		    "name": "OP",
 		    "options": [
-			  ["世界","level"],
+			  [blockanditem_line_242,"level"],
 			  ["x", "x"],
 		      ["y", "y"],
 		      ["z", "z"]
@@ -248,7 +248,7 @@ Blockly.Blocks['bi_getBlockInfo'] = {
       ],
 	  "output": ["Number","Level"],
       "colour": 47,
-      "tooltip": "获取方块信息(bi_getBlockInfo)",
+      "tooltip": blockanditem_line_251,
       "helpUrl": "#"
     });
   }
@@ -264,7 +264,7 @@ Blockly.JavaScript['bi_getBlockInfo'] = function(block) {
 Blockly.Blocks['bi_getItemLore'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取物品 %1 的lore字符串',
+      "message0": blockanditem_line_267,
       "args0": [
 		{
 		  "type": "input_value",
@@ -274,7 +274,7 @@ Blockly.Blocks['bi_getItemLore'] = {
       ],
 	  "output": "String",
       "colour": 47,
-      "tooltip": "获取lore(getItemLore)",
+      "tooltip": blockanditem_line_277,
       "helpUrl": "#"
     });
   }
@@ -283,7 +283,7 @@ Blockly.Blocks['bi_getItemLore'] = {
 Blockly.Blocks['bi_setItemLore'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置物品堆 %1 的lore字符串为 %2 ',
+      "message0": blockanditem_line_286,
       "args0": [
 		{
 		  "type": "input_value",
@@ -300,7 +300,7 @@ Blockly.Blocks['bi_setItemLore'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 47,
-      "tooltip": "设置物品堆lore(bi_setItemLore)",
+      "tooltip": blockanditem_line_303,
       "helpUrl": "#"
     });
   }
@@ -324,7 +324,7 @@ Blockly.JavaScript['bi_getItemLore'] = function(block) {
 Blockly.Blocks['bi_addShapelessCraft'] = {
   init: function() {
     this.jsonInit({
-      "message0": '无序合成：原料(列表) %1 生成(物品) %2 ',
+      "message0": blockanditem_line_327,
       "args0": [
 		{
 		  "type": "input_value",
@@ -340,7 +340,7 @@ Blockly.Blocks['bi_addShapelessCraft'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 47,
-      "tooltip": "添加无序合成(addShapelessCraft)",
+      "tooltip": blockanditem_line_343,
       "helpUrl": "#"
     });
   }
@@ -357,7 +357,7 @@ Blockly.JavaScript['bi_addShapelessCraft'] = function(block) {
 Blockly.Blocks['bi_addShapedCraft'] = {
   init: function() {
     this.jsonInit({
-      "message0": '有序合成：形状 %1 合成结果 %2 追加结果 %3',
+      "message0": blockanditem_line_360,
       "args0": [
 	    {
 	      "type": "input_value",
@@ -378,7 +378,7 @@ Blockly.Blocks['bi_addShapedCraft'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 47,
-      "tooltip": "添加有序合成(addShapedCraft)",
+      "tooltip": blockanditem_line_381,
       "helpUrl": "#"
     });
   }
@@ -418,7 +418,7 @@ Blockly.Blocks['bi_shapestr'] = {
 	  "output": "String",
       "colour": 47,
 	  "inputsInline": true,
-      "tooltip": "形状(shapestr)",
+      "tooltip": blockanditem_line_421,
       "helpUrl": "#"
     });
   }
@@ -457,7 +457,7 @@ Blockly.Blocks['bi_shapearray'] = {
       ],
 	  "output": "Array",
       "colour": 47,
-      "tooltip": "形状(shapearray)",
+      "tooltip": blockanditem_line_460,
       "helpUrl": "#"
     });
   }
@@ -476,7 +476,7 @@ Blockly.JavaScript['bi_shapearray'] = function(block) {
 Blockly.Blocks['bi_addItemEnchant'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向物品堆 %1 添加附魔 %2 等级 %3',
+      "message0": blockanditem_line_479,
       "args0": [
 		{
 		  "type": "input_value",
@@ -487,39 +487,39 @@ Blockly.Blocks['bi_addItemEnchant'] = {
 		    "type": "field_dropdown",
 		    "name": "OP",
 		    "options": [
-			  ["保护","0"],
-			  ["火焰保护", "1"],
-		      ["跌落保护", "2"],
-		      ["爆炸保护", "3"], 
-			  ["弹射物保护", "4"],
-			  ["荆棘", "5"],
-			  ["水下呼吸", "6"],
-			  ["深海探索者", "7"],
-			  ["水下挖掘", "8"],
-			  ["锋利", "9"],
-			  ["亡灵杀手", "10"],
-			  ["节肢杀手", "11"],
-			  ["击退", "12"],
-			  ["火焰附加", "13"],
-			  ["掠夺", "14"],
-			  ["效率", "15"],
-			  ["精准采集", "16"],
-			  ["耐久", "17"],
-			  ["时运", "18"],
-			  ["力量", "19"],
-			  ["冲击", "20"],
-			  ["火矢", "21"],
-			  ["无限", "22"],
-			  ["海之眷顾", "23"],
-			  ["饵钓", "24"],
-			  ["冰霜行者", "25"],
-			  ["经验修补", "26"],
-			  ["绑定诅咒", "27"],
-			  ["消失诅咒", "28"],
-			  ["穿刺", "29"],
-			  ["激流", "30"],
-			  ["忠诚", "31"],
-			  ["引雷", "32"]
+			  [blockanditem_line_490,"0"],
+			  [blockanditem_line_491, "1"],
+		      [blockanditem_line_492, "2"],
+		      [blockanditem_line_493, "3"], 
+			  [blockanditem_line_494, "4"],
+			  [blockanditem_line_495, "5"],
+			  [blockanditem_line_496, "6"],
+			  [blockanditem_line_497, "7"],
+			  [blockanditem_line_498, "8"],
+			  [blockanditem_line_499, "9"],
+			  [blockanditem_line_500, "10"],
+			  [blockanditem_line_501, "11"],
+			  [blockanditem_line_502, "12"],
+			  [blockanditem_line_503, "13"],
+			  [blockanditem_line_504, "14"],
+			  [blockanditem_line_505, "15"],
+			  [blockanditem_line_506, "16"],
+			  [blockanditem_line_507, "17"],
+			  [blockanditem_line_508, "18"],
+			  [blockanditem_line_509, "19"],
+			  [blockanditem_line_510, "20"],
+			  [blockanditem_line_511, "21"],
+			  [blockanditem_line_512, "22"],
+			  [blockanditem_line_513, "23"],
+			  [blockanditem_line_514, "24"],
+			  [blockanditem_line_515, "25"],
+			  [blockanditem_line_516, "26"],
+			  [blockanditem_line_517, "27"],
+			  [blockanditem_line_518, "28"],
+			  [blockanditem_line_519, "29"],
+			  [blockanditem_line_520, "30"],
+			  [blockanditem_line_521, "31"],
+			  [blockanditem_line_522, "32"]
 		    ]
 		},
 		{
@@ -532,7 +532,7 @@ Blockly.Blocks['bi_addItemEnchant'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 47,
-      "tooltip": "添加附魔(addItemEnchant)",
+      "tooltip": blockanditem_line_535,
       "helpUrl": "#"
     });
   }
@@ -550,7 +550,7 @@ Blockly.JavaScript['bi_addItemEnchant'] = function(block) {
 Blockly.Blocks['bi_isSame'] = {
   init: function() {
     this.jsonInit({
-      "message0": '比较物品是否相同 %1 于 %2 检测数据值 %3 检测nbt %4',
+      "message0": blockanditem_line_553,
       "args0": [
 	    {
 	      "type": "input_value",
@@ -575,7 +575,7 @@ Blockly.Blocks['bi_isSame'] = {
       ],
 	  "output": "Boolean",
       "colour": 47,
-      "tooltip": "物品是否一样(isSame)",
+      "tooltip": blockanditem_line_578,
       "helpUrl": "#"
     });
   }
@@ -596,7 +596,7 @@ Blockly.JavaScript['bi_isSame'] = function(block) {
 Blockly.Blocks['bi_addFurnaceCraft'] = {
   init: function() {
     this.jsonInit({
-      "message0": '冶炼合成：原料(物品) %1 生成(物品) %2 ',
+      "message0": blockanditem_line_599,
       "args0": [
 		{
 		  "type": "input_value",
@@ -612,7 +612,7 @@ Blockly.Blocks['bi_addFurnaceCraft'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 47,
-      "tooltip": "添加冶炼合成(addFurnaceCraft)",
+      "tooltip": blockanditem_line_615,
       "helpUrl": "#"
     });
   }
@@ -629,7 +629,7 @@ Blockly.JavaScript['bi_addFurnaceCraft'] = function(block) {
 Blockly.Blocks['bi_addBNCraft'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'BN合成：种类(字符串) %1 描述(字符串) %2 原料(物品列表) %3 生成(物品列表) %4 耗时(整数/刻) %5 成功率(0~1) %6 ',
+      "message0": blockanditem_line_632,
       "args0": [
 		{
 		  "type": "input_value",
@@ -665,7 +665,7 @@ Blockly.Blocks['bi_addBNCraft'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 47,
-      "tooltip": "添加BN高级合成(addBNCraft)",
+      "tooltip": blockanditem_line_668,
       "helpUrl": "#"
     });
   }
@@ -690,7 +690,7 @@ Blockly.JavaScript['bi_addBNCraft'] = function(block) {
 Blockly.Blocks['bi_BNCraftForPlayer'] = {
   init: function() {
     this.jsonInit({
-      "message0": '打开 %1 种类的bn合成给玩家 %2 ',
+      "message0": blockanditem_line_693,
       "args0": [
 		{
 		  "type": "input_value",
@@ -706,7 +706,7 @@ Blockly.Blocks['bi_BNCraftForPlayer'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 47,
-      "tooltip": "打开特定种类的BN合成(openBNCraftForPlayer)",
+      "tooltip": blockanditem_line_709,
       "helpUrl": "#"
     });
   }
@@ -723,7 +723,7 @@ Blockly.JavaScript['bi_BNCraftForPlayer'] = function(block) {
 Blockly.Blocks['bi_addToCreativeBar'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置物品堆 %1 到创造物品栏 ',
+      "message0": blockanditem_line_726,
       "args0": [
 		{
 		  "type": "input_value",
@@ -735,7 +735,7 @@ Blockly.Blocks['bi_addToCreativeBar'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 47,
-      "tooltip": "设置物品堆lore(addToCreativeBar)",
+      "tooltip": blockanditem_line_738,
       "helpUrl": "#"
     });
   }
@@ -749,3 +749,4 @@ Blockly.JavaScript['bi_addToCreativeBar'] = function(block) {
   var text="blockitem.addToCreativeBar("+itemtmp+");\n"
   return text;
 };
+

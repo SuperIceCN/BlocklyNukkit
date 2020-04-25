@@ -2,7 +2,7 @@
 Blockly.Blocks['window_getSimpleWindowBuilder'] = {
   init: function() {
     this.jsonInit({
-      "message0": '构造一个标题为 %1 内容为 %2 的简单窗口管理器',
+      "message0": window_line_5,
       "args0": [
 		{
 		  "type": "input_value",
@@ -17,7 +17,7 @@ Blockly.Blocks['window_getSimpleWindowBuilder'] = {
       ],
 	  "output": "SimpleWindowBuilder",
       "colour": 240,
-      "tooltip": "构造简单窗口管理器(getSimpleWindowBuilder)",
+      "tooltip": window_line_20,
       "helpUrl": "#"
     });
   }
@@ -33,7 +33,7 @@ Blockly.JavaScript['window_getSimpleWindowBuilder'] = function(block) {
 Blockly.Blocks['window_buildButton'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向简单窗口 %1 添加文本为 %2 图片路径为 %3 的按钮',
+      "message0": window_line_36,
       "args0": [
 		{
 		  "type": "input_value",
@@ -54,7 +54,7 @@ Blockly.Blocks['window_buildButton'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 240,
-      "tooltip": "添加按钮(buildButton)",
+      "tooltip": window_line_57,
       "helpUrl": "#"
     });
   }
@@ -73,7 +73,7 @@ Blockly.JavaScript['window_buildButton'] = function(block) {
 Blockly.Blocks['window_showToPlayer'] = {
   init: function() {
     this.jsonInit({
-      "message0": '使用 %1 给玩家 %2 发送窗口并回调 %3 函数',
+      "message0": window_line_76,
       "args0": [
 		{
 		  "type": "input_value",
@@ -94,7 +94,7 @@ Blockly.Blocks['window_showToPlayer'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 240,
-      "tooltip": "展示窗口(showToPlayer)",
+      "tooltip": window_line_97,
       "helpUrl": "#"
     });
   }
@@ -113,7 +113,7 @@ Blockly.JavaScript['window_showToPlayer'] = function(block) {
 Blockly.Blocks['window_getModalWindowBuilder'] = {
   init: function() {
     this.jsonInit({
-      "message0": '构造一个标题为 %1 内容为 %2 的对话框管理器',
+      "message0": window_line_116,
       "args0": [
 		{
 		  "type": "input_value",
@@ -128,7 +128,7 @@ Blockly.Blocks['window_getModalWindowBuilder'] = {
       ],
 	  "output": "ModalWindowBuilder",
       "colour": 240,
-      "tooltip": "构造对话框管理器(getModalWindowBuilder)",
+      "tooltip": window_line_131,
       "helpUrl": "#"
     });
   }
@@ -144,7 +144,7 @@ Blockly.JavaScript['window_getModalWindowBuilder'] = function(block) {
 Blockly.Blocks['window_setModalButtons'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置对话框 %1 第一个按钮文本 %2 第二个按钮文本 %3 ',
+      "message0": window_line_147,
       "args0": [
 		{
 		  "type": "input_value",
@@ -184,7 +184,7 @@ Blockly.JavaScript['window_setModalButtons'] = function(block) {
 Blockly.Blocks['window_getCustomWindowBuilder'] = {
   init: function() {
     this.jsonInit({
-      "message0": '构造一个标题为 %1 的高级窗口管理器',
+      "message0": window_line_187,
       "args0": [
 		{
 		  "type": "input_value",
@@ -194,7 +194,7 @@ Blockly.Blocks['window_getCustomWindowBuilder'] = {
       ],
 	  "output": "CustomWindowBuilder",
       "colour": 240,
-      "tooltip": "构造高级窗口管理器(getCustomWindowBuilder)",
+      "tooltip": window_line_197,
       "helpUrl": "#"
     });
   }
@@ -208,7 +208,7 @@ Blockly.JavaScript['window_getCustomWindowBuilder'] = function(block) {
 Blockly.Blocks['window_buildLabel'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向高级窗口 %1 添加内容为 %2 的文本元素',
+      "message0": window_line_211,
       "args0": [
 		{
 		  "type": "input_value",
@@ -224,7 +224,7 @@ Blockly.Blocks['window_buildLabel'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 240,
-      "tooltip": "添加文本元素(buildLabel)",
+      "tooltip": window_line_227,
       "helpUrl": "#"
     });
   }
@@ -241,7 +241,7 @@ Blockly.JavaScript['window_buildLabel'] = function(block) {
 Blockly.Blocks['window_buildInput'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向高级窗口 %1 添加标题为 %2 提示语为 %3 的输入框元素',
+      "message0": window_line_244,
       "args0": [
 		{
 		  "type": "input_value",
@@ -262,7 +262,7 @@ Blockly.Blocks['window_buildInput'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 240,
-      "tooltip": "添加输入框元素(buildInput)",
+      "tooltip": window_line_265,
       "helpUrl": "#"
     });
   }
@@ -281,7 +281,7 @@ Blockly.JavaScript['window_buildInput'] = function(block) {
 Blockly.Blocks['window_buildToggle'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向高级窗口 %1 添加标题为 %2 的开关元素',
+      "message0": window_line_284,
       "args0": [
 		{
 		  "type": "input_value",
@@ -297,7 +297,7 @@ Blockly.Blocks['window_buildToggle'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 240,
-      "tooltip": "添加开关元素(buildToggle)",
+      "tooltip": window_line_300,
       "helpUrl": "#"
     });
   }
@@ -314,7 +314,7 @@ Blockly.JavaScript['window_buildToggle'] = function(block) {
 Blockly.Blocks['window_buildDropdown'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向高级窗口 %1 添加标题为 %2 选择项为 %3 的选择框元素',
+      "message0": window_line_317,
       "args0": [
 		{
 		  "type": "input_value",
@@ -335,7 +335,7 @@ Blockly.Blocks['window_buildDropdown'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 240,
-      "tooltip": "添加选择框元素(buildDropdown)",
+      "tooltip": window_line_338,
       "helpUrl": "#"
     });
   }
@@ -354,7 +354,7 @@ Blockly.JavaScript['window_buildDropdown'] = function(block) {
 Blockly.Blocks['window_updateAllScoreBoard'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向全部玩家发送标题 %1 内容 %2 的计分板文本更新',
+      "message0": window_line_357,
       "args0": [
 		{
 		  "type": "input_value",
@@ -370,7 +370,7 @@ Blockly.Blocks['window_updateAllScoreBoard'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 240,
-      "tooltip": "全体计分板更新(updateAllScoreBoard)",
+      "tooltip": window_line_373,
       "helpUrl": "#"
     });
   }
@@ -386,7 +386,7 @@ Blockly.JavaScript['window_updateAllScoreBoard'] = function(block) {
 Blockly.Blocks['window_updateOneScoreBoard'] = {
   init: function() {
     this.jsonInit({
-      "message0": '向玩家 %1 发送标题 %2 内容 %3 的计分板文本更新',
+      "message0": window_line_389,
       "args0": [
 		{
 		  "type": "input_value",
@@ -407,7 +407,7 @@ Blockly.Blocks['window_updateOneScoreBoard'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 240,
-      "tooltip": "单独计分板更新(updateOneScoreBoard)",
+      "tooltip": window_line_410,
       "helpUrl": "#"
     });
   }
@@ -425,29 +425,29 @@ Blockly.JavaScript['window_updateOneScoreBoard'] = function(block) {
 Blockly.Blocks['window_STDbuttons'] = {
   init: function() {
     this.jsonInit({
-      "message0": 'BN按钮图片 %1',
+      "message0": window_line_428,
       "args0": [
 		{
 		    "type": "field_dropdown",
 		    "name": "OP",
 		    "options": [
-			  ["微软logo", "textures\\ui\\code_makecode_default.png"],
-			  ["对勾", "textures\\ui\\confirm.png"],
-			  ["叉号", "textures\\ui\\crossout.png"],
-			  ["点点点", "textures\\ui\\elipses.png"],
-			  ["红色警告叹号", "textures\\ui\\ErrorGlyph.png"],
-			  ["黄色五角星", "textures\\ui\\filledStar.png"],
-			  ["齿轮", "textures\\ui\\icon_setting.png"],
-			  ["史蒂夫", "textures\\ui\\icon_steve.png"],
-			  ["信封", "textures\\ui\\invite_base.png"],
-			  ["爱利克斯", "textures\\ui\\icon_alex.png"],
-			  ["OP皇冠", "textures\\ui\\permissions_op_crown.png"]
+			  [window_line_434, "textures\\ui\\code_makecode_default.png"],
+			  [window_line_435, "textures\\ui\\confirm.png"],
+			  [window_line_436, "textures\\ui\\crossout.png"],
+			  [window_line_437, "textures\\ui\\elipses.png"],
+			  [window_line_438, "textures\\ui\\ErrorGlyph.png"],
+			  [window_line_439, "textures\\ui\\filledStar.png"],
+			  [window_line_440, "textures\\ui\\icon_setting.png"],
+			  [window_line_441, "textures\\ui\\icon_steve.png"],
+			  [window_line_442, "textures\\ui\\invite_base.png"],
+			  [window_line_443, "textures\\ui\\icon_alex.png"],
+			  [window_line_444, "textures\\ui\\permissions_op_crown.png"]
 		    ]
 		}
       ],
 	  "output": "String",
       "colour": 240,
-      "tooltip": "BN按钮图片",
+      "tooltip": window_line_450,
       "helpUrl": "#"
     });
   }

@@ -2,7 +2,7 @@
 Blockly.Blocks['notemusic_getSongFromFile'] = {
   init: function() {
     this.jsonInit({
-      "message0": '解析并获取文件 %1 的红石歌曲',
+      "message0": notemusic_line_5,
       "args0": [
 		{
 		  "type": "input_value",
@@ -12,7 +12,7 @@ Blockly.Blocks['notemusic_getSongFromFile'] = {
       ],
 	  "output": "Song",
       "colour": 168,
-      "tooltip": "解析并获取文件的红石歌曲(getSongFromFile)",
+      "tooltip": notemusic_line_15,
       "helpUrl": "#"
     });
   }
@@ -27,7 +27,7 @@ Blockly.JavaScript['notemusic_getSongFromFile'] = function(block) {
 Blockly.Blocks['notemusic_getSongInfo'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取红石歌曲 %1 的 %2 ',
+      "message0": notemusic_line_30,
       "args0": [
 		{
 		  "type": "input_value",
@@ -38,16 +38,16 @@ Blockly.Blocks['notemusic_getSongInfo'] = {
 		    "type": "field_dropdown",
 		    "name": "OP",
 		    "options": [
-			  ["标题", "Title"],
-			  ["描述", "Description"],
-			  ["作者", "Author"],
-			  ["长度", "Length"]
+			  [notemusic_line_41, "Title"],
+			  [notemusic_line_42, "Description"],
+			  [notemusic_line_43, "Author"],
+			  [notemusic_line_44, "Length"]
 		    ]
 		}
       ],
 	  "output": ["String","Number"],
       "colour": 168,
-      "tooltip": "获取红石歌曲信息(getSongInfo)",
+      "tooltip": notemusic_line_50,
       "helpUrl": "#"
     });
   }
@@ -63,7 +63,7 @@ Blockly.JavaScript['notemusic_getSongInfo'] = function(block) {
 Blockly.Blocks['notemusic_buildRadio'] = {
   init: function() {
     this.jsonInit({
-      "message0": '构建音乐电台,歌曲 %1 循环播放 %2 ,无人自动摧毁 %3 ',
+      "message0": notemusic_line_66,
       "args0": [
 		{
 		  "type": "input_value",
@@ -84,7 +84,7 @@ Blockly.Blocks['notemusic_buildRadio'] = {
 	  "output": "Radio",
       "colour": 168,
 	  "inputsInline": false,
-      "tooltip": "构建音乐电台(buildRadio)",
+      "tooltip": notemusic_line_87,
       "helpUrl": "#"
     });
   }
@@ -103,7 +103,7 @@ Blockly.JavaScript['notemusic_buildRadio'] = function(block) {
 Blockly.Blocks['notemusic_makePlayerToRadio'] = {
   init: function() {
     this.jsonInit({
-      "message0": '将玩家 %1  %2 到红石音乐电台 %3 ',
+      "message0": notemusic_line_106,
       "args0": [
 		{
 		  "type": "input_value",
@@ -114,8 +114,8 @@ Blockly.Blocks['notemusic_makePlayerToRadio'] = {
 		    "type": "field_dropdown",
 		    "name": "OP",
 		    "options": [
-			  ["添加", "add"],
-			  ["移除", "remove"]
+			  [notemusic_line_117, "add"],
+			  [notemusic_line_118, "remove"]
 		    ]
 		},
 		{
@@ -128,7 +128,7 @@ Blockly.Blocks['notemusic_makePlayerToRadio'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 168,
-      "tooltip": "将玩家到红石音乐电台(makePlayerToRadio)",
+      "tooltip": notemusic_line_131,
       "helpUrl": "#"
     });
   }
@@ -146,7 +146,7 @@ Blockly.JavaScript['notemusic_makePlayerToRadio'] = function(block) {
 Blockly.Blocks['notemusic_getPlayerInRadio'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取红石电台 %1 的聆听中玩家',
+      "message0": notemusic_line_149,
       "args0": [
 		{
 		  "type": "input_value",
@@ -156,7 +156,7 @@ Blockly.Blocks['notemusic_getPlayerInRadio'] = {
       ],
 	  "output": "Array",
       "colour": 168,
-      "tooltip": "获取红石电台的聆听中玩家(getPlayerInRadio)",
+      "tooltip": notemusic_line_159,
       "helpUrl": "#"
     });
   }
@@ -171,7 +171,7 @@ Blockly.JavaScript['notemusic_getPlayerInRadio'] = function(block) {
 Blockly.Blocks['notemusic_setRadioStatus'] = {
   init: function() {
     this.jsonInit({
-      "message0": '设置红石电台 %1 播放状态为 %2 ',
+      "message0": notemusic_line_174,
       "args0": [
 		{
 		  "type": "input_value",
@@ -188,7 +188,7 @@ Blockly.Blocks['notemusic_setRadioStatus'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 168,
-      "tooltip": "设置红石电台播放状态(setRadioStatus)",
+      "tooltip": notemusic_line_191,
       "helpUrl": "#"
     });
   }
@@ -205,7 +205,7 @@ Blockly.JavaScript['notemusic_setRadioStatus'] = function(block) {
 Blockly.Blocks['notemusic_getSongInRadio'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取红石电台 %1 的播放歌曲',
+      "message0": notemusic_line_208,
       "args0": [
 		{
 		  "type": "input_value",
@@ -215,7 +215,7 @@ Blockly.Blocks['notemusic_getSongInRadio'] = {
       ],
 	  "output": "Song",
       "colour": 168,
-      "tooltip": "获取红石电台的播放歌曲(getSongInRadio)",
+      "tooltip": notemusic_line_218,
       "helpUrl": "#"
     });
   }
