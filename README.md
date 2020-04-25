@@ -23,3 +23,7 @@ blocklynukkit友好界面中文插件编辑器是由超神的冰凉发起的开�
 - 虚空拉回：[mcbbs下载](https://www.mcbbs.net/thread-1010990-1-1.html)
 - 箱子整理：[mcbbs下载](https://www.mcbbs.net/thread-1000413-1-1.html)
 - 自动刷石机：[mcbbs下载](https://www.mcbbs.net/thread-995834-1-1.html)
+- kick踢人菜单：[minebbs下载](https://www.minebbs.com/resources/ekick.1088/)
+- 实时cps显示：[mcbbs下载](https://www.mcbbs.net/thread-1027746-1-1.html)
+- 神奇的棍子：[mcbbs下载](https://www.mcbbs.net/thread-1027698-1-1.html)
+- gui点歌：[mcbbs下载](https://www.mcbbs.net/thread-1028589-1-1.html)

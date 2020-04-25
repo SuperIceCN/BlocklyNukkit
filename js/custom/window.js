@@ -422,3 +422,39 @@ Blockly.JavaScript['window_updateOneScoreBoard'] = function(block) {
   var text='window.updateOneScoreBoard('+titletmp+','+contexttmp+','+playertmp+');\n';
   return text;
 };
+Blockly.Blocks['window_STDbuttons'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": 'BN按钮图片 %1',
+      "args0": [
+		{
+		    "type": "field_dropdown",
+		    "name": "OP",
+		    "options": [
+			  ["微软logo", "textures\\ui\\code_makecode_default.png"],
+			  ["对勾", "textures\\ui\\confirm.png"],
+			  ["叉号", "textures\\ui\\crossout.png"],
+			  ["点点点", "textures\\ui\\elipses.png"],
+			  ["红色警告叹号", "textures\\ui\\ErrorGlyph.png"],
+			  ["黄色五角星", "textures\\ui\\filledStar.png"],
+			  ["齿轮", "textures\\ui\\icon_setting.png"],
+			  ["史蒂夫", "textures\\ui\\icon_steve.png"],
+			  ["信封", "textures\\ui\\invite_base.png"],
+			  ["爱利克斯", "textures\\ui\\icon_alex.png"],
+			  ["OP皇冠", "textures\\ui\\permissions_op_crown.png"]
+		    ]
+		}
+      ],
+	  "output": "String",
+      "colour": 240,
+      "tooltip": "BN按钮图片",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_STDbuttons'] = function(block) {
+  //String or array length.
+  var optmp = block.getFieldValue("OP");
+  var text="'"+optmp+"'";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};

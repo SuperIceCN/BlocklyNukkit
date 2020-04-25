@@ -34,11 +34,7 @@
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css" rel="stylesheet">
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
 		<script src="https://cdn.bootcss.com/prism/9000.0.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
-		<script>
-			document.body.addEventListener('touchmove', function (e) {
-			        e.preventDefault() // 阻止默认的处理方式(阻止下拉滑动的效果)
-			    }, {passive: false}) // passive 参数不能省略，用来兼容ios和android
-		</script>
+		
 		<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"></xml>
 		
 	</head>
@@ -52,6 +48,11 @@
 			    opacity: 0.9;  
 			}  
 		</style>
+		<script>
+			document.body.addEventListener('touchmove', function (e) {
+			        e.preventDefault() // 阻止默认的处理方式(阻止下拉滑动的效果)
+			    }, {passive: false}) // passive 参数不能省略，用来兼容ios和android
+		</script>
 		<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
 		  <category name="核心">
 			  <category name="逻辑" colour="#5b80a5">
@@ -435,6 +436,9 @@
 				  <block type="event_getSlot"></block>
 				  <block type="event_getInventory"></block>
 				  <block type="event_getradio"></block>
+				  <block type="event_getDamager"></block>
+				  <block type="event_getDamage"></block>
+				  <block type="event_getKnockBack"></block>
 			  </category>
 			  <category name="位置" colour=133>
 				  <block type="pos_getlevelbyname"></block>
@@ -464,6 +468,9 @@
 				  <block type="pos_loadlevel"></block>
 				  <block type="pos_getDropItems"></block>
 				  <block type="pos_getEntities"></block>
+				  <block type="pos_getServerLevels"></block>
+				  <block type="pos_getEntityByLevelAndID"></block>
+				  <block type="pos_getLevelFloatingText"></block>
 			  </category>
 			  <category name="窗口" colour=240>
 				  <block type="window_getSimpleWindowBuilder"></block>
@@ -478,6 +485,7 @@
 				  <block type="window_buildDropdown"></block>
 				  <block type="window_updateAllScoreBoard"></block>
 				  <block type="window_updateOneScoreBoard"></block>
+				  <block type="window_STDbuttons"></block>
 			  </category>
 			  <category name="方块物品" colour=47>
 				  <block type="bi_buildBlock"></block>
@@ -532,6 +540,16 @@
 				<block type="entity_setEntityNameTagAlwaysVisable"></block>
 				<block type="entity_setEntityHealth"></block>
 				<block type="entity_getEntityHealth"></block>
+				<block type="entity_clearEntityEffect"></block>
+				<block type="entity_addEntityEffect"></block>
+				<block type="entity_getEntityID"></block>
+				<block type="entity_getEntityLevel"></block>
+				<block type="entity_getEntityName"></block>
+				<block type="entity_getEntityPosition"></block>
+				<block type="entity_setEntityPosition"></block>
+				<block type="entity_buildFloatingText"><value name="CALL"><block type="bn_getfunction"></block></value></block>
+				<block type="entity_startDisplayFloatingText"></block>
+				<block type="entity_BNdeafultFloatingTextCallBack"></block>
 			  </category>
 		  </category>
 		  <category name="拓展">
@@ -770,6 +788,7 @@
 		  </div>
 		</div>			
 		<script>
+			window.setInterval("checkbaseobj()",5000)
 			
 			/* TODO: Change toolbox XML ID if necessary. Can export toolbox XML from Workspace Factory. */
 			var toolbox = document.getElementById("toolbox");
@@ -820,6 +839,18 @@
 			  $('pre').addClass("line-numbers").css("white-space", "pre-wrap");
 			}
 			workspace.addChangeListener(myUpdateFunction);
+			
+			function checkbaseobj(){
+			  var code = document.getElementById('jspreview').innerText;
+			  var firstline = code.split("\n")[0];
+			  var baseobj = ["server","plugin","logger","manager","blockitem","algorithm","inventory","world","entity","database","notemusic","window","Java"];
+			  for(var i=0;i<baseobj.length-1;i++){
+				  if(firstline.indexOf(" "+baseobj[i]+",")!=-1){
+					  alert("您的变量中含有与基对象重名的变量"+baseobj[i]+"\n这会使得解释器崩溃,请您及时修改!")
+					  break;
+				  }
+			  }
+			}
 			
 		</script>
 		<script>

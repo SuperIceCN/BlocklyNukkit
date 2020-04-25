@@ -513,3 +513,78 @@ Blockly.JavaScript['event_getradio'] = function(block) {
   var text=valtmp+".getSongPlayer()";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['event_getDamager'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取事件 %1 的发起伤害实体',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Event"
+		}
+      ],
+	  "output": "Entity",
+      "colour": 10,
+      "tooltip": "获取事件的发起伤害实体(getDamager)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_getDamager'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getDamager()";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['event_getDamage'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取事件 %1 的伤害值',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Event"
+		}
+      ],
+	  "output": "Number",
+      "colour": 10,
+      "tooltip": "获取事件的伤害值(getDamage)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_getDamage'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getDamage()";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['event_getKnockBack'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取事件 %1 的伤害击退距离',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Event"
+		}
+      ],
+	  "output": "Number",
+      "colour": 10,
+      "tooltip": "获取事件的伤害击退距离(getKnockBack)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_getKnockBack'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getKnockBack()";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};

@@ -296,11 +296,12 @@ Blockly.JavaScript['bn_config'] = function(block) {
   //String or array length.
   var argument1 = Blockly.JavaScript.valueToCode(block, 'FILENAME',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  argument1=argument1.substr(0,argument1.length-1)+".yml'"
   var argument2 = Blockly.JavaScript.valueToCode(block, 'FOLDER',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var managertmp = Blockly.JavaScript.valueToCode(block, 'MANAGER',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text=managertmp+'.createConfig('+managertmp+'.getFile("'+argument2+'", "'+argument1+'.yml"), 2)'
+  var text=managertmp+'.createConfig('+managertmp+'.getFile('+argument2+', '+argument1+'), 2)'
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
 Blockly.Blocks['bn_set_config'] = {

@@ -821,3 +821,76 @@ Blockly.JavaScript['pos_getEntities'] = function(block) {
   var text="blockitem.getEntities("+valtmp+")"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['pos_getServerLevels'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取服务器的世界列表',
+	  "output": "Array",
+      "colour": 133,
+      "tooltip": "获取服务器的世界列表(getServerLevels)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getServerLevels'] = function(block) {
+  //String or array length.
+  var text="blockitem.getServerLevels()"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_getEntityByLevelAndID'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取 %1 世界中id为 %2 的生物',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Level"
+		},
+		{
+		  "type": "input_value",
+		  "name": "ID",
+		  "check": "String"
+		}
+      ],
+	  "output": "Entity",
+      "colour": 133,
+      "tooltip": "获取世界的生物(getEntityByLevelAndID)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getEntityByLevelAndID'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var idtmp = Blockly.JavaScript.valueToCode(block, 'ID',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="entity.getEntityByLevelAndID("+valtmp+","+idtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_getLevelFloatingText'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": '获取 %1 世界中的浮空字实体列表',
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Level"
+		}
+      ],
+	  "output": "Array",
+      "colour": 133,
+      "tooltip": "获取世界的浮空字列表(getLevelFloatingText)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_getLevelFloatingText'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="entity.getLevelFloatingText("+valtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};

@@ -40,11 +40,12 @@ Blockly.Blocks['notemusic_getSongInfo'] = {
 		    "options": [
 			  ["标题", "Title"],
 			  ["描述", "Description"],
-			  ["作者", "Author"]
+			  ["作者", "Author"],
+			  ["长度", "Length"]
 		    ]
 		}
       ],
-	  "output": "String",
+	  "output": ["String","Number"],
       "colour": 168,
       "tooltip": "获取红石歌曲信息(getSongInfo)",
       "helpUrl": "#"

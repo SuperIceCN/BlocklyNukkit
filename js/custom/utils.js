@@ -233,7 +233,7 @@ Blockly.JavaScript['utils_setHTMLPlaceholder'] = function(block) {
 Blockly.Blocks['utils_checkIsBear'] = {
   init: function() {
     this.jsonInit({
-      "message0": '检测玩家 %1 是否是熊孩子(基于BlackBE云黑)',
+      "message0": '检测玩家 %1 是否是熊孩子(基于BlackBE云黑)返回查询结果',
       "args0": [
 		{
 		  "type": "input_value",
@@ -241,7 +241,7 @@ Blockly.Blocks['utils_checkIsBear'] = {
 		  "check": "Player"
 		}
       ],
-	  "output": "Boolean",
+	  "output": "String",
       "colour": 97,
       "tooltip": "检测玩家是否是熊孩子(基于BlackBE云黑)",
       "helpUrl": "#"

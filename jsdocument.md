@@ -113,6 +113,7 @@
 |isSame|Item i1,Item i2,boolean d,boolean n|boolean|检测i1和i2是否相同(d是否毕竟数据值,n是否比较nbt,数量不会比较)|
 |addBNCraft|String t,String d,Arryat<Item-J> i,Array<Item-J> o,int de,double p|void|添加一个种类为t,描述为d,原材料为i,产物为o,合成用时de,成功率p(0-1)的bn高级合成|
 |openBNCraftForPlayer|String type, Player-J player|void|给玩家打开种类的type的合成高级合成ui|
+|PositionMove|Position pos,double x,double y,double z|void|让pos偏移xyz|
 
 ### database基对象
 |方法名|参数|返回值|解释|
@@ -132,6 +133,18 @@
 |setEntityMaxHealth|Entity-J e,float h|void|设置e的血量上限为h|
 |getEntityHealth|Entity-J e|float|获取e的血量|
 |getEntityMaxHealth|Entity-J e|float|获取e的血量上限|
+|clearEntityEffect|Entity-J entity|void|清空entity的所有药水效果|
+|addEntityEffect|Entity-J entity,int id,int level,int tick|void|给entity添加药水ID为id等级为level，持续时间为tick的药水效果|
+|addEntityEffect|Entity-J entity,int id,int level,int tick,int r,int g,int b|void|同上，不同是还会显示rgb颜色的药水气泡，解释器自动根据参数数量判断函数|
+|getEntityID|Entity-J entity|String|获取entity的实体标志id|
+|getEntityByLevelAndID|Level-J level,String id|Entity-J|获取世界level中标志为id的实体，没有则返回空(null)|
+|getEntityLevel|Entity-J entity|Level-J|获取entity所在的世界|
+|getEntityName|Entity-J entity|String|获取entity的名字|
+|getEntityPosition|Entity-J entity|Position-J|获取实体位置|
+|setEntityPosition|Entity-J entity,Position-J pos|void|设置实体位置|
+|buildFloatingText|String text,Position-J pos,int tick,String callback|Entity-J|构建文字为text位置为pos的浮空字实体,并每tick刻回调一次callback函数,注入参数entity(浮空字实体)|
+|startDisplayFloatingText|Entity-J entity|void|启动浮空字实体的显示(entity必须是构建的浮空字实体！)|
+|getLevelFloatingText|Level-J level|Array<Entity>|获取世界level的所有浮空字实体列表|
 
 ### inventory基对象
 |方法名|参数|返回值|解释|
@@ -154,14 +167,16 @@
 |-----|-----|-----|----|
 |genLevel|String name,int seed,String gen|void|生成名称name种子seed,种类为gen(FLAT,NETHER,VOID,NORMAL)的世界|
 |loadLevel|String s|void|强制加载名称为s的世界|
+|getServerLevels|void|Array<Level-J>|获取服务器的所有世界|
 
 ### notemusic基对象
 |方法名|参数|返回值|解释|
 |-----|-----|-----|----|
 |getSongFromFile|String name|Song-J|从notemusic文件夹的name文件解析红石音乐|
-|getSongTitle|Song-J song|void|获取歌曲的标题|
-|getSongDescription|Song-J song|void|获取歌曲的描述|
-|getSongAuthor|Song-J song|void|获取歌曲的作者|
+|getSongTitle|Song-J song|String|获取歌曲的标题|
+|getSongDescription|Song-J song|String|获取歌曲的描述|
+|getSongAuthor|Song-J song|String|获取歌曲的作者|
+|getSongLength|Song-J song|String|获取歌曲长度|
 |buildRadio|Song-J song,boolean isloop,boolean isautodestroy|RadioSongPlayer-J|构建一个红石音乐电台,song播放歌曲,isloop是否循环,isautodestroy是否无人听自动摧毁|
 |addPlayerToRadio|RadioSongPlayer-J radio, Player-J player|void|向radio添加player|
 |removePlayerToRadio|RadioSongPlayer-J radio, Player-J player|void|从radio移除player|
@@ -193,7 +208,6 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |type|String package|<E+>-C|获取package对应包名的java类(不是对象是类)|
 |extend|<E+>-C class,[可选<E+> object]|<E+>|继承java类并构造js对象(跟modPE差不多的)|
 |super|<E+> obj|<E+>|获取obj的父类对象|
-|
 
 
 ## 事件回调函数
@@ -239,6 +253,8 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |捡起物品|InventoryPickupItemEvent|
 |添加药水效果|PotionApplyEvent|
 |玩家进行传送|PlayerTeleportEvent|
+|实体被实体攻击事件|EntityDamageByEntityEvent|
+|实体被玩家攻击事件|EntityDamageByPlayerEvent|
 |玩家下床|PlayerBedEnterEvent|
 |玩家上床|PlayerBedLeaveEvent|
 |右键点方块|RightClickBlockEvent|
@@ -546,6 +562,9 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |int|getAction().getSlot()//get the slot that player use in the event about inventory|
 |Inventory|getInventory()|
 |SongPlayer|getSongPlayer()|
+|Entity|getDamager()|
+|float|getDamage()|
+|float|getKnockBack()|
 
 ### Vector3常用方法
 #### cn.nukkit.math.Vector3
