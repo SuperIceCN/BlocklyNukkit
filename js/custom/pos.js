@@ -774,12 +774,12 @@ Blockly.JavaScript['pos_getlevelname'] = function(block) {
 Blockly.Blocks['pos_getDropItems'] = {
   init: function() {
     this.jsonInit({
-      "message0": '获取 %1 世界的掉落物列表',
+      "message0": '获取 %1 位置所在世界的掉落物列表',
       "args0": [
 		{
 		  "type": "input_value",
 		  "name": "VAL",
-		  "check": "Level"
+		  "check": "Position"
 		}
       ],
 	  "output": "Array",
