@@ -93,7 +93,12 @@ Blockly.Css.setCursor = function(_cursor) {
   console.warn('Deprecated call to Blockly.Css.setCursor. ' +
       'See https://github.com/google/blockly/issues/981 for context');
 };
-
+var bgp;
+if(localStorage.backgroundpicture){
+	bgp = localStorage.backgroundpicture;
+}else{
+	bgp = "https://s1.ax1x.com/2020/04/26/JciUVs.png";
+}
 /**
  * Array making up the CSS content for Blockly.
  */
@@ -105,6 +110,9 @@ Blockly.Css.CONTENT = [
     'overflow: hidden;',  /* IE overflows by default. */
     'position: absolute;',
     'display: block;',
+	'background-image: url("'+bgp+'");',
+	'background-size:cover;',
+	'background-position: center center;',
   '}',
 
   '.blocklyWidgetDiv {',

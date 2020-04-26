@@ -961,6 +961,14 @@
 				$('#jswjm').text(jsnum1);
 			})
 			
+			$(document).keydown(function(e){  
+			    if (80 == e.keyCode && e.shiftKey){
+			        var str = prompt("输入背景图片链接:");
+					if(str!=null&&str!=""){
+						localStorage.backgroundpicture=str;
+					}
+			    }
+			}); 
 
 		</script>
 	</body>
