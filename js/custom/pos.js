@@ -723,7 +723,8 @@ Blockly.Blocks['pos_genLevel'] = {
 			  [pos_line_723,"NORMAL"],
 			  [pos_line_724, "FLAT"],
 		      [pos_line_725, "VOID"],
-		      [pos_line_726, "NETHER"]
+		      [pos_line_726, "NETHER"],
+			  ["镜像天域", "SKYLAND"]
 		    ]
 		}
       ],
@@ -893,4 +894,190 @@ Blockly.JavaScript['pos_getLevelFloatingText'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text="entity.getLevelFloatingText("+valtmp+")"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_4num'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "矿脉个数 %1 矿脉大小 %2 最低生成高度 %3 最高生成高度 %4 ",
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "NUM1",
+		  "check": "Number"
+		},
+		{
+		  "type": "input_value",
+		  "name": "NUM2",
+		  "check": "Number"
+		},
+		{
+		  "type": "input_value",
+		  "name": "NUM3",
+		  "check": "Number"
+		},
+		{
+		  "type": "input_value",
+		  "name": "NUM4",
+		  "check": "Number"
+		}
+      ],
+	  "output": "Args",
+      "colour": 133,
+	  "inputsInline": true,
+      "tooltip": "设置矿脉",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_4num'] = function(block) {
+  //String or array length.
+  var num1tmp = Blockly.JavaScript.valueToCode(block, 'NUM1',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var num2tmp = Blockly.JavaScript.valueToCode(block, 'NUM2',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var num3tmp = Blockly.JavaScript.valueToCode(block, 'NUM3',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var num4tmp = Blockly.JavaScript.valueToCode(block, 'NUM4',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=num1tmp+","+num2tmp+","+num3tmp+","+num4tmp;
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['pos_setSkyLandGenerator'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "镜像天域生成器：海平面 %1 基线高度 %2 是否启用矿石生成器 %3 煤炭生成参数 %4 铁矿生成参数 %5 红石生成参数 %6 青金石生成参数 %7 金矿生成参数 %8 钻石生成参数 %9 地下泥土生成参数 %10 地下沙砾生成参数 %11 花岗岩生成参数 %12 闪长岩生成参数 %13 安山岩生成参数 %14 是否生成洞穴 %15 是否启用生物群系 %16 是否生成海洋 %17 ",
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "SEAHEIGHT",
+		  "check": "Number"
+		},
+		{
+		  "type": "input_value",
+		  "name": "MOVEY",
+		  "check": "Number"
+		},
+		{
+		  "type": "input_value",
+		  "name": "ENABLEORE",
+		  "check": "Boolean"
+		},
+		{
+		  "type": "input_value",
+		  "name": "COAL",
+		  "check": "Args"
+		},
+		{
+		  "type": "input_value",
+		  "name": "IRON",
+		  "check": "Args"
+		},
+		{
+		  "type": "input_value",
+		  "name": "REDSTONE",
+		  "check": "Args"
+		},
+		{
+		  "type": "input_value",
+		  "name": "LAPIS",
+		  "check": "Args"
+		},
+		{
+		  "type": "input_value",
+		  "name": "GOLD",
+		  "check": "Args"
+		},
+		{
+		  "type": "input_value",
+		  "name": "DIAMOND",
+		  "check": "Args"
+		},
+		{
+		  "type": "input_value",
+		  "name": "DIRT",
+		  "check": "Args"
+		},
+		{
+		  "type": "input_value",
+		  "name": "GRAVEL",
+		  "check": "Args"
+		},
+		{
+		  "type": "input_value",
+		  "name": "GRANITE",
+		  "check": "Args"
+		},
+		{
+		  "type": "input_value",
+		  "name": "DIORITE",
+		  "check": "Args"
+		},
+		{
+		  "type": "input_value",
+		  "name": "ANDESITE",
+		  "check": "Args"
+		},
+		{
+		  "type": "input_value",
+		  "name": "ENABLECAVE",
+		  "check": "Boolean"
+		},
+		{
+		  "type": "input_value",
+		  "name": "ENABLEBIOME",
+		  "check": "Boolean"
+		},
+		{
+		  "type": "input_value",
+		  "name": "ENABLEOCEAN",
+		  "check": "Boolean"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": false,
+      "colour": 133,
+      "tooltip": "设置镜像天域生成器(setSkyLandGenerator)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['pos_setSkyLandGenerator'] = function(block) {
+  //String or array length.
+  var seaheight = Blockly.JavaScript.valueToCode(block, 'SEAHEIHGHT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var movey = Blockly.JavaScript.valueToCode(block, 'MOVEY',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var enableore = Blockly.JavaScript.valueToCode(block, 'ENABLEORE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var coal = Blockly.JavaScript.valueToCode(block, 'COAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var iron = Blockly.JavaScript.valueToCode(block, 'IRON',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var redstone = Blockly.JavaScript.valueToCode(block, 'REDSTONE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var lapis = Blockly.JavaScript.valueToCode(block, 'LAPIS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var gold = Blockly.JavaScript.valueToCode(block, 'GOLD',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var diamond = Blockly.JavaScript.valueToCode(block, 'DIAMOND',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var dirt = Blockly.JavaScript.valueToCode(block, 'DIRT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var gravel = Blockly.JavaScript.valueToCode(block, 'GRAVEL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var granite = Blockly.JavaScript.valueToCode(block, 'GRANITE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var diorite = Blockly.JavaScript.valueToCode(block, 'DIORITE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var andesite = Blockly.JavaScript.valueToCode(block, 'ANDESITE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var enablecave = Blockly.JavaScript.valueToCode(block, 'ENABLECAVE',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var enablebiome = Blockly.JavaScript.valueToCode(block, 'ENABLEBIOME',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var enableocean = Blockly.JavaScript.valueToCode(block, 'ENABLEOCEAN',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="world.setSkyLandGenerator("+seaheight+","+enableore+","+coal+","+iron+","+redstone+","+lapis+","+gold+","+diamond+","+dirt+","+gravel+","+granite+","+diorite+","+andesite+","+enablecave+","+enablebiome+","+enableocean+");\n"
+  return text;
 };

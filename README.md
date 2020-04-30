@@ -27,6 +27,7 @@ blocklynukkit友好界面中文插件编辑器是由超神的冰凉发起的开�
 - 实时cps显示：[mcbbs下载](https://www.mcbbs.net/thread-1027746-1-1.html)
 - 神奇的棍子：[mcbbs下载](https://www.mcbbs.net/thread-1027698-1-1.html)
 - gui点歌：[mcbbs下载](https://www.mcbbs.net/thread-1028589-1-1.html)
+- pvp搭路练习：[minebbs下载](https://www.minebbs.com/resources/coblocks-nk.1149/)
 
 #给bn插件开发者
 ## 如何让你的插件更加容易获得高绿宝石/钻石奖励
