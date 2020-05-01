@@ -111,6 +111,7 @@ var complete = [
 	{meta: "BN_world", caption: "genLevel", value: "genLevel", score:1},
 	{meta: "BN_world", caption: "loadLevel", value: "loadLevel", score:1},
 	{meta: "BN_world", caption: "getServerLevels", value: "getServerLevels", score:1},
+	{meta: "BN_world", caption: "setSkyLandGenerator", value: "setSkyLandGenerator", score:1},
 	{meta: "BN_notemusic", caption: "getSongFromFile", value: "getSongFromFile", score:1},
 	{meta: "BN_notemusic", caption: "getSongTitle", value: "getSongTitle", score:1},
 	{meta: "BN_notemusic", caption: "getSongDescription", value: "getSongDescription", score:1},

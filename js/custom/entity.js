@@ -522,3 +522,28 @@ Blockly.JavaScript['entity_BNdeafultFloatingTextCallBack'] = function(block) {
   var text="FloatingTextUpdate";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['entity_playertoentity'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "将玩家 %1 当作实体",
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		}
+      ],
+	  "output": "Entity",
+      "colour": 248,
+      "tooltip": "将玩家当作实体",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['entity_playertoentity'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp;
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
