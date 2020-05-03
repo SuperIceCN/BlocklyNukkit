@@ -1,7 +1,7 @@
 # BlocklyNukkit
 
 #### 介绍
-我们的在线使用网址：[点击进入](http://kingdom_of_dragon.gitee.io/blocklynukkit/)  
+我们的在线使用网址：[点击进入](https://tools.blocklynukkit.com)  
 
 blocklynukkit友好界面中文插件编辑器是由超神的冰凉发起的开源插件编辑器项目，其目的为致力于为中国广大服主提供清爽、强大、实用、简洁的中文服务器插件开发服务，使得更多想要开发自己的插件却对晦涩难懂的JAVA编程望而却步的服主能够很容易的，以拖拽的形式开发出自己想要的各种功能。  
 
@@ -28,9 +28,13 @@ blocklynukkit友好界面中文插件编辑器是由超神的冰凉发起的开�
 - 神奇的棍子：[mcbbs下载](https://www.mcbbs.net/thread-1027698-1-1.html)
 - gui点歌：[mcbbs下载](https://www.mcbbs.net/thread-1028589-1-1.html)
 - pvp搭路练习：[minebbs下载](https://www.minebbs.com/resources/coblocks-nk.1149/)
+- 高利贷银行：[minebbs下载](https://www.minebbs.com/resources/cobank.1165/)
 
-#给bn插件开发者
-## 如何让你的插件更加容易获得高绿宝石/钻石奖励
+
+#给bn插件开发者  
+
+## 如何让你的插件更加容易获得高绿宝石/钻石奖励  
+
 ### 1.用心给你的帖子排版
 众所周知，给你的插件帖子做一个美观的排版十分重要，尤其是mcbbs，同样的插件因为帖子排版最多能差出5-6个绿宝石  
 上百度稍微学习一下BBCode，十分有用。记住，一个好的排版十分重要！ 

@@ -547,3 +547,63 @@ Blockly.JavaScript['entity_playertoentity'] = function(block) {
   var text=valtmp;
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['entity_getEntityEffect'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "获取实体 %1 的药水效果列表",
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Entity"
+		}
+      ],
+	  "output": "Array",
+      "colour": 248,
+      "tooltip": "获取实体药效列表",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['entity_getEntityEffect'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="entity.getEntityEffect("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['entity_getEffectINFO'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "获取药水效果 %1 的 %2 ",
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Effect"
+		},
+		{
+		    "type": "field_dropdown",
+		    "name": "OP",
+		    "options": [
+			  ["等级","Level"],
+			  ["ID", "ID"],
+			  ["剩余时间","Time"]
+		    ]
+		},
+      ],
+	  "output": "Number",
+      "colour": 248,
+      "tooltip": "获取药水效果属性",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['entity_getEffectINFO'] = function(block) {
+  //String or array length.
+  var optmp = block.getFieldValue("OP");
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="entity.getEffect"+optmp+"("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};

@@ -146,6 +146,10 @@
 |buildFloatingText|String text,Position-J pos,int tick,String callback|Entity-J|构建文字为text位置为pos的浮空字实体,并每tick刻回调一次callback函数,注入参数entity(浮空字实体)|
 |startDisplayFloatingText|Entity-J entity|void|启动浮空字实体的显示(entity必须是构建的浮空字实体！)|
 |getLevelFloatingText|Level-J level|Array<Entity>|获取世界level的所有浮空字实体列表|
+|getEntityEffect|Entity-J entity|Array<Effect>|获取实体entity的全部药水效果列表|
+|getEffectLevel|Effect-J effect|int|获取effect药水效果的等级|
+|getEffectID|Effect-J effect|int|获取effect的药水id(前往mcwiki查看id表)|
+|getEffectTime|Effect-J effect|int|获取effect药水效果剩余持续的时间|
 
 ### inventory基对象
 |方法名|参数|返回值|解释|
