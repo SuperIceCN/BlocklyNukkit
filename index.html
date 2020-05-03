@@ -30,6 +30,7 @@
 		<script src="./js/custom/utils.js"></script>
 		<script src="./js/custom/entity.js"></script>
 		<script src="./js/custom/notemusic.js"></script>
+		<script src="./js/custom/particle.js"></script>
 		<script src="./js/SoftKey/vk_loader.js?vk_skin=flat_gray"></script>	
 		<script src="https://cdn.bootcss.com/prism/9000.0.1/prism.min.js"></script>
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css" rel="stylesheet">
@@ -48,6 +49,11 @@
 			    box-shadow: 6px 6px 6px rgba(0,0,0,0.3);  
 			    opacity: 0.9;  
 			}  
+			.linkLabelStyle>.blocklyFlyoutLabelText {
+			  font-style: initial
+			  fill: green;
+			  text-decoration: underline;
+			}
 		</style>
 		<script>
 			document.body.addEventListener('touchmove', function (e) {
@@ -567,6 +573,11 @@
 				<block type="entity_buildFloatingText"><value name="CALL"><block type="bn_getfunction"></block></value></block>
 				<block type="entity_startDisplayFloatingText"></block>
 				<block type="entity_BNdeafultFloatingTextCallBack"></block>
+			  </category>
+			  <category name="粒子" colour=0>
+				  <label text="粒子id,颜色码,形状码请去bn文档查看"></label>
+				  <label text="https://docs.qq.com/doc/DRkRpS0xmV2ZJbGdi" web-class="linkLabelStyle"></label>
+				  <block type="par_drawCircle"></block>
 			  </category>
 		  </category>
 		  <category name="拓展">

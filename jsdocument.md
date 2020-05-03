@@ -26,6 +26,7 @@
 |database|数据库管理器对象|
 |notemusic|红石音乐管理器对象|
 |window|窗口管理器对象|
+|particle|粒子管理器对象|
 |Java|js对java进行操作的管理器对象|  
 
 ## 基对象成员函数
@@ -197,6 +198,104 @@
 |getEventResponseModal|Event-J e|String|获取e中对话框点击的按钮文本|
 |getEventCustomVar|Event-J e,int id,String mode|String|获取e中高级窗口ID为id的mode(input,toggle,dropdown)元素的值|
 
+### particle基对象
+|方法名|参数|返回值|解释|
+|-----|-----|-----|----|
+|drawCircle|Position-J pos,double radius,int pid,double sep|void|在pos处以radius为半径水平用粒子ID为pid的粒子以每隔sep格放置一个的距离绘制圆|
+|drawLine|Position-J pos1,Position-J pos2,double sep,int pid|void|从pos1到pos2(必须同世界)每隔sep格放置一个粒子ID为pid的粒子来绘制直线|
+|drawFireWork|Position-J pos,int colornum,boolean flick,boolean trail,int shape,int second|void|在pos处生成一个飞行时间为second的烟花,colornum指定颜色,flick指定是否闪烁,trail指定是否留有轨迹,shape指定形状,详见本节附表|
+|drawBlockBreak|Position-J pos, Block-J block|void|在pos处绘制block对应的方块被破坏的粒子|
+|drawParticleFactoryMcFunction|String fun,Position-J pos,double turn|void|在pos处释放名为fun(无后缀)的mcfunction文件存储的粒子工厂自定义粒子,释放时旋转角度为turn度|
+
+附表:粒子id表(有些粒子我没见过，所以描述很神奇，大家帮忙贡献更好的描述，谢谢)  
+
+|粒子描述|id|
+|-|-|
+|气泡|1|
+|暴击粒子|3|
+|方块强制场|4|
+|烟雾|5|
+|爆炸|6|
+|蒸发|7|
+|火焰|8|
+|熔岩|9|
+|浓烟|10|
+|红石|11|
+|扬尘|12|
+|雪球|14|
+|巨大爆炸|15|
+|生物火焰|17|
+|爱心|18|
+|传送门|21|
+|水花飞溅|23|
+|水尾迹|25|
+|滴水|26|
+|滴状熔岩|27|
+|滴水蜂蜜|28|
+|落尘|29|
+|生物药水粒子|30|
+|音符和灰尘|33|
+|粘液|34|
+|雨溅|35|
+|村民愤怒|36|
+|村民快乐|37|
+|附魔台|38|
+|跟踪发射器|39|
+|音符|40|
+|巫术|41|
+|胡萝卜|42|
+|末地烛|44|
+|上升龙息|45|
+|分裂|46|
+|不死图腾|47|
+|食物|48|
+|焰火起动器|49|
+|焰火火花|50|
+|焰火覆盖|51|
+|气球气体|52|
+|彩色火焰|53|
+|火花|54|
+|导管|55|
+|气泡柱向上|56|
+|气泡柱向下|57|
+|大爆炸|61|
+|墨水|62|
+|落尘|63|
+|篝火烟雾|64|
+|下落的龙息|66|
+|龙息|67|
+
+附表:烟花颜色码表  
+
+|颜色|colornum码|
+|-|-|
+|黑色|0|
+|红色|1|
+|绿色|2|
+|棕色|3|
+|靛蓝色|4|
+|紫色|5|
+|天青色|6|
+|浅灰色|7|
+|深灰色|8|
+|粉色|9|
+|柠檬色|10|
+|黄色|11|
+|浅蓝色|12|
+|洋红色|13|
+|橙色|14|
+|白色|15|
+
+附表：烟花形状  
+
+|形状|shape码|
+|-|-|
+|小球型|0|
+|大球型|1|
+|星形|2|
+|苦力怕型|3|
+|爆裂型|4|
+
 ### Java基对象
 这是一个特殊的基对象,用于直接操作java类和对象,所以你可以参照[java文档](https://docs.oracle.com/javase/8/docs/api/)和[nukkit文档](https://ci.nukkitx.com/job/NukkitX/job/Nukkit/job/master/javadoc/overview-summary.html)操作  
 js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持  
@@ -209,7 +308,6 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |type|String package|<E+>-C|获取package对应包名的java类(不是对象是类)|
 |extend|<E+>-C class,[可选<E+> object]|<E+>|继承java类并构造js对象(跟modPE差不多的)|
 |super|<E+> obj|<E+>|获取obj的父类对象|
-
 
 ## 事件回调函数
 
