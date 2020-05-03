@@ -296,7 +296,7 @@ Blockly.JavaScript['bn_config'] = function(block) {
   //String or array length.
   var argument1 = Blockly.JavaScript.valueToCode(block, 'FILENAME',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  argument1=argument1.substr(0,argument1.length-1)+".yml'"
+  argument1=argument1+"+'.yml'"
   var argument2 = Blockly.JavaScript.valueToCode(block, 'FOLDER',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var managertmp = Blockly.JavaScript.valueToCode(block, 'MANAGER',
