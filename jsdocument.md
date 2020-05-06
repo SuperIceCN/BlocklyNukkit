@@ -69,6 +69,7 @@
 |checkIsBear|Player-J player|String|使用BlackBE云黑检查玩家是否为熊孩子|
 |buildvec3|double x,double y,double z|Vector3-J|从xyz构建三维向量|
 |httpRequest|String method,String url,String data|String|发送method(GET/POST)类型的http请求并获取返回值|
+|callFunciton|String fun,\<E+\> args...|void|调用函数名为fun的函数(直接写函数名调用所有插件中同名的函数,可以在开头加入xxx.js::函数名这样指定调用xxx.js下面的函数),注入参数为args,args参数不限类型,不限数量(0-1024),但是需要保证和被调用的函数参数一致|
 
 ### algorithm基对象
 
@@ -115,6 +116,8 @@
 |addBNCraft|String t,String d,Arryat<Item-J> i,Array<Item-J> o,int de,double p|void|添加一个种类为t,描述为d,原材料为i,产物为o,合成用时de,成功率p(0-1)的bn高级合成|
 |openBNCraftForPlayer|String type, Player-J player|void|给玩家打开种类的type的合成高级合成ui|
 |PositionMove|Position pos,double x,double y,double z|void|让pos偏移xyz|
+|getNBTString|Item-J item|String|获取物品堆item的nbt字符串|
+|putinNBTString|Item-J item,String nbt|void|向item注入NBT字符串nbt|
 
 ### database基对象
 |方法名|参数|返回值|解释|
@@ -392,6 +395,7 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 - void showToPlayer(Player-J p, String callback)
 - void buildLabel(String text)
 - void buildInput(String title,String placeholder)
+- void buildInput(String title,String placeholder,String defaulttext)
 - void buildToggle(String title)
 - void buildDropdown(String title,String inner)
 

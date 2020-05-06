@@ -724,7 +724,7 @@ Blockly.Blocks['pos_genLevel'] = {
 			  [pos_line_724, "FLAT"],
 		      [pos_line_725, "VOID"],
 		      [pos_line_726, "NETHER"],
-			  ["镜像天域", "SKYLAND"]
+			  [pos_line_727, "SKYLAND"]
 		    ]
 		}
       ],
@@ -898,7 +898,7 @@ Blockly.JavaScript['pos_getLevelFloatingText'] = function(block) {
 Blockly.Blocks['pos_4num'] = {
   init: function() {
     this.jsonInit({
-      "message0": "矿脉个数 %1 矿脉大小 %2 最低生成高度 %3 最高生成高度 %4 ",
+      "message0": pos_line_901,
       "args0": [
 		{
 		  "type": "input_value",
@@ -924,7 +924,7 @@ Blockly.Blocks['pos_4num'] = {
 	  "output": "Args",
       "colour": 133,
 	  "inputsInline": true,
-      "tooltip": "设置矿脉",
+      "tooltip": pos_line_927,
       "helpUrl": "#"
     });
   }
@@ -945,7 +945,7 @@ Blockly.JavaScript['pos_4num'] = function(block) {
 Blockly.Blocks['pos_setSkyLandGenerator'] = {
   init: function() {
     this.jsonInit({
-      "message0": "镜像天域生成器：海平面 %1 基线高度 %2 是否启用矿石生成器 %3 煤炭生成参数 %4 铁矿生成参数 %5 红石生成参数 %6 青金石生成参数 %7 金矿生成参数 %8 钻石生成参数 %9 地下泥土生成参数 %10 地下沙砾生成参数 %11 花岗岩生成参数 %12 闪长岩生成参数 %13 安山岩生成参数 %14 是否生成洞穴 %15 是否启用生物群系 %16 是否生成海洋 %17 ",
+      "message0": pos_line_948,
       "args0": [
 		{
 		  "type": "input_value",
@@ -1037,7 +1037,7 @@ Blockly.Blocks['pos_setSkyLandGenerator'] = {
 	  "previousStatement": null,
 	  "inputsInline": false,
       "colour": 133,
-      "tooltip": "设置镜像天域生成器(setSkyLandGenerator)",
+      "tooltip": pos_line_1040,
       "helpUrl": "#"
     });
   }

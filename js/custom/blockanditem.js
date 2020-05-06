@@ -744,9 +744,67 @@ Blockly.JavaScript['bi_addToCreativeBar'] = function(block) {
   //String or array length.
   var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var valuetmp = Blockly.JavaScript.valueToCode(block, 'VALUE',
-      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text="blockitem.addToCreativeBar("+itemtmp+");\n"
+  return text;
+};
+Blockly.Blocks['bi_getNBTString'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": blockanditem_line_753,
+      "args0": [
+	    {
+	      "type": "input_value",
+	      "name": "ITEM",
+	      "check": "Item"
+	    }
+      ],
+	  "output": "String",
+      "colour": 47,
+	  "inputsInline": true,
+      "tooltip": blockanditem_line_764,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_getNBTString'] = function(block) {
+  //String or array length.
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\' \'';
+  var text= "blockitem.getNBTString("+itemtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['bi_putinNBTString'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": blockanditem_line_779,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Item"
+		},
+		{
+		  "type": "input_value",
+		  "name": "NBT",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 47,
+      "tooltip": blockanditem_line_796,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_putinNBTString'] = function(block) {
+  //String or array length.
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var nbttmp = Blockly.JavaScript.valueToCode(block, 'NBT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="blockitem.putinNBTString("+itemtmp+","+nbttmp+");\n"
   return text;
 };
 

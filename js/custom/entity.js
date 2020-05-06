@@ -525,7 +525,7 @@ Blockly.JavaScript['entity_BNdeafultFloatingTextCallBack'] = function(block) {
 Blockly.Blocks['entity_playertoentity'] = {
   init: function() {
     this.jsonInit({
-      "message0": "将玩家 %1 当作实体",
+      "message0": entity_line_528,
       "args0": [
 		{
 		  "type": "input_value",
@@ -535,7 +535,7 @@ Blockly.Blocks['entity_playertoentity'] = {
       ],
 	  "output": "Entity",
       "colour": 248,
-      "tooltip": "将玩家当作实体",
+      "tooltip": entity_line_538,
       "helpUrl": "#"
     });
   }
@@ -550,7 +550,7 @@ Blockly.JavaScript['entity_playertoentity'] = function(block) {
 Blockly.Blocks['entity_getEntityEffect'] = {
   init: function() {
     this.jsonInit({
-      "message0": "获取实体 %1 的药水效果列表",
+      "message0": entity_line_553,
       "args0": [
 		{
 		  "type": "input_value",
@@ -560,7 +560,7 @@ Blockly.Blocks['entity_getEntityEffect'] = {
       ],
 	  "output": "Array",
       "colour": 248,
-      "tooltip": "获取实体药效列表",
+      "tooltip": entity_line_563,
       "helpUrl": "#"
     });
   }
@@ -575,7 +575,7 @@ Blockly.JavaScript['entity_getEntityEffect'] = function(block) {
 Blockly.Blocks['entity_getEffectINFO'] = {
   init: function() {
     this.jsonInit({
-      "message0": "获取药水效果 %1 的 %2 ",
+      "message0": entity_line_578,
       "args0": [
 		{
 		  "type": "input_value",
@@ -586,15 +586,15 @@ Blockly.Blocks['entity_getEffectINFO'] = {
 		    "type": "field_dropdown",
 		    "name": "OP",
 		    "options": [
-			  ["等级","Level"],
+			  [entity_line_589,"Level"],
 			  ["ID", "ID"],
-			  ["剩余时间","Time"]
+			  [entity_line_591,"Time"]
 		    ]
 		},
       ],
 	  "output": "Number",
       "colour": 248,
-      "tooltip": "获取药水效果属性",
+      "tooltip": entity_line_597,
       "helpUrl": "#"
     });
   }

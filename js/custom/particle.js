@@ -2,7 +2,7 @@
 Blockly.Blocks['par_drawCircle'] = {
   init: function() {
     this.jsonInit({
-      "message0": "在位置 %1 以 %2 为半径用ID为 %3 的粒子以每隔 %4 格放置一个绘制水平圆",
+      "message0": particle_line_5,
       "args0": [
 		{
 		  "type": "input_value",
@@ -29,7 +29,7 @@ Blockly.Blocks['par_drawCircle'] = {
 	  "previousStatement": null,
       "colour": 0,
 	  "inputsInline": false,
-      "tooltip": "绘制粒子圆",
+      "tooltip": particle_line_32,
       "helpUrl": "#"
     });
   }
@@ -50,7 +50,7 @@ Blockly.JavaScript['par_drawCircle'] = function(block) {
 Blockly.Blocks['par_drawLine'] = {
   init: function() {
     this.jsonInit({
-      "message0": "从位置 %1 到 %2 用ID为 %3 的粒子以每隔 %4 格放置一个绘制直线",
+      "message0": particle_line_53,
       "args0": [
 		{
 		  "type": "input_value",
@@ -77,7 +77,7 @@ Blockly.Blocks['par_drawLine'] = {
 	  "previousStatement": null,
       "colour": 0,
 	  "inputsInline": false,
-      "tooltip": "绘制粒子直线",
+      "tooltip": particle_line_80,
       "helpUrl": "#"
     });
   }
@@ -98,7 +98,7 @@ Blockly.JavaScript['par_drawLine'] = function(block) {
 Blockly.Blocks['par_drawFireWork'] = {
   init: function() {
     this.jsonInit({
-      "message0": "绘制烟花于位置 %1 颜色码为 %2 是否闪烁 %3 是否留有轨迹 %4 形状码 %5 飞行时间(秒) %6 ",
+      "message0": particle_line_101,
       "args0": [
 		{
 		  "type": "input_value",
@@ -135,7 +135,7 @@ Blockly.Blocks['par_drawFireWork'] = {
 	  "previousStatement": null,
       "colour": 0,
 	  "inputsInline": false,
-      "tooltip": "绘制粒子烟花",
+      "tooltip": particle_line_138,
       "helpUrl": "#"
     });
   }
@@ -160,7 +160,7 @@ Blockly.JavaScript['par_drawFireWork'] = function(block) {
 Blockly.Blocks['par_drawBlockBreak'] = {
   init: function() {
     this.jsonInit({
-      "message0": "在位置 %1 绘制方块 %2 破碎的粒子",
+      "message0": particle_line_163,
       "args0": [
 		{
 		  "type": "input_value",
@@ -177,7 +177,7 @@ Blockly.Blocks['par_drawBlockBreak'] = {
 	  "previousStatement": null,
       "colour": 0,
 	  "inputsInline": true,
-      "tooltip": "绘制方块破碎",
+      "tooltip": particle_line_180,
       "helpUrl": "#"
     });
   }
@@ -194,7 +194,7 @@ Blockly.JavaScript['par_drawBlockBreak'] = function(block) {
 Blockly.Blocks['par_drawParticleFactoryMcFunction'] = {
   init: function() {
     this.jsonInit({
-      "message0": "在位置 %1 旋转角 %2 绘制mcfunction文件 %3 的粒子工厂自定义粒子 ",
+      "message0": particle_line_197,
       "args0": [
 		{
 		  "type": "input_value",
@@ -216,7 +216,7 @@ Blockly.Blocks['par_drawParticleFactoryMcFunction'] = {
 	  "previousStatement": null,
       "colour": 0,
 	  "inputsInline": true,
-      "tooltip": "绘制粒子工厂自定义粒子(无需粒子工厂前置，文件存在function文件夹下)",
+      "tooltip": particle_line_219,
       "helpUrl": "#"
     });
   }

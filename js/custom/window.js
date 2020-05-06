@@ -278,6 +278,53 @@ Blockly.JavaScript['window_buildInput'] = function(block) {
   var text=buildertmp+".buildInput("+texttmp+","+placeholder+");\n"
   return text;
 };
+Blockly.Blocks['window_buildInput2'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": window_line_284,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "BUILDER",
+		  "check": "CustomWindowBuilder"
+		},
+		{
+		  "type": "input_value",
+		  "name": "TEXT",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "PLACEHOLDER",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "DEFAULT",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 240,
+      "tooltip": window_line_310,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_buildInput2'] = function(block) {
+  //String or array length.
+  var buildertmp = Blockly.JavaScript.valueToCode(block, 'BUILDER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var texttmp = Blockly.JavaScript.valueToCode(block, 'TEXT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var placeholder = Blockly.JavaScript.valueToCode(block, 'PLACEHOLDER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var defaultholder = Blockly.JavaScript.valueToCode(block, 'DEFAULT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=buildertmp+".buildInput("+texttmp+","+placeholder+","+defaultholder+");\n"
+  return text;
+};
 Blockly.Blocks['window_buildToggle'] = {
   init: function() {
     this.jsonInit({
@@ -458,3 +505,4 @@ Blockly.JavaScript['window_STDbuttons'] = function(block) {
   var text="'"+optmp+"'";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+
