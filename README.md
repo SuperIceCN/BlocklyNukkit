@@ -7,6 +7,8 @@ blocklynukkit友好界面中文插件编辑器是由超神的冰凉发起的开�
 
 我们的代码完全基于AGPL3.0开源，任何人都可以加入我们或者做出贡献，如果您是使用者或者服主，您可以在此[进入教程](https://docs.qq.com/doc/DRkRpS0xmV2ZJbGdi)学习如何使用本项目并构建自己的插件。  
 
+# 赞助我们
+
 <img src="https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/raw/master/afdian-%E8%B6%85%E7%A5%9E%E7%9A%84%E5%86%B0%E5%87%89%20(1).png"  height="337" width="262">
 
 # 一些正式发布的bn插件：
