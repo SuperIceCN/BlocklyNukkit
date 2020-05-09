@@ -29,9 +29,16 @@ blocklynukkit友好界面中文插件编辑器是由超神的冰凉发起的开�
 - gui点歌：[mcbbs下载](https://www.mcbbs.net/thread-1028589-1-1.html)
 - pvp搭路练习：[minebbs下载](https://www.minebbs.com/resources/coblocks-nk.1149/)
 - 高利贷银行：[minebbs下载](https://www.minebbs.com/resources/cobank.1165/)
+- 跑酷管理系统：[minebbs下载](https://www.minebbs.com/resources/bn-corun.1172/)
+- 高级脚本方块：[minebbs下载](https://www.minebbs.com/resources/bn-scriptblock.1180/)
+- 自定义武器：[minebbs下载](https://www.minebbs.com/resources/bn-blocklynukkit.1179/)
+- 跑酷奖励：[minebbs下载](https://www.minebbs.com/resources/bn-lxrun.1181/)
+- X积分：[minebbs下载](https://www.minebbs.com/threads/bn-char_xjifen-x-bn.3891/)
+  
+  
+# 给bn插件开发者  
 
-
-#给bn插件开发者  
+## bn开发者恰饭攻略  
 
 ## 如何让你的插件更加容易获得高绿宝石/钻石奖励  
 
