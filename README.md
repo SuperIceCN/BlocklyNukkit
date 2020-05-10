@@ -73,3 +73,44 @@ mcbbs对jar的好感度远高于js，[学习如何打包](https://www.mcbbs.net/
 把一些并不完全属于你插件的优点写上，比如基于bn驱动高性能，极速自定义，高并发，快速配置等等
 ### 7.抓住痛点
 想想你开服的时候被没有这个插件难受到了什么地步，大肆渲染一下/滑稽
+
+## 1.2.7.0更新日志
+
+(暂定)
+
+## 1.2.7  
+
+manager
+
+- String readFile(String path)
+- void wirteFile(String path,String text)
+- boolean isFileSame(String path1,String path2)
+- String JSONtoYAML(String json)
+- String YAMLtoJSON(String yaml)
+- void newCommandnewCommand(String name, String description, Function fun)
+- int setTimeoutsetTimeout(Function fun,int delay,<E+>... args)
+- void clearTimeout(int id)
+- int setInterval(Function fun,int delay,<E+>... args)
+- void clearInterval(int id)
+- void isWindows()
+- int getPlayerGameMode(Player player)
+
+Loader
+
+- \_\_NAME\_\_ 表示加载的js文件的名称(可防御低级改名倒卖)
+- 新版发布后，24小时强制更新
+
+Custom/Modal/Simple (WindowBuilder)
+
+- void showToPlayerCallLambda(Player p, ScriptObjectMirror mirror)
+
+blockitem
+
+- Array<Enchantment> getItemEnchant(Item item)
+- int getEnchantID(Enchantment enchantment)
+- int getEnahcntLevel(Enchantment enchantment)
+
+EventLoader
+
+- PlayerJumpEvent
+
