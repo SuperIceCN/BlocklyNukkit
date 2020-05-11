@@ -10,6 +10,7 @@
 |server|服务器对象<Server-J>|
 |plugin|blocklynukkit自身<Plugin-J>|
 |logger|控制台输出器实例<PluginLogger-J>|
+|\_\_NAME\_\_|插件的名称，指代字符串<String>|
 
 ### 功能基对象
 
@@ -63,6 +64,7 @@
 |getEasy\<E\>|String string|\<E\>|获取临时存储->键string|
 |setPrivateCall|String event,String callname|void|将event事件回调在本插件映射到callname函数|
 |PlayerIsOP|Player-J player|boolean|获取player是否是op|
+|getPlayerGameMode|Player-J player|int|获取玩家的游戏模式id(0-生存 1-创造 2-冒险 3-观察者)|
 |kickPlayer|Player-J player,String reason|void|踢出玩家player并发送踢出原因reason|
 |setHTMLPlaceholder|String key,String value|void|设置速建官网功能的自定义placeholder|
 |getPlayerArea|Player-J player|String|获取玩家的地理位置字符串|
@@ -70,6 +72,17 @@
 |buildvec3|double x,double y,double z|Vector3-J|从xyz构建三维向量|
 |httpRequest|String method,String url,String data|String|发送method(GET/POST)类型的http请求并获取返回值|
 |callFunciton|String fun,\<E+\> args...|void|调用函数名为fun的函数(直接写函数名调用所有插件中同名的函数,可以在开头加入xxx.js::函数名这样指定调用xxx.js下面的函数),注入参数为args,args参数不限类型,不限数量(0-1024),但是需要保证和被调用的函数参数一致|
+|readFile|String path|String|以文本格式自适应编码读取path路径的文件返回字符串内容|
+|writeFile|String path,String text|void|向path路径的文件(不存在自动创建)以utf8编码写入text|
+|isFileSame|String p1,String p2|boolean|比较p1路径和p2路径的文件是否相同|
+|JSONtoYAML|String json|String|将json字符串转为yaml字符串|
+|YAMLtoJSON|String yaml|String|将yaml字符串转为json字符串|
+|newCommand|String name, String des, Function fun|void|创建一个名称为name，描述为des，处理函数为fun的命令，fun是一个函数，有名函数的函数名(无需字符串)或一个匿名函数|
+|setTimeout|Function fun,int delay,<E+>... args|int|同浏览器上面的用法，但无法执行字符串，注册延时调用，返回任务id|
+|clearTimeout|int id|void|取消任务ID为id的延时调用|
+|setInterval|Function fun,int delay,<E+>... args|int|同浏览器上面的用法，但无法执行字符串，注册循环调用，返回任务id|
+|clearInterval||int id|void|取消任务ID为id的循环调用|
+|isWindows|void|boolean|获取当前运行环境是否是Windows系统|
 
 ### algorithm基对象
 
@@ -118,6 +131,9 @@
 |PositionMove|Position pos,double x,double y,double z|void|让pos偏移xyz|
 |getNBTString|Item-J item|String|获取物品堆item的nbt字符串|
 |putinNBTString|Item-J item,String nbt|void|向item注入NBT字符串nbt|
+|getItemEnchant|Item-J item|Array<Enchantment-J>|获取item的附魔列表|
+|getEnchantID|Enchantment-J enc|int|获取附魔对象enc的附魔id|
+|getEnchantLevel|Enchantment-J enc|int|获取附魔对象enc的附魔等级|
 
 ### database基对象
 |方法名|参数|返回值|解释|
@@ -376,6 +392,12 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |红石音乐电台暂停|SongStoppedEvent|
 |玩家退出事件|PlayerQuitEvent|
 |物品合成事件|CraftItemEvent|
+|玩家跳跃事件|PlayerJumpEvent|
+|玩家开始滑翔(鞘翅)事件|PlayerToggleGlideEvent|
+|玩家开始游泳事件|PlayerToggleSwimEvent|
+|玩家开始潜行事件|PlayerToggleSneakEvent|
+|玩家开始疾跑事件|PlayerToggleSprintEvent|
+|玩家开始飞行事件|PlayerToggleFlightEvent|
 
 ## 常用java类/对象的成员函数
 注:这部分由于不属于bn类库范畴,所以不会加说明,应该看参数和函数名能看懂,不懂的看图形编辑器生成的代码或者直接qq联系开发组或者issue,谢谢  
@@ -393,6 +415,7 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 1.Custom
 - void setTitle(String title)
 - void showToPlayer(Player-J p, String callback)
+- void showToPlayerCallLambda(Player p, Function fun)
 - void buildLabel(String text)
 - void buildInput(String title,String placeholder)
 - void buildInput(String title,String placeholder,String defaulttext)
@@ -405,12 +428,14 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 - void setButton1(String text)
 - void setButton2(String text)
 - void showToPlayer(Player-J p, String callback)
+- void showToPlayerCallLambda(Player p, Function fun)
 
 3.Simple-J
 - void setTitle(String title)
 - void setContext(String context)
 - void buildButton(String text,String img)
 - void showToPlayer(Player-J p,String callback)
+- void showToPlayerCallLambda(Player p, Function fun)
 
 ### logger常用招式
 - void info(String s)
@@ -823,3 +848,189 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |Block			|up(int step)																								|
 |Block			|west()																										|
 |Block			|west(int step)																								|
+
+### Entity常用方法
+#### cn.nukkit.entity.Entity
+
+- 继承自 cn.nukkit.math.Vector3  
+- 继承自 cn.nukkit.level.Position  
+- 继承自 cn.nukkit.level.Location 
+
+|返回值类型		|函数名																										|
+|-				|-																											|
+|void																|addEffect(Effect effect)																	|
+|void																|addMotion(double motionX, double motionY, double motionZ)									|
+|void																|addMovement(double x, double y, double z, double yaw, double pitch, double headYaw)		|
+|void																|applyEntityCollision(Entity entity)														|
+|boolean															|attack(EntityDamageEvent source)															|
+|boolean															|attack(float damage)																		|
+|boolean															|canBeMovedByCurrents()																		|
+|boolean															|canClimb()																					|
+|boolean															|canClimbWalls()																			|
+|boolean															|canCollide()																				|
+|boolean															|canCollideWith(Entity entity)																|
+|boolean															|canPassThrough()																			|
+|boolean															|canTriggerWalking()																		|
+|void																|close()																					|
+|static Entity														|createEntity(int type, FullChunk chunk, CompoundTag nbt, Object... args)					|
+|static Entity														|createEntity(int type, Position pos, Object... args)										|
+|static Entity														|createEntity(String name, FullChunk chunk, CompoundTag nbt, Object... args)				|
+|static Entity														|createEntity(String name, Position pos, Object... args)									|
+|void																|despawnFrom(Player player)																	|
+|void																|despawnFromAll()																			|
+|boolean															|dismountEntity(Entity entity)																|
+|boolean															|doesTriggerPressurePlate()																	|
+|boolean															|entityBaseTick()																			|
+|boolean															|entityBaseTick(int tickDiff)																|
+|boolean															|equals(Object obj)																			|
+|void																|extinguish()																				|
+|void																|fall(float fallDistance)																	|
+|boolean															|fastMove(double dx, double dy, double dz)													|
+|float																|getAbsorption()																			|
+|List<Block>														|getBlocksAround()																			|
+|List<Block>														|getCollisionBlocks()																		|
+|boolean															|getDataFlag(int propertyId, int id)														|
+|EntityMetadata														|getDataProperties()																		|
+|EntityData															|getDataProperty(int id)																	|
+|boolean															|getDataPropertyBoolean(int id)																|
+|int																|getDataPropertyByte(int id)																|
+|float																|getDataPropertyFloat(int id)																|
+|int																|getDataPropertyInt(int id)																	|
+|long																|getDataPropertyLong(int id)																|
+|CompoundTag														|getDataPropertyNBT(int id)																	|
+|Vector3															|getDataPropertyPos(int id)																	|
+|int																|getDataPropertyShort(int id)																|
+|String																|getDataPropertyString(int id)																|
+|int																|getDataPropertyType(int id)																|
+|Vector3f															|getDataPropertyVector3f(int id)															|
+|static CompoundTag													|getDefaultNBT(Vector3 pos)																	|
+|static CompoundTag													|getDefaultNBT(Vector3 pos, Vector3 motion)													|
+|static CompoundTag													|getDefaultNBT(Vector3 pos, Vector3 motion, float yaw, float pitch)							|
+|BlockFace															|getDirection()																				|
+|Vector2															|getDirectionPlane()																		|
+|Vector3															|getDirectionVector()																		|
+|Effect																|getEffect(int effectId)																	|
+|Map<Integer,Effect>												|getEffects()																				|
+|float																|getEyeHeight()																				|
+|protected float													|getGravity()																				|
+|float																|getHealth()																				|
+|float																|getHeight()																				|
+|BlockFace															|getHorizontalFacing()																		|
+|long																|getId()																					|
+|EntityDamageEvent													|getLastDamageCause()																		|
+|float																|getLength()																				|
+|Location															|getLocation()																				|
+|int																|getMaxHealth()																				|
+|List<MetadataValue>												|getMetadata(String metadataKey)															|
+|Vector3															|getMotion()																				|
+|Vector3f															|getMountedOffset(Entity entity)															|
+|String																|getName()																					|
+|String																|getNameTag()																				|
+|abstract int														|getNetworkId()																				|
+|Entity																|getPassenger()																				|
+|List<Entity>														|getPassengers()																			|
+|Position															|getPosition()																				|
+|Entity																|getRiding()																				|
+|String																|getSaveId()																				|
+|float																|getScale()																					|
+|String																|getScoreTag()																				|
+|Vector3f															|getSeatPosition()																			|
+|Server																|getServer()																				|
+|protected double													|getStepHeight()																			|
+|Map<Integer,Player>												|getViewers()																				|
+|float																|getWidth()																					|
+|void																|handleLavaMovement()																		|
+|boolean															|hasControllingPassenger()																	|
+|boolean															|hasCustomName()																			|
+|boolean															|hasEffect(int effectId)																	|
+|int																|hashCode()																					|
+|boolean															|hasMetadata(String metadataKey)															|
+|void																|heal(EntityRegainHealthEvent source)														|
+|void																|heal(float amount)																			|
+|boolean															|isAlive()																					|
+|boolean															|isClosed()																					|
+|boolean															|isControlling(Entity entity)																|
+|boolean															|isGliding()																				|
+|boolean															|isImmobile()																				|
+|boolean															|isInsideOfFire()																			|
+|boolean															|isInsideOfSolid()																			|
+|boolean															|isInsideOfWater()																			|
+|boolean															|isNameTagAlwaysVisible()																	|
+|boolean															|isNameTagVisible()																			|
+|boolean															|isOnFire()																					|
+|boolean															|isOnGround()																				|
+|boolean															|isOnLadder()																				|
+|boolean															|isPassenger(Entity entity)																	|
+|boolean															|isSneaking()																				|
+|boolean															|isSprinting()																				|
+|boolean															|isSwimming()																				|
+|void																|kill()																						|
+|boolean															|mountEntity(Entity entity)																	|
+|boolean															|mountEntity(Entity entity, byte mode)														|
+|boolean															|move(double dx, double dy, double dz)														|
+|void																|moveFlying(float strafe, float forward, float friction)									|
+|void																|onCollideWithPlayer(EntityHuman entityPlayer)												|
+|boolean															|onInteract(Player player, Item item)														|
+|boolean															|onInteract(Player player, Item item, Vector3 clickedPos)									|
+|void																|onStruckByLightning(Entity entity)															|
+|boolean															|onUpdate(int currentTick)																	|
+|void																|recalculateBoundingBox()																	|
+|void																|recalculateBoundingBox(boolean send)														|
+|void																|removeAllEffects()																			|
+|void																|removeEffect(int effectId)																	|
+|void																|removeMetadata(String metadataKey, Plugin owningPlugin)									|
+|void																|resetFallDistance()																		|
+|void																|respawnToAll()																				|
+|void																|saveNBT()																					|
+|void																|scheduleUpdate()																			|
+|void																|sendData(Player player)																	|
+|void																|sendData(Player[] players)																	|
+|void																|sendData(Player[] players, EntityMetadata data)											|
+|void																|sendData(Player player, EntityMetadata data)												|
+|void																|sendPotionEffects(Player player)															|
+|void																|setAbsorption(float absorption)															|
+|void																|setCanClimb()																				|
+|void																|setCanClimb(boolean value)																	|
+|void																|setCanClimbWalls()																			|
+|void																|setCanClimbWalls(boolean value)															|
+|void																|setDataFlag(int propertyId, int id)														|
+|void																|setDataFlag(int propertyId, int id, boolean value)											|
+|boolean															|setDataProperty(EntityData data)															|
+|boolean															|setDataProperty(EntityData data, boolean send)												|
+|void																|setGliding()																				|
+|void																|setGliding(boolean value)																	|
+|void																|setHealth(float health)																	|
+|void																|setImmobile()																				|
+|void																|setImmobile(boolean value)																	|
+|void																|setLastDamageCause(EntityDamageEvent type)													|
+|void																|setMaxHealth(int maxHealth)																|
+|void																|setMetadata(String metadataKey, MetadataValue newMetadataValue)							|
+|boolean															|setMotion(Vector3 motion)																	|
+|void																|setNameTag(String name)																	|
+|void																|setNameTagAlwaysVisible()																	|
+|void																|setNameTagAlwaysVisible(boolean value)														|
+|void																|setNameTagVisible()																		|
+|void																|setNameTagVisible(boolean value)															|
+|void																|setOnFire(int seconds)																		|
+|boolean															|setPosition(Vector3 pos)																	|
+|boolean															|setPositionAndRotation(Vector3 pos, double yaw, double pitch)								|
+|void																|setRotation(double yaw, double pitch)														|
+|void																|setScale(float scale)																		|
+|void																|setScoreTag(String score)																	|
+|void																|setSeatPosition(Vector3f pos)																|
+|void																|setSneaking()																				|
+|void																|setSneaking(boolean value)																	|
+|void																|setSprinting()																				|
+|void																|setSprinting(boolean value)																|
+|void																|setSwimming()																				|
+|void																|setSwimming(boolean value)																	|
+|void																|spawnTo(Player player)																		|
+|void																|spawnToAll()																				|
+|boolean															|teleport(Location location)																|
+|boolean															|teleport(Location location, PlayerTeleportEvent.TeleportCause cause)						|
+|boolean															|teleport(Position pos)																		|
+|boolean															|teleport(Position pos, PlayerTeleportEvent.TeleportCause cause)							|
+|boolean															|teleport(Vector3 pos)																		|
+|boolean															|teleport(Vector3 pos, PlayerTeleportEvent.TeleportCause cause)								|
+|void																|updateMovement()																			|
+|void																|updatePassengers()																			|

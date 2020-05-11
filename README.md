@@ -74,11 +74,7 @@ mcbbs对jar的好感度远高于js，[学习如何打包](https://www.mcbbs.net/
 ### 7.抓住痛点
 想想你开服的时候被没有这个插件难受到了什么地步，大肆渲染一下/滑稽
 
-## 1.2.7.0更新日志
-
-(暂定)
-
-## 1.2.7  
+## 1.2.7.0更新日志 
 
 manager
 
@@ -87,8 +83,8 @@ manager
 - boolean isFileSame(String path1,String path2)
 - String JSONtoYAML(String json)
 - String YAMLtoJSON(String yaml)
-- void newCommandnewCommand(String name, String description, Function fun)
-- int setTimeoutsetTimeout(Function fun,int delay,<E+>... args)
+- void newCommand(String name, String description, Function fun)
+- int setTimeout(Function fun,int delay,<E+>... args)
 - void clearTimeout(int id)
 - int setInterval(Function fun,int delay,<E+>... args)
 - void clearInterval(int id)
@@ -102,7 +98,7 @@ Loader
 
 Custom/Modal/Simple (WindowBuilder)
 
-- void showToPlayerCallLambda(Player p, ScriptObjectMirror mirror)
+- void showToPlayerCallLambda(Player p, Function fun)
 
 blockitem
 
@@ -113,4 +109,9 @@ blockitem
 EventLoader
 
 - PlayerJumpEvent
+- PlayerToggleFlightEvent
+- PlayerToggleGlideEvent
+- PlayerToggleSwimEvent
+- PlayerToggleSneakEvent
+- PlayerToggleSprintEvent
 
