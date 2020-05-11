@@ -221,6 +221,7 @@ var complete = [
 	{meta: "玩家游泳事件", caption: "PlayerToggleSwimEvent", value: "PlayerToggleSwimEvent", score:1},
 	{meta: "玩家潜行事件", caption: "PlayerToggleSneakEvent", value: "PlayerToggleSneakEvent", score:1},
 	{meta: "玩家疾跑事件", caption: "PlayerToggleSprintEvent", value: "PlayerToggleSprintEvent", score:1},
+	{meta: "玩家飞行事件", caption: "PlayerToggleFlightEvent", value: "PlayerToggleFlightEvent", score:1},
 	{meta: "WindowBuilder", caption: "setTitle", value: "setTitle", score:1},
 	{meta: "WindowBuilder", caption: "showToPlayer", value: "showToPlayer", score:1},
 	{meta: "WindowBuilder", caption: "buildLabel", value: "buildLabel", score:1},
