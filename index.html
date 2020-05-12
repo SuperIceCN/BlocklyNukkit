@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>BlocklyNukkit</title>
-		<link rel="icon" href="favicon.ico">
+		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 		<!-- 新 Bootstrap4 核心 CSS 文件 -->
 		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 		<!-- jQuery文件 -->
@@ -31,6 +31,7 @@
 		<script src="./js/custom/entity.js"></script>
 		<script src="./js/custom/notemusic.js"></script>
 		<script src="./js/custom/particle.js"></script>
+		<script src="./js/custom/JSON.js"></script>
 		<script src="./js/SoftKey/vk_loader.js?vk_skin=flat_gray"></script>	
 		<script src="https://cdn.bootcss.com/prism/9000.0.1/prism.min.js"></script>
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css" rel="stylesheet">
@@ -359,6 +360,10 @@
 				  <field name="DIRECTION">1</field>
 				</block>
 			  </category>
+			  <category name="JSON" colour=78>
+				<block type="json_emptyJSON"></block>
+				<block type="json_set"></block>
+			  </category>
 			</category>
 		  <category name="动态">
 			  <category name="变量" colour="#a55b80" custom="VARIABLE"></category>
@@ -422,6 +427,7 @@
 				  <block type="player_getPlayerInv"></block>
 				  <block type="player_setPlayerInv"></block>
 				  <block type="player_kickPlayer"></block>
+				  <block type="player_getPlayerGameMode"></block>
 			  </category>
 			  <category name="事件" colour=10>
 				  <block type="event_setCancelled"></block>
@@ -547,6 +553,9 @@
 				  <block type="bi_addToCreativeBar"></block> 
 				  <block type="bi_getNBTString"></block>
 				  <block type="bi_putinNBTString"></block>
+				  <block type="bi_getItemEnchant"></block>
+				  <block type="bi_getEnchantID"></block>
+				  <block type="bi_getEnchantLevel"></block>
 			  </category>
 			  <category name="物品栏" colour=290>
 				<block type="inv_addInv"></block>
@@ -954,7 +963,7 @@
 			var $downj = $("#downjar");
 			$downj.click(function(){
 				var $eleForm = $("<form method='get'></form>");
-				$eleForm.attr("action","https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/raw/master/BlocklyNukkit.jar");
+				$eleForm.attr("action","https://tools.blocklynukkit.com/BlocklyNukkit.jar");
 				$(document.body).append($eleForm);
 				$eleForm.submit();
 			});

@@ -807,4 +807,81 @@ Blockly.JavaScript['bi_putinNBTString'] = function(block) {
   var text="blockitem.putinNBTString("+itemtmp+","+nbttmp+");\n"
   return text;
 };
-
+Blockly.Blocks['bi_getItemEnchant'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "获取物品 %1 的附魔对象列表",
+      "args0": [
+	    {
+	      "type": "input_value",
+	      "name": "ITEM",
+	      "check": "Item"
+	    }
+      ],
+	  "output": "Array",
+      "colour": 47,
+	  "inputsInline": true,
+      "tooltip": "获取物品附魔列表",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_getItemEnchant'] = function(block) {
+  //String or array length.
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\' \'';
+  var text= "blockitem.getItemEnchant("+itemtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['bi_getEnchantID'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "获取附魔对象 %1 的ID",
+      "args0": [
+	    {
+	      "type": "input_value",
+	      "name": "ENC",
+	      "check": "Enchantment"
+	    }
+      ],
+	  "output": "Number",
+      "colour": 47,
+	  "inputsInline": true,
+      "tooltip": "获取附魔id",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_getEnchantID'] = function(block) {
+  //String or array length.
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\' \'';
+  var text= "blockitem.getEnchantID("+itemtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['bi_getEnchantLevel'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "获取附魔对象 %1 的等级",
+      "args0": [
+	    {
+	      "type": "input_value",
+	      "name": "ENC",
+	      "check": "Enchantment"
+	    }
+      ],
+	  "output": "Number",
+      "colour": 47,
+	  "inputsInline": true,
+      "tooltip": "获取附魔等级",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bi_getEnchantLevel'] = function(block) {
+  //String or array length.
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\' \'';
+  var text= "blockitem.getEnchantLevel("+itemtmp+")"
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};

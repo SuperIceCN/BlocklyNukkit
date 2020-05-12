@@ -840,3 +840,27 @@ Blockly.JavaScript['player_kickPlayer'] = function(block) {
   var text="manager.kickPlayer("+playertmp+","+mes+");\n"
   return text;
 };
+Blockly.Blocks['player_getPlayerGameMode'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "获取玩家 %1 的游戏模式id",
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		}
+      ],
+	  "output": "Number",
+      "colour": 180,
+      "tooltip": "获取游戏模式id(getPlayerGameMode)",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_getPlayerGameMode'] = function(block) {
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager.getPlayerGameMode("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
