@@ -58,3 +58,37 @@ Blockly.JavaScript['json_set'] = function(block) {
   var text=jsontmp+'['+Key+'] = '+valuetmp+";\n"
   return text;
 };
+Blockly.Blocks['json_delete'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "删除 %1 的键 %2 和其对应的值",
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "JSON",
+		  "check": "json"
+		},
+		{
+		  "type": "input_value",
+		  "name": "KEY",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": false,
+      "colour": 97,
+      "tooltip": "删除json的指定键",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['json_delete'] = function(block) {
+  //String or array length.
+  var jsontmp = Blockly.JavaScript.valueToCode(block, 'JSON',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var keytmp = Blockly.JavaScript.valueToCode(block, 'KEY',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="delete "+jsontmp+"["+keytmp+"];\n"
+  return text;
+};

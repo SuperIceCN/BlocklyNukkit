@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>bn插件判别器</title>
+	</head>
+	<body>
+		<script>
+			function uploadandtest(){
+				var reader = new FileReader();
+				reader.onload = function() 
+				{
+					var str = this.result
+					if(str!=undefined&&str.length>=10){
+						var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+						httpRequest.open('POST', 'https://blocklunukkit-1488c9.service.tcloudbase.com/checkifEditor', true); //第二步：打开连接
+						httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+						httpRequest.send(str);//发送请求 将情头体写在send中
+						httpRequest.onreadystatechange = function () {//请求后的回调接口，可将请求成功后要执行的程序写在其中
+						    if (httpRequest.readyState == 4 && httpRequest.status == 200) {//验证请求是否发送成功
+						        var back = httpRequest.responseText;//获取到服务端返回的数据
+						        if(back == "0"){
+									alert("非机制")
+								}else if(back == "1"){
+									alert("疑似机制")
+								}else if(back == "2"){
+									alert("确认机制")
+								}
+						    }
+						};
+					}
+				}
+				var f = document.getElementById("sefile").files[0];
+				reader.readAsText(f);
+			}
+		</script>
+		<p>bn机制检测系统</p>
+		<input type="file" name="file" class="btn btn-outline-primary" id="sefile"></input>
+		<button onclick="uploadandtest()">进行检测</button>
+	</body>
+</html>
