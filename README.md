@@ -93,6 +93,12 @@ entity
 Loader  
 
 - 现在bn插件控制台输出会使用文件名作为前缀而不是\[BlocklyNukkit\]
+- 非op不再可见bn命令
+
+编辑器  
+
+- 添加JSON模块
+- 添加jar在线编译器
 
 ### 1.2.7.2  
 

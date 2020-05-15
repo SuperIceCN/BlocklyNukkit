@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>BN-jar包在线编译</title>
-		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+		<link rel="icon" href="https://tools.blocklynukkit.com/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="./mdui/css/mdui.min.css">
 		<script src="mdui/js/mdui.min.js"></script>
 		<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
@@ -49,7 +49,7 @@
 				$eleForm.submit();
 			}
 			function compile(){
-				let author = document.getElementById("name").value;
+				let author = document.getElementById("authorname").value;
 				let ver = document.getElementById("version").value;
 				if(author=="" || author == null || ver == "" || ver == null || author == undefined || ver == undefined){
 					mdui.alert("作者名或版本号未填写！","提交失败");
