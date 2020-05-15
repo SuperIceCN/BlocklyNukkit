@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>BN-jar包在线编译</title>
+		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="./mdui/css/mdui.min.css">
+		<script src="mdui/js/mdui.min.js"></script>
+		<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body class="mdui-theme-primary-indigo mdui-theme-accent-indigo ">
+		<script type="text/javascript">
+			var $$ = mdui.JQ;
+			var f = null;
+			var changed = false;
+			var path = "";
+			function openwin(url){
+			 window.open(url,'_blank');
+			}
+			function clicksefile(){
+				document.getElementById("sefile").click();
+			}
+			function isChinese(val){
+				var reg = new RegExp("[\\u4E00-\\u9FFF]+","g");
+				if(reg.test(val)){return true; }
+				else{return false;}
+			}
+			function changefile(){
+				f = document.getElementById("sefile").files[0];
+				if(f==undefined||f==null){
+					f=null;
+					return;
+				}
+				if(isChinese(f.name)){
+					mdui.alert("您选择的文件名含有中文！这会导致编译系统错误，请改文件名后重新选择！","选择失败");
+					f=null;
+				}else if(f.size>=1024*30){
+					mdui.alert('您选择的文件大小'+(f.size/1024).toFixed(2)+"KB,文件大小限制30KB以内！", '选择失败');
+					f=null;
+				}else{
+					document.getElementById("uploadbtn").innerHTML=f.name+" "+(f.size/1024).toFixed(2)+"KB";
+					changed=true;
+				}
+			}
+			function downloadfilejar(){
+				var $eleForm = $("<form method='get'></form>");
+				$eleForm.attr("action",path);
+				$(document.body).append($eleForm);
+				$eleForm.submit();
+			}
+			function compile(){
+				let author = document.getElementById("name").value;
+				let ver = document.getElementById("version").value;
+				if(author=="" || author == null || ver == "" || ver == null || author == undefined || ver == undefined){
+					mdui.alert("作者名或版本号未填写！","提交失败");
+					return;
+				}
+				if(!changed){
+					mdui.alert("未选择文件！","提交失败");
+					return;
+				}
+				$$(document.getElementById("progress")).removeClass("mdui-hidden");
+				var reader = new FileReader();
+				reader.onload = function()
+				{
+					var str = this.result
+					if(str!=undefined&&str.length>=10){
+						var httpRequest = new XMLHttpRequest();
+						httpRequest.open('POST', 'https://service-ph7gsebv-1259395953.bj.apigw.tencentcs.com/release/BlocklyNukkitCloud', true);
+						httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+						httpRequest.send(f.name+"&&&"+str);
+						httpRequest.onreadystatechange = function () {
+							let getjs = "https://blocklynukkitxml-1259395953.cos.ap-beijing.myqcloud.com/"+f.name;
+						    if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+						        var back = httpRequest.responseText;
+								console.log(back);
+								if(back!=null){
+									console.log(getjs);
+									var httpRequest2 = new XMLHttpRequest();
+									httpRequest2.open('POST', 'http://scapi.blocklynukkit.com', true);
+									httpRequest2.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+									httpRequest2.send("$$$"+author+"^"+ver+"^"+getjs+"%%%");
+									httpRequest2.onreadystatechange = function () {
+										let url = httpRequest2.responseText;
+										console.log(url);
+										$$(document.getElementById("progress")).addClass("mdui-hidden");
+										$$(document.getElementById("downurlbox")).removeClass("mdui-hidden");
+										document.getElementById("downurl").innerHTML="编译完成,jar包下载链接 <a>"+url+"</a>";
+										path = url;
+									}
+								}
+							}
+						}
+					}
+				}
+				reader.readAsText(f);
+			}
+		</script>
+		<div class="mdui-appbar">
+			<div class="mdui-toolbar mdui-color-theme">
+				<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">cloud_queue</i></a>
+				<a href="javascript:openwin('https://tools.blocklynukkit.com');" class="mdui-typo-headline">BlocklyNukkit</a>
+				<a href="javascript:;" class="mdui-typo-title">jar在线编译器</a>
+				<div class="mdui-toolbar-spacer"></div>
+				<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">more_vert</i></a>
+			</div>
+		</div>
+		<div class="mdui-container-fluid">
+			<div class="mdui-row">
+				<div class="mdui-col-xs-10 mdui-col-offset-xs-1">
+					<div class=" mdui-center mdui-typo">
+						<br><br>
+						<div class="mdui-typo-display-2-opacity mdui-text-center">BlocklyNukkit JAR编译器</div>
+						<div class="mdui-typo-headline-opacity mdui-text-center">在线使用 一键打包<br><br></div>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-row">
+				<div class="mdui-col-xs-8 mdui-col-offset-xs-2">
+					<div class="mdui-panel mdui-panel-popout" mdui-panel>
+					
+					  <div class="mdui-panel-item">
+					    <div class="mdui-panel-item-header"><i class="mdui-icon material-icons">&#xe24d;</i> 源文件</div>
+					    <div class="mdui-panel-item-body">
+					      <p>文件限制格式: .js</p>
+					      <p>文件限制编码: utf-8</p>
+					      <p>文件限制大小: 30kb</p>
+						  <button class="mdui-btn mdui-color-theme-accent mdui-ripple" onclick="clicksefile()" id="uploadbtn">选择上传文件</button>
+						  <input type="file" style="visibility: hidden;" accept=".js" id="sefile" onchange="changefile()"></input>
+					    </div>
+					  </div>
+					  
+					  <div class="mdui-panel-item">
+					    <div class="mdui-panel-item-header"><i class="mdui-icon material-icons">&#xe8b8;</i> 编译设置</div>
+					    <div class="mdui-panel-item-body">
+					      <div class="mdui-textfield">
+					        <i class="mdui-icon material-icons">&#xe851;</i>
+					        <input class="mdui-textfield-input" type="text" id="authorname" placeholder="作者名"/>
+					      </div>
+						  <div class="mdui-textfield">
+						    <i class="mdui-icon material-icons">&#xe923;</i>
+						    <input class="mdui-textfield-input" type="text" id="version" placeholder="版本号"/>
+						  </div>
+						  <button class="mdui-btn mdui-color-theme-accent mdui-ripple" onclick="compile()" id="submitbtn">提交编译</button>
+						  <br><br>
+					      <div class="mdui-progress mdui-hidden" id="progress">
+					        <div class="mdui-progress-indeterminate"></div>
+					      </div>
+						  <div class="mdui-chip mdui-hidden" id="downurlbox" onclick="downloadfilejar()">
+						    <span class="mdui-chip-title" id="downurl"></span>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

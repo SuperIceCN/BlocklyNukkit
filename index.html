@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>BlocklyNukkit</title>
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 		<!-- 新 Bootstrap4 核心 CSS 文件 -->
 		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
@@ -364,6 +365,9 @@
 				<block type="json_emptyJSON"></block>
 				<block type="json_set"></block>
 				<block type="json_delete"></block>
+				<block type="json_get"></block>
+				<block type="json_saveAsJSON"></block>
+				<block type="json_readFromJSON"></block>
 			  </category>
 			</category>
 		  <category name="动态">
@@ -647,7 +651,7 @@
 				
 				<div class="alert alert-success alert-dismissible fade show" style="z-index: 1;">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>BlocklyNukkit.jar最新版是1.2.7.0(5/11更新)</strong>
+					<strong>BlocklyNukkit.jar最新版是1.2.7.3(5/15更新)</strong>
 				</div>
 				
 				<div style="width: 100%; position: absolute; top: 5.519vw ; left: 0 ; bottom: 0;">

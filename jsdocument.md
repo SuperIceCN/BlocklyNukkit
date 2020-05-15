@@ -420,6 +420,7 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 - void buildInput(String title,String placeholder)
 - void buildInput(String title,String placeholder,String defaulttext)
 - void buildToggle(String title)
+- void buildToggle(String title,boolean default)
 - void buildDropdown(String title,String inner)
 
 2.Modal-J

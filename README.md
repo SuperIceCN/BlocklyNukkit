@@ -74,7 +74,38 @@ mcbbs对jar的好感度远高于js，[学习如何打包](https://www.mcbbs.net/
 ### 7.抓住痛点
 想想你开服的时候被没有这个插件难受到了什么地步，大肆渲染一下/滑稽
 
-## 1.2.7.0更新日志 
+## 更新日志 
+
+### 1.2.7.3  
+
+blockitem  
+
+- 修复了nbt函数的错误
+
+EventLoader  
+
+- 修复了玩家判断错误的bug
+
+entity  
+
+- 更换浮空字的pid为盔甲架的pid
+
+Loader  
+
+- 现在bn插件控制台输出会使用文件名作为前缀而不是\[BlocklyNukkit\]
+
+### 1.2.7.2  
+
+manager
+
+- String formatJSON(String json)
+- 修复writeFile函数无法自动创建路径的错误
+
+### 1.2.7.1  
+
+修复部分老版本nk/pn内核无法加载的错误  
+
+### 1.2.7.0  
 
 manager
 
