@@ -588,3 +588,28 @@ Blockly.JavaScript['event_getKnockBack'] = function(block) {
   var text=valtmp+".getKnockBack()";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['event_getEntity'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "获取事件 %1 中的实体",
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Event"
+		}
+      ],
+	  "output": "Entity",
+      "colour": 10,
+      "tooltip": "获取事件实体",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['event_getEntity'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=valtmp+".getEntity()";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};

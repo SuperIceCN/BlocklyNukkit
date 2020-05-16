@@ -98,7 +98,7 @@
 
 |方法名|参数|返回值|解释|
 |-----|-----|-----|----|
-|makeSound|Position-J pos,String s|void|在位置pos播放s对应的声音(跟原版命令一样)|
+|makeSound|Position-J pos,String s|void|在位置pos播放s对应的声音(跟原版命令类似,点击进入[声音列表](https://ci.nukkitx.com/job/NukkitX/job/Nukkit/job/master/javadoc/index.html?cn/nukkit/level/package-summary.html))|
 |makeExpBall|Position-J pos,int exp|void|在位置pos生成包含exp点经验值的经验球|
 |makeDropItem|Position-J pos,Item-J i|void|在位置pos生成与i相同的物品堆|
 |getBlock|Position-J pos|Block-J|获取位置pos的方块|
