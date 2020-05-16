@@ -835,7 +835,7 @@ Blockly.Blocks['pos_getServerLevels'] = {
 };
 Blockly.JavaScript['pos_getServerLevels'] = function(block) {
   //String or array length.
-  var text="blockitem.getServerLevels()"
+  var text="world.getServerLevels()"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
 Blockly.Blocks['pos_getEntityByLevelAndID'] = {
@@ -1044,7 +1044,7 @@ Blockly.Blocks['pos_setSkyLandGenerator'] = {
 };
 Blockly.JavaScript['pos_setSkyLandGenerator'] = function(block) {
   //String or array length.
-  var seaheight = Blockly.JavaScript.valueToCode(block, 'SEAHEIHGHT',
+  var seaheight = Blockly.JavaScript.valueToCode(block, 'SEAHEIGHT',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var movey = Blockly.JavaScript.valueToCode(block, 'MOVEY',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
@@ -1078,6 +1078,6 @@ Blockly.JavaScript['pos_setSkyLandGenerator'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var enableocean = Blockly.JavaScript.valueToCode(block, 'ENABLEOCEAN',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text="world.setSkyLandGenerator("+seaheight+","+enableore+","+coal+","+iron+","+redstone+","+lapis+","+gold+","+diamond+","+dirt+","+gravel+","+granite+","+diorite+","+andesite+","+enablecave+","+enablebiome+","+enableocean+");\n"
+  var text="world.setSkyLandGenerator("+seaheight+","+movey+","+enableore+","+coal+","+iron+","+redstone+","+lapis+","+gold+","+diamond+","+dirt+","+gravel+","+granite+","+diorite+","+andesite+","+enablecave+","+enablebiome+","+enableocean+");\n"
   return text;
 };
