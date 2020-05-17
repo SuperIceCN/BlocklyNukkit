@@ -2,10 +2,10 @@
 Blockly.Blocks['json_emptyJSON'] = {
   init: function() {
     this.jsonInit({
-      "message0": "空json对象",
+      "message0": JSON_line_5,
 	  "output": "json",
       "colour": 78,
-      "tooltip": "空json对象",
+      "tooltip": JSON_line_8,
       "helpUrl": "#"
     });
   }
@@ -18,7 +18,7 @@ Blockly.JavaScript['json_emptyJSON'] = function(block) {
 Blockly.Blocks['json_set'] = {
   init: function() {
     this.jsonInit({
-      "message0": "设置 %1 的键 %2 为 %3 ",
+      "message0": JSON_line_21,
       "args0": [
 		{
 		  "type": "input_value",
@@ -40,7 +40,7 @@ Blockly.Blocks['json_set'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 78,
-      "tooltip": "设置json的键值",
+      "tooltip": JSON_line_43,
       "helpUrl": "#"
     });
   }
@@ -59,7 +59,7 @@ Blockly.JavaScript['json_set'] = function(block) {
 Blockly.Blocks['json_delete'] = {
   init: function() {
     this.jsonInit({
-      "message0": "删除 %1 的键 %2 和其对应的值",
+      "message0": JSON_line_62,
       "args0": [
 		{
 		  "type": "input_value",
@@ -76,7 +76,7 @@ Blockly.Blocks['json_delete'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 78,
-      "tooltip": "删除json的指定键",
+      "tooltip": JSON_line_79,
       "helpUrl": "#"
     });
   }
@@ -93,7 +93,7 @@ Blockly.JavaScript['json_delete'] = function(block) {
 Blockly.Blocks['json_get'] = {
   init: function() {
     this.jsonInit({
-      "message0": "获取json对象 %1 键 %2 的值",
+      "message0": JSON_line_96,
 	  "args0": [
 	  		{
 	  		  "type": "input_value",
@@ -108,7 +108,7 @@ Blockly.Blocks['json_get'] = {
 	  ],
 	  "output": ["String","Number","Boolean","Array","json"],
       "colour": 78,
-      "tooltip": "获取键的值",
+      "tooltip": JSON_line_111,
       "helpUrl": "#"
     });
   }
@@ -125,7 +125,7 @@ Blockly.JavaScript['json_get'] = function(block) {
 Blockly.Blocks['json_get'] = {
   init: function() {
     this.jsonInit({
-      "message0": "获取json对象 %1 键 %2 的值",
+      "message0": JSON_line_128,
 	  "args0": [
 	  		{
 	  		  "type": "input_value",
@@ -140,7 +140,7 @@ Blockly.Blocks['json_get'] = {
 	  ],
 	  "output": ["String","Number","Boolean","Array","json"],
       "colour": 78,
-      "tooltip": "获取键的值",
+      "tooltip": JSON_line_143,
       "helpUrl": "#"
     });
   }
@@ -157,7 +157,7 @@ Blockly.JavaScript['json_get'] = function(block) {
 Blockly.Blocks['json_saveAsJSON'] = {
   init: function() {
     this.jsonInit({
-      "message0": "将json对象 %1 保存到路径 %2 (需以.json结尾)",
+      "message0": JSON_line_160,
       "args0": [
 		{
 		  "type": "input_value",
@@ -174,7 +174,7 @@ Blockly.Blocks['json_saveAsJSON'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 78,
-      "tooltip": "保存json",
+      "tooltip": JSON_line_177,
       "helpUrl": "#"
     });
   }
@@ -191,7 +191,7 @@ Blockly.JavaScript['json_saveAsJSON'] = function(block) {
 Blockly.Blocks['json_readFromJSON'] = {
   init: function() {
     this.jsonInit({
-      "message0": "从路径 %1 读取json对象",
+      "message0": JSON_line_194,
 	  "args0": [
 	  		{
 	  		  "type": "input_value",
@@ -201,7 +201,7 @@ Blockly.Blocks['json_readFromJSON'] = {
 	  ],
 	  "output": "json",
       "colour": 78,
-      "tooltip": "从文件获取json对象",
+      "tooltip": JSON_line_204,
       "helpUrl": "#"
     });
   }
@@ -213,3 +213,4 @@ Blockly.JavaScript['json_readFromJSON'] = function(block) {
   var text='JSON.parse(manager.readFile('+pathtmp+')=="FILE NOT FOUND"?"{}":manager.readFile('+pathtmp+'))';
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+

@@ -893,7 +893,7 @@
 			function checkbaseobj(){
 			  var code = document.getElementById('jspreview').innerText;
 			  var firstline = code.split("\n")[0];
-			  var baseobj = ["server","plugin","logger","manager","blockitem","algorithm","inventory","world","entity","database","notemusic","window","Java"];
+			  var baseobj = ["server","plugin","logger","manager","blockitem","algorithm","inventory","world","entity","database","notemusic","window","Java","__NAME__"];
 			  for(var i=0;i<baseobj.length-1;i++){
 				  if(firstline.indexOf(" "+baseobj[i]+",")!=-1){
 					  alert("您的变量中含有与基对象重名的变量"+baseobj[i]+"\n这会使得解释器崩溃,请您及时修改!")

@@ -451,7 +451,7 @@ Blockly.Blocks['event_getSlot'] = {
       ],
 	  "output": "Number",
       "colour": 10,
-      "tooltip": "获取事件的槽位(getAction.getSlot)",
+      "tooltip": event_line_454,
       "helpUrl": "#"
     });
   }
@@ -476,7 +476,7 @@ Blockly.Blocks['event_getInventory'] = {
       ],
 	  "output": "Inventory",
       "colour": 10,
-      "tooltip": "获取事件的槽位(getAction.getInventory)",
+      "tooltip": event_line_479,
       "helpUrl": "#"
     });
   }
@@ -591,7 +591,7 @@ Blockly.JavaScript['event_getKnockBack'] = function(block) {
 Blockly.Blocks['event_getEntity'] = {
   init: function() {
     this.jsonInit({
-      "message0": "获取事件 %1 中的实体",
+      "message0": event_line_594,
       "args0": [
 		{
 		  "type": "input_value",
@@ -601,7 +601,7 @@ Blockly.Blocks['event_getEntity'] = {
       ],
 	  "output": "Entity",
       "colour": 10,
-      "tooltip": "获取事件实体",
+      "tooltip": event_line_604,
       "helpUrl": "#"
     });
   }
@@ -613,3 +613,4 @@ Blockly.JavaScript['event_getEntity'] = function(block) {
   var text=valtmp+".getEntity()";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+
