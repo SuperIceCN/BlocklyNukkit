@@ -652,7 +652,11 @@
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
 					<strong>BlocklyNukkit.jar最新版是1.2.7.3(5/15更新)</strong>
 				</div>
-				
+				<script>
+					window.setTimeout(function(){
+						$('[data-dismiss="alert"]').alert('close');
+					},3000);
+				</script>
 				<div style="width: 100%; position: absolute; top: 5.519vw ; left: 0 ; bottom: 0;">
 					<pre style="width: 19.9vw;height: 98vh-5.519vw;height: 100%;font-weight: bold;"><code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"></code></pre>	
 				</div>
@@ -669,14 +673,14 @@
 				  <div class="row">
 					<div class="col"><button type="button" class="btn btn-outline-primary" id="downjar">下载插件</button></div>
 					<div class="col"><button type="button" class="btn btn-outline-primary" id="downpre">下载前置</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#savefile">保存脚本</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#jscloud">云端同步</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#savefile" data-dismiss="modal">保存脚本</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#jscloud" data-dismiss="modal">云端同步</button></div>
 				  </div>
 					<h1></h1>
 				  <div class="row">
-					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newbn">新建工程</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#toxml">导出工程</button></div>
-					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#importfile">导入工程</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newbn" data-dismiss="modal">新建工程</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#toxml" data-dismiss="modal">导出工程</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#importfile" data-dismiss="modal">导入工程</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://docs.qq.com/doc/DRkRpS0xmV2ZJbGdi')">打开教程</button></div>
 				  </div>
 					<h1></h1>
@@ -685,6 +689,13 @@
 				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://tools.blocklynukkit.com/jseditor.html')">JS编辑器</button></div>
 					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('http://tools.blocklynukkit.com/jar.html')">在线编译</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://bbs.blocklynukkit.com')">官方论坛</button></div>
+				  </div>	
+					<h1></h1>
+				  <div class="row">
+					<div class="col"><button type="button" class="btn btn-outline-primary"  data-toggle="modal" data-target="#changebg" data-dismiss="modal">更换背景</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" data-dismiss="modal">功能待定</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" data-dismiss="modal">功能待定</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" data-dismiss="modal">功能待定</button></div>
 				  </div>				  
 		      </div>
 		      <div class="modal-footer">
@@ -694,6 +705,40 @@
 		    </div>
 		  </div>
 		</div>
+		
+		
+		
+		<div class="modal fade" id="changebg">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">更换BlocklyNukkit编辑器背景</h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      <div class="modal-body">
+				<div class="container mt-3">
+				  <p id="hex11">请在下方输入完整的图片网址</p><p id="hex12">如：http://www.xxx.com/xx.jpg 或 https://www.xxx.com/xxx.png</p><p>注意，保存后将自动刷新界面，请提前保存自己的工程，以免工程丢失。</p>
+				  <form>
+				    <div class="input-group mb-3">
+				      <input type="text" class="form-control" placeholder="请在此输入完整的图片网址" id="changebgb">
+				      <div class="input-group-append">
+				        <button type="submit" class="btn btn-primary" onclick="changebj();return false;" data-dismiss="modal">更换!</button>
+				      </div>
+				    </div>
+				  </form>
+				</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		      </div>
+		 
+		    </div>
+		  </div>
+		</div>		
+		
+		
+		
+		
 		<!-- newbn -->
 		<div class="modal fade" id="newbn" tabindex="-1" role="dialog" aria-labelledby="newbnLable" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -1046,6 +1091,13 @@
 					}
 			    }
 			}); 
+			function changebj(){
+				var str = $("#changebgb").val();
+					if(str != null && str != ""){
+						localStorage.backgroundpicture=str;
+						location.reload();
+					}
+			}
 
 		</script>
 	</body>
