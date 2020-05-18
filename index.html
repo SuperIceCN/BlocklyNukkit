@@ -729,6 +729,7 @@
 				</div>
 		      </div>
 		      <div class="modal-footer">
+				<button type="button" class="btn btn-success" onclick="changebjr();return false;" data-dismiss="modal">还原白色背景</button>
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
 		      </div>
 		 
@@ -1097,6 +1098,10 @@
 						localStorage.backgroundpicture=str;
 						location.reload();
 					}
+			}
+			function changebjr(){
+				localStorage.backgroundpicture="";
+				location.reload();
 			}
 
 		</script>
