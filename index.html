@@ -674,7 +674,7 @@
 				  </div>
 					<h1></h1>
 				  <div class="row">
-					<div class="col"><button type="button" class="btn btn-outline-primary" id="newpj">新建工程</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newbn">新建工程</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#toxml">导出工程</button></div>
 					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#importfile">导入工程</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://docs.qq.com/doc/DRkRpS0xmV2ZJbGdi')">打开教程</button></div>
@@ -694,6 +694,27 @@
 		    </div>
 		  </div>
 		</div>
+		<!-- newbn -->
+		<div class="modal fade" id="newbn" tabindex="-1" role="dialog" aria-labelledby="newbnLable" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="newbnLable">新建工程</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				是否决定新建工程？新建工程将会清空当前项目！
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">不不不✖</button>
+				<button type="button" class="btn btn-primary"  data-dismiss="modal" id="newpj">我决定了✔</button>
+			</div>
+			</div>
+		</div>
+		</div>
+		<!-- newbn -->
 		<div class="modal fade" id="importfile">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
