@@ -668,17 +668,24 @@
 		      <div class="modal-body">
 				  <div class="row">
 					<div class="col"><button type="button" class="btn btn-outline-primary" id="downjar">下载插件</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#savefile">保存源码</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" id="downpre">下载前置</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#savefile">保存脚本</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#jscloud">云端同步</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#toxml">导出项目</button></div>
 				  </div>
 					<h1></h1>
 				  <div class="row">
-				    <div class="col"><button type="button" class="btn btn-outline-primary" id="downpre">下载前置</button></div>
-					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#importfile">导入项目</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" id="newpj">新建项目</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" id="newpj">新建工程</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#toxml">导出工程</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#importfile">导入工程</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://docs.qq.com/doc/DRkRpS0xmV2ZJbGdi')">打开教程</button></div>
 				  </div>
+					<h1></h1>
+				  <div class="row">
+					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://github.com/Superice666/BlocklyNukkit/tree/master')">仓库主页</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://tools.blocklynukkit.com/jseditor.html')">JS编辑器</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://tools.blocklynukkit.com/jar.html')">在线编译</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://bbs.blocklynukkit.com')">官方论坛</button></div>
+				  </div>				  
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
@@ -691,12 +698,12 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h4 class="modal-title">导入项目</h4>
+		        <h4 class="modal-title">导入工程</h4>
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		      </div>
 		      <div class="modal-body">
 				<div class="container mt-3">
-				  <h2>导入本地项目</h2>
+				  <h2>导入本地工程(*.bn)</h2>
 				  <div class="col"><input type="file" name="file" class="btn btn-outline-primary" id="importxml"></input></div>
 				  
 				</div>
@@ -713,12 +720,12 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h4 class="modal-title">保存源码</h4>
+		        <h4 class="modal-title">保存脚本</h4>
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		      </div>
 		      <div class="modal-body">
 				<div class="container mt-3">
-				  <h2>保存JavaScript源码到本地</h2>
+				  <h2>保存JavaScript脚本到本地</h2>
 				  <p id="hex1">在输入框输入欲保存的文件名，不需要输入.js文件后缀。</p>
 				  <form>
 				    <label for="demo">请输入您的文件名:</label>
@@ -792,13 +799,13 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h4 class="modal-title">导出项目</h4>
+		        <h4 class="modal-title">导出工程</h4>
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		      </div>
 		      <div class="modal-body">
 				<div class="container mt-3">
-				  <h2>导出JavaScript项目到本地以便下次编辑</h2>
-				  <p id="hex2">在输入框输入欲同步的文件名，不需要输入文件后缀。</p>
+				  <h2>导出BlocklyNukkit(*.bn)工程到本地以便下次编辑</h2>
+				  <p id="hex2">在输入框输入欲导出的文件名，不需要输入文件后缀。</p>
 				  <form>
 				    <label for="demo">请输入您的文件名:</label>
 				    <div class="input-group mb-3">
@@ -826,7 +833,7 @@
 		      </div>
 		      <div class="modal-body">
 				<div class="container mt-3">
-				  <h2>您的项目文件名为：</h2>
+				  <h2>您的工程文件名为：</h2>
 				  <h2 id="jswjm3"></h2>
 				</div>
 		      </div>
