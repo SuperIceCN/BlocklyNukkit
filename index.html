@@ -12,6 +12,7 @@
 		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
 		<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
 		<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="./js/custom/jsformat.js"></script>
 		<script src="./js/custom/encodingcore.js"></script>		
 		<script src="./js/blockly_compressed.js"></script>
 		<script src="./js/blocks_compressed.js"></script>
@@ -622,6 +623,10 @@
 				  <block type="utils_getPlayerArea"></block>
 				  <label text="GET的数据将追加在url?后,POST类型会放在body里面"></label>
 				  <block type="utils_httpRequest"></block>
+				  <label text="添加自定义JavaScript脚本到代码里。"></label>
+				  <label text="注意，这里声明的变量不会显示在BN编辑器的变量选项卡中。"></label>
+				  <label text="另外，这里不能直接声明中文变量。否则会出错。"></label>
+				  <block type="jscodeinput"></block>
 			  </category>
 			  <category name="起床战争" colour=35>
 				  <label text="Sorry,GameSDK for Bedwars"></label>

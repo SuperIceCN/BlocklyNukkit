@@ -700,3 +700,22 @@ Blockly.JavaScript['nkevent_privatecall'] = function(block) {
   var text="manager.setPrivateCall("+argument0+","+argument1+");\n"
   return text;
 };
+Blockly.Blocks['jscodeinput'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("自定义javascript代码")
+        .appendField(new Blockly.FieldTextInput(""), "jscode");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(97);
+ this.setTooltip("输入自定义JS代码，注意，代码要以分号结束。");
+ this.setHelpUrl("");
+  }
+};
+Blockly.JavaScript['jscodeinput'] = function(block) {
+  var text_jscode = block.getFieldValue('jscode');
+  var r = text_jscode;	
+  r = r.replace(/^\s+/, ''); 
+  r = js_beautify(r, 4, ' ');
+  return r;
+};
