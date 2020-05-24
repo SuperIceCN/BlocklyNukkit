@@ -1,5 +1,27 @@
-﻿
+﻿var gcnuma=0;
+var gcnumb=0;
 
+function crcook(cname, cvalue){//创建cookies
+    document.cookie = cname + "=" + cvalue + ";" + ";path=/";
+} 
+function getcook(cname){//获取cookies参数
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++) 
+  {
+    var c = ca[i].trim();
+    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+  }
+  return 0;
+}
+function crgongcheng(){//创建工程
+	crcook(,)
+}
+function getgongcheng(){//获取工程
+	gcname=getcook("gcname");
+	$('title').text('BlocklyNukkit - '+gcname);
+	gcnum=getcook("gcnum");
+}
 function js_beautify(js_source_text, indent_size, indent_character, indent_level)
 {
 
