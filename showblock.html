@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>BlocklyNukkit</title>
+		<link rel="shortcut icon" href="https://tools.blocklynukkit.com/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+		<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="./js/custom/encodingcore.js"></script>		
+		<script src="./js/blockly_compressed.js"></script>
+		<script src="./js/blocks_compressed.js"></script>
+		<script src="./js/msg/js/zh-hans.js"></script>
+		<script src="./js/custom/language.js"></script>
+		<script src="./js/javascript_compressed.js"></script>
+		<script src="./js/custom/myblocks.js"></script>
+		<script src="./js/custom/player.js"></script>
+		<script src="./js/custom/event.js"></script>
+		<script src="./js/appengine/storage.js"></script>
+		<script src="./js/custom/save.js"></script>
+		<script src="./js/custom/pos.js"></script>
+		<script src="./js/custom/window.js"></script>
+		<script src="./js/custom/blockanditem.js"></script>	
+		<script src="./js/custom/inventory.js"></script>
+		<script src="./js/custom/utils.js"></script>
+		<script src="./js/custom/entity.js"></script>
+		<script src="./js/custom/notemusic.js"></script>
+		<script src="./js/custom/particle.js"></script>
+		<script src="./js/custom/JSON.js"></script>
+		<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"></xml>
+	</head>
+	<body>
+		<div id="blocklyDiv" style="position: absolute;width: 97vw;height: 98vh;transform: translateZ(0);"></div>
+		<script>
+			function getQueryString(name) {
+				const reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+				const urlObj = window.location;
+				var r = urlObj.href.indexOf('#') > -1 ? urlObj.hash.split("?")[1].match(reg) : urlObj.search.substr(1).match(reg);
+				if (r != null) return unescape(r[2]); return null;
+			}
+			var workspaceBlocks = "frist";
+			var filename = getQueryString("code");
+			if(filename!=null&&filename!=""){
+				$.ajax({
+					type : "GET",
+					crossDomain: true,
+					contentType: "Content-Type:application/x-www-form-urlencoded;charset=UTF-8",
+					url : "https://blocklynukkitxml-1259395953.cos.ap-beijing.myqcloud.com/"+filename+".bn",
+					success : function(result) {
+						console.log(result);
+						workspaceBlocks = Blockly.Xml.textToDom(result);
+						var options = {
+							toolbox : null, 
+							collapse : true, 
+							comments : true, 
+							disable : true, 
+							maxBlocks : Infinity, 
+							trashcan : false, 
+							horizontalLayout : false, 
+							toolboxPosition : 'start', 
+							css : true, 
+							media : './js/media/', 
+							rtl : false, 
+							scrollbars : true, 
+							sounds : false, 
+							oneBasedIndex : true, 
+							zoom : {
+								controls : true, 
+								wheel : false, 
+								startScale : 0.8, 
+								maxScale : 3, 
+								minScale : 0.15, 
+								scaleSpeed : 1.2
+							}
+						};
+						
+						/* Inject your workspace */ 
+						var workspace = Blockly.inject('blocklyDiv', options);
+						
+						/* Load blocks to workspace. */
+						Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
+					},
+					error : function(e){
+					    console.log(e.status);
+					    console.log(e.responseText);
+					}
+				})
+			}
+		</script>
+	</body>
+</html>

@@ -61,6 +61,21 @@
 			document.body.addEventListener('touchmove', function (e) {
 			        e.preventDefault() // 阻止默认的处理方式(阻止下拉滑动的效果)
 			    }, {passive: false}) // passive 参数不能省略，用来兼容ios和android
+			function nojinghao(str){
+				if(str.endsWith("#")){str = str.slice(0,name.length-1)}
+				return str;
+			}
+			function getQueryString(name) {
+				const reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+				let urlObj = window.location;
+				var r = nojinghao(urlObj.href).split("?")[1].match(reg);
+				if (r != null) return unescape(r[2]); return "";
+			}
+			let lang = getQueryString("language").toLowerCase()
+			if(lang=="french"){
+				document.writeln('\<script src="./js/msg/bn/french.js"\>\</script\>');
+				document.writeln('\<script src="./js/msg/js/fr.js"\>\</script\>');
+			}
 		</script>
 		<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
 		  <category name="核心">
@@ -655,7 +670,7 @@
 				
 				<div class="alert alert-success alert-dismissible fade show" style="z-index: 1;">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>BlocklyNukkit.jar最新版是1.2.7.3(5/15更新)</strong>
+					<strong translate="yes">BlocklyNukkit.jar最新版是1.2.7.3(5/15更新)</strong>
 				</div>
 				<div style="width: 100%; position: absolute; top: 5.519vw ; left: 0 ; bottom: 0;">
 					<pre style="width: 19.9vw;height: 98vh-5.519vw;height: 100%;font-weight: bold;"><code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"></code></pre>	
@@ -666,40 +681,40 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h4 class="modal-title">功能</h4>
+		        <h4 class="modal-title" translate="yes">功能</h4>
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		      </div>
 		      <div class="modal-body">
 				  <div class="row">
-					<div class="col"><button type="button" class="btn btn-outline-primary" id="downjar">下载插件</button></div>
-					<div class="col"><button type="button" class="btn btn-outline-primary" id="downpre">下载前置</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#savefile" data-dismiss="modal">保存脚本</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#jscloud" data-dismiss="modal">云端同步</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" id="downjar" translate="yes">下载插件</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" id="downpre" translate="yes">下载前置</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#savefile" data-dismiss="modal" translate="yes">保存脚本</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#jscloud" data-dismiss="modal" translate="yes">云端同步</button></div>
 				  </div>
 					<h1></h1>
 				  <div class="row">
-					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newbn" data-dismiss="modal">新建工程</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#toxml" data-dismiss="modal">导出工程</button></div>
-					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#importfile" data-dismiss="modal">导入工程</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://docs.qq.com/doc/DRkRpS0xmV2ZJbGdi')">打开教程</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newbn" data-dismiss="modal" translate="yes">新建工程</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#toxml" data-dismiss="modal" translate="yes">导出工程</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#importfile" data-dismiss="modal" translate="yes">导入工程</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://docs.qq.com/doc/DRkRpS0xmV2ZJbGdi')" translate="yes">打开教程</button></div>
 				  </div>
 					<h1></h1>
 				  <div class="row">
-					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://github.com/Superice666/BlocklyNukkit/tree/master')">仓库主页</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://tools.blocklynukkit.com/jseditor.html')">JS编辑器</button></div>
-					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('http://tools.blocklynukkit.com/jar.html')">在线编译</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://bbs.blocklynukkit.com')">官方论坛</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://github.com/Superice666/BlocklyNukkit/tree/master')" translate="yes">仓库主页</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://tools.blocklynukkit.com/jseditor.html')" translate="yes">JS编辑器</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('http://tools.blocklynukkit.com/jar.html')" translate="yes">在线编译</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.open('https://bbs.blocklynukkit.com')" translate="yes">官方论坛</button></div>
 				  </div>	
 					<h1></h1>
 				  <div class="row">
-					<div class="col"><button type="button" class="btn btn-outline-primary"  data-toggle="modal" data-target="#changebg" data-dismiss="modal">更换背景</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary"  data-toggle="modal" data-target="#changegc" data-dismiss="modal">工程切换</button></div>
-					<div class="col"><button type="button" class="btn btn-outline-primary" data-dismiss="modal">功能待定</button></div>
-					<div class="col"><button type="button" class="btn btn-outline-primary" data-dismiss="modal">功能待定</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary"  data-toggle="modal" data-target="#changebg" data-dismiss="modal" translate="yes">更换背景</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary"  data-toggle="modal" data-target="#changegc" data-dismiss="modal" translate="yes">工程切换</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" data-dismiss="modal" translate="yes">功能待定</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" data-dismiss="modal" translate="yes">功能待定</button></div>
 				  </div>				  
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal" translate="yes">关闭</button>
 		      </div>
 		 
 		    </div>
@@ -709,12 +724,12 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h4 class="modal-title">更换BlocklyNukkit编辑器背景</h4>
+		        <h4 class="modal-title" translate="yes">更换BlocklyNukkit编辑器背景</h4>
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		      </div>
 		      <div class="modal-body">
 				<div class="container mt-3">
-				  <p id="hex11">请在下方输入完整的图片网址</p><p id="hex12">如：http://www.xxx.com/xx.jpg 或 https://www.xxx.com/xxx.png</p><p>注意，保存后将自动刷新界面，请提前保存自己的工程，以免工程丢失。</p>
+				  <p id="hex11" translate="yes">请在下方输入完整的图片网址</p><p id="hex12" translate="yes">如：http://www.xxx.com/xx.jpg 或 https://www.xxx.com/xxx.png</p><p translate="yes">注意，保存后将自动刷新界面，请提前保存自己的工程，以免工程丢失。</p>
 				  <form>
 				    <div class="input-group mb-3">
 				      <input type="text" class="form-control" placeholder="请在此输入完整的图片网址" id="changebgb">
@@ -727,7 +742,7 @@
 		      </div>
 		      <div class="modal-footer">
 				<button type="button" class="btn btn-success" onclick="changebjr();return false;" data-dismiss="modal">还原白色背景</button>
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal" translate="yes">关闭</button>
 		      </div>
 		 
 		    </div>
@@ -739,27 +754,27 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h4 class="modal-title">点击下方按钮在多个工程间切换</h4>
+		        <h4 class="modal-title" translate="yes">点击下方按钮在多个工程间切换</h4>
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		      </div>
 		      <div class="modal-body">
-				  <p>只要不清除浏览器缓存，各个工程是可以独立保存的。</p>
+				  <p translate="yes">只要不清除浏览器缓存，各个工程是可以独立保存的。</p>
 				  <div class="row">
-					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('https://tools.blocklynukkit.com/#')">到工程一</button></div>
-					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('?2')">到工程二</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('?3')">到工程三</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('?4')">到工程四</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('https://tools.blocklynukkit.com/#')" translate="yes">到工程一</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('?2')" translate="yes">到工程二</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('?3')" translate="yes">到工程三</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('?4')" translate="yes">到工程四</button></div>
 				  </div>
 					<h1></h1>
 				  <div class="row">
-					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('?5')">到工程五</button></div>
-					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('?6')">到工程六</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('?7')">到工程七</button></div>
-				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('?8')">到工程八</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('?5')" translate="yes">到工程五</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('?6')" translate="yes">到工程六</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('?7')" translate="yes">到工程七</button></div>
+				    <div class="col"><button type="button" class="btn btn-outline-primary" onclick="window.location.assign('?8')" translate="yes">到工程八</button></div>
 				  </div>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal" translate="yes">关闭</button>
 		      </div>
 		 
 		    </div>
@@ -773,17 +788,17 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="newbnLable">新建工程</h5>
+				<h5 class="modal-title" id="newbnLable" translate="yes">新建工程</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<div class="modal-body">
+			<div class="modal-body" translate="yes">
 				是否决定新建工程？新建工程将会清空当前项目！
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">不不不✖</button>
-				<button type="button" class="btn btn-primary"  data-dismiss="modal" id="newpj">我决定了✔</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" translate="yes">不不不✖</button>
+				<button type="button" class="btn btn-primary"  data-dismiss="modal" id="newpj" translate="yes">我决定了✔</button>
 			</div>
 			</div>
 		</div>
@@ -793,19 +808,19 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h4 class="modal-title">导入工程</h4>
+		        <h4 class="modal-title" translate="yes">导入工程</h4>
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		      </div>
 		      <div class="modal-body">
 				<div class="container mt-3">
-				  <h2>导入本地工程(*.bn)</h2>
+				  <h2 translate="yes">导入本地工程(*.bn)</h2>
 				  <div class="col"><input type="file" name="file" class="btn btn-outline-primary" id="importxml"></input></div>
 				  
 				</div>
 		      </div>
 		      <div class="modal-footer">
-				<button type="button" class="btn btn-outline-primary" id="showxml">确认导入</button>
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-outline-primary" id="showxml" translate="yes">确认导入</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal" translate="yes">关闭</button>
 		      </div>
 		 
 		    </div>
@@ -815,26 +830,26 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h4 class="modal-title">保存脚本</h4>
+		        <h4 class="modal-title" translate="yes">保存脚本</h4>
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		      </div>
 		      <div class="modal-body">
 				<div class="container mt-3">
-				  <h2>保存JavaScript脚本到本地</h2>
-				  <p id="hex1">在输入框输入欲保存的文件名，不需要输入.js文件后缀。</p>
+				  <h2 translate="yes">保存JavaScript脚本到本地</h2>
+				  <p id="hex1" translate="yes">在输入框输入欲保存的文件名，不需要输入.js文件后缀。</p>
 				  <form>
-				    <label for="demo">请输入您的文件名:</label>
+				    <label for="demo" translate="yes">请输入您的文件名:</label>
 				    <div class="input-group mb-3">
-				      <input type="text" class="form-control" placeholder="请输入文件名，不需要文件后缀。例如输入'myjs'" id="save">
+				      <input type="text" class="form-control" placeholder="请输入文件名，不需要文件后缀。例如输入'myjs'" id="save"  translate="yes">
 				      <div class="input-group-append">
-				        <button type="submit" class="btn btn-primary" onclick="pcsave();return false;">保存!</button>
+				        <button type="submit" class="btn btn-primary" onclick="pcsave();return false;" translate="yes">保存!</button>
 				      </div>
 				    </div>
 				  </form>
 				</div>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal" translate="yes">关闭</button>
 		      </div>
 		 
 		    </div>
@@ -844,26 +859,26 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h4 class="modal-title">云端同步</h4>
+		        <h4 class="modal-title" translate="yes">云端同步</h4>
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		      </div>
 		      <div class="modal-body">
 				<div class="container mt-3">
-				  <h2>同步JavaScript脚本到云端</h2>
-				  <p id="hex">在输入框输入欲同步的文件名，不需要输入.js文件后缀。</p>
+				  <h2 translate="yes">同步JavaScript脚本到云端</h2>
+				  <p id="hex" translate="yes">在输入框输入欲同步的文件名，不需要输入.js文件后缀。</p>
 				  <form>
-				    <label for="demo">请输入您的文件名:</label>
+				    <label for="demo" translate="yes">请输入您的文件名:</label>
 				    <div class="input-group mb-3">
-				      <input type="text" class="form-control" placeholder="请输入文件名，不需要文件后缀。例如输入'myjs'" id="cloudsave">
+				      <input type="text" class="form-control" placeholder="请输入文件名，不需要文件后缀。例如输入'myjs'" id="cloudsave" translate="yes">
 				      <div class="input-group-append">
-				        <button type="submit" class="btn btn-primary" onclick="jsclouds();return false;">同步!</button>
+				        <button type="submit" class="btn btn-primary" onclick="jsclouds();return false;" translate="yes">同步!</button>
 				      </div>
 				    </div>
 				  </form>
 				</div>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal" translate="yes">关闭</button>
 		      </div>
 		 
 		    </div>
@@ -873,17 +888,17 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h4 class="modal-title">同步成功</h4>
+		        <h4 class="modal-title" translate="yes">同步成功</h4>
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		      </div>
 		      <div class="modal-body">
 				<div class="container mt-3">
-				  <h2>您的文件名为：</h2>
+				  <h2 translate="yes">您的文件名为：</h2>
 				  <h2 id="jswjm"></h2>
 				</div>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal" translate="yes">关闭</button>
 		      </div>
 		 
 		    </div>
@@ -894,17 +909,17 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h4 class="modal-title">导出工程</h4>
+		        <h4 class="modal-title" translate="yes">导出工程</h4>
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		      </div>
 		      <div class="modal-body">
 				<div class="container mt-3">
-				  <h2>导出BlocklyNukkit(*.bn)工程到本地以便下次编辑</h2>
-				  <p id="hex2">在输入框输入欲导出的文件名，不需要输入文件后缀。</p>
+				  <h2 translate="yes">导出BlocklyNukkit(*.bn)工程到本地以便下次编辑</h2>
+				  <p id="hex2" translate="yes">在输入框输入欲导出的文件名，不需要输入文件后缀。</p>
 				  <form>
-				    <label for="demo">请输入您的文件名:</label>
+				    <label for="demo" translate="yes">请输入您的文件名:</label>
 				    <div class="input-group mb-3">
-				      <input type="text" class="form-control" placeholder="请输入文件名，不需要文件后缀。例如输入'myjs'" id="toxmltext">
+				      <input type="text" class="form-control" placeholder="请输入文件名，不需要文件后缀。例如输入'myjs'" id="toxmltext" translate="yes">
 				      <div class="input-group-append">
 				        <button type="submit" class="btn btn-primary" onclick="toxmldc();return false;">导出!</button>
 				      </div>
@@ -923,22 +938,34 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h4 class="modal-title">导出成功</h4>
+		        <h4 class="modal-title" translate="yes">导出成功</h4>
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		      </div>
 		      <div class="modal-body">
 				<div class="container mt-3">
-				  <h2>您的工程文件名为：</h2>
+				  <h2 translate="yes">您的工程文件名为：</h2>
 				  <h2 id="jswjm3"></h2>
 				</div>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal" translate="yes">关闭</button>
 		      </div>
 		 
 		    </div>
 		  </div>
-		</div>			
+		</div>		
+		<script>
+			document.getElementById('toolbox').innerHTML=translateToolBox(document.getElementById('toolbox').innerHTML)
+			var translist = $("[translate='yes']");
+			for(let i=0;i<translist.length;i++){
+				let each = $(translist[i]);
+				if(each.attr("placeholder")!=undefined){
+					each.attr("placeholder",translateHTMLtoken(each.attr("placeholder")));
+				}else{
+					each.html(translateHTMLtoken(each.html()));
+				}
+			}
+		</script>
 		<script>
 			window.setInterval("checkbaseobj()",5000)
 			
