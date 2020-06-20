@@ -76,6 +76,66 @@ mcbbs对jar的好感度远高于js，[学习如何打包](https://www.mcbbs.net/
 
 ## 更新日志 
 
+### 1.2.7.4
+
+Languages
+
+现在可以使用python2.7来制作插件了
+添加了对python开发插件的完全支持，只需要下载额外的py支持包即可使用python插件
+对于python开发插件的支持将与JavaScript保持同步，python与js使用同一套bn类库，所有js的bn类库(除了Java模块)之外都可以在python中直接调用，无需import
+支持全部的python2.7原生标准语法和标准库，运行时与js相同，编译为java字节码运行，不必担心效率低下问题
+pythonForBN支持模块下载：https://tools.blocklynukkit.com/pythonForBN.jar
+下载后直接放到./plugins/BlocklyNukkit文件夹下面即可
+
+EventLoader
+
+- PlayerInteractEntityEvent
+- PlayerDamageByPlayerEvent
+- PlayerDamageByEntityEvent
+- EntityKilledByEntityEvent
+- EntityKilledByPlayerEvent
+- PlayerRespawnEvent
+
+window
+
+- void setPlayerBossBar(Player player,String text,float len)
+- void removePlayerBossBar(Player player)
+- double getLengthOfPlayerBossBar(Player player)
+- String getTextOfPlayerBossBar(Player player)
+
+manager
+
+- void createPermission(String per,String description,String defaultper)
+- void removePermission(String per)
+- boolean checkPlayerPermission(String per,Player player)
+- String MD5Encryption(String str)
+- String SHA1Encryption(String str)
+- void createCommand(String name, String description, String callbackFunctionName, String per)
+- void newCommand(String name, String description, Function jsFunction,String per)
+
+entity
+
+- int getNetworkID(Entity entity)
+- String getIDName(Entity entity)
+- void spawnEntity(String name,Position pos)
+
+notemusic
+
+- HornSongPlayer buildHorn(Song song, Position pos, boolean isloop, boolean isautodestroy)
+- void addPlayerToHorn(HornSongPlayer SongPlayer, Player player)
+- void removePlayerToHorn(HornSongPlayer SongPlayer, Player player)
+- Array getPlayerInHorn(HornSongPlayer radioSongPlayer)
+- void setHornStatus(HornSongPlayer radioSongPlayer, boolean isplaying)
+- Song getSongInHorn(HornSongPlayer radioSongPlayer)
+
+world
+
+- genLevel新增"OCEAN"海洋世界生成器
+
+bug fixed
+
+- setNameTagAlwaysVisable error
+
 ### 1.2.7.3  
 
 blockitem  

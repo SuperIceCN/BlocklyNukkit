@@ -47,6 +47,7 @@
 |time|int second|String|将秒数转为时:分:秒字符串|
 |createConfig|File-J file,int type|Config-J|在虚拟文件file处构建种类type(yaml==2)的配置文件|
 |createCommand|String name,String des,String call|void|创建名称为name,描述为des的命令，回调函数的函数名为call|
+|createCommand|String name,String des,String call,String per|void|同上，但是仅限有per权限的玩家可用|
 |createTask|String functionName, int delay|TaskHandler-J|延迟dalay刻调用函数名functionName的函数(不会阻塞)|
 |createLoopTask|String functionName, int delay|TaskHandler-J|每dalay刻重复调用函数名functionNmae的函数|
 |getTaskId|TaskHandler-J handler|int|获取handler的任务id|
@@ -78,11 +79,17 @@
 |JSONtoYAML|String json|String|将json字符串转为yaml字符串|
 |YAMLtoJSON|String yaml|String|将yaml字符串转为json字符串|
 |newCommand|String name, String des, Function fun|void|创建一个名称为name，描述为des，处理函数为fun的命令，fun是一个函数，有名函数的函数名(无需字符串)或一个匿名函数|
+|newCommand|String name, String des, Function fun, String per|void|同上，但仅限有per权限的玩家使用|
 |setTimeout|Function fun,int delay,<E+>... args|int|同浏览器上面的用法，但无法执行字符串，注册延时调用，返回任务id|
 |clearTimeout|int id|void|取消任务ID为id的延时调用|
 |setInterval|Function fun,int delay,<E+>... args|int|同浏览器上面的用法，但无法执行字符串，注册循环调用，返回任务id|
-|clearInterval||int id|void|取消任务ID为id的循环调用|
+|clearInterval|int id|void|取消任务ID为id的循环调用|
 |isWindows|void|boolean|获取当前运行环境是否是Windows系统|
+|createPermission|String per,String description,String defaultper|void|创建一个权限，名称为per，描述为description，默认授予组为defaultper(OP/ALL/NONE 管理员/全体/控制台)|
+|removePermission|String per|void|删除一个权限|
+|checkPlayerPermission|String per,Player player|boolean|检查一个玩家是否有per权限|
+|MD5Encryption|String str|String|将字符串进行md5加密|
+|SHA1Encryption|String str|String|将字符串进行sha1加密|
 
 ### algorithm基对象
 
@@ -169,6 +176,9 @@
 |getEffectLevel|Effect-J effect|int|获取effect药水效果的等级|
 |getEffectID|Effect-J effect|int|获取effect的药水id(前往mcwiki查看id表)|
 |getEffectTime|Effect-J effect|int|获取effect药水效果剩余持续的时间|
+|getNetworkID|Entity entity|int|获取实体的网络id，用于确认或者比较实体类型，网络id表wiki可查|
+|getIDName|Entity entity|String|获取实体的字符串ID，如Pig,Sheep，用法同上|
+|spawnEntity|String id,Position pos|void|在pos生成字符串id为id的生物|
 
 ### inventory基对象
 |方法名|参数|返回值|解释|
@@ -189,7 +199,7 @@
 ### world基对象
 |方法名|参数|返回值|解释|
 |-----|-----|-----|----|
-|genLevel|String name,int seed,String gen|void|生成名称name种子seed,种类为gen(FLAT,NETHER,VOID,NORMAL)的世界|
+|genLevel|String name,int seed,String gen|void|生成名称name种子seed,种类为gen(FLAT,NETHER,VOID,NORMAL,OCEAN,SKYLAND)的世界|
 |loadLevel|String s|void|强制加载名称为s的世界|
 |getServerLevels|void|Array<Level-J>|获取服务器的所有世界|
 |setSkyLandGenerator|int seaHeight,int movey,boolean enableOre,int coalcount,int coalsize,int coalmin,int coalmax,int ironcount,int ironsize,int ironmin,int ironmax,int redstonecount,int redstonesize,int redstonemin,int redstonemax,int lapiscount,int lapissize,int lapismin,int lapismax,int goldcount,int goldsize,int goldmin,int goldmax,int diamondcount,int diamondsize,int diamondmin,int diamondmax,int dirtcount,int dirtsize,int dirtmin,int dirtmax,int gravelcount,int gravelsize,int gravelmin,int gravelmax,int granitecount,int granitesize,int granitemin,int granitemax,int dioritecount,int dioritesize,int dioritemin,int dioritemax,int andesitecount,int andesitesize,int andesitemin,int andesitemax,boolean enableCave,boolean enableBiome,boolean enableOcean|void|设置镜像天域的生成器参数|
@@ -208,6 +218,12 @@
 |getPlayerInRadio|RadioSongPlayer-J radio|Array|void|获取radio的所有听众|
 |getSongInRadio|RadioSongPlayer-J radio|Song-J|获取radio播放的歌曲|
 |setRadioStatus|RadioSongPlayer radio,boolean isplaying|void|设置radio的播放状态|
+|buildHorn|Song song, Position pos, boolean isloop, boolean isautodestroy|HornSongPlayer|构建一个红石音乐喇叭,song播放歌曲,isloop是否循环,isautodestroy是否无人听自动摧毁|
+|addPlayerToHorn|HornSongPlayer horn, Player player|void|让player能听到horn的声音|
+|removePlayerToHorn|HornSongPlayer horn, Player player|void|让player不再听到horn的声音|
+|getPlayerInHorn|HornSongPlayer-J horn|Array|void|获取horn的所有听众|
+|getSongInHorn|HornSongPlayer-J horn|Song-J|获取horn播放的歌曲|
+|setHornStatus|HornSongPlayer horn,boolean isplaying|void|设置horn的播放状态|
 
 ### window基对象
 |方法名|参数|返回值|解释|
@@ -220,6 +236,10 @@
 |getEventResponseText|Event-J e|String|获取e中简单窗口点击的按钮文本|
 |getEventResponseModal|Event-J e|String|获取e中对话框点击的按钮文本|
 |getEventCustomVar|Event-J e,int id,String mode|String|获取e中高级窗口ID为id的mode(input,toggle,dropdown)元素的值|
+|setPlayerBossBar|Player-J player,String text,float len|void|设置玩家的boss血条文字和剩余血量百分比len(0-100)|
+|removePlayerBossBar|Player-J player|void|移除玩家的boss血条|
+|getLengthOfPlayerBossBar|Player-J player|double|获取玩家boss血条剩余血量百分比|
+|getTextOfPlayerBossBar|Player-J player|String|获取玩家boss血条的文字|
 
 ### particle基对象
 |方法名|参数|返回值|解释|
@@ -398,6 +418,12 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |玩家开始潜行事件|PlayerToggleSneakEvent|
 |玩家开始疾跑事件|PlayerToggleSprintEvent|
 |玩家开始飞行事件|PlayerToggleFlightEvent|
+|玩家与实体交互事件|PlayerInteractEntityEvent|
+|玩家被玩家伤害事件|PlayerDamageByPlayerEvent|
+|玩家被实体伤害事件|PlayerDamageByEntityEvent|
+|实体被实体杀死事件|EntityKilledByEntityEvent|
+|实体被玩家杀死事件|EntityKilledByPlayerEvent|
+|玩家重生事件|PlayerRespawnEvent|
 
 ## 常用java类/对象的成员函数
 注:这部分由于不属于bn类库范畴,所以不会加说明,应该看参数和函数名能看懂,不懂的看图形编辑器生成的代码或者直接qq联系开发组或者issue,谢谢  
