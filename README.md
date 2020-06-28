@@ -75,6 +75,29 @@ mcbbs对jar的好感度远高于js，[学习如何打包](https://www.mcbbs.net/
 想想你开服的时候被没有这个插件难受到了什么地步，大肆渲染一下/滑稽
 
 ## 更新日志 
+### 1.2.7.5
+window
+
+- void setBelowName(Player player,String str)
+
+manager
+
+- void loadJar(String path)
+
+entity
+
+- BNNPC buildNPC(Position pos,String name,String skinID)
+
+BNNPC
+
+- void turnRound(double yaw)
+- void headUp(double pitch)
+- void setEnableAttack(boolean attack)
+- void setEnableAttack()
+- void setEnableHurt(boolean hurt)
+- void setEnableHurt()
+- void displayHurt()
+- void start()
 
 ### 1.2.7.4
 

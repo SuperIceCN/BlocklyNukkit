@@ -444,7 +444,7 @@ Blockly.Blocks['player_buildskin'] = {
 	  "previousStatement": null,
 	  "inputsInline": true,
       "colour": 180,
-      "tooltip": "更改皮肤(manager.buildskin)",
+      "tooltip": player_line_447,
       "helpUrl": "#"
     });
   }
@@ -482,7 +482,7 @@ Blockly.Blocks['player_buildskinfor'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 180,
-      "tooltip": "更改皮肤(manager.buildskinfor)",
+      "tooltip": player_line_485,
       "helpUrl": "#"
     });
   }
@@ -843,7 +843,7 @@ Blockly.JavaScript['player_kickPlayer'] = function(block) {
 Blockly.Blocks['player_getPlayerGameMode'] = {
   init: function() {
     this.jsonInit({
-      "message0": "获取玩家 %1 的游戏模式id",
+      "message0": player_line_846,
       "args0": [
 		{
 		  "type": "input_value",
@@ -853,7 +853,7 @@ Blockly.Blocks['player_getPlayerGameMode'] = {
       ],
 	  "output": "Number",
       "colour": 180,
-      "tooltip": "获取游戏模式id(getPlayerGameMode)",
+      "tooltip": player_line_856,
       "helpUrl": "#"
     });
   }
@@ -862,5 +862,37 @@ Blockly.JavaScript['player_getPlayerGameMode'] = function(block) {
   var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text="manager.getPlayerGameMode("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['player_checkPlayerPermission'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": player_line_870,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "PER",
+		  "check": "String"
+		}
+      ],
+	  "output": "Boolean",
+      "colour": 180,
+      "tooltip": player_line_885,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_checkPlayerPermission'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var pertmp = Blockly.JavaScript.valueToCode(block, 'PER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager.checkPlayerPermission("+pertmp+","+valtmp+")"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };

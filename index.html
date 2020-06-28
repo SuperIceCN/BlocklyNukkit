@@ -395,6 +395,8 @@
 				  <block type="bn_register_command"><value name="CALLBACK"><block type="bn_getfunction"></block></value></block>
 				  <block type="bn_register_delay"></block>
 				  <block type="bn_register_repeat20"></block>
+				  <block type="bn_createPermission"></block>
+				  <block type="bn_removePermission"></block>
 				  <block type="bn_getfunction"></block>
 				  <block type="bn_config"></block>
 				  <block type="bn_set_config"></block>
@@ -448,6 +450,7 @@
 				  <block type="player_setPlayerInv"></block>
 				  <block type="player_kickPlayer"></block>
 				  <block type="player_getPlayerGameMode"></block>
+				  <block type="player_checkPlayerPermission"></block>
 			  </category>
 			  <category name="事件" colour=10>
 				  <block type="event_setCancelled"></block>
@@ -536,6 +539,10 @@
 				  <block type="window_updateAllScoreBoard"></block>
 				  <block type="window_updateOneScoreBoard"></block>
 				  <block type="window_STDbuttons"></block>
+				  <block type="window_setPlayerBossBar"></block>
+				  <block type="window_removePlayerBossBar"></block>
+				  <block type="window_getLengthOfPlayerBossBar"></block>
+				  <block type="window_getTextOfPlayerBossBar"></block>
 			  </category>
 			  <category name="方块物品" colour=47>
 				  <block type="bi_buildBlock"></block>

@@ -431,17 +431,17 @@ Blockly.Blocks['window_STDbuttons'] = {
 		    "type": "field_dropdown",
 		    "name": "OP",
 		    "options": [
-			  [window_line_434, "textures\\ui\\code_makecode_default.png"],
-			  [window_line_435, "textures\\ui\\confirm.png"],
-			  [window_line_436, "textures\\ui\\crossout.png"],
-			  [window_line_437, "textures\\ui\\elipses.png"],
-			  [window_line_438, "textures\\ui\\ErrorGlyph.png"],
-			  [window_line_439, "textures\\ui\\filledStar.png"],
-			  [window_line_440, "textures\\ui\\icon_setting.png"],
-			  [window_line_441, "textures\\ui\\icon_steve.png"],
-			  [window_line_442, "textures\\ui\\invite_base.png"],
-			  [window_line_443, "textures\\ui\\icon_alex.png"],
-			  [window_line_444, "textures\\ui\\permissions_op_crown.png"]
+			  [window_line_434, "textures/ui/code_makecode_default.png"],
+			  [window_line_435, "textures/ui/confirm.png"],
+			  [window_line_436, "textures/ui/crossout.png"],
+			  [window_line_437, "textures/ui/elipses.png"],
+			  [window_line_438, "textures/ui/ErrorGlyph.png"],
+			  [window_line_439, "textures/ui/filledStar.png"],
+			  [window_line_440, "textures/ui/icon_setting.png"],
+			  [window_line_441, "textures/ui/icon_steve.png"],
+			  [window_line_442, "textures/ui/invite_base.png"],
+			  [window_line_443, "textures/ui/icon_alex.png"],
+			  [window_line_444, "textures/ui/permissions_op_crown.png"]
 		    ]
 		}
       ],
@@ -503,5 +503,117 @@ Blockly.JavaScript['window_buildInput2'] = function(block) {
   var defaultholder = Blockly.JavaScript.valueToCode(block, 'DEFAULT',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text=buildertmp+".buildInput("+texttmp+","+placeholder+","+defaultholder+");\n"
+  return text;
+};
+Blockly.Blocks['window_setPlayerBossBar'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": window_line_511,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "CONTEXT",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "LEN",
+		  "check": "Number"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 240,
+      "tooltip": window_line_532,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_setPlayerBossBar'] = function(block) {
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var contexttmp = Blockly.JavaScript.valueToCode(block, 'CONTEXT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var lentmp = Blockly.JavaScript.valueToCode(block, 'LEN',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text='window.setPlayerBossBar('+playertmp+','+contexttmp+','+lentmp+');\n';
+  return text;
+};
+Blockly.Blocks['window_removePlayerBossBar'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": window_line_550,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 240,
+      "tooltip": window_line_561,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_removePlayerBossBar'] = function(block) {
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text='window.removePlayerBossBar('+playertmp+');\n';
+  return text;
+};
+Blockly.Blocks['window_getLengthOfPlayerBossBar'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": window_line_575,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		}
+      ],
+	  "output": "String",
+      "colour": 240,
+      "tooltip": window_line_585,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_getLengthOfPlayerBossBar'] = function(block) {
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text='window.getLengthOfPlayerBossBar('+playertmp+');\n';
+  return text;
+};
+Blockly.Blocks['window_getTextOfPlayerBossBar'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": window_line_599,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		}
+      ],
+	  "output": "Number",
+      "colour": 240,
+      "tooltip": window_line_609,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_getTextOfPlayerBossBar'] = function(block) {
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text='window.getTextOfPlayerBossBar('+playertmp+');\n';
   return text;
 };

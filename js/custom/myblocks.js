@@ -145,7 +145,7 @@ Blockly.Blocks['bn_register_command'] = {
 		{
 		  "type": "input_value",
 		  "name": "MANAGER",
-		  "check": "BNManager"
+		  "check": ["BNManager","String"]
 		},
         {
           "type": "input_value",
@@ -181,7 +181,7 @@ Blockly.JavaScript['bn_register_command'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var managertmp = Blockly.JavaScript.valueToCode(block, 'MANAGER',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text=managertmp+".createCommand("+argument0+","+argument1+","+argument2+");\n"
+  var text = "";if(managertmp=="manager"){text=managertmp+".createCommand("+argument0+","+argument1+","+argument2+");\n"}else{text="manager.createCommand("+argument0+","+argument1+","+argument2+","+managertmp+");\n"}
   return text;
 };
 Blockly.Blocks['bn_register_delay'] = {
@@ -703,7 +703,7 @@ Blockly.JavaScript['nkevent_privatecall'] = function(block) {
 Blockly.Blocks['jscodeinput'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("自定义javascript代码")
+        .appendField(myblocks_line_706)
         .appendField(new Blockly.FieldTextInput(""), "jscode");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -718,4 +718,73 @@ Blockly.JavaScript['jscodeinput'] = function(block) {
   r = r.replace(/^\s+/, ''); 
   r = js_beautify(r, 4, ' ');
   return r;
+};
+Blockly.Blocks['bn_createPermission'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": myblocks_line_725,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PER",
+		  "check": "String"
+		},
+        {
+          "type": "input_value",
+          "name": "DESCRIPTION",
+          "check": "String"
+        },
+		{
+		    "type": "field_dropdown",
+		    "name": "DEFAULT",
+		    "options": [
+			  [myblocks_line_741,"'OP'"],
+			  [myblocks_line_742, "'NONE'"],
+		      [myblocks_line_743, "'ALL'"]
+		    ]
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 65,
+      "tooltip": myblocks_line_750,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bn_createPermission'] = function(block) {
+  //String or array length.
+  var defaulttmp=block.getFieldValue("DEFAULT");
+  var pertmp = Blockly.JavaScript.valueToCode(block, 'PER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var descriptiontmp = Blockly.JavaScript.valueToCode(block, 'DESCRIPTION',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager.createPermission("+pertmp+","+descriptiontmp+","+defaulttmp+");\n"
+  return text;
+};
+Blockly.Blocks['bn_removePermission'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": myblocks_line_768,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PER",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 65,
+      "tooltip": myblocks_line_779,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['bn_removePermission'] = function(block) {
+  //String or array length.
+  var pertmp = Blockly.JavaScript.valueToCode(block, 'PER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="manager.removePermission("+pertmp+");\n"
+  return text;
 };
