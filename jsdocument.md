@@ -90,6 +90,7 @@
 |checkPlayerPermission|String per,Player player|boolean|检查一个玩家是否有per权限|
 |MD5Encryption|String str|String|将字符串进行md5加密|
 |SHA1Encryption|String str|String|将字符串进行sha1加密|
+|loadJar|String path|void|加载path路径的jar包作为依赖|
 
 ### algorithm基对象
 
@@ -179,6 +180,9 @@
 |getNetworkID|Entity entity|int|获取实体的网络id，用于确认或者比较实体类型，网络id表wiki可查|
 |getIDName|Entity entity|String|获取实体的字符串ID，如Pig,Sheep，用法同上|
 |spawnEntity|String id,Position pos|void|在pos生成字符串id为id的生物|
+|buildNPC|Position-J pos,String name,String skinID|BNNPC-J|构建一个NPC，位置在于pos，名称为name，皮肤为skinID的皮肤|
+|buildNPC|Position-J pos,String name,String skinID,int calltick,String callfunction|BNNPC-J|构建一个NPC，位置在于pos，名称为name，皮肤为skinID的皮肤，每隔calltick刻调用一次callfunction函数，注入参数bnnpc实体,当前tick|
+|皮肤skinID，即为./plugins/BlocklyNukkit/skin文件夹下面的皮肤文件名字|无后缀名，3D皮肤直接输入png文件名字，4D皮肤需要将json文件命名为与png文件相同的名字|详见BN专有对象方法文档中的BNNPC章节|
 
 ### inventory基对象
 |方法名|参数|返回值|解释|
@@ -240,6 +244,7 @@
 |removePlayerBossBar|Player-J player|void|移除玩家的boss血条|
 |getLengthOfPlayerBossBar|Player-J player|double|获取玩家boss血条剩余血量百分比|
 |getTextOfPlayerBossBar|Player-J player|String|获取玩家boss血条的文字|
+|setBelowName|Player-J player,String str|void|设置玩家名字下方的计分板文字|
 
 ### particle基对象
 |方法名|参数|返回值|解释|
@@ -352,6 +357,86 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |extend|<E+>-C class,[可选<E+> object]|<E+>|继承java类并构造js对象(跟modPE差不多的)|
 |super|<E+> obj|<E+>|获取obj的父类对象|
 
+## BN专有对象方法文档
+
+### windowbuilder三件套
+1.Custom
+- this setTitle(String title)
+- this showToPlayer(Player-J p, String callback)
+- this showToPlayerCallLambda(Player p, Function fun)
+- this buildLabel(String text)
+- this buildInput(String title,String placeholder)
+- this buildInput(String title,String placeholder,String defaulttext)
+- this buildToggle(String title)
+- this buildToggle(String title,boolean default)
+- this buildDropdown(String title,String inner)
+
+2.Modal-J
+- this setTitle(String title)
+- this setContext(String context)
+- this setButton1(String text)
+- this setButton2(String text)
+- this showToPlayer(Player-J p, String callback)
+- this showToPlayerCallLambda(Player p, Function fun)
+
+3.Simple-J
+- this setTitle(String title)
+- this setContext(String context)
+- this buildButton(String text,String img)
+- this showToPlayer(Player-J p,String callback)
+- this showToPlayerCallLambda(Player p, Function fun)
+
+### logger常用招式
+- void info(String s)
+- void warning(String s)
+
+### BNNPC使用方法
+
+|方法名|参数|返回值|解释|
+|-----|-----|-----|----|
+|start|void|void|启动这个npc实体|
+|turnRound|double yaw|void|让实体水平视角旋转yaw度|
+|headUp|double pitch|void|让实体垂直视角旋转pitch度|
+|setEnableAttack|boolean attack/void|void|设置npc是否能够接受伤害,无参数默认为true|
+|setEnableHurt|boolean hurt/void|void|设置npc是否能显示受伤动画，无参数默认为true|
+|displayHurt|void|void|强制显示npc受伤动画(并不会真的减血)|
+|setEnableGravity|boolean gravity/void|void|设置npc是否收到重力影响，无参数默认为true|
+|setG|double g|void|设置该npc的重力加速度(默认9.8)|
+|lookAt|Position-J pos|void|让npc看向pos处|
+|getNearestPlayer|void|Player-J|获取离npc最近的玩家，如果没有玩家返回空|
+|isSneak|void|boolean|获取npc是否在潜行|
+|setSneak|boolean sneak/void|void|设置npc是否在潜行，如果不填参数默认切换潜行状态|
+|jump|void|void|让npc跳跃一次，如果npc正在寻路并移动或正在跳跃会忽略此函数调用|
+|setJumpHigh|double high|void|设置npc的跳高能力，默认为1|
+|setEnableKnockBack|boolean knock/void|void|设置npc是否收到攻击时被击退，不填参数默认为true|
+|setKnockBase|double base|void|设置npc被击退时的击飞距离，默认为1.2|
+|setRouteMax|int m|void|设置寻路递归上限，默认50，越大寻路范围越广越精确，但会加重服务器负担|
+|setSpeed|double speed|void|设置npc自动寻路移动的速度，默认为3|
+|canMoveTo|Position-J pos|boolean|检查npc是否能够通过自动寻路到达pos处，返回是否可以到达|
+|findAndMove|Position-J pos|boolean|让npc自己寻路到pos，如果寻路成功就开始移动到pos并返回true，否则false|
+|stopMove|void|void|让npc停止寻路移动|
+|hit|Entity-J e|void|让npc打实体e|
+
+例子：（在world,128,64,128处生成一个yj皮肤的npc，并且使得它可以被攻击）
+1. 准备：
+- 安装bn解释器1.2.7.5及以上版本
+- 在./plugins/BlocklyNukkit/skins文件夹下面准备好一个4D/3D皮肤文件，比如这里我准备了一个yj.png和yj.json
+2. 首先创建一个BNNPC对象：
+~~~
+var pos = Java.type("cn.nukkit.level.Position").fromObject(manager.buildvec3(128,64,128),server.getLevelByName('world'));
+var npc = entity.buildNPC(pos,'测试NPC','yj')
+~~~
+3. 然后设置它的属性
+~~~
+npc.setEnableAttack(true)
+npc.setEnableHurt(true)
+~~~
+4. 最后启动这个npc，这样玩家就能看见并且攻击它了
+~~~
+npc.start()
+~~~
+
+
 ## 事件回调函数
 
 事件回调函数是解释器内置的自动调用的函数,只要你的函数名跟列表里面的相同就会自动调用  
@@ -436,37 +521,6 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 > 温馨提示:  
 > 下面的只是冰山一角!  
 > 更多的用法请去[nukkit官方文档](https://ci.nukkitx.com/job/NukkitX/job/Nukkit/job/master/javadoc/index.html?overview-summary.html)查看  
-
-### windowbuilder三件套
-1.Custom
-- void setTitle(String title)
-- void showToPlayer(Player-J p, String callback)
-- void showToPlayerCallLambda(Player p, Function fun)
-- void buildLabel(String text)
-- void buildInput(String title,String placeholder)
-- void buildInput(String title,String placeholder,String defaulttext)
-- void buildToggle(String title)
-- void buildToggle(String title,boolean default)
-- void buildDropdown(String title,String inner)
-
-2.Modal-J
-- void setTitle(String title)
-- void setContext(String context)
-- void setButton1(String text)
-- void setButton2(String text)
-- void showToPlayer(Player-J p, String callback)
-- void showToPlayerCallLambda(Player p, Function fun)
-
-3.Simple-J
-- void setTitle(String title)
-- void setContext(String context)
-- void buildButton(String text,String img)
-- void showToPlayer(Player-J p,String callback)
-- void showToPlayerCallLambda(Player p, Function fun)
-
-### logger常用招式
-- void info(String s)
-- void warning(String s)
 
 ### server常用招式
 #### cn.nukkit.Server

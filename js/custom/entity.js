@@ -607,3 +607,28 @@ Blockly.JavaScript['entity_getEffectINFO'] = function(block) {
   var text="entity.getEffect"+optmp+"("+valtmp+")";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['entity_getNetworkID'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "获取实体 %1 的网络id",
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Entity"
+		}
+      ],
+	  "output": "Number",
+      "colour": 248,
+      "tooltip": "获取实体的网络id",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['entity_getNetworkID'] = function(block) {
+  //String or array length.
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="entity.getNetworkID("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};

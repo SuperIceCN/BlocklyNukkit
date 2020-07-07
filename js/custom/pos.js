@@ -724,7 +724,8 @@ Blockly.Blocks['pos_genLevel'] = {
 			  [pos_line_724, "FLAT"],
 		      [pos_line_725, "VOID"],
 		      [pos_line_726, "NETHER"],
-			  [pos_line_727, "SKYLAND"]
+			  [pos_line_727, "SKYLAND"],
+			  [pos_line_728, "OCEAN"]
 		    ]
 		}
       ],
@@ -1081,3 +1082,4 @@ Blockly.JavaScript['pos_setSkyLandGenerator'] = function(block) {
   var text="world.setSkyLandGenerator("+seaheight+","+movey+","+enableore+","+coal+","+iron+","+redstone+","+lapis+","+gold+","+diamond+","+dirt+","+gravel+","+granite+","+diorite+","+andesite+","+enablecave+","+enablebiome+","+enableocean+");\n"
   return text;
 };
+
