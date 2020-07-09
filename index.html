@@ -72,9 +72,13 @@
 				if (r != null) return unescape(r[2]); return "";
 			}
 			let lang = getQueryString("language").toLowerCase()
-			if(lang=="french"){
+			if(lang=="french"||lang=="fr"){
 				document.writeln('\<script src="./js/msg/bn/french.js"\>\</script\>');
 				document.writeln('\<script src="./js/msg/js/fr.js"\>\</script\>');
+			}
+			if(lang=="english"||lang=="en"){
+				document.writeln('\<script src="./js/msg/bn/english.js"\>\</script\>');
+				document.writeln('\<script src="./js/msg/js/en.js"\>\</script\>');
 			}
 		</script>
 		<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
