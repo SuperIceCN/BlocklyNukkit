@@ -5,13 +5,13 @@ Ourwebsite for online use：[click to enter](https://tools.blocklynukkit.com)
 
 Blocklynukkit friendly interface Chinese plug-in editor is launched by Superice66's open source editor plug-in project, its purpose is dedicated to the broad server owner provide relaxed, powerful, practical, simple Chinese server plug-in development services, allowing more but want to develop their own plug-ins to obscure JAVA programming off the Lord can easily, in the form of a drag and drop to develop various functions they want.
 
-Our code based entirely on AGPL3.0 open-source, anyone can join us or contribute to, if you are a user or a server owner, you can in this [enter the tutorial] (https://docs.qq.com/doc/DRkRpS0xmV2ZJbGdi) to learn how to use the project and build your own plug-in. 
+Our code based entirely on AGPL3.0 open-source, anyone can join us or contribute to, if you are a user or a server owner, you can in this [into the tutorial] (https://docs.qq.com/doc/DRkRpS0xmV2ZJbGdi) to learn how to use the project and build your own plug-in. 
 
 #  Sponsor Us
 
 <img src="https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/raw/master/afdian-%E8%B6%85%E7%A5%9E%E7%9A%84%E5%86%B0%E5%87%89%20(1).png"  height="337" width="262">
 
-# 一些正式发布的bn插件：
+# Some officially released BN plug-ins
 - 乐色桶：[mcbbs下载](https://www.mcbbs.net/thread-1026281-1-1.html)
 - 空岛科技：[mcbbs下载](https://www.mcbbs.net/thread-1025826-1-1.html)
 - OP查背包：[mcbbs下载](https://www.mcbbs.net/thread-1023528-1-1.html)
