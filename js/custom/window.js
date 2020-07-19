@@ -620,7 +620,7 @@ Blockly.JavaScript['window_getTextOfPlayerBossBar'] = function(block) {
 Blockly.Blocks['window_setBelowName'] = {
   init: function() {
     this.jsonInit({
-      "message0": "设置玩家 %1 的名下计分项为 %2 ",
+      "message0": window_line_623,
       "args0": [
 		{
 		  "type": "input_value",
@@ -636,7 +636,7 @@ Blockly.Blocks['window_setBelowName'] = {
 	  "nextStatement": null,
 	  "previousStatement": null,
       "colour": 240,
-      "tooltip": "设置玩家的名下积分项",
+      "tooltip": window_line_639,
       "helpUrl": "#"
     });
   }
@@ -649,3 +649,4 @@ Blockly.JavaScript['window_setBelowName'] = function(block) {
   var text='window.setBelowName('+playertmp+','+contexttmp+');\n';
   return text;
 };
+

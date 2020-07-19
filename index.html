@@ -968,16 +968,19 @@
 		  </div>
 		</div>		
 		<script>
-			document.getElementById('toolbox').innerHTML=translateToolBox(document.getElementById('toolbox').innerHTML)
-			var translist = $("[translate='yes']");
-			for(let i=0;i<translist.length;i++){
-				let each = $(translist[i]);
-				if(each.attr("placeholder")!=undefined){
-					each.attr("placeholder",translateHTMLtoken(each.attr("placeholder")));
-				}else{
-					each.html(translateHTMLtoken(each.html()));
+			function doloadtrans(){
+				document.getElementById('toolbox').innerHTML=translateToolBox(document.getElementById('toolbox').innerHTML)
+				var translist = $("[translate='yes']")
+				for(let i=0;i<translist.length;i++){
+					let each = $(translist[i]);
+					if(each.attr("placeholder")!=undefined){
+						each.attr("placeholder",translateHTMLtoken(each.attr("placeholder")));
+					}else{
+						each.html(translateHTMLtoken(each.html()));
+					}
 				}
 			}
+			doloadtrans();
 		</script>
 		<script>
 			window.setInterval("checkbaseobj()",5000)
