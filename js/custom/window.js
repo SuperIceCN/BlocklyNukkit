@@ -617,3 +617,35 @@ Blockly.JavaScript['window_getTextOfPlayerBossBar'] = function(block) {
   var text='window.getTextOfPlayerBossBar('+playertmp+');\n';
   return text;
 };
+Blockly.Blocks['window_setBelowName'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "设置玩家 %1 的名下计分项为 %2 ",
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "CONTEXT",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 240,
+      "tooltip": "设置玩家的名下积分项",
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_setBelowName'] = function(block) {
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var contexttmp = Blockly.JavaScript.valueToCode(block, 'CONTEXT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text='window.setBelowName('+playertmp+','+contexttmp+');\n';
+  return text;
+};

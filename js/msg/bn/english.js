@@ -4,6 +4,8 @@
 //the return value will be used as the final show for users
 //if you want to translate the text on toolbox or edit a custom toolbox, edit the function
 function translateToolBox(xml){
+	xml.replace("中文内容","目标语言")
+	xml.replace("中文内容2","目标语言")
 	return xml;//return the xml string of toolbox without translate
 }
 //translateHTMLtoken
@@ -12,6 +14,8 @@ function translateToolBox(xml){
 //the return value will be used as the text which will be shown on the page
 //if you want to translate the text on the html page, edit the function
 function translateHTMLtoken(str){
+	str.replace("中文内容","目标语言")
+	str.replace("中文内容2","目标语言")
 	return str;//return the Chinese without translate
 }
 //blockanditem.js

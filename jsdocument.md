@@ -1,4 +1,4 @@
-# BlocklyNukkit JavaScript开发文档  
+# BlocklyNukkit 编程开发文档  
 ## 基对象
 
 ### 指代基对象
@@ -344,7 +344,8 @@
 |苦力怕型|3|
 |爆裂型|4|
 
-### Java基对象
+### Java基对象 
+**仅js可用！python中没有此基对象！**
 这是一个特殊的基对象,用于直接操作java类和对象,所以你可以参照[java文档](https://docs.oracle.com/javase/8/docs/api/)和[nukkit文档](https://ci.nukkitx.com/job/NukkitX/job/Nukkit/job/master/javadoc/overview-summary.html)操作  
 js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持  
 更多js与java交互示例,详见CSDN的[一篇教程](https://blog.csdn.net/ASDQWE09876/article/details/96871968?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1)  

@@ -5,13 +5,62 @@
 
 blocklynukkit友好界面中文插件编辑器是由超神的冰凉发起的开源插件编辑器项目，其目的为致力于为广大服主提供清爽、强大、实用、简洁的中文服务器插件开发服务，使得更多想要开发自己的插件却对晦涩难懂的JAVA编程望而却步的服主能够很容易的，以拖拽的形式开发出自己想要的各种功能。  
 
-我们的代码完全基于AGPL3.0开源，任何人都可以加入我们或者做出贡献，如果您是使用者或者服主，您可以在此[进入教程](https://docs.qq.com/doc/DRkRpS0xmV2ZJbGdi)学习如何使用本项目并构建自己的插件。  
+我们的代码完全基于AGPL3.0开源，任何人都可以加入我们或者做出贡献，如果您是使用者或者服主，您可以在此[进入教程](https://docs.qq.com/doc/DRkRpS0xmV2ZJbGdi)学习如何使用本项目并构建自己的插件。
 
-# 赞助我们
+## 欢迎
+欢迎来到blocklynukkit！
+blocklynukkit是一套完整的从入门到高阶的快捷简单高效率插件开发框架，解决了各位希望开发插件但又苦于难以入门或没有开发条件的新人或开发者的问题，使得各位服主可以快速零基础上手开发插件并快速学习开发插件的精髓，不必在意没有用的繁琐细节，并实现自己的创想！
+![](README_files/1.png)
+
+## 目标使用者
+- 零基础入门nukkit插件开发的初学者
+- 想快速实现自己的想法的服主
+- 没有电脑或java编译环境的nukkit插件开发者
+- 只会JavaScript或者python又想开发插件的人
+- JavaScript或者python十分熟练的服主
+- 希望掌握新技能的开发者
+
+## 如何开发
+**下文的BN、bn均指代BlocklyNukkit**
+### 使用图形化编辑器开发
+BlocklyNukkit最大的特点之一就是为没有任何编程经验或者基础的人提供了一个简单、快速、高效的图形化编辑器，使用图形化编辑器，您可以快速地通过类似于scratch的拖拽拼图的方式实现简单的插件，并且可以直接打包成jar发布。  
+
+要使用BlocklyNukkit图形化编辑器，只需在浏览器打开[https://tools.blocklynukkit.com](https://tools.blocklynukkit.com)   
+
+对于法语用户，请打开[https://tools.blocklynukkit.com?language=french](https://tools.blocklynukkit.com?language=french)
+请注意，法语翻译由用户自行贡献，非开发团队维护。如果您也希望贡献自己语言的翻译，请参考[翻译贡献教程](https://www.kancloud.cn/superice666/bn_guide/1741091)  
+
+对于英语用户，开发团队正在竭力进行英文翻译，请您耐心等待，我们将在7月10日左右添加英文翻译
+
+您可以到BN教程库[http://www.blocklynukkit.info](http://www.blocklynukkit.info)学习如何使用
+或者到我们的qq群953752196中学习如何使用
+也可以通过discord链接[https://discord.gg/94YWU9X](https://discord.gg/94YWU9X)加入我们的服务器来沟通、学习
+bn图形化编辑器展示：
+![](README_files/1.jpg)
+
+### 使用JavaScript开发
+BlocklyNukkit提供了一套成熟的JavaScript开发插件的解决方案，您可以使用JavaScript来开发插件。我们编写了JavaScript开发文档和配套的vscode插件来方便开发，开发完的代码可以直接打包成jar包发布，详细资料详见[http://www.blocklynukkit.info](http://www.blocklynukkit.info)
+
+### 使用python开发
+BlocklyNukkit在最新版本中提供了python开发的能力，支持全部标准原生python库和全部的java类库直接导入，而且您还可以直接import其他插件的类、函数与对象进行操作。详细资料详见[http://www.blocklynukkit.info](http://www.blocklynukkit.info)
+注：python开发文档尚未完成，我们将尽快提供，感谢您的支持与理解
+
+(整个开发团队就3个人，其中两个是学生，我们真的时间不够用)
+
+## 做出贡献
+
+您可以在一下三方面做出贡献
+1. 图形化编辑器多语言翻译
+2. 帮助blocklynukkit.info网站的教程编写
+3. 贡献项目代码
+
+多语言翻译与帮助教程编写详见[http://www.blocklynukkit.info](http://www.blocklynukkit.info)的开发wiki章节的参与贡献教程，贡献项目代码请联系开发组或超神的冰凉。
+
+## 赞助我们
 
 <img src="https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/raw/master/afdian-%E8%B6%85%E7%A5%9E%E7%9A%84%E5%86%B0%E5%87%89%20(1).png"  height="337" width="262">
 
-# 一些正式发布的bn插件：
+## 一些正式发布的bn插件：
 - 乐色桶：[mcbbs下载](https://www.mcbbs.net/thread-1026281-1-1.html)
 - 空岛科技：[mcbbs下载](https://www.mcbbs.net/thread-1025826-1-1.html)
 - OP查背包：[mcbbs下载](https://www.mcbbs.net/thread-1023528-1-1.html)
@@ -36,7 +85,7 @@ blocklynukkit友好界面中文插件编辑器是由超神的冰凉发起的开�
 - X积分：[minebbs下载](https://www.minebbs.com/threads/bn-char_xjifen-x-bn.3891/)
   
   
-# 给bn插件开发者  
+## 给bn插件开发者  
 
 ## bn开发者恰饭攻略  
 
@@ -64,7 +113,7 @@ bn会定期在minebbs举办开发比赛，优胜者将获得数十元不等的�
 ### 2.加一些无关痛痒的功能
 插件功能越多越好，而且实际上给你的插件拓展功能很简单，我举个例子，比如实时cps插件，显然只能显示cps功能太少了。完全可以添加一个cps过高玩家记录，cps排行榜等等，会让插件出彩很多  
 ### 3.把你的js插件打包为jar
-mcbbs对jar的好感度远高于js，[学习如何打包](https://www.mcbbs.net/thread-1022008-1-1.html)
+mcbbs对jar的好感度远高于js，[一键打包](http://tools.blocklynukkit.com/jar.html)
 ### 4.多图！多图！
 重要性不言而喻
 ### 5.主动挖掘插件适用场景
@@ -75,7 +124,12 @@ mcbbs对jar的好感度远高于js，[学习如何打包](https://www.mcbbs.net/
 想想你开服的时候被没有这个插件难受到了什么地步，大肆渲染一下/滑稽
 
 ## 更新日志 
-### 1.2.7.5
+### 1.2.8.0_LTS
+类库管理器
+
+- 现在类库管理器可以直接安装模块了，暂时只有python和database两个模块
+- 使用命令 bninstall 模块名 安装这个类库
+
 window
 
 - void setBelowName(Player player,String str)
@@ -84,9 +138,14 @@ manager
 
 - void loadJar(String path)
 
+world
+
+- void setOceanGenerator(int seaLevel)
+
 entity
 
 - BNNPC buildNPC(Position pos,String name,String skinID)
+- BNNPC buildNPC(Position pos,String name,String skinID,int calltick,String callfunction)
 
 BNNPC
 
@@ -98,6 +157,33 @@ BNNPC
 - void setEnableHurt()
 - void displayHurt()
 - void start()
+- void setEnableGravity(boolean gravity)
+- void setEnableGravity()
+- void setG(double newg)
+- void lookAt(Position pos)
+- Player getNearestPlayer()
+- boolean isSneak()
+- void setSneak(boolean sneak)
+- void setSneak()
+- void jump()
+- void setJumpHigh(double j)
+- void setEnableKnockBack(boolean knock)
+- void setEnableKnockBack()
+- void setKnockBase(double base)
+- boolean canMoveTo(Position to)
+- boolean findAndMove(Position to)
+- void setSpeed(double s)
+- void setRouteMax(int m)
+- void stopMove()
+- void hit(Entity entity)
+
+bug fixed:
+
+- entity的effect有些药水不显示问题，但是仍然有些药水效果因为nk不支持无法显示
+- world生成VOID和OCEAN出错问题
+- 天域世界配置丢失问题
+- ssh报错问题
+- 现在窗口管理器的操作函数都返回自身，可以直接在代码里连缀了
 
 ### 1.2.7.4
 

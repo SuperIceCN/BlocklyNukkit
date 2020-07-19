@@ -1,3 +1,133 @@
+//左侧工具栏
+function translateToolBox(xml) {
+	xml.replace("核心", "Fonction principale")
+	xml.replace("逻辑", "Logique")
+	xml.replace("循环", "Répétition")
+	xml.replace("数学", "Maths")
+	xml.replace("字符串", "Texte")
+	xml.replace("列表", "Liste")
+	xml.replace("动态", "Tournure")
+	xml.replace("变量", "Variable")
+	xml.replace("函数", "Fonction")
+	xml.replace("插件", "Plugin")
+	xml.replace("BN插件", "BNPlugin")
+	xml.replace("玩家", "Joueur")
+	xml.replace("事件", "Evénement")
+	xml.replace("位置", "Position")
+	xml.replace("创世", "Création du monde")
+	xml.replace("窗口", "Fenêtre")
+	xml.replace("方块物品", "ObjetBloc")
+	xml.replace("物品栏", "Inventaire")
+	xml.replace("生物", "Entité")
+	xml.replace("粒子", "Particule")
+	xml.replace("粒子id,颜色码,形状码请去bn文档查看", "Saisissez id des particules,code de couleurs,code de formes dans le document BN")
+	xml.replace("拓展", "Supplémentaire")
+	xml.replace("实用工具", "Outil utile")
+	xml.replace("请注意,此模块处于测试中", "Attention,ces modules sont en mode de teste")
+	xml.replace("我们不保证这些块一定正常工作", "On ne peut pas donc assurer que ces modules fonctionnent toujours bien")
+	xml.replace("如有问题,请随时联系我们", "Si vous rencontriez des problèmes, veuillez nous contacter")
+	xml.replace("数据库功能目前不稳定,慎用", "La fonctionnilité de la base de données reste instable, utilisez attentivement")
+	xml.replace("设置自定义服务器网站placeholder", "Construire un site internet personnalisé placeholder")
+	xml.replace("这些是一bn联合第三方API提供的服务", "Ce sont des services offerts que BN coopère avec un troixième parti API")
+	xml.replace("GET的数据将追加在url?后,POST类型会放在body里面",
+		"les données de GET suiveront après url?, le type de POST se plecera dans body")
+	xml.replace("添加自定义JavaScript脚本到代码里。", "Ajouter JavaScript souhaité dans la production")
+	xml.replace("注意，这里声明的变量不会显示在BN编辑器的变量选项卡中。",
+		"Attntion, la variable declarée d'ici n'apparaitra pas dans les choix de Variable")
+	xml.replace("另外，这里不能直接声明中文变量。否则会出错。", "De plus, la variable declarée doit être en anglais")
+	xml.replace("起床战争", "Bedwars")
+	xml.replace("红石音乐", "MusiqueRedstone")
+	xml.replace("功能测试中,可能不稳定", "La fonction est en mode de teste, elle pourrait être instable")
+	return xml;
+}
+
+//其他
+function translateHTMLtoken(str) {
+	str.replace("BlocklyNukkit.jar最新版是1.2.8.0(7/7更新)",
+		"La dernière version de BlocklyNukkit.jar est 1.2.8.0(renouvelée en 7/7)")
+	str.replace("功能", "Fonctions")
+	str.replace("下载插件", "Télécharger le plugin")
+	str.replace("下载前置", "Télécharger le plugin preposé")
+	str.replace("保存脚本", "Sauvegarder le projet sous forme *.js")
+	str.replace("云端同步", "Synchronisation sur le drive")
+	str.replace("新建工程", "Construire un nouveau projet")
+	str.replace("导入工程", "Importer un projet")
+	str.replace("导出工程", "Exporter un projet")
+	str.replace("打开教程", "Ouvrir le tutoriel")
+	str.replace("仓库主页", "Github de BN")
+	str.replace("JS编辑器", "Editeur de JS")
+	str.replace("在线编译", "Compilateur en ligne")
+	str.replace("官方论坛", "Forum officiel")
+	str.replace("更换背景", "Changement de fond")
+	str.replace("工程切换", "Changement de projet")
+	str.replace("功能待定", "Vide")
+	str.replace("功能待定", "Vide")
+	str.replace("关闭", "Fermer")
+	str.replace("更换BlocklyNukkit编辑器背景", "Changer le fond de l'editeur de BlocklyNukkit")
+	str.replace("请在下方输入完整的图片网址", "Rentrez une adresse complète de l'image")
+	str.replace("如：http://www.xxx.com/xx.jpg 或 https://www.xxx.com/xxx.png",
+		"Par exemple：http://www.xxx.com/xx.jpg ou https://www.xxx.com/xxx.png")
+	str.replace("注意，保存后将自动刷新界面，请提前保存自己的工程，以免工程丢失。",
+		"Attention, en sauvegardant le projet, la page sera renouvelée automatiquement")
+	str.replace("更换!", "Changer!")
+	str.replace("还原白色背景", "Reduire au fond blanc")
+	str.replace("关闭", "Fermer")
+	str.replace("点击下方按钮在多个工程间切换", "Cliquez sur un bouton au dessous pour changer des projets")
+	str.replace("只要不清除浏览器缓存，各个工程是可以独立保存的。",
+		"Si la mémoire de cache n'est pas vidée, chaque projet pourrait être sauvé independement")
+	str.replace("到工程一", "Au projet 1")
+	str.replace("到工程二", "Au projet 2")
+	str.replace("到工程三", "Au projet 3")
+	str.replace("到工程四", "Au projet 4")
+	str.replace("到工程五", "Au projet 5")
+	str.replace("到工程六", "Au projet 6")
+	str.replace("到工程七", "Au projet 7")
+	str.replace("到工程八", "Au projet 8")
+	str.replace("关闭", "Fermer")
+	str.replace("新建工程", "Construire un nouveau projet")
+	str.replace("是否决定新建工程？新建工程将会清空当前项目！", "Vous êtes sûr de construire un nouveau projet ？Celui actuel sera vidé！")
+	str.replace("不不不✖", "Non✖")
+	str.replace("我决定了✔", "Oui✔")
+	str.replace("导入工程", "Importer un projet")
+	str.replace("导入本地工程(*.bn)", "Importer un projet de l'appareil(*.bn)")
+	str.replace("确认导入", "Confirmer")
+	str.replace("关闭", "Fermer")
+	str.replace("保存脚本", "Sauvegarder le projet sous forme *.js")
+	str.replace("保存JavaScript脚本到本地", "Sauvegarder le projet sous forme de JavaScript dans l'appreil")
+	str.replace("在输入框输入欲保存的文件名，不需要输入.js文件后缀。",
+		"Entrez dans la case le nom voulu du projet, la suffixe .js n'est pas demandée")
+	str.replace("请输入您的文件名:", "Entrez le nom de votre fichier:")
+	str.replace("保存!", "Sauvegarder!")
+	str.replace("关闭", "Fermer")
+	str.replace("云端同步", "Synchronisation sur le drive")
+	str.replace("同步JavaScript脚本到云端", "Synchroniser le langage de JavaScript sur le drive de BN")
+	str.replace("在输入框输入欲同步的文件名，不需要输入.js文件后缀。",
+		"Entrez le nom du fichier à synchroniser，la suffixe .js n'est pas demandée.")
+	str.replace("请输入您的文件名:", "Entrez le nom de votre fichier:")
+	str.replace("同步!", "Synchroniser!")
+	str.replace("关闭", "Fermer")
+	str.replace("同步成功", "Synchronisation réussie")
+	str.replace("您的文件名为：", "Le nom de votre fichier est：")
+	str.replace("关闭", "Fermer")
+	str.replace("导出工程", "Exporter un projet")
+	str.replace("导出BlocklyNukkit(*.bn)工程到本地以便下次编辑",
+		"Exporter le projet de BlocklyNukkit(*.bn) dans l'appareil pour le modifier pour la prochaine fois")
+	str.replace("在输入框输入欲导出的文件名，不需要输入文件后缀。", "Entrez le nom du projet à exporter，la suffixe .bn n'est pas demandée.")
+	str.replace("请输入您的文件名:", "Entrez le nom de votre fichier:")
+	str.replace("导出!", "Exporter!")
+	str.replace("关闭", "Fermer")
+	str.replace("导出成功", "Exportation réussie")
+	str.replace("您的工程文件名为：", "Le nom de votre projet est：")
+	str.replace("关闭", "Fermer")
+	//这里开始的不确定是不是该放在这个函数里
+	str.replace("请输入文件名，不需要文件后缀。例如输入'myjs", "Entrez le nom du fichier，la suffixe n'est pas demandée. Ex:'monplugin'")
+	str.replace("您的变量中含有与基对象重名的变量", "Il exite des variables dont le nom se répete avec celui de l'objet base")
+	str.replace("这会使得解释器崩溃,请您及时修改!", "cela pourra écrouler l'interprète de BN, modifiez immediatement!")
+	str.replace("输入背景图片链接:", "Rentrez l'adresse de l'image du fond:")
+	return str;
+}
+//有些是重复的，感觉不需要重复翻译，但为了保险期间还是放进去了。
+
 //blockanditem.js
 
 //generated by python reMoudle
@@ -138,7 +268,8 @@ var blockanditem_line_522 = "Canalisation"
 
 var blockanditem_line_535 = "Ajouter un enchantement(addItemEnchant)"
 
-var blockanditem_line_553 = "Determiner si l’objet %1 et l’objet %2 sont identiques en comparant, detecter Valeur de l’état %3 detecter nbt %4"
+var blockanditem_line_553 =
+	"Determiner si l’objet %1 et l’objet %2 sont identiques en comparant, detecter Valeur de l’état %3 detecter nbt %4"
 
 var blockanditem_line_578 = "Determiner si des objets sont identiques(isSame)"
 
@@ -146,7 +277,8 @@ var blockanditem_line_599 = "Alchimie：ingredients(objets) %1 production(objets
 
 var blockanditem_line_615 = "Ajouter une fabrication de l’alchimie(addFurnaceCraft)"
 
-var blockanditem_line_632 = "Fabrication BN：Type(en caractere) %1 Description(en caractère) %2 Ingredient(liste des objets) %3 Production(liste des objets) %4 Durée(enitier/en tick) %5 Taux de réussite(0~1) %6"
+var blockanditem_line_632 =
+	"Fabrication BN：Type(en caractere) %1 Description(en caractère) %2 Ingredient(liste des objets) %3 Production(liste des objets) %4 Durée(enitier/en tick) %5 Taux de réussite(0~1) %6"
 
 var blockanditem_line_668 = "Ajouter une fabrication de BN"
 
@@ -276,7 +408,8 @@ var entity_line_404 = "Poser l’entité %1 à la position %2 "
 
 var entity_line_421 = "Fixer la position d’une entité(setEntityPosition)"
 
-var entity_line_438 = "Créer un texte flottant : Texte %1 Position %2 en rappelant la fonction nomée %4 (entité) tous les %3 ticks"
+var entity_line_438 =
+	"Créer un texte flottant : Texte %1 Position %2 en rappelant la fonction nomée %4 (entité) tous les %3 ticks"
 
 var entity_line_464 = "Créer un texte flottant(buildFloatingText)"
 
@@ -344,7 +477,8 @@ var event_line_329 = "Saisirle nom du bouton cliqué de la boite de dialogue de 
 
 var event_line_339 = "Saisirle nom du bouton cliqué de la boite de dialogue de un événement(getEventResponseModal)"
 
-var event_line_353 = "Saisir l’instruction de retour du mode %3 du %2 eme élément de la fenêtre de haute gamme de l’événement %1 "
+var event_line_353 =
+	"Saisir l’instruction de retour du mode %3 du %2 eme élément de la fenêtre de haute gamme de l’événement %1 "
 
 var event_line_369 = "boite d’intrant"
 
@@ -454,7 +588,8 @@ var myblocks_line_129 = "BN gestionaire de plugins"
 
 var myblocks_line_132 = "Retourner BN gestionaire de plugins"
 
-var myblocks_line_143 = "Inscrire une commande:Utiliser %1 Commande(sans /) %2 Description %3 Nom de la fonction de rappel(sender,args) %4"
+var myblocks_line_143 =
+	"Inscrire une commande:Utiliser %1 Commande(sans /) %2 Description %3 Nom de la fonction de rappel(sender,args) %4"
 
 var myblocks_line_169 = "Inscrire une commande"
 
@@ -462,13 +597,15 @@ var myblocks_line_190 = "Rappeler en retardant:Utiliser %1 Nom de la fonction de
 
 var myblocks_line_211 = "Rappeler en retardant une fonction"
 
-var myblocks_line_230 = "Répéter dans la tache de fond: Utiliser %1 Nom de la fonction de rappel(tick) %2 et tick executer une fois chaque %3 ticks"
+var myblocks_line_230 =
+	"Répéter dans la tache de fond: Utiliser %1 Nom de la fonction de rappel(tick) %2 et tick executer une fois chaque %3 ticks"
 
 var myblocks_line_251 = "Rappeler une fonction en répétant"
 
 var myblocks_line_270 = "yml:Utiliser %1 Nom du fichier %2 Nom du dossier %3"
 
-var myblocks_line_290 = "Saisir un fichier de yaml, le nom du dossier est celui sous le dossier du plugin，s’il n’extiste pas un dossier du même nom se Créera automatiquement"
+var myblocks_line_290 =
+	"Saisir un fichier de yaml, le nom du dossier est celui sous le dossier du plugin，s’il n’extiste pas un dossier du même nom se Créera automatiquement"
 
 var myblocks_line_310 = "yml:Pour %1 la clé %2 prend la valeur %3 "
 
@@ -520,7 +657,8 @@ var myblocks_line_570 = "Bloc"
 
 var myblocks_line_576 = "Sauvegarder provisoirement(getEasyString)"
 
-var myblocks_line_592 = "Pour des blocs situés dans la zone de %1 a %2 (2 positions) L’air est inclus ou pas %3 Rappeler la fonction nomée(block) %4 "
+var myblocks_line_592 =
+	"Pour des blocs situés dans la zone de %1 a %2 (2 positions) L’air est inclus ou pas %3 Rappeler la fonction nomée(block) %4 "
 
 var myblocks_line_618 = "Rappel des blocs qui sont dans une zone"
 
@@ -858,15 +996,18 @@ var utils_line_202 = "Créer une site d’internet personnalisée placeholder：
 
 var utils_line_219 = "Fixer la personnalisation de placeholder de html(setHTMLPlaceholder)"
 
-var utils_line_236 = "Verifier si le joueur %1 est un batard (littéralement) et retourner le resultat de verification(technique basée sur BlackBE云黑)"
+var utils_line_236 =
+	"Verifier si le joueur %1 est un batard (littéralement) et retourner le resultat de verification(technique basée sur BlackBE云黑)"
 
-var utils_line_246 = "Verifier si un joueur est un batard (littéralement) et retourner le resultat de verification(technique basée sur BlackBE云黑)"
+var utils_line_246 =
+	"Verifier si un joueur est un batard (littéralement) et retourner le resultat de verification(technique basée sur BlackBE云黑)"
 
 var utils_line_261 = "Saisir la position géographique du joueur %1(basée sur la rétro-ingénierie de IP)"
 
 var utils_line_271 = "Saisir la position géographique du joueur %1(basée sur la rétro-ingénierie de IP)"
 
-var utils_line_286 = "Envoyer une demande de http à %1 du type %2 contenant des données %3 et Saisir l’instruction du retour"
+var utils_line_286 =
+	"Envoyer une demande de http à %1 du type %2 contenant des données %3 et Saisir l’instruction du retour"
 
 var utils_line_309 = "Envoyer une demande de http et Saisir l’instruction du retour"
 
@@ -900,7 +1041,8 @@ var window_line_211 = "Ajouter dans la fenêtre de haute gamme %1 un élément d
 
 var window_line_227 = "Ajouter un élément du texte(buildLabel)"
 
-var window_line_244 = "Ajouter dans la fenêtre de haute gamme %1 une boite d’intrant avec le titre %2 la notification %3"
+var window_line_244 =
+	"Ajouter dans la fenêtre de haute gamme %1 une boite d’intrant avec le titre %2 la notification %3"
 
 var window_line_265 = "Ajouter l’élément d’une boite d’intrant (buildInput)"
 
@@ -982,15 +1124,18 @@ var entity_line_597 = "Saisir l’effet des potions"
 
 //generated by python reMoudle
 
-var particlé_line_5 = "Poser un cerclé dessiné horizontalement sur la position %1 avec un rayon %2 en utilisant des particules ayant l’ID  %3 avec des écarts de %4 carreaux"
+var particlé_line_5 =
+	"Poser un cerclé dessiné horizontalement sur la position %1 avec un rayon %2 en utilisant des particules ayant l’ID  %3 avec des écarts de %4 carreaux"
 
 var particlé_line_32 = "Dessiner un cercle avec des particules"
 
-var particlé_line_53 = "Poser une ligne droite dessinée sur la position de %1 à %2 en utilisant des particules ayant l’ID %3 avec des écarts de %4 carreaux"
+var particlé_line_53 =
+	"Poser une ligne droite dessinée sur la position de %1 à %2 en utilisant des particules ayant l’ID %3 avec des écarts de %4 carreaux"
 
 var particlé_line_80 = "Dessiner une droite avec des particules"
 
-var particlé_line_101 = "Dessiner du feu d’artifice à la position %1 Code de la couleur %2 Clignoter ou pas %3 Trace ou pas %4 Code de forme %5 Durée de vole (en seconde) %6"
+var particlé_line_101 =
+	"Dessiner du feu d’artifice à la position %1 Code de la couleur %2 Clignoter ou pas %3 Trace ou pas %4 Code de forme %5 Durée de vole (en seconde) %6"
 
 var particlé_line_138 = "Dessiner du feu d’artifice avec des particules"
 
@@ -998,9 +1143,11 @@ var particlé_line_163 = "Dessiner des particules du bloc détruit %2 à la posi
 
 var particlé_line_180 = "Dessiner des particules d’un bloc détruit"
 
-var particlé_line_197 = "Dessiner des particules personnelles provenant de l’usine de particule du fichier mcfunction %3 à la position %1 l’angle %2"
+var particlé_line_197 =
+	"Dessiner des particules personnelles provenant de l’usine de particule du fichier mcfunction %3 à la position %1 l’angle %2"
 
-var particlé_line_219 = "Dessiner des particules personnelles provenant de l’usine de particule de mcfunction(pas besoin de télécharger le plugin anticipe (mcfunction)，c’est deja telecharge sous le dossier function)"
+var particlé_line_219 =
+	"Dessiner des particules personnelles provenant de l’usine de particule de mcfunction(pas besoin de télécharger le plugin anticipe (mcfunction)，c’est deja telecharge sous le dossier function)"
 
 //pos.js update at 2020/5/6
 
@@ -1008,11 +1155,13 @@ var particlé_line_219 = "Dessiner des particules personnelles provenant de l’
 
 var pos_line_727 = "Des iles du ciel"
 
-var pos_line_901 = "Quantité de filons %1 Taille de filons %2 Hauteur minimale de la génération %3 Hauteur maximale de la génération %4 "
+var pos_line_901 =
+	"Quantité de filons %1 Taille de filons %2 Hauteur minimale de la génération %3 Hauteur maximale de la génération %4 "
 
 var pos_line_927 = "Créer un filon"
 
-var pos_line_948 = "Générateur des iles du ciel：Niveau de la mer %1 Hauteur de la ligne de base %2 Générer des minéraux ou pas %3 parametre de génération de carbon %4 parametre de génération de fer %5 parametre de génération de Redstone  %6 parametre de génération de Lapis-lazuli %7 parametre de génération d’Or %8 parametre de génération de diamant %9 parametre de génération de terre %10 parametre de génération de sable %11 parametre de génération de granite %12 parametre de génération de diorite %13 parametre de génération d’Andesite %14 Est-ce que Générer : des grottes %15 des biomes %16 un océan %17 "
+var pos_line_948 =
+	"Générateur des iles du ciel：Niveau de la mer %1 Hauteur de la ligne de base %2 Générer des minéraux ou pas %3 parametre de génération de carbon %4 parametre de génération de fer %5 parametre de génération de Redstone  %6 parametre de génération de Lapis-lazuli %7 parametre de génération d’Or %8 parametre de génération de diamant %9 parametre de génération de terre %10 parametre de génération de sable %11 parametre de génération de granite %12 parametre de génération de diorite %13 parametre de génération d’Andesite %14 Est-ce que Générer : des grottes %15 des biomes %16 un océan %17 "
 
 var pos_line_1040 = "Installer un générateur d’iles du ciel(setSkyLandGenerator)"
 
@@ -1020,7 +1169,8 @@ var pos_line_1040 = "Installer un générateur d’iles du ciel(setSkyLandGenera
 
 //generated by python reMoudle
 
-var window_line_464 = "Ajouter dans une boite de dialogue %1 Ajouter le titre %2 Signaler %3 Ajouter un élément de la boite d’intrant %4 par défaut(caractère) "
+var window_line_464 =
+	"Ajouter dans une boite de dialogue %1 Ajouter le titre %2 Signaler %3 Ajouter un élément de la boite d’intrant %4 par défaut(caractère) "
 
 var window_line_490 = "Ajouter un élément dans la boite d’intrant(buildInput)"
 
@@ -1060,7 +1210,8 @@ var JSON_line_128 = "Saisir la valeur de l’objet Json %1 de la clé %2"
 
 var JSON_line_143 = "Saisir la valeur de la clé"
 
-var JSON_line_160 = "Sauvegarder l’objet Json %1 dans le chemin d’accès %2 (il faut que le nom du fichier se termine par .json)"
+var JSON_line_160 =
+	"Sauvegarder l’objet Json %1 dans le chemin d’accès %2 (il faut que le nom du fichier se termine par .json)"
 
 var JSON_line_177 = "Sauvegarder json"
 
