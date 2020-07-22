@@ -810,7 +810,7 @@ Blockly.JavaScript['bi_putinNBTString'] = function(block) {
 Blockly.Blocks['bi_getItemEnchant'] = {
   init: function() {
     this.jsonInit({
-      "message0": "获取物品 %1 的附魔对象列表",
+      "message0": blockanditem_line_813,
       "args0": [
 	    {
 	      "type": "input_value",
@@ -821,7 +821,7 @@ Blockly.Blocks['bi_getItemEnchant'] = {
 	  "output": "Array",
       "colour": 47,
 	  "inputsInline": true,
-      "tooltip": "获取物品附魔列表",
+      "tooltip": blockanditem_line_824,
       "helpUrl": "#"
     });
   }
@@ -836,7 +836,7 @@ Blockly.JavaScript['bi_getItemEnchant'] = function(block) {
 Blockly.Blocks['bi_getEnchantID'] = {
   init: function() {
     this.jsonInit({
-      "message0": "获取附魔对象 %1 的ID",
+      "message0": blockanditem_line_839,
       "args0": [
 	    {
 	      "type": "input_value",
@@ -847,7 +847,7 @@ Blockly.Blocks['bi_getEnchantID'] = {
 	  "output": "Number",
       "colour": 47,
 	  "inputsInline": true,
-      "tooltip": "获取附魔id",
+      "tooltip": blockanditem_line_850,
       "helpUrl": "#"
     });
   }
@@ -862,7 +862,7 @@ Blockly.JavaScript['bi_getEnchantID'] = function(block) {
 Blockly.Blocks['bi_getEnchantLevel'] = {
   init: function() {
     this.jsonInit({
-      "message0": "获取附魔对象 %1 的等级",
+      "message0": blockanditem_line_865,
       "args0": [
 	    {
 	      "type": "input_value",
@@ -873,7 +873,7 @@ Blockly.Blocks['bi_getEnchantLevel'] = {
 	  "output": "Number",
       "colour": 47,
 	  "inputsInline": true,
-      "tooltip": "获取附魔等级",
+      "tooltip": blockanditem_line_876,
       "helpUrl": "#"
     });
   }
@@ -885,3 +885,4 @@ Blockly.JavaScript['bi_getEnchantLevel'] = function(block) {
   var text= "blockitem.getEnchantLevel("+itemtmp+")"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+
