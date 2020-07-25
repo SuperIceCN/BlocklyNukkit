@@ -368,7 +368,7 @@ Blockly.Blocks['event_window_custom_getEventCustomVar'] = {
 		    "options": [
 			  [event_line_369, "input"],
 		      [event_line_370, "toggle"],
-		      [event_line_371, "dropdown"]
+		      [event_line_371, "dropdown"],[event_line_371_2,"slider"],[event_line_371_3,"stepslider"]
 		    ]
 		}
       ],

@@ -610,7 +610,7 @@ Blockly.JavaScript['entity_getEffectINFO'] = function(block) {
 Blockly.Blocks['entity_getNetworkID'] = {
   init: function() {
     this.jsonInit({
-      "message0": "获取实体 %1 的网络id",
+      "message0": entity_line_613,
       "args0": [
 		{
 		  "type": "input_value",
@@ -620,7 +620,7 @@ Blockly.Blocks['entity_getNetworkID'] = {
       ],
 	  "output": "Number",
       "colour": 248,
-      "tooltip": "获取实体的网络id",
+      "tooltip": entity_line_623,
       "helpUrl": "#"
     });
   }
@@ -632,3 +632,72 @@ Blockly.JavaScript['entity_getNetworkID'] = function(block) {
   var text="entity.getNetworkID("+valtmp+")";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['entity_showFloatingItem'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": entity_line_638,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "POS",
+		  "check": "Position"
+		},
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Item"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 248,
+      "tooltip": entity_line_655,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['entity_showFloatingItem'] = function(block) {
+  //String or array length.
+  var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="entity.showFloatingItem("+postmp+","+itemtmp+");\n"
+  return text;
+};
+Blockly.Blocks['entity_removeFloatingItem'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": entity_line_672,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "POS",
+		  "check": "Position"
+		},
+		{
+		  "type": "input_value",
+		  "name": "ITEM",
+		  "check": "Item"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 248,
+      "tooltip": entity_line_689,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['entity_removeFloatingItem'] = function(block) {
+  //String or array length.
+  var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="entity.removeFloatingItem("+postmp+","+itemtmp+");\n"
+  return text;
+};
+

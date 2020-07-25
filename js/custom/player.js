@@ -896,3 +896,38 @@ Blockly.JavaScript['player_checkPlayerPermission'] = function(block) {
   var text="manager.checkPlayerPermission("+pertmp+","+valtmp+")"
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['player_loadScreenTP'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": player_line_902,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "POS",
+		  "check": "Position"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": player_line_919,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_loadScreenTP'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var postmp = Blockly.JavaScript.valueToCode(block, 'POS',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="world.loadScreenTP("+playertmp+","+postmp+");\n"
+  return text;
+};
+

@@ -649,4 +649,91 @@ Blockly.JavaScript['window_setBelowName'] = function(block) {
   var text='window.setBelowName('+playertmp+','+contexttmp+');\n';
   return text;
 };
+Blockly.Blocks['window_buildSlider'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": window_line_655,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "BUILDER",
+		  "check": "CustomWindowBuilder"
+		},
+		{
+		  "type": "input_value",
+		  "name": "TEXT",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "MIN",
+		  "check": "Number"
+		},
+		{
+		  "type": "input_value",
+		  "name": "MAX",
+		  "check": "Number"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 240,
+      "tooltip": window_line_681,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_buildSlider'] = function(block) {
+  //String or array length.
+  var buildertmp = Blockly.JavaScript.valueToCode(block, 'BUILDER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var texttmp = Blockly.JavaScript.valueToCode(block, 'TEXT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var mintmp = Blockly.JavaScript.valueToCode(block, 'MIN',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var maxtmp = Blockly.JavaScript.valueToCode(block, 'MAX',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=buildertmp+".buildSlider("+texttmp+","+mintmp+","+maxtmp+");\n"
+  return text;
+};
+Blockly.Blocks['window_buildStepSlider'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": window_line_702,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "BUILDER",
+		  "check": "CustomWindowBuilder"
+		},
+		{
+		  "type": "input_value",
+		  "name": "TEXT",
+		  "check": "String"
+		},
+		{
+		  "type": "input_value",
+		  "name": "INNER",
+		  "check": "String"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+      "colour": 240,
+      "tooltip": window_line_723,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['window_buildStepSlider'] = function(block) {
+  //String or array length.
+  var buildertmp = Blockly.JavaScript.valueToCode(block, 'BUILDER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var texttmp = Blockly.JavaScript.valueToCode(block, 'TEXT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var innertmp = Blockly.JavaScript.valueToCode(block, 'INNER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=buildertmp+".buildStepSlider("+texttmp+","+innertmp+");\n"
+  return text;
+};
 

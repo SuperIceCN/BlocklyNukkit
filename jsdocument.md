@@ -72,7 +72,7 @@
 |checkIsBear|Player-J player|String|使用BlackBE云黑检查玩家是否为熊孩子|
 |buildvec3|double x,double y,double z|Vector3-J|从xyz构建三维向量|
 |httpRequest|String method,String url,String data|String|发送method(GET/POST)类型的http请求并获取返回值|
-|callFunciton|String fun,\<E+\> args...|void|调用函数名为fun的函数(直接写函数名调用所有插件中同名的函数,可以在开头加入xxx.js::函数名这样指定调用xxx.js下面的函数),注入参数为args,args参数不限类型,不限数量(0-1024),但是需要保证和被调用的函数参数一致|
+|callFunction|String fun,\<E+\> args...|void|调用函数名为fun的函数(直接写函数名调用所有插件中同名的函数,可以在开头加入xxx.js::函数名这样指定调用xxx.js下面的函数),注入参数为args,args参数不限类型,不限数量(0-1024),但是需要保证和被调用的函数参数一致|
 |readFile|String path|String|以文本格式自适应编码读取path路径的文件返回字符串内容|
 |writeFile|String path,String text|void|向path路径的文件(不存在自动创建)以utf8编码写入text|
 |isFileSame|String p1,String p2|boolean|比较p1路径和p2路径的文件是否相同|
@@ -91,6 +91,7 @@
 |MD5Encryption|String str|String|将字符串进行md5加密|
 |SHA1Encryption|String str|String|将字符串进行sha1加密|
 |loadJar|String path|void|加载path路径的jar包作为依赖|
+|bStats|String pluginName,String pluginVer,String authorName,int pluginid|void|使用bstats统计，参数请填写你在bstats的申请内容|
 
 ### algorithm基对象
 
@@ -182,7 +183,10 @@
 |spawnEntity|String id,Position pos|void|在pos生成字符串id为id的生物|
 |buildNPC|Position-J pos,String name,String skinID|BNNPC-J|构建一个NPC，位置在于pos，名称为name，皮肤为skinID的皮肤|
 |buildNPC|Position-J pos,String name,String skinID,int calltick,String callfunction|BNNPC-J|构建一个NPC，位置在于pos，名称为name，皮肤为skinID的皮肤，每隔calltick刻调用一次callfunction函数，注入参数bnnpc实体,当前tick|
+|buildNPC|Position-J pos,String name,String skinID,int calltick,String callfunction,String attackfunction|BNNPC-J|同上，被打时调用attackfunction函数名的函数，转入参数bnnpc实体|
 |皮肤skinID，即为./plugins/BlocklyNukkit/skin文件夹下面的皮肤文件名字|无后缀名，3D皮肤直接输入png文件名字，4D皮肤需要将json文件命名为与png文件相同的名字|详见BN专有对象方法文档中的BNNPC章节|
+|showFloatingItem|Position-J pos,Item item|void|在pos处展示item浮空物品|
+|removeFloatingItem|Position-J pos,Item item|void|取消在pos处item的浮空物品展示|
 
 ### inventory基对象
 |方法名|参数|返回值|解释|
@@ -207,6 +211,9 @@
 |loadLevel|String s|void|强制加载名称为s的世界|
 |getServerLevels|void|Array<Level-J>|获取服务器的所有世界|
 |setSkyLandGenerator|int seaHeight,int movey,boolean enableOre,int coalcount,int coalsize,int coalmin,int coalmax,int ironcount,int ironsize,int ironmin,int ironmax,int redstonecount,int redstonesize,int redstonemin,int redstonemax,int lapiscount,int lapissize,int lapismin,int lapismax,int goldcount,int goldsize,int goldmin,int goldmax,int diamondcount,int diamondsize,int diamondmin,int diamondmax,int dirtcount,int dirtsize,int dirtmin,int dirtmax,int gravelcount,int gravelsize,int gravelmin,int gravelmax,int granitecount,int granitesize,int granitemin,int granitemax,int dioritecount,int dioritesize,int dioritemin,int dioritemax,int andesitecount,int andesitesize,int andesitemin,int andesitemax,boolean enableCave,boolean enableBiome,boolean enableOcean|void|设置镜像天域的生成器参数|
+|setOceanGenerator|int seaHeight|void|设置海洋世界生成器海平面高度|
+|loadScreenTP|Player-J player,Position-J pos|void|把玩家传送到pos位置，传送时显示维度切换动画|
+|clearChunk|Position-J pos|void|清空pos所在的区块|
 
 ### notemusic基对象
 |方法名|参数|返回值|解释|
@@ -239,7 +246,7 @@
 |getCustomWindowBuilder|String title|Custom-J|构建标题title的高级窗口管理器|
 |getEventResponseText|Event-J e|String|获取e中简单窗口点击的按钮文本|
 |getEventResponseModal|Event-J e|String|获取e中对话框点击的按钮文本|
-|getEventCustomVar|Event-J e,int id,String mode|String|获取e中高级窗口ID为id的mode(input,toggle,dropdown)元素的值|
+|getEventCustomVar|Event-J e,int id,String mode|String|获取e中高级窗口ID为id的mode(input,toggle,dropdown,slider,stepslider)元素的值|
 |setPlayerBossBar|Player-J player,String text,float len|void|设置玩家的boss血条文字和剩余血量百分比len(0-100)|
 |removePlayerBossBar|Player-J player|void|移除玩家的boss血条|
 |getLengthOfPlayerBossBar|Player-J player|double|获取玩家boss血条剩余血量百分比|
@@ -371,6 +378,11 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 - this buildToggle(String title)
 - this buildToggle(String title,boolean default)
 - this buildDropdown(String title,String inner)
+- this buildSlider(String title,double min,double max)
+- this buildSlider(String title,double min,double max,int step)
+- this buildSlider(String title,double min,double max,int step,double defaultvalue)
+- this buildStepSlider(String title,String options)
+- this buildStepSlider(String title,String options,int index)
 
 2.Modal-J
 - this setTitle(String title)
@@ -417,6 +429,10 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |findAndMove|Position-J pos|boolean|让npc自己寻路到pos，如果寻路成功就开始移动到pos并返回true，否则false|
 |stopMove|void|void|让npc停止寻路移动|
 |hit|Entity-J e|void|让npc打实体e|
+|displaySwing|void|void|让npc挥动手臂一次|
+|setSwim|boolean swim/void|void|设置npc是否在游泳，无参数默认切换状态|
+|setTickCallback|String c|void|设置npc的tick回调函数名称|
+|setAttackCallback|String c|void|设置npc的伤害回调函数名称|
 
 例子：（在world,128,64,128处生成一个yj皮肤的npc，并且使得它可以被攻击）
 1. 准备：
@@ -510,6 +526,8 @@ npc.start()
 |实体被实体杀死事件|EntityKilledByEntityEvent|
 |实体被玩家杀死事件|EntityKilledByPlayerEvent|
 |玩家重生事件|PlayerRespawnEvent|
+|玩家手持物品变化事件|PlayerHeldEvent|
+|物品栏点击事件|InventoryClickEvent|
 
 ## 常用java类/对象的成员函数
 注:这部分由于不属于bn类库范畴,所以不会加说明,应该看参数和函数名能看懂,不懂的看图形编辑器生成的代码或者直接qq联系开发组或者issue,谢谢  
