@@ -70,7 +70,7 @@
 						httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 						httpRequest.send(f.name+"&&&"+str);
 						httpRequest.onreadystatechange = function () {
-							let getjs = "https://blocklynukkitxml-1259395953.cos.ap-beijing.myqcloud.com/"+f.name.substring(0,f.name.indexOf(".")+".js";
+							let getjs = "https://blocklynukkitxml-1259395953.cos.ap-beijing.myqcloud.com/"+f.name.substring(0,f.name.indexOf("."))+".js";
 						    if (httpRequest.readyState == 4 && httpRequest.status == 200) {
 						        var back = httpRequest.responseText;
 								console.log(back);
