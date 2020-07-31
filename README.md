@@ -124,6 +124,93 @@ mcbbs对jar的好感度远高于js，[一键打包](http://tools.blocklynukkit.c
 想想你开服的时候被没有这个插件难受到了什么地步，大肆渲染一下/滑稽
 
 ## 更新日志 
+### 1.2.8.2
+
+Bug Fixed
+
+- 修复了bnnpc和bn浮空字莫名其妙消失的问题
+
+New
+
+- 现在可以在js代码的开头加上一行注释//pragma es9来开启es9语言特性，但是会有些许性能损失，损失不大，可以放心使用
+- 此功能仍然是试验功能，如果报错，请立即反馈，感谢
+- bninstall命令已经弃用，所有库全部打包进bn解释器jar，这样做是为了节约内存空间。
+
+CustomWindowBuilder
+
+- Custom showAsSetting(Player p, String callback)
+- Custom buildDropdown(String title,String inner,int index)
+
+EventLoader
+
+- ChunkUnloadEvent
+
+entity
+
+- void setPlayerExp(Player player,int exp)
+- int getPlayerExp(Player player)
+- void setPlayerExpLevel(Player player,int lel)
+- int getPlayerExpLevel(Player player)
+- void setPlayerHunger(Player player,int hunger)
+- int getPlayerHunger(Player player)
+
+window
+
+- void makeTipsVar(String varname,String providerCallback)
+- void makeTipsStatic(String varname,String toReplace)
+
+### 1.2.8.1
+
+Entity
+
+- BNNPC buildNPC(Position pos,String name,String skinID,int calltick,String callfunction,String attackfunction)
+- void showFloatingItem(Position pos,Item item)
+- void removeFloatingItem(Position pos,Item item)
+
+windowbuilder
+
+- Custom buildSlider(String title,double min,double max)
+- Custom buildSlider(String title,double min,double max,int step)
+- Custom buildSlider(String title,double min,double max,int step,double defaultvalue)
+- Custom buildStepSlider(String title,String options)
+- Custom buildStepSlider(String title,String options,int index)
+
+window
+
+- String getEventCustomVar(PlayerFormRespondedEvent event,int id,String mode)
+- mode可以为input toggle dropdown slider stepslider
+
+BNNPC
+
+- void displaySwing()
+- void setSwim(boolean swim)
+- void setSwim()
+- void setTickCallback(String callback)
+- void setAttackCallback(String callback)
+
+manager
+
+- void bStats(String pluginName,String pluginVer,String authorName,int pluginid)
+- void callFunction(String functionname,Object... args) --修复了错误的拼写
+
+world
+
+- void loadScreenTP(Player player,Position pos)
+- void loadScreenTP(Player player,Position pos,int loadScreenTick)
+- void clearChunk(Position pos)
+
+EventLoader
+
+- PlayerHeldEvent
+- InventoryClickEvent
+
+Bug Fixed
+
+- manager.kickPlayer不再会显示"kicked by admin"前缀了
+- bnnpc打人会正确地摇动手臂了
+- callFunction拼写是正确的了
+- database现在真的可用了，所有库都会被正确安装
+
 ### 1.2.8.0_LTS
 类库管理器
 
