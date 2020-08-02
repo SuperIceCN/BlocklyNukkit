@@ -930,4 +930,178 @@ Blockly.JavaScript['player_loadScreenTP'] = function(block) {
   var text="world.loadScreenTP("+playertmp+","+postmp+");\n"
   return text;
 };
+Blockly.Blocks['player_setPlayerExp'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": player_line_936,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "NUM",
+		  "check": "Number"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": player_line_953,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_setPlayerExp'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var numtmp = Blockly.JavaScript.valueToCode(block, 'NUM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="entity.setPlayerExp("+playertmp+","+numtmp+");\n"
+  return text;
+};
+Blockly.Blocks['player_setPlayerExpLevel'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": player_line_970,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "NUM",
+		  "check": "Number"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": player_line_987,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_setPlayerExpLevel'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var numtmp = Blockly.JavaScript.valueToCode(block, 'NUM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="entity.setPlayerExpLevel("+playertmp+","+numtmp+");\n"
+  return text;
+};
+Blockly.Blocks['player_setPlayerHunger'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": player_line_1004,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "PLAYER",
+		  "check": "Player"
+		},
+		{
+		  "type": "input_value",
+		  "name": "NUM",
+		  "check": "Number"
+		}
+      ],
+	  "nextStatement": null,
+	  "previousStatement": null,
+	  "inputsInline": true,
+      "colour": 180,
+      "tooltip": player_line_1021,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_setPlayerHunger'] = function(block) {
+  //String or array length.
+  var playertmp = Blockly.JavaScript.valueToCode(block, 'PLAYER',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var numtmp = Blockly.JavaScript.valueToCode(block, 'NUM',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="entity.setPlayerHunger("+playertmp+","+numtmp+");\n"
+  return text;
+};
+Blockly.Blocks['player_getPlayerExp'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": player_line_1038,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		}
+      ],
+	  "output": "Number",
+      "colour": 180,
+      "tooltip": player_line_1048,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_getPlayerExp'] = function(block) {
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="entity.getPlayerExp("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['player_getPlayerExpLevel'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": player_line_1062,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		}
+      ],
+	  "output": "Number",
+      "colour": 180,
+      "tooltip": player_line_1072,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_getPlayerExpLevel'] = function(block) {
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="entity.getPlayerExpLevel("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+Blockly.Blocks['player_getPlayerHunger'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": player_line_1086,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "VAL",
+		  "check": "Player"
+		}
+      ],
+	  "output": "Number",
+      "colour": 180,
+      "tooltip": player_line_1096,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['player_getPlayerHunger'] = function(block) {
+  var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text="entity.getPlayerHunger("+valtmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
 

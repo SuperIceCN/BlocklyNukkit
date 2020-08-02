@@ -252,6 +252,8 @@
 |getLengthOfPlayerBossBar|Player-J player|double|获取玩家boss血条剩余血量百分比|
 |getTextOfPlayerBossBar|Player-J player|String|获取玩家boss血条的文字|
 |setBelowName|Player-J player,String str|void|设置玩家名字下方的计分板文字|
+|makeTipsVar|String varname,String provider|void|为tips提供一个变量，变量名为varname(要替换掉的字符串)，provider是回调函数名，tips显示时会调用这个函数，注入一个参数player玩家类型，然后返回值会作为被替换成的字符串|
+|makeTipsStatic|String varname,String toReplace|void|为tips提供一个静态变量，变量名为varname，要替换成的字符串为tpReplace|
 
 ### particle基对象
 |方法名|参数|返回值|解释|
@@ -378,11 +380,13 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 - this buildToggle(String title)
 - this buildToggle(String title,boolean default)
 - this buildDropdown(String title,String inner)
+- this buildDropdown(String title,String inner,int index)
 - this buildSlider(String title,double min,double max)
 - this buildSlider(String title,double min,double max,int step)
 - this buildSlider(String title,double min,double max,int step,double defaultvalue)
 - this buildStepSlider(String title,String options)
 - this buildStepSlider(String title,String options,int index)
+- this showAsSetting(Player p, String callback)
 
 2.Modal-J
 - this setTitle(String title)
@@ -528,6 +532,7 @@ npc.start()
 |玩家重生事件|PlayerRespawnEvent|
 |玩家手持物品变化事件|PlayerHeldEvent|
 |物品栏点击事件|InventoryClickEvent|
+|区块卸载事件|ChunkUnloadEvent|
 
 ## 常用java类/对象的成员函数
 注:这部分由于不属于bn类库范畴,所以不会加说明,应该看参数和函数名能看懂,不懂的看图形编辑器生成的代码或者直接qq联系开发组或者issue,谢谢  
