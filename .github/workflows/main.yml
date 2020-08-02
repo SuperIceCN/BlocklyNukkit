@@ -15,3 +15,4 @@ jobs:
           secretKey: ${{ secrets.SECRET_KEY }}
           envId: ${{ secrets.ENV_ID }}
           staticSrcPath: ./
+          staticIgnore: .git,.github,node_modules,oldversions,./oldversions,mdui,./mdui
