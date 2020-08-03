@@ -269,10 +269,41 @@ Blockly.Blocks['inv_getItemsInInv'] = {
 };
 Blockly.JavaScript['inv_getItemsInInv'] = function(block) {
   //String or array length.
-  var itemtmp = Blockly.JavaScript.valueToCode(block, 'ITEM',
-      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var invtmp = Blockly.JavaScript.valueToCode(block, 'INV',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var text="inventory.getItemsInInv("+invtmp+")";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
+Blockly.Blocks['inv_getItemInInv'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": inventory_line_280,
+      "args0": [
+		{
+		  "type": "input_value",
+		  "name": "INV",
+		  "check": "Inventory"
+		},
+		{
+		  "type": "input_value",
+		  "name": "SLOT",
+		  "check": "Number"
+		}
+      ],
+	  "output": "Item",
+      "colour": 290,
+      "tooltip": inventory_line_295,
+      "helpUrl": "#"
+    });
+  }
+};
+Blockly.JavaScript['inv_getItemInInv'] = function(block) {
+  //String or array length.
+  var slottmp = Blockly.JavaScript.valueToCode(block, 'SLOT',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var invtmp = Blockly.JavaScript.valueToCode(block, 'INV',
+      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
+  var text=invtmp+".getItem("+slottmp+")";
+  return [text, Blockly.JavaScript.ORDER_MEMBER];
+};
+
