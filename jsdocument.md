@@ -93,7 +93,7 @@
 |SHA1Encryption|String str|String|将字符串进行sha1加密|
 |loadJar|String path|void|加载path路径的jar包作为依赖|
 |bStats|String pluginName,String pluginVer,String authorName,int pluginid|void|使用bstats统计，参数请填写你在bstats的申请内容|
-|getServerMotd|String host, int port, String callback|void|根据服务器IP和端口获取在线人数信息|
+|getServerMotd|String host,int port,String callback|void|根据服务器IP和端口获取在线人数信息|
 |getVariableFrom|String scriptName,String varName|\<E\>|获取scriptname插件varName变量的值|
 |putVariableTo|String scriptName,String varName,<E> var|void|在scriptname插件中声明varName变量，值为var|
 |getCPULoad|void|double|获取服务器的cpu负载|
