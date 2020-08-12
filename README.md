@@ -124,6 +124,157 @@ mcbbs对jar的好感度远高于js，[一键打包](http://tools.blocklynukkit.c
 想想你开服的时候被没有这个插件难受到了什么地步，大肆渲染一下/滑稽
 
 ## 更新日志 
+## 1.2.8.3
+
+Bugs Fixed
+
+- 修复了bnnpc浮空走路bug
+- 修复了浮空物品空事件报错
+- 现在的报错信息比以前好看多了
+
+manager
+
+- <E> callFunction(String functionname,Object... args) --callFunction会返回函数的返回值了
+- <E> getVariableFrom(String scriptName,String varName) --根据bn插件名和变量名获取变量内容
+- void putVariableTo(String scriptName,String varName,<E> var) --把变量值以指定变量名放到指定bn插件中
+- double getCPULoad()
+- int getCPUCores()
+- double getMemoryTotalSizeMB()
+- double getMemoryUsedSizeMB()
+- void forceDisconnect(Player player)
+- Array<String> getEventFunctions(Event event)
+- void getServerMotd(String host, int port, String callback) --根据服务器IP和端口获取在线人数信息
+
+blockitem
+
+- void setItemColor(Item item,int r,int g,int b)
+- void setItemUnbreakable(Item item,boolean unbreakable)
+
+inventory
+
+- Item getEntityHelmet(Entity entity)
+- Item getEntityChestplate(Entity entity)
+- Item getEntityLeggings(Entity entity)
+- Item getEntityBoots(Entity entity)
+- Item getEntityItemInHand(Entity entity)
+- Item getEntityItemInOffHand(Entity entity)
+- void setEntityItemHelmet(Entity entity,Item item)
+- void setEntityItemChestplate(Entity entity,Item item)
+- void setEntityItemLeggings(Entity entity,Item item)
+- void setEntityItemBoots(Entity entity,Item item)
+- void setEntityItemInHand(Entity entity,Item item)
+- void setEntityItemInOffHand(Entity entity,Item item)
+- Item getInventorySlot(Inventory inv,int slot)
+
+window
+
+- void forceClearWindow(Player player)
+- int getEventResponseIndex(PlayerFormRespondedEvent event)
+
+entity
+
+- boolean isPlayer(Entity e)
+- void spawnFallingBlock(Position pos, Block block, boolean enableGravity,boolean canBePlaced)
+
+gameapi --新的基对象
+
+- void createGame(String name,boolean useTeam,String startGameCallBack,String endGameCallBack,String mainLoopCallBack,String deathCallBack)
+    -- 创建一个小游戏房间
+- void joinGame(Player player, String gameName) --让玩家进入指定名称的小游戏，自动匹配房间
+- void leaveGame(Player player) --让玩家从小游戏房间离开
+- boolean isPlayerInGame(Player player) --玩家是否正在玩某个小游戏
+- GameBase getPlayerRoom(Player player) --获取玩家正在玩的小游戏对象
+- Array<GameBase> getAllRoomByName(String gameName) --获取游戏名称相同的所有小游戏房间对象组成的数组
+- Array<String> getAllGameNames() --获取所有正在运行的小游戏房间的名字组成的数组
+- Messager getMessager(String prefix)
+- Messager getGameMessager(GameBase game)
+- Multiline getMultiline(String messageType)
+- InventoryMenu createInventoryMenu(String inventoryType, String title)
+- FormMenu createFormMenu(String title, String content)
+- void addMenuItem(InventoryMenu menu, int slot, Item item, String inventoryCallback)
+- void addMenuButton(FormMenu menu,String buttonText,String imageData,String formCallback)
+- Scoreboard getScoreboard(Player p)
+- void setObjective(Scoreboard sb, String objectiveName,String displayName)
+
+GameBase --小游戏房间对象
+
+EventLoader --73 new
+
+- BlockFadeEvent
+- BlockFallEvent
+- BlockFromToEvent
+- BlockGrowEvent
+- BlockIgniteEvent
+- BlockPistonChangeEvent
+- BlockRedstoneEvent
+- DoorToggleEvent
+- CreatureSpawnEvent
+- CreeperPowerEvent
+- EntityArmorChangeEvent
+- EntityBlockChangeEvent
+- EntityCombustByBlockEvent
+- EntityCombustByEntityEvent
+- EntityCombustEvent
+- EntityDamageByBlockEvent
+- EntityDamageByChildEntityEvent
+- EntityExplodeEvent
+- EntityMotionEvent
+- EntityPortalEnterEvent
+- EntityRegainHealthEvent
+- EntityShootBowEvent
+- EntityVehicleEnterEvent
+- EntityVehicleExitEvent
+- ExplosionPrimeEvent
+- BrewEvent
+- EnchantItemEvent
+- InventoryMoveItemEvent
+- StartBrewEvent
+- ChunkLoadEvent
+- ChunkPopulateEvent
+- LevelInitEvent
+- LevelLoadEvent
+- LevelSaveEvent
+- LevelUnloadEvent
+- SpawnChangeEvent
+- ThunderChangeEvent
+- WeatherChangeEvent
+- PlayerAchievementAwardedEvent
+- PlayerAnimationEvent
+- PlayerAsyncPreLoginEvent
+- PlayerBlockPickEvent
+- PlayerBucketEmptyEvent
+- PlayerBucketFillEvent
+- PlayerChangeSkinEvent
+- PlayerChunkRequestEvent
+- PlayerCreationEvent
+- PlayerDropItemEvent
+- PlayerEatFoodEvent
+- PlayerEditBookEvent
+- PlayerFoodLevelChangeEvent
+- PlayerGameModeChangeEvent
+- PlayerGlassBottleFillEvent
+- PlayerInvalidMoveEvent
+- PlayerItemConsumeEvent
+- PlayerLocallyInitializedEvent
+- PlayerMapInfoRequestEvent
+- PlayerMouseOverEntityEvent
+- PlayerServerSettingsRequestEvent
+- PlayerSettingsRespondedEvent
+- PluginDisableEvent
+- PluginEnableEvent
+- PotionApplyEvent
+- PotionCollideEvent
+- PlayerDataSerializeEvent
+- RemoteServerCommandEvent
+- EntityEnterVehicleEvent
+- EntityExitVehicleEvent
+- VehicleCreateEvent
+- VehicleDamageEvent
+- VehicleDestroyEvent
+- VehicleMoveEvent
+- VehicleUpdateEvent
+- LightningStrikeEvent
+
 ### 1.2.8.2
 
 Bug Fixed

@@ -28,6 +28,7 @@
 |notemusic|红石音乐管理器对象|
 |window|窗口管理器对象|
 |particle|粒子管理器对象|
+|gameapi|小游戏API对象|
 |Java|js对java进行操作的管理器对象|  
 
 ## 基对象成员函数
@@ -72,7 +73,7 @@
 |checkIsBear|Player-J player|String|使用BlackBE云黑检查玩家是否为熊孩子|
 |buildvec3|double x,double y,double z|Vector3-J|从xyz构建三维向量|
 |httpRequest|String method,String url,String data|String|发送method(GET/POST)类型的http请求并获取返回值|
-|callFunction|String fun,\<E+\> args...|void|调用函数名为fun的函数(直接写函数名调用所有插件中同名的函数,可以在开头加入xxx.js::函数名这样指定调用xxx.js下面的函数),注入参数为args,args参数不限类型,不限数量(0-1024),但是需要保证和被调用的函数参数一致|
+|callFunction|String fun,\<E+\> args...|<E>|调用函数名为fun的函数并获取返回值(直接写函数名调用所有插件中同名的函数,可以在开头加入xxx.js::函数名这样指定调用xxx.js下面的函数),注入参数为args,args参数不限类型,不限数量(0-1024),但是需要保证和被调用的函数参数一致|
 |readFile|String path|String|以文本格式自适应编码读取path路径的文件返回字符串内容|
 |writeFile|String path,String text|void|向path路径的文件(不存在自动创建)以utf8编码写入text|
 |isFileSame|String p1,String p2|boolean|比较p1路径和p2路径的文件是否相同|
@@ -92,6 +93,15 @@
 |SHA1Encryption|String str|String|将字符串进行sha1加密|
 |loadJar|String path|void|加载path路径的jar包作为依赖|
 |bStats|String pluginName,String pluginVer,String authorName,int pluginid|void|使用bstats统计，参数请填写你在bstats的申请内容|
+|getServerMotd|String host, int port, String callback|void|根据服务器IP和端口获取在线人数信息|
+|getVariableFrom|String scriptName,String varName|\<E\>|获取scriptname插件varName变量的值|
+|putVariableTo|String scriptName,String varName,<E> var|void|在scriptname插件中声明varName变量，值为var|
+|getCPULoad|void|double|获取服务器的cpu负载|
+|getCPUCores|void|int|获取服务器核心数量|
+|getMemoryTotalSizeMB|void|double|获取服务器总内存|
+|getMemoryUsedSizeMB|void|double|获取服务器已用内存|
+|forceDisconnect|Player-J player|void|立即让服务器停止响应player的数据，玩家会以为自己网卡了|
+|getEventFunctions|Event-J event|Array\<String\>|获取event事件可用的成员函数名称|
 
 ### algorithm基对象
 
@@ -143,6 +153,8 @@
 |getItemEnchant|Item-J item|Array<Enchantment-J>|获取item的附魔列表|
 |getEnchantID|Enchantment-J enc|int|获取附魔对象enc的附魔id|
 |getEnchantLevel|Enchantment-J enc|int|获取附魔对象enc的附魔等级|
+|setItemColor|Item-J item,int r,int g,int b|void|设置物品item的自定义颜色|
+|setItemUnbreakable|Item item,boolean unbreakable|void|设置物品item是否不可破坏|
 
 ### database基对象
 |方法名|参数|返回值|解释|
@@ -187,6 +199,8 @@
 |皮肤skinID，即为./plugins/BlocklyNukkit/skin文件夹下面的皮肤文件名字|无后缀名，3D皮肤直接输入png文件名字，4D皮肤需要将json文件命名为与png文件相同的名字|详见BN专有对象方法文档中的BNNPC章节|
 |showFloatingItem|Position-J pos,Item item|void|在pos处展示item浮空物品|
 |removeFloatingItem|Position-J pos,Item item|void|取消在pos处item的浮空物品展示|
+|isPlayer|Entity-J e|boolean|获取实体e是否为玩家|
+|spawnFallingBlock|Position pos, Block block, boolean enableGravity,boolean canBePlaced|void|在pos生成实体掉落方块，材质为block，enableGravity是否开启重力，canBePlaced是否在地上自动从实体变成方块|
 
 ### inventory基对象
 |方法名|参数|返回值|解释|
@@ -203,6 +217,19 @@
 |setBlockInv|Position-J pos,Inventory-J inv|void|设置pos位置的方块的物品栏为inv|
 |getPlayerInv|Player-J p|Inventory-J|获取玩家p的物品栏|
 |setPlayerInv|Player-J p,Inventory-J inv|void|设置玩家p的物品栏为inv|
+|getEntityHelmet|Entity-J entity|Item|获取npc或玩家实体的的头盔栏物品|
+|getEntityChestplate|Entity-J entity|Item|获取npc或玩家实体的胸甲栏的物品|
+|getEntityLeggings|Entity-J entity|Item|获取npc或玩家实体的护腿栏的物品|
+|getEntityBoots|Entity-J entity|Item|获取npc或玩家实体的靴子栏的物品|
+|getEntityItemInHand|Entity-J entity|Item|获取npc或玩家实体的手上的物品|
+|getEntityItemInOffHand|Entity-J entity|Item|获取npc或玩家实体的副手上的物品|
+|setEntityItemHelmet|Entity-J entity,Item-J item|void|设置npc或玩家实体的头盔栏上的物品|
+|setEntityItemChestplate|Entity-J entity,Item-J item|void|设置npc或玩家实体的胸甲栏上的物品|
+|setEntityItemLeggings|Entity-J entity,Item-J item|void|设置npc或玩家实体的护腿栏上的物品|
+|setEntityItemBoots|Entity-J entity,Item-J item|void|设置npc或玩家实体的靴子栏上的物品|
+|setEntityItemInHand|Entity-J entity,Item-J item|void|设置npc或玩家实体的手上的物品|
+|setEntityItemInOffHand|Entity-J entity,Item-J item|void|设置npc或玩家实体的副手上的物品|
+|getInventorySlot|Inventory-J inv,int slot|Item-J|获取物品栏inv第slot个槽位的物品对象|
 
 ### world基对象
 |方法名|参数|返回值|解释|
@@ -214,6 +241,7 @@
 |setOceanGenerator|int seaHeight|void|设置海洋世界生成器海平面高度|
 |loadScreenTP|Player-J player,Position-J pos|void|把玩家传送到pos位置，传送时显示维度切换动画|
 |clearChunk|Position-J pos|void|清空pos所在的区块|
+
 
 ### notemusic基对象
 |方法名|参数|返回值|解释|
@@ -246,6 +274,7 @@
 |getCustomWindowBuilder|String title|Custom-J|构建标题title的高级窗口管理器|
 |getEventResponseText|Event-J e|String|获取e中简单窗口点击的按钮文本|
 |getEventResponseModal|Event-J e|String|获取e中对话框点击的按钮文本|
+|getEventResponseIndex|Event-J e|int|获取e中简单窗口或对话框点击的按钮序号，从0开始|
 |getEventCustomVar|Event-J e,int id,String mode|String|获取e中高级窗口ID为id的mode(input,toggle,dropdown,slider,stepslider)元素的值|
 |setPlayerBossBar|Player-J player,String text,float len|void|设置玩家的boss血条文字和剩余血量百分比len(0-100)|
 |removePlayerBossBar|Player-J player|void|移除玩家的boss血条|
@@ -254,6 +283,7 @@
 |setBelowName|Player-J player,String str|void|设置玩家名字下方的计分板文字|
 |makeTipsVar|String varname,String provider|void|为tips提供一个变量，变量名为varname(要替换掉的字符串)，provider是回调函数名，tips显示时会调用这个函数，注入一个参数player玩家类型，然后返回值会作为被替换成的字符串|
 |makeTipsStatic|String varname,String toReplace|void|为tips提供一个静态变量，变量名为varname，要替换成的字符串为tpReplace|
+|forceClearWindow|Player-J player|void|强制关闭玩家客户端上面所有正在显示的物品栏和表单|
 
 ### particle基对象
 |方法名|参数|返回值|解释|
@@ -352,6 +382,9 @@
 |星形|2|
 |苦力怕型|3|
 |爆裂型|4|
+
+### gameapi基对象
+**坐等企鹅补上**	
 
 ### Java基对象 
 **仅js可用！python中没有此基对象！**
@@ -461,7 +494,7 @@ npc.start()
 ## 事件回调函数
 
 事件回调函数是解释器内置的自动调用的函数,只要你的函数名跟列表里面的相同就会自动调用  
-由于所有插件的变量都是相通的,函数也是变量的一种,所以我们建议使用manager.setPrivateCall(eventname,customname)来把下表的事件映射到自己的一个函数上避免冲突  
+详细的事件成员方法跟调用方式详见事件回调详解章节
 
 |介绍|代码|
 |-|-|
@@ -533,6 +566,80 @@ npc.start()
 |玩家手持物品变化事件|PlayerHeldEvent|
 |物品栏点击事件|InventoryClickEvent|
 |区块卸载事件|ChunkUnloadEvent|
+|方块因自然原因消失或衰落事件|BlockFadeEvent|
+|方块因重力掉落事件|BlockFallEvent|
+|液体流动/龙蛋自己传送的事件|BlockFromToEvent|
+|方块生长事件|BlockGrowEvent|
+|方块点燃事件|BlockIgniteEvent|
+|活塞臂状态变化事件|BlockPistonChangeEvent|
+|方块接受到的红石信号变化事件|BlockRedstoneEvent|
+|开关门事件|DoorToggleEvent|
+|使用生成蛋事件|CreatureSpawnEvent|
+|苦力怕被雷劈中事件|CreeperPowerEvent|
+|实体护甲变化事件|EntityArmorChangeEvent|
+|实体改变方块事件|EntityBlockChangeEvent|
+|实体因方块而燃烧事件|EntityCombustByBlockEvent|
+|实体因其他实体而燃烧事件|EntityCombustByEntityEvent|
+|实体燃烧事件|EntityCombustEvent|
+|实体被方块伤害事件|EntityDamageByBlockEvent|
+|实体被幼年实体伤害事件|EntityDamageByChildEntityEvent|
+|实体爆炸事件|EntityExplodeEvent|
+|实体运动事件|EntityMotionEvent|
+|实体进入传送门事件|EntityPortalEnterEvent|
+|实体回血事件|EntityRegainHealthEvent|
+|实体射箭事件|EntityShootBowEvent|
+|实体坐上载具事件|EntityVehicleEnterEvent|
+|实体离开载具事件|EntityVehicleExitEvent|
+|实体开始爆炸倒计时事件|ExplosionPrimeEvent|
+|酿造完成事件|BrewEvent|
+|给物品附魔事件|EnchantItemEvent|
+|非玩家触发格子物品传输事件|InventoryMoveItemEvent|
+|开始酿造事件|StartBrewEvent|
+|区块加载事件|ChunkLoadEvent|
+|新区块生成事件|ChunkPopulateEvent|
+|世界初始化事件|LevelInitEvent|
+|世界加载事件|LevelLoadEvent|
+|世界保存事件|LevelSaveEvent|
+|世界卸载事件|LevelUnloadEvent|
+|世界重生点更改事件|SpawnChangeEvent|
+|雷暴天气更改事件|ThunderChangeEvent|
+|天气更改事件|WeatherChangeEvent|
+|玩家达成成就事件|PlayerAchievementAwardedEvent|
+|玩家动画事件|PlayerAnimationEvent|
+|玩家尝试登录服务器事件|PlayerAsyncPreLoginEvent|
+|玩家捡起方块事件|PlayerBlockPickEvent|
+|玩家空桶事件|PlayerBucketEmptyEvent|
+|玩家填桶事件|PlayerBucketFillEvent|
+|玩家切换皮肤事件|PlayerChangeSkinEvent|
+|玩家请求区块事件|PlayerChunkRequestEvent|
+|玩家创建事件|PlayerCreationEvent|
+|玩家丢物品事件|PlayerDropItemEvent|
+|玩家吃东西事件|PlayerEatFoodEvent|
+|玩家编辑书本事件|PlayerEditBookEvent|
+|玩家饥饿值改变事件|PlayerFoodLevelChangeEvent|
+|玩家游戏模式改变事件|PlayerGameModeChangeEvent|
+|玩家填充玻璃瓶事件|PlayerGlassBottleFillEvent|
+|玩家错误地移动世界|PlayerInvalidMoveEvent|
+|玩家使用了一个一次性消耗品事件|PlayerItemConsumeEvent|
+|玩家客户端加载完成事件|PlayerLocallyInitializedEvent|
+|玩家请求地图数据事件|PlayerMapInfoRequestEvent|
+|玩家鼠标在指向实体事件|PlayerMouseOverEntityEvent|
+|玩家请求服务器设置事件|PlayerServerSettingsRequestEvent|
+|玩家设置服务器设置事件|PlayerSettingsRespondedEvent|
+|插件被关闭事件|PluginDisableEvent|
+|插件被启用事件|PluginEnableEvent|
+|药水效果添加事件|PotionApplyEvent|
+|药水效果冲突事件|PotionCollideEvent|
+|玩家数据序列化事件|PlayerDataSerializeEvent|
+|远程rcon控制执行命令事件|RemoteServerCommandEvent|
+|实体进入载具事件|EntityEnterVehicleEvent|
+|实体离开载具事件|EntityExitVehicleEvent|
+|载具创建事件|VehicleCreateEvent|
+|载具受伤事件|VehicleDamageEvent|
+|载具破坏事件|VehicleDestroyEvent|
+|载具移动事件|VehicleMoveEvent|
+|载具更新事件|VehicleUpdateEvent|
+|打雷事件|LightningStrikeEvent|
 
 ## 常用java类/对象的成员函数
 注:这部分由于不属于bn类库范畴,所以不会加说明,应该看参数和函数名能看懂,不懂的看图形编辑器生成的代码或者直接qq联系开发组或者issue,谢谢  
