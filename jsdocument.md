@@ -200,7 +200,13 @@
 |showFloatingItem|Position-J pos,Item item|void|在pos处展示item浮空物品|
 |removeFloatingItem|Position-J pos,Item item|void|取消在pos处item的浮空物品展示|
 |isPlayer|Entity-J e|boolean|获取实体e是否为玩家|
-|spawnFallingBlock|Position pos, Block block, boolean enableGravity,boolean canBePlaced|void|在pos生成实体掉落方块，材质为block，enableGravity是否开启重力，canBePlaced是否在地上自动从实体变成方块|
+|spawnFallingBlock|Position-J pos, Block-J block, boolean enableGravity,boolean canBePlaced|void|在pos生成实体掉落方块，材质为block，enableGravity是否开启重力，canBePlaced是否在地上自动从实体变成方块|
+|setPlayerExp|Player-J player,int exp|void|设置玩家经验点|
+|getPlayerExp|Player-J player|int|获取玩家经验点|
+|setPlayerExpLevel|Player-J player,int lel|void|设置玩家经验等级|
+|getPlayerExpLevel|Player-J player|int|获取玩家经验等级|
+|setPlayerHunger|Player player,int hunger|void|设置玩家饥饿度|
+|getPlayerHunger|Player-J player|int|获取玩家饥饿度|
 
 ### inventory基对象
 |方法名|参数|返回值|解释|
