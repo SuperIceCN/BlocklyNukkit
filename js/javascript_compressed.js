@@ -75,7 +75,7 @@ Blockly.JavaScript.scrubNakedValue = function(a) {
     return a + ";\n"
 };
 Blockly.JavaScript.quote_ = function(a) {
-    a = a.replace(/\\/g, "\\\\").replace(/\n/g, "\\\n").replace(/'/g, "\\'");
+    a = a.replace(/\\/g, "\\\\").replace(/\n/g, "\n").replace(/'/g, "\\'");
     return "'" + a + "'"
 };
 Blockly.JavaScript.multiline_quote_ = function(a) {

@@ -33,6 +33,7 @@
 		<script src="./js/custom/notemusic.js"></script>
 		<script src="./js/custom/particle.js"></script>
 		<script src="./js/custom/JSON.js"></script>
+		<script src="./js/custom/load.js"></script>
 		<script src="./js/SoftKey/vk_loader.js?vk_skin=flat_gray"></script>	
 		<script src="https://cdn.bootcss.com/prism/9000.0.1/prism.min.js"></script>
 		<link href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css" rel="stylesheet">
@@ -736,7 +737,7 @@
 				  <div class="row">
 					<div class="col"><button type="button" class="btn btn-outline-primary"  data-toggle="modal" data-target="#changebg" data-dismiss="modal" translate="yes">更换背景</button></div>
 				    <div class="col"><button type="button" class="btn btn-outline-primary"  data-toggle="modal" data-target="#changegc" data-dismiss="modal" translate="yes">工程切换</button></div>
-					<div class="col"><button type="button" class="btn btn-outline-primary" data-dismiss="modal" translate="yes">功能待定</button></div>
+					<div class="col"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#plugins" data-dismiss="modal" translate="yes" onclick="resetplugin()">管理插件</button></div>
 					<div class="col"><button type="button" class="btn btn-outline-primary" data-dismiss="modal" translate="yes">功能待定</button></div>
 				  </div>				  
 		      </div>
@@ -980,7 +981,64 @@
 		 
 		    </div>
 		  </div>
-		</div>		
+		</div>	
+		<div class="modal fade" id="plugins">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" translate="yes">管理插件</h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      <div class="modal-body">
+				<div class="container mt-3">
+				  <ul class="list-group" id="pluginview">
+				    <li class="list-group-item"><button type="button" class="close" onclick="removeplugin('')">&times;</button>First item</li>
+				  </ul>
+				  <div class="input-group mb-3">
+				    <input type="text" class="form-control" placeholder="请输入插件链接" id="addplugin" translate="yes">
+				    <div class="input-group-append">
+				      <button type="submit" class="btn btn-primary" onclick="newplugin();return false;">添加</button>
+				    </div>
+				  </div>
+				</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal" translate="yes">关闭</button>
+		      </div>
+		 
+		    </div>
+		  </div>
+		</div>
+		<script>
+			var BN = document.getElementById('toolbox')
+			let links = localStorage.pluginURL.split(";");
+			for (let entry of links) {
+				if(entry==undefined||entry==null||entry==""){
+					continue;
+				}
+				let filename = entry;
+				if(filename!=null&&filename!=""){
+					document.writeln('\<script src="'+filename+'"\>\</script\>');
+					// $.ajax({
+					// 	type : "GET",
+					// 	crossDomain: true,
+					// 	contentType: "Content-Type:application/x-www-form-urlencoded;charset=UTF-8",
+					// 	url : filename,
+					// 	success : function(result) {
+					// 		console.log(result);
+					// 		eval(result);
+					// 	},
+					// 	error : function(e){
+					// 	    console.log(e.status);
+					// 	    console.log(e.responseText);
+					// 	}
+					// })
+				}
+			}
+			function loadplugin(){//TODO: 完成
+				
+			}
+		</script>
 		<script>
 			function doloadtrans(){
 				document.getElementById('toolbox').innerHTML=translateToolBox(document.getElementById('toolbox').innerHTML)
@@ -1188,7 +1246,33 @@
 				localStorage.backgroundpicture="";
 				location.reload();
 			}
-
+			function newplugin(){
+				let link = document.getElementById("addplugin").value;
+				if(!(link.startsWith("http")||link.startsWith("file"))){
+					alert("情输入正确的网址");return;
+				}
+				localStorage.pluginURL+=(link+";");
+				resetplugin();
+			}
+			function resetplugin(){
+				if(localStorage.pluginURL==undefined){
+					document.getElementById("pluginview").innerHTML = "";return;
+				}
+				let links = localStorage.pluginURL.split(";");
+				let listhtml = "";
+				for (let entry of links) {
+					if(entry==undefined||entry==null||entry==""){
+						continue;
+					}
+					let tmp = '<li class="list-group-item"><button type="button" class="close" onclick="removeplugin(\''+entry+'\')">&times;</button>'+entry+'</li>'
+					listhtml+=tmp;
+				}
+				document.getElementById("pluginview").innerHTML = listhtml;
+			}
+			function removeplugin(link){
+				localStorage.pluginURL = (localStorage.pluginURL.replace(link+";",""));
+				resetplugin();
+			}
 		</script>
 	</body>
 	
