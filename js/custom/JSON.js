@@ -53,7 +53,7 @@ Blockly.JavaScript['json_set'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var valuetmp = Blockly.JavaScript.valueToCode(block, 'VALUE',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text=jsontmp+'['+Key+'] = '+valuetmp+";\n"
+  var text=jsontmp+'['+keytmp+'] = '+valuetmp+";\n"
   return text;
 };
 Blockly.Blocks['json_delete'] = {
