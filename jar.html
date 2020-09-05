@@ -25,6 +25,14 @@
 				if(reg.test(val)){return true; }
 				else{return false;}
 			}
+			function numstart(val){
+				for(let i=0;i<9;i++){
+					if(val.startsWith(i+"")){
+						return true;
+					}
+				}
+				return false;
+			}
 			function changefile(){
 				f = document.getElementById("sefile").files[0];
 				if(f==undefined||f==null){
@@ -33,6 +41,9 @@
 				}
 				if(isChinese(f.name)){
 					mdui.alert("您选择的文件名含有中文！这会导致编译系统错误，请改文件名后重新选择！","选择失败");
+					f=null;
+				}else if(numstart(f.name)){
+					mdui.alert("您选择的文件名！这会导以数字开头！这会导致编译系统错误，请改文件名后重新选择！","选择失败");
 					f=null;
 				}else if(f.size>=1024*128){
 					mdui.alert('您选择的文件大小'+(f.size/1024).toFixed(2)+"KB,文件大小限制128KB以内！", '选择失败');
@@ -122,11 +133,11 @@
 					  <div class="mdui-panel-item">
 					    <div class="mdui-panel-item-header"><i class="mdui-icon material-icons">&#xe24d;</i> 源文件</div>
 					    <div class="mdui-panel-item-body">
-					      <p>文件限制格式: .js / .py</p>
+					      <p>文件限制格式: .js / .py / .lua</p>
 					      <p>文件限制编码: utf-8</p>
 					      <p>文件限制大小: 128KB</p>
 						  <button class="mdui-btn mdui-color-theme-accent mdui-ripple" onclick="clicksefile()" id="uploadbtn">选择上传文件</button>
-						  <input type="file" style="visibility: hidden;" accept=".js,.py" id="sefile" onchange="changefile()"></input>
+						  <input type="file" style="visibility: hidden;" accept=".js,.py,.lua" id="sefile" onchange="changefile()"></input>
 					    </div>
 					  </div>
 					  
