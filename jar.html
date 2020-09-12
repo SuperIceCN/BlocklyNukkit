@@ -79,7 +79,7 @@
 						var httpRequest = new XMLHttpRequest();
 						httpRequest.open('POST', 'https://service-ph7gsebv-1259395953.bj.apigw.tencentcs.com/release/BlocklyNukkitCloud', true);
 						httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-						httpRequest.send(f.name+"&&&"+str);
+						httpRequest.send(f.name.substring(0,f.name.indexOf("."))+".js"+"&&&"+str);
 						httpRequest.onreadystatechange = function () {
 							let getjs = "https://blocklynukkitxml-1259395953.cos.ap-beijing.myqcloud.com/"+f.name.substring(0,f.name.indexOf("."))+".js";
 						    if (httpRequest.readyState == 4 && httpRequest.status == 200) {
