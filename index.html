@@ -3,6 +3,12 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>BlocklyNukkit</title>
+		<meta name="keywords" content="BlocklyNukkit,Blocklynukkit,blocklynukkit,BN,bn,BNEditor,bneditor,mcserver,mcbe,nukkit,Nukkitx,nukkitx,Nukkit,我的世界插件编辑器,bn图形化编辑器,零基础写插件,nukkit插件,BDS,BDS插件,bds,pm,pocketmine,PocketMine,pm插件,pocketMine插件,scratch插件,scratch写我的世界插件,js,javascript,py,python,python2,python3,ecmascript,lua">
+		<meta name="description" content="BlocklyNukkit让您零基础写我的世界nukkit服务器插件！零基础1天入门，拼图拖拽操作制作插件！还支持javascript,python,lua混合制作插件!" />
+		<meta name="author" content="" />
+		<meta name="description" content="The MDN Learning Area aims to provide
+		complete beginners to the Web with all they need to know to get
+		started with developing web sites and applications.">
 		<link rel="shortcut icon" href="https://tools.blocklynukkit.com/favicon.ico" type="image/x-icon">
 		<!-- 新 Bootstrap4 核心 CSS 文件 -->
 		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
@@ -698,7 +704,7 @@
 				
 				<div class="alert alert-success alert-dismissible fade show" style="z-index: 1;">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong translate="yes">BlocklyNukkit.jar最新版是1.2.8.3(8/12更新)</strong>
+					<strong translate="yes">BlocklyNukkit.jar最新版是1.2.8.4(9/19更新)</strong>
 				</div>
 				<div style="width: 100%; position: absolute; top: 5.519vw ; left: 0 ; bottom: 0;">
 					<pre style="width: 19.9vw;height: 98vh-5.519vw;height: 100%;font-weight: bold;"><code class="language-javascript" id="jspreview" style="word-wrap:break-word;word-break:break-all;"></code></pre>	
@@ -1019,20 +1025,6 @@
 				let filename = entry;
 				if(filename!=null&&filename!=""){
 					document.writeln('\<script src="'+filename+'"\>\</script\>');
-					// $.ajax({
-					// 	type : "GET",
-					// 	crossDomain: true,
-					// 	contentType: "Content-Type:application/x-www-form-urlencoded;charset=UTF-8",
-					// 	url : filename,
-					// 	success : function(result) {
-					// 		console.log(result);
-					// 		eval(result);
-					// 	},
-					// 	error : function(e){
-					// 	    console.log(e.status);
-					// 	    console.log(e.responseText);
-					// 	}
-					// })
 				}
 			}
 			function loadplugin(){//TODO: 完成

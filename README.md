@@ -123,8 +123,134 @@ mcbbs对jar的好感度远高于js，[一键打包](http://tools.blocklynukkit.c
 ### 7.抓住痛点
 想想你开服的时候被没有这个插件难受到了什么地步，大肆渲染一下/滑稽
 
-## 更新日志 
-## 1.2.8.3
+## 更新日志
+### 1.2.8.4
+new
+
+更新了qq机器人对接模块，使用小栗子qq机器人框架（因为这是唯一一个没跑路的免费机器人了），配好的包在bn群内下载
+您也可以从官网下载框架并自行安装tcpapi.dll插件到机器人框架中，bn通过tcpapi来与其交互
+添加了com.blocklynukkit.JavaAPI类来提供bn对java的api
+添加了调试工具，使用命令bndebug打开调试工具，可以查看变量和监控命令情况
+
+Lua
+
+添加了lua语言支持，版本为luaj5.2，可以通过lua来制作bn插件，接口与js和py完全相同
+您需要使用:来访问基对象函数，此外还提供了用于和java交互的luajava对象和asTable asList asMap三个全局函数
+详见bn开发文档
+
+Bug Fixed
+
+- 修复了熔炉配方nbt丢失问题
+- 修复了设置箱子和漏斗物品栏不好使的问题
+- 修复了py插件不可用问题
+- 修复了BNNPC在路径移动时被击退遁地问题
+- 修复了BNNPC导致的区块报错问题
+
+BNNPC
+
+- Array<Player> getPlayersIn(double distance)
+- Array<Entity> getEntitiesIn(double distance)
+- Player getNearestPlayer(double far)
+- Player getNearestPlayer()
+- void setEntityRideOn(Entity entity)
+- void isEntityRideOn(Entity entity)
+- void setEntityRideOff(Entity entity)
+- Player getRidingPlayer()
+
+window
+
+- setPauseScreenList(String list) --设置暂停界面右侧显示在线玩家区域的文字，用;分割多行
+
+CustoWindowBuilder
+
+-  this showAsSetting(Player p, String imageURL, String callback) --支持图标，和按钮图标书写方式相同
+
+manager
+
+- void qq.startBot() 启动qq机器人进程
+- void qq.reDirectBot(String ip) 
+    - 将机器人重定向到指定ip地址，并使用那台电脑的小栗子qq机器人框架
+    - 要求目标电脑开放8404-TCP端口，并且在小栗子的tcpapi插件中允许远程控制
+- void qq.sendFriendMessage(String fromQQ,String toQQ,String message) 发送好友信息
+- void qq.sendGroupMessage(String fromQQ,String toGroup,String message) 发送群信息
+- void qq.sendGroupPicMessage(String fromQQ,String toGroup,String picturePaths,String message)
+    - 发送qq图文消息
+    - picturePaths用;分割多个本地图片路径
+    - 消息中使用图片只需用%picture数字%即可，数字指代第几个路径的图片，从0开始算起
+- void qq.kickGroupMember(String fromQQ,String toGroup,String toQQ) --踢了指定群员,fromQQ是机器人账号
+- void qq.banSpeakGroupMember(String fromQQ,String toGroup,String toQQ,int second) --禁言指定群员
+- String getPlayerDeviceID(Player player) --获取玩家的手机或电脑设备标识码
+- String getPlayerDeviceModal(Player player) --获取玩家的设备型号
+- int getPlayerDeviceOS(Player player) -- 获取玩家的操作系统id
+- double getMoney(String player)
+- void reduceMoney(String player,double money)
+- void addMoney(String player,double money)
+- void setMoney(String player,double money)
+- void setNukkitCodeVersion(String string) -- 修改version命令显示的nk版本
+- void nodejs.eval(String str,boolean isPath) -- 使用nodejs运行str
+    - 运行nodejs代码是隔离在nodejs环境运行的，而非java环境
+    - 若isPath为true，则执行该路径的文件
+    - 否则将str作为nodejs代码执行
+    - 其中可以使用callFunction(String BNFunctionName,String args...)来调用bn插件的函数
+- void nodejs.newDocker(String dockerName,String str,boolean isPath) --开启一个常驻nodejs容器
+    - dockerName是创建的nodejs容器的名字，容器一旦创建就会立即开始执行其中的代码
+    - 重启创建后执行完代码不会被销毁，而是可以继续通过callDockerFunction调用其中方法
+    - 如果需要在其他bn插件调用其中的nodejs函数，需要使用registerFunction(String 函数名,Function 函数)注册
+    - 其余同nodejs.eval函数
+- void nodejs.closeDocker(String dockerName) --关闭指定的nodejs容器并释放占用资源
+- String callDockerFunction(String function,String... args)
+    - 调用指定容器中的指定函数并向其传参，调用的函数必须先注册再使用，否则bn无法获取此函数内存地址进行调用
+    - 返回值将自动被转为字符串，如果被调函数无返回值则返回字符串"null"
+    - function指定调用的函数，格式为 容器名::函数名（同其他地方的调用格式）
+    - 若直接输入函数名，则将在所有未关闭容器中随机寻找一个有此名称函数的容器调用，若找不到，返回NO FUNCTION
+    - args参数只接受字符串，数量不限，也可没有
+- TaskHandler createTask(String functionName, int delay ,\<E+\>... args)
+- TaskHandler createLoopTask(String functionName, int delay,\<E+\>... args)
+    - 支持2-128个任意数量的参数，第一个参数为回调函数名，第二个为回调间隔tick，其余的是在调用函数时向函数传递的参数
+- void newPlugin(String path) --加载指定路径上的bn插件
+- void newJSPlugin(String name,String code) --根据代码字符串创建一个新的bn插件
+- void newPYPlugin(String name,String code)
+- void newLUAPlugin(String name,String code)
+- void addCommandCompleter(String cmd,String id,String completer)
+    - 创建命令补全器，将被发送给玩家用作命令提示和tab补全
+    - cmd为要添加给的命令的名称，id为补全器标识符，随意只要不重复即可
+    - completer是补全器内容，由\<必选单元>和\[可选单元]由空格连缀组成
+    - 每个单元的内部格式为 名称:@类型=参数1;参数2;... 等于号及其后面的部分不是必须的
+    - 类型有：@target @blockpos @pos @int @float @string @text 
+    - 类型有：@message @command @json @filepath @operator
+    - 例如：\<player:@target\> \<sentence:@message=BNNB!;blocklynukkit\> \[color:@text=red;green\]
+
+EventLoader
+
+- QQGroupMessageEvent --机器人收到qq群消息事件
+    - String getSelfQQ() --获取收到消息的qq账号
+    - String getFromQQ() --获取发送消息的qq账号
+    - String getFromGroup() --获取消息事件的qq群号
+    - String getMessage() -获取消息
+- QQFriendMessageEvent --机器人收到qq好友消息事件
+    - String getEventId() --获取事件id
+    - String getEventSeed() --获取事件中的群消息标识码
+    - String getFromQQ() --获取发送消息的qq
+    - String getSelfQQ() --获取接受到群消息的qq账号
+    - String getMessage() --获取事件的消息
+- QQOtherEvent
+    - String getFromGroup() --获取触发事件的qq群号
+    - String getFromQQ() --获取触发事件的qq账号
+    - String getSelfQQ() --获取收到事件的qq账号
+    - String getSeq() --获取收到事件的标识id
+    - int getType() --获取事件类型码
+    
+Entity
+
+- void setPlayerExp(Player player,int exp)
+- int getPlayerExp(Player player)
+- void setPlayerExpLevel(Player player,int lel)
+- int getPlayerExpLevel(Player player)
+- void setPlayerHunger(Player player,int hunger)
+- int getPlayerHunger(Player player)
+- void makeSoundToPlayer(Player player,String sound)
+- Entity spawnEntity(String name,Position pos) --返回值更改
+### 1.2.8.3
 
 Bugs Fixed
 
