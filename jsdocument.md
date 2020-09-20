@@ -49,18 +49,19 @@
 |createConfig|File-J file,int type|Config-J|在虚拟文件file处构建种类type(yaml==2)的配置文件|
 |createCommand|String name,String des,String call|void|创建名称为name,描述为des的命令，回调函数的函数名为call|
 |createCommand|String name,String des,String call,String per|void|同上，但是仅限有per权限的玩家可用|
-|createTask|String functionName, int delay|TaskHandler-J|延迟dalay刻调用函数名functionName的函数(不会阻塞)|
-|createLoopTask|String functionName, int delay|TaskHandler-J|每dalay刻重复调用函数名functionNmae的函数|
+|addCommandCompleter|String cmd,String id,String completer|void|创建命令补全器，将被发送给玩家用作命令提示和tab补全,cmd为要添加给的命令的名称，id为补全器标识符，随意只要不重复即可，completer是补全器内容|
+|createTask|String functionName, int delay, \<E+\>... args|TaskHandler-J|延迟dalay刻调用函数名functionName的函数(不会阻塞),args是在调用函数时向函数传递的参数，可没有|
+|createLoopTask|String functionName, int delay, \<E+\>... args|TaskHandler-J|每dalay刻重复调用函数名functionNmae的函数,args是在调用函数时向函数传递的参数，可没有|
 |getTaskId|TaskHandler-J handler|int|获取handler的任务id|
 |cancelTask|int id|void|取消任务ID为id的任务|
 |getPlugin|String name|Plugin-J|获取注册名称为name的插件对象|
 |plugin|void|Plugin-J|获取plugin基对象(有点多余)|
 |buildskin|Player-J player,String skin|void|将玩家的皮肤设置为BlocklyNukkit/skin文件夹下的同名皮肤(自动识别4D)|
 |buildskinfor|Player-J player,String skin,Player to|void|同上，但只展示给to玩家|
-|getMoney|Player-J player|double|获取玩家player金钱(EconomyAPI)|
-|reduceMoney|Player-J player,double money|void|给玩家减去money金钱(可减为负数)|
-|addMoney|Player-J player,double money|void|给玩家加上money金钱|
-|setMoney|Player-J player,double money|void|设置玩家的金钱为money|
+|getMoney|Player-J/String player|double|获取玩家player金钱(EconomyAPI)|
+|reduceMoney|Player-J/String player,double money|void|给玩家减去money金钱(可减为负数)|
+|addMoney|Player-J/String player,double money|void|给玩家加上money金钱|
+|setMoney|Player-J/String player,double money|void|设置玩家的金钱为money|
 |getAllKeyInConfig|Config-J config|Array|获取config配置文件的所有键|
 |putEasy|String string,\<E\> val|void|存入临时存储->键string,值为泛型val|
 |getEasy\<E\>|String string|\<E\>|获取临时存储->键string|
@@ -102,6 +103,24 @@
 |getMemoryUsedSizeMB|void|double|获取服务器已用内存|
 |forceDisconnect|Player-J player|void|立即让服务器停止响应player的数据，玩家会以为自己网卡了|
 |getEventFunctions|Event-J event|Array\<String\>|获取event事件可用的成员函数名称|
+|qq.startBot|void|void|启动qq机器人进程|
+|qq.reDirectBot|String ip|void|将机器人重定向到指定ip地址，并使用那台电脑的小栗子qq机器人框架。要求目标电脑开放8404-TCP端口，并且在小栗子的tcpapi插件中允许远程控制|
+|qq.sendFriendMessage|String fromQQ,String toQQ,String message|void|发送好友信息,fromQQ是机器人账号,toQQ是目标账号,message是内容|
+|qq.sendGroupMessage|String fromQQ,String toGroup,String message|void|发送群信息|
+|qq.sendGroupPicMessage|String fromQQ,String toGroup,String picturePaths,String message|void|发送qq群图文消息，picturePaths用;分割多个本地图片路径，消息中使用图片只需用%picture数字%即可，数字指代第几个路径的图片，从0开始算起|
+|qq.kickGroupMember|String fromQQ,String toGroup,String toQQ|void|踢了指定群员,fromQQ是机器人账号|
+|qq.banSpeakGroupMember|String fromQQ,String toGroup,String toQQ,int second|void|禁言指定群员|
+|getPlayerDeviceID|Player player|String|获取玩家的手机或电脑设备标识码|
+|getPlayerDeviceModal|Player player|String|获取玩家的设备型号|
+|getPlayerDeviceOS|Player player|int|获取玩家的操作系统id|
+|setNukkitCodeVersion|String string|void|修改version命令显示的nk版本|
+|nodejs.eval|String str,boolean isPath|void|使用nodejs运行str，运行nodejs代码是隔离在nodejs环境运行的，而非java环境，若isPath为true，则执行该路径的文件，否则将str作为nodejs代码执行，其中可以使用callFunction(String BNFunctionName,String args...)来调用bn插件的函数|
+|nodejs.newDocker|String dockerName,String str,boolean isPath|void|开启一个常驻nodejs容器，dockerName是创建的nodejs容器的名字，容器一旦创建就会立即开始执行其中的代码，重启创建后执行完代码不会被销毁，而是可以继续通过callDockerFunction调用其中方法，如果需要在其他bn插件调用其中的nodejs函数，需要使用registerFunction(String 函数名,Function 函数)注册，其余同nodejs.eval函数|
+|nodejs.callDockerFunction|String function,String... args|String|调用指定容器中的指定函数并向其传参，调用的函数必须先注册再使用，否则bn无法获取此函数内存地址进行调用，返回值将自动被转为字符串，如果被调函数无返回值则返回字符串"null"，function指定调用的函数，格式为 容器名::函数名（同其他地方的调用格式），若直接输入函数名，则将在所有未关闭容器中随机寻找一个有此名称函数的容器调用，若找不到，返回NO FUNCTION，args参数只接受字符串，数量不限，也可没有|
+|newPlugin|String path|void|加载指定路径上的bn插件|
+|newJSPlugin|String name,String code|void|根据javascript代码字符串创建一个新的bn插件|
+|newPYPlugin|String name,String code|void|根据python代码字符串创建一个新的bn插件|
+|newLUAPlugin|String name,String code|void|根据lua代码字符串创建一个新的bn插件|
 
 ### algorithm基对象
 
@@ -192,7 +211,7 @@
 |getEffectTime|Effect-J effect|int|获取effect药水效果剩余持续的时间|
 |getNetworkID|Entity entity|int|获取实体的网络id，用于确认或者比较实体类型，网络id表wiki可查|
 |getIDName|Entity entity|String|获取实体的字符串ID，如Pig,Sheep，用法同上|
-|spawnEntity|String id,Position pos|void|在pos生成字符串id为id的生物|
+|spawnEntity|String id,Position pos|Entity|在pos生成字符串id为id的生物并返回|
 |buildNPC|Position-J pos,String name,String skinID|BNNPC-J|构建一个NPC，位置在于pos，名称为name，皮肤为skinID的皮肤|
 |buildNPC|Position-J pos,String name,String skinID,int calltick,String callfunction|BNNPC-J|构建一个NPC，位置在于pos，名称为name，皮肤为skinID的皮肤，每隔calltick刻调用一次callfunction函数，注入参数bnnpc实体,当前tick|
 |buildNPC|Position-J pos,String name,String skinID,int calltick,String callfunction,String attackfunction|BNNPC-J|同上，被打时调用attackfunction函数名的函数，转入参数bnnpc实体|
@@ -207,6 +226,7 @@
 |getPlayerExpLevel|Player-J player|int|获取玩家经验等级|
 |setPlayerHunger|Player player,int hunger|void|设置玩家饥饿度|
 |getPlayerHunger|Player-J player|int|获取玩家饥饿度|
+|makeSoundToPlayer|Player player,String sound|void|给指定玩家播放sound字符串对应的声音|
 
 ### inventory基对象
 |方法名|参数|返回值|解释|
@@ -290,6 +310,7 @@
 |makeTipsVar|String varname,String provider|void|为tips提供一个变量，变量名为varname(要替换掉的字符串)，provider是回调函数名，tips显示时会调用这个函数，注入一个参数player玩家类型，然后返回值会作为被替换成的字符串|
 |makeTipsStatic|String varname,String toReplace|void|为tips提供一个静态变量，变量名为varname，要替换成的字符串为tpReplace|
 |forceClearWindow|Player-J player|void|强制关闭玩家客户端上面所有正在显示的物品栏和表单|
+|setPauseScreenList|String list|void|设置暂停界面右侧显示在线玩家区域的文字，用;分割多行|
 
 ### particle基对象
 |方法名|参数|返回值|解释|
@@ -426,6 +447,7 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 - this buildStepSlider(String title,String options)
 - this buildStepSlider(String title,String options,int index)
 - this showAsSetting(Player p, String callback)
+- this showAsSetting(Player p, String img, String callback)
 
 2.Modal-J
 - this setTitle(String title)
@@ -476,6 +498,13 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |setSwim|boolean swim/void|void|设置npc是否在游泳，无参数默认切换状态|
 |setTickCallback|String c|void|设置npc的tick回调函数名称|
 |setAttackCallback|String c|void|设置npc的伤害回调函数名称|
+|getPlayersIn|double distance|Array\<Player\>|获取指定距离内的所有玩家|
+|getEntitiesIn|double distance|Array\<Entity\>|获取指定距离内的所有生物|
+|getNearestPlayer|double far/void|Player|获取指定距离内的最近玩家，距离不指定为无穷远|
+|setEntityRideOn|Entity entity|void|让实体entity骑上npc|
+|isEntityRideOn|Entity entity|boolean|获取实体是否骑在npc上面|
+|setEntityRideOff|Entity entity|void|让实体entity从npc上面下来|
+|getRidingPlayer|void|Player|获取骑在npc上面的玩家|
 
 例子：（在world,128,64,128处生成一个yj皮肤的npc，并且使得它可以被攻击）
 1. 准备：
@@ -646,6 +675,9 @@ npc.start()
 |载具移动事件|VehicleMoveEvent|
 |载具更新事件|VehicleUpdateEvent|
 |打雷事件|LightningStrikeEvent|
+|机器人收到qq群消息事件|QQGroupMessageEvent|
+|机器人收到qq好友消息事件|QQFriendMessageEvent|
+|机器人其他qq操作事件|QQOtherEvent|
 
 ## 常用java类/对象的成员函数
 注:这部分由于不属于bn类库范畴,所以不会加说明,应该看参数和函数名能看懂,不懂的看图形编辑器生成的代码或者直接qq联系开发组或者issue,谢谢  
