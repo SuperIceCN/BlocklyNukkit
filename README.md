@@ -7,6 +7,19 @@ blocklynukkit友好界面中文插件编辑器是由超神的冰凉发起的开�
 
 我们的代码完全基于AGPL3.0开源，任何人都可以加入我们或者做出贡献，如果您是使用者或者服主，您可以在此[进入教程](https://docs.qq.com/doc/DRkRpS0xmV2ZJbGdi)学习如何使用本项目并构建自己的插件。
 
+## BlocklyNukkit解释器
+
+开源地址：[前往BN_Loader](https://gitee.com/Kingdom_of_dragon/BlocklyNukkit_Loader)
+BlocklyNukkit解释器(即BN_Loader)，是基于动态字节码生成的多语言解释器，目前已经实现了JavaScript、Python、Lua、PHP四种语言的同时运行和无缝跨语言调用
+BN_Loader是本项目的核心库，因技术安全原因，托管在中国代码托管平台gitee上。
+实现的各语言标准如下：
+|语言|标准|
+|-|-|
+|JavaScript|ecma5.1|
+|Python|2.7|
+|Lua|5.2|
+|PHP|5.3|
+
 ## 欢迎
 欢迎来到blocklynukkit！
 blocklynukkit是一套完整的从入门到高阶的快捷简单高效率插件开发框架，解决了各位希望开发插件但又苦于难以入门或没有开发条件的新人或开发者的问题，使得各位服主可以快速零基础上手开发插件并快速学习开发插件的精髓，不必在意没有用的繁琐细节，并实现自己的创想！
@@ -16,8 +29,8 @@ blocklynukkit是一套完整的从入门到高阶的快捷简单高效率插件�
 - 零基础入门nukkit插件开发的初学者
 - 想快速实现自己的想法的服主
 - 没有电脑或java编译环境的nukkit插件开发者
-- 只会JavaScript或者python又想开发插件的人
-- JavaScript或者python十分熟练的服主
+- 只会JavaScript、python、lua或php又想开发插件的人
+- JavaScript、python、lua或者php十分熟练的服主
 - 希望掌握新技能的开发者
 
 ## 如何开发
@@ -38,14 +51,7 @@ BlocklyNukkit最大的特点之一就是为没有任何编程经验或者基础�
 bn图形化编辑器展示：
 ![](README_files/1.jpg)
 
-### 使用JavaScript开发
-BlocklyNukkit提供了一套成熟的JavaScript开发插件的解决方案，您可以使用JavaScript来开发插件。我们编写了JavaScript开发文档和配套的vscode插件来方便开发，开发完的代码可以直接打包成jar包发布，详细资料详见[http://www.blocklynukkit.info](http://www.blocklynukkit.info)
-
-### 使用python开发
-BlocklyNukkit在最新版本中提供了python开发的能力，支持全部标准原生python库和全部的java类库直接导入，而且您还可以直接import其他插件的类、函数与对象进行操作。详细资料详见[http://www.blocklynukkit.info](http://www.blocklynukkit.info)
-注：python开发文档尚未完成，我们将尽快提供，感谢您的支持与理解
-
-(整个开发团队就3个人，其中两个是学生，我们真的时间不够用)
+(整个开发团队就我一个高二狗，真的时间不够用)
 
 ## 做出贡献
 
