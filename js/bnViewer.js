@@ -19,8 +19,8 @@ var createModule=new MutationObserver(function (mutations,createModule) {
 		if(value.addedNodes[0].childNodes[0].childNodes[0]==null){return;}
 		if(value.addedNodes[0].childNodes[0].classList.contains("blocklyTreeRow")){//blocklyTreeRow
 			if(value.addedNodes[0].childNodes[0].childNodes[0].getAttribute("class")=='blocklyTreeIcon blocklyTreeIconNone'){
-				value.addedNodes[0].childNodes[0].childNodes[0].style.backgroundImage = 'url("./icons/component.png")';
-				value.addedNodes[0].childNodes[0].childNodes[0].style.backgroundSize = "100% 100%";
+				value.addedNodes[0].childNodes[0].childNodes[0].style.backgroundImage = 'url("'+getIconURL(value.addedNodes[0].childNodes[0].outerText)+'")';
+				value.addedNodes[0].childNodes[0].childNodes[0].style.backgroundSize = "contain";
 			}
 		}
 	})
@@ -28,6 +28,32 @@ var createModule=new MutationObserver(function (mutations,createModule) {
 });
 createModule.observe(document.querySelectorAll("div[class='blocklyToolboxDiv blocklyNonSelectable']")[0],{ childList: true, subtree: true });
 //获取修饰图标
-function getIconText(From){
-	return "#"
+function getIconURL(From){
+	switch (From) {
+	    case "逻辑":
+		case "循环":
+		case "数学":
+		case "字符串":
+		case "列表":
+		case "JSON":
+		case "BN插件":
+		case "Nukkit":
+		case "玩家":
+		case "事件":
+		case "位置":
+		case "创世":
+		case "窗口":
+		case "方块物品":
+		case "物品栏":
+		case "生物":
+		case "粒子":
+		case "函数":
+		case "变量":
+		case "实用工具":
+		case "红石音乐":
+	        return "./icons/"+From+".png"
+	        break;
+	    default: 
+	        return "./icons/拓展.png";
+	} 
 }
