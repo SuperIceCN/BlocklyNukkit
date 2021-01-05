@@ -13,12 +13,15 @@ blocklynukkit友好界面中文插件编辑器是由超神的冰凉发起的开�
 BlocklyNukkit解释器(即BN_Loader)，是基于动态字节码生成的多语言解释器，目前已经实现了JavaScript、Python、Lua、PHP四种语言的同时运行和无缝跨语言调用
 BN_Loader是本项目的核心库，因技术安全原因，托管在中国代码托管平台gitee上。
 实现的各语言标准如下：
-|语言|标准|
-|-|-|
-|JavaScript|ecma5.1|
-|Python|2.7|
-|Lua|5.2|
-|PHP|5.3|
+|语言			|标准			|
+|-				|-				|
+|JavaScript		|ecma5.1		|
+|Python			|2.7			|
+|Lua			|5.2			|
+|PHP			|5.3			|
+|C				|C11			|
+|C++			|C++20			|
+|wast			|WASI 2020/12/23|
 
 ## 欢迎
 欢迎来到blocklynukkit！
