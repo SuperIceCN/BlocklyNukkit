@@ -3,13 +3,13 @@ on: [push]
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Tencent Cloudbase Github Action Example
+    name: Deploy to BNCloud
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Deploy static to Tencent CloudBase
         id: deployStatic
-        uses: TencentCloudBase/cloudbase-action@v1.1.0
+        uses: TencentCloudBase/cloudbase-action@v1.1.1
         with:
           secretId: ${{ secrets.SECRET_ID }}
           secretKey: ${{ secrets.SECRET_KEY }}
