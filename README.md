@@ -9,9 +9,14 @@ blocklynukkit友好界面中文插件编辑器是由超神的冰凉发起的开�
 
 ## BlocklyNukkit解释器
 
-开源地址：[前往BN_Loader](https://gitee.com/Kingdom_of_dragon/BlocklyNukkit_Loader)
-BlocklyNukkit解释器(即BN_Loader)，是基于动态字节码生成的多语言解释器，目前已经实现了JavaScript、Python、Lua、PHP四种语言的同时运行和无缝跨语言调用
-BN_Loader是本项目的核心库，因技术安全原因，托管在中国代码托管平台gitee上。
+### 概述
+
+开源地址：[前往BN_Loader](https://gitee.com/Kingdom_of_dragon/BlocklyNukkit_Loader)  
+BlocklyNukkit解释器(即BN_Loader)，是基于动态字节码生成的多语言解释器，目前已经实现了JavaScript、Python、Lua、PHP四种语言的同时运行和无缝跨语言调用  
+BN_Loader是本项目的核心库，因技术安全原因，托管在中国代码托管平台gitee上。  
+
+### 语言支持
+
 实现的各语言标准如下：
 |语言			|标准			|
 |-				|-				|
@@ -22,6 +27,10 @@ BN_Loader是本项目的核心库，因技术安全原因，托管在中国代�
 |C				|C11			|
 |C++			|C++20			|
 |wast			|WASI 2020/12/23|
+
+### 下载
+
+你可以直接使用[BN官网链接](https://tools.blocklynukkit.com/BlocklyNukkit.jar)下载，也可以去bn的[持续集成构建](https://gitee.com/qdez/BlocklyNukkit_Loader/gitee_go/15181)下载*每日构建版*，每日构建版将会提供最新的api和bug修复
 
 ## 欢迎
 欢迎来到blocklynukkit！
@@ -34,6 +43,7 @@ blocklynukkit是一套完整的从入门到高阶的快捷简单高效率插件�
 - 没有电脑或java编译环境的nukkit插件开发者
 - 只会JavaScript、python、lua或php又想开发插件的人
 - JavaScript、python、lua或者php十分熟练的服主
+- 想要使用C/C++来进行高性能插件开发的开发者
 - 希望掌握新技能的开发者
 
 ## 如何开发
@@ -67,7 +77,7 @@ bn图形化编辑器展示：
 
 ## 赞助我们
 
-<img src="https://gitee.com/Kingdom_of_dragon/BlocklyNukkit/raw/master/afdian-%E8%B6%85%E7%A5%9E%E7%9A%84%E5%86%B0%E5%87%89%20(1).png"  height="337" width="262">
+<img src="https://gitee.com/qdez/BlocklyNukkit/raw/master/afdian-%E8%B6%85%E7%A5%9E%E7%9A%84%E5%86%B0%E5%87%89%20(1).png"  height="337" width="262">
 
 ## 一些正式发布的bn插件：
 - 乐色桶：[mcbbs下载](https://www.mcbbs.net/thread-1026281-1-1.html)

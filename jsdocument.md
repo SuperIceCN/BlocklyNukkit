@@ -31,6 +31,60 @@
 |gameapi|小游戏API对象|
 |Java|js对java进行操作的管理器对象|  
 
+### 内置函数
+
+#### **通用**
+
+|函数名|参数|返回值|解释|
+|F|匿名函数或闭包|参数的函数名|用于把匿名函数或者闭包传入BNAPI中需要填写回调函数名的地方使用|
+
+#### PHP模块一览
+
+- ApcModule
+- ArrayModule
+- Array2Module
+- BcmathModule
+- ClassesModule
+- CoreModule
+- CtypeModule
+- ExifModule
+- FunctionModule
+- HashModule
+- JavaModule
+- MathModule
+- MhashModule
+- MiscModule
+- NetworkModule
+- OptionsModule
+- OutputModule
+- QuercusModule
+- TokenModule
+- UrlModule
+- VariableModule
+- CurlModule
+- DateModule
+- FileModule
+- SocketModule
+- StreamModule
+- FilterModule
+- GettextModule
+- MbstringModule
+- MysqliModule
+- ImageModule
+- JMSModule
+- JsonModule
+- McryptModule
+- PDFModule
+- PDOMoudle
+- RegexpModule
+- SessionModule
+- SimpleXMLModule
+- StringModule
+- XmlModule
+- XMLWriterModule
+- ZipModule
+- ZlibModule
+
 ## 基对象成员函数
 
 > 注:   
@@ -104,6 +158,7 @@
 |forceDisconnect|Player-J player|void|立即让服务器停止响应player的数据，玩家会以为自己网卡了|
 |getEventFunctions|Event-J event|Array\<String\>|获取event事件可用的成员函数名称|
 |qq.startBot|void|void|启动qq机器人进程|
+|qq.stopBot|void|void|停止qq机器人进程|
 |qq.reDirectBot|String ip|void|将机器人重定向到指定ip地址，并使用那台电脑的小栗子qq机器人框架。要求目标电脑开放8404-TCP端口，并且在小栗子的tcpapi插件中允许远程控制|
 |qq.sendFriendMessage|String fromQQ,String toQQ,String message|void|发送好友信息,fromQQ是机器人账号,toQQ是目标账号,message是内容|
 |qq.sendGroupMessage|String fromQQ,String toGroup,String message|void|发送群信息|
@@ -121,6 +176,22 @@
 |newJSPlugin|String name,String code|void|根据javascript代码字符串创建一个新的bn插件|
 |newPYPlugin|String name,String code|void|根据python代码字符串创建一个新的bn插件|
 |newLUAPlugin|String name,String code|void|根据lua代码字符串创建一个新的bn插件|
+|newPHPPlugin|String name,String code|void|根据php代码字符串创建一个新的bn插件|
+|getOnlinePlayers|void|Array<Player>|void|获取所有的在线玩家构成的数组|
+|getResource|String resName|String|获取资源内容，resName可以是一个链接，也可以是bn目录下的一个文件名|
+|runCMD|String cmd|void|执行外部操作系统的命令行上的一条命令|
+|isPathExists|String path|boolean|路径是否存在|
+|getFolderFiles|String path|Array<String>|获取指定文件夹下的所有文件名|
+|getFileSize|String path|int|获取指定文件的大小，以字节为单位|
+|deleteFile|String path|void|删除指定路径，可以是文件或文件夹|
+|doPathCreate|String path|void|创建一个文件夹|
+|isPathReadable|String path|boolean|路径指向的文件或文件夹是否可读|
+|isPathWritable|String path|boolean|路径指向的文件或文件夹是否可写|
+|copyFile|String fromPath,String toPath|void|把fromPath的文件复制到toPath|
+|interrupt|String info|void|强制中断当前函数运行并发出info作为原因提示，如果不在函数内部使用将直接中断整个插件运行|
+|downloadFromURL|String url,String saveDir,String saveName|void|把url下载到saveDir文件夹中，以saveName作为文件名保存|
+|runThread|String functionName,\<E+\> args|Thread|在新线程中执行名为functionName函数并同步返回这个线程|
+|requireMinVersion|String minVersion,String failMessage|void|检查bn解释器版本，如果太低停止运行并发出failMessage|
 
 ### algorithm基对象
 
@@ -156,7 +227,7 @@
 |buildBlock|int id,int data|Block-J|构建ID为id，数据值data的方块|
 |buildItem|int id,int data,int count|Item-J|构建ID为id，数据值为data，数量为count的物品堆|
 |buildItemFromBlock|Block-J block|Item-J|将方块转为物品|
-|getItemLore|Item-J item|String|获取物品item的lore(多行lore用";"连接)|
+|getItemLore|Item-J item|String|获取物品item的lore(多行lore用";"连接,"\\"可转义)|
 |addToCreativeBar|Item-J item|void|把物品堆添加到创造物品栏|
 |setItemLore|Item-J item,String str|void|设置物品item的lore为str(多行lore用";"连接)|
 |addShapelessCraft|Array<Item-J> i,Item-J o|void|添加无序合成,原料列表i,产物o|
@@ -164,7 +235,7 @@
 |addShapedCraft|Array<String> shape,Item-J output,Array<Item-J> append|void|添加有序合成(详见图形编辑器)|
 |addItemEnchant|Item-J item,int i,int l|void|给item添加ID为i,等级为l的附魔(可去wiki查找id)|
 |isSame|Item i1,Item i2,boolean d,boolean n|boolean|检测i1和i2是否相同(d是否毕竟数据值,n是否比较nbt,数量不会比较)|
-|addBNCraft|String t,String d,Arryat<Item-J> i,Array<Item-J> o,int de,double p|void|添加一个种类为t,描述为d,原材料为i,产物为o,合成用时de,成功率p(0-1)的bn高级合成|
+|addBNCraft|String t,String d,Array<Item-J> i,Array<Item-J> o,int de,double p|void|添加一个种类为t,描述为d,原材料为i,产物为o,合成用时de,成功率p(0-1)的bn高级合成|
 |openBNCraftForPlayer|String type, Player-J player|void|给玩家打开种类的type的合成高级合成ui|
 |PositionMove|Position pos,double x,double y,double z|void|让pos偏移xyz|
 |getNBTString|Item-J item|String|获取物品堆item的nbt字符串|
@@ -174,6 +245,8 @@
 |getEnchantLevel|Enchantment-J enc|int|获取附魔对象enc的附魔等级|
 |setItemColor|Item-J item,int r,int g,int b|void|设置物品item的自定义颜色|
 |setItemUnbreakable|Item item,boolean unbreakable|void|设置物品item是否不可破坏|
+|registerSolidBlock|int id,String name,double hardness,double resistance,int toolType,boolean isSilkTouchable,int dropMinExp,int dropMaxExp,int mineTier|void|注册固体方块，参数分别为方块id(只能覆写教育版方块)，方块名称，方块硬度，方块抗爆炸度，挖掘工具，是否受精准采集影响，最小掉落经验，最大掉落经验，挖掘等级，方块硬度越大挖掘时间越长，抗爆炸度越高越不容易被炸，挖掘工具0-无,1-剑,2-铲,3-镐,4-斧,5-剪刀，挖掘等级0-空手,1-木,2-金,3-石,4-铁,5-钻石|
+|registerSimpleItem|int id,String name|void|注册简单的物品堆，只能覆写教育版物品|
 
 ### database基对象
 |方法名|参数|返回值|解释|
@@ -181,6 +254,17 @@
 |databaseOpen|String url,String username,String password,String table|void|打开与sql服务器的连接|
 |databaseUpdate|String stt, Array<E+> objs|void|使用sql语句stt,语句参数为objs更新数据库|
 |databaseQuery|String stt,String col,Array<E+> objs|Array|使用sql语句stt,参数objs,查询第col列数据|
+|localStorage.cacheAll|void|void|本地存储管理器：从本地读取数据并缓存，增加运行时获取数据速度|
+|localStorage.cache|String key|String|本地存储管理器：从本地读取指定数据缓存并返回|
+|localStorage.setItem|String key,String item|void|本地存储管理器：设置指定key对应的数据为item|
+|localStorage.getItem|String key|String|本地存储管理器：获取指定key对应的数据|
+|localStorage.removeItem|String key|String|本地存储管理器：移除指定key对应的数据|
+|localStorage.getKeys|void|Array<String>|本地存储管理器：获取所有的key|
+|localStorage.save|void|void|本地存储管理器：强制立即保存数据，本身bn会每3秒检查并保存一次数据|
+|memoryStorage.setItem|String key,String item|void|内存共享存储管理器：设置指定key对应的数据为item|
+|memoryStorage.getItem|String key|String|内存共享存储管理器：获取指定key对应的数据|
+|memoryStorage.removeItem|String key|String|内存共享存储管理器：移除指定key对应的数据|
+|memoryStorage.getKeys|void|Array<String>|内存共享存储管理器：获取所有的key|
 
 ### entity基对象
 |方法名|参数|返回值|解释|
@@ -227,6 +311,11 @@
 |setPlayerHunger|Player player,int hunger|void|设置玩家饥饿度|
 |getPlayerHunger|Player-J player|int|获取玩家饥饿度|
 |makeSoundToPlayer|Player player,String sound|void|给指定玩家播放sound字符串对应的声音|
+|shootArrow|Position from,Position to|void|从from向to射击箭矢|
+|shootArrow|Position from,Position to,boolean canPickUp|void|从from向to射击箭矢,canPickUp是否能被捡起|
+|shootArrow|Position from,Position to,double multiply|void|从from向to射击箭矢,mutiply发射速度倍率,倍率越大,伤害越高|
+|shootArrow|Position from,Position to,boolean canPickUp,double multiply|void|从from向to射击箭矢,canPickUp是否能被捡起,mutiply发射速度倍率|
+|lookAt|Entity e,Position pos|void|让实体e看向pos处|
 
 ### inventory基对象
 |方法名|参数|返回值|解释|
@@ -267,6 +356,9 @@
 |setOceanGenerator|int seaHeight|void|设置海洋世界生成器海平面高度|
 |loadScreenTP|Player-J player,Position-J pos|void|把玩家传送到pos位置，传送时显示维度切换动画|
 |clearChunk|Position-J pos|void|清空pos所在的区块|
+|regenerateChunk|Position pos|void|重新生成pos所在的区块|
+|defineChunkRenderByName|String forLevel,String callback,int priority/void|void|forLevel是渲染器能够渲染的指定世界名称，callback是渲染器回调函数，priority是优先级，优先级越大先调用，不填默认为0|
+|drawPic|Position pos1,Position pos2,String img,int faceData|void|从pos1到pos2绘制img路径上的图片，faceData指定物品展示框的朝向，pos1和pos2必须在同一垂直面上|
 
 
 ### notemusic基对象
@@ -293,8 +385,8 @@
 ### window基对象
 |方法名|参数|返回值|解释|
 |-----|-----|-----|----|
-|updateAllScoreBoard|String title,String text|void|给所有玩家更新计分板信息,多行用\';\'连接|
-|updateOneScoreBoard|String title,String text,Player p|void|给玩家p更新计分板信息,多行用\';\'连接|
+|updateAllScoreBoard|String title,String text|void|给所有玩家更新计分板信息,多行用\';\'连接,"\\"可转义|
+|updateOneScoreBoard|String title,String text,Player p|void|给玩家p更新计分板信息,多行用\';\'连接,"\\"可转义|
 |getSimpleWindowBuilder|String title,String context|Simple-J|构建标题title,内容文字为context(非按钮)的简单窗口管理器|
 |getModalWindowBuilder|String title,String context|Modal-J|构建标题title,内容文字为context的对话框窗口管理器|
 |getCustomWindowBuilder|String title|Custom-J|构建标题title的高级窗口管理器|
@@ -302,15 +394,21 @@
 |getEventResponseModal|Event-J e|String|获取e中对话框点击的按钮文本|
 |getEventResponseIndex|Event-J e|int|获取e中简单窗口或对话框点击的按钮序号，从0开始|
 |getEventCustomVar|Event-J e,int id,String mode|String|获取e中高级窗口ID为id的mode(input,toggle,dropdown,slider,stepslider)元素的值|
-|setPlayerBossBar|Player-J player,String text,float len|void|设置玩家的boss血条文字和剩余血量百分比len(0-100)|
-|removePlayerBossBar|Player-J player|void|移除玩家的boss血条|
-|getLengthOfPlayerBossBar|Player-J player|double|获取玩家boss血条剩余血量百分比|
+|setPlayerBossBar|Player-J player,String text,float len|Array<int>|设置玩家的boss血条文字和剩余血量百分比len(0-100),text参数中使用;来添加多个bossbar|
+|removePlayerBossBar|Player-J player|void|移除玩家所有的boss血条|
+|removePlayerBossBar|Player-J player,int id|void|移除玩家指定id的boss血条|
+|getLengthOfPlayerBossBar|Player-J player|double|获取玩家最上方的boss血条剩余血量百分比|
+|getLengthOfPlayerBossBar|Player-J player,int id|double|获取玩家指定id的boss血条剩余血量百分比|
 |getTextOfPlayerBossBar|Player-J player|String|获取玩家boss血条的文字|
 |setBelowName|Player-J player,String str|void|设置玩家名字下方的计分板文字|
 |makeTipsVar|String varname,String provider|void|为tips提供一个变量，变量名为varname(要替换掉的字符串)，provider是回调函数名，tips显示时会调用这个函数，注入一个参数player玩家类型，然后返回值会作为被替换成的字符串|
 |makeTipsStatic|String varname,String toReplace|void|为tips提供一个静态变量，变量名为varname，要替换成的字符串为tpReplace|
 |forceClearWindow|Player-J player|void|强制关闭玩家客户端上面所有正在显示的物品栏和表单|
-|setPauseScreenList|String list|void|设置暂停界面右侧显示在线玩家区域的文字，用;分割多行|
+|setPauseScreenList|String list|void|设置暂停界面右侧显示在线玩家区域的文字，用;分割多行，用"\\"转义分号|
+|sendPlayerXboxInfo|Player from,Player to|void|向to玩家展示from玩家的xbox信息|
+|startEndPoem|Player player|void|让玩家屏幕上开始展示终末之诗|
+|setSwingStyle|String style|void|设置swing的样式，目前有：Darcula Intellij Metal Motif Multi Nimbus OS(系统样式)|
+|getStyledSwingWindow|String title,int width,int height,String iconPath|JFrame|根据之前设置的样式获取Swing窗口对象，iconPath为null或""将使用bnLOGO替代|
 
 ### particle基对象
 |方法名|参数|返回值|解释|
@@ -432,37 +530,83 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 ### windowbuilder三件套
 1.Custom
 - this setTitle(String title)
-- this showToPlayer(Player-J p, String callback)
-- this showToPlayerCallLambda(Player p, Function fun)
+- this showToPlayer(Player p)
+- this showToPlayer(Player p,boolean acceptClose)
+- this showToPlayer(Player p,String callbackFunctionName/F function)
+- this show(Player p)
+- this show(Player p,boolean accpetClose)
+- this show(Player p,String callbackFunctionName/F function)
+- this show(Player p,String callbackFunctionName/F function,boolean acceptClose)
+- this showToPlayer(Player p,String callbackFunctionName/F function,boolean acceptClose)
+- this showAsSetting(Player p, String callbackFunctionName/F function)
+- this showAsSetting(Player p, String imageURL, String callbackFunctionName/F function)
 - this buildLabel(String text)
+- this label(String text)
 - this buildInput(String title,String placeholder)
+- this input(String title,String placeholder)
 - this buildInput(String title,String placeholder,String defaulttext)
+- this input(String title,String placeholder,String defaulttext)
 - this buildToggle(String title)
-- this buildToggle(String title,boolean default)
+- this toggle(String title)
+- this buildToggle(String title,boolean open)
+- this toggle(String title,boolean open)
 - this buildDropdown(String title,String inner)
+- this dropdown(String title,String inner)
 - this buildDropdown(String title,String inner,int index)
-- this buildSlider(String title,double min,double max)
-- this buildSlider(String title,double min,double max,int step)
+- this dropdown(String title,String inner,int index)
 - this buildSlider(String title,double min,double max,int step,double defaultvalue)
+- this slider(String title,double min,double max,int step,double defaultvalue)
+- this buildSlider(String title,double min,double max,int step)
+- this slider(String title,double min,double max,int step)
+- this buildSlider(String title,double min,double max)
+- this slider(String title,double min,double max)
 - this buildStepSlider(String title,String options)
+- this stepSlider(String title,String options)
+- this stepslider(String title,String options)
 - this buildStepSlider(String title,String options,int index)
-- this showAsSetting(Player p, String callback)
-- this showAsSetting(Player p, String img, String callback)
+- this stepSlider(String title,String options,int index)
+- this stepslider(String title,String options,int index)
+- this setAction(String callbackFunctionName/F function)
+- this action(String callbackFunctionName/F function)
 
-2.Modal-J
+2.Modal
 - this setTitle(String title)
+- this title(String title)
 - this setContext(String context)
+- this context(String context)
 - this setButton1(String text)
 - this setButton2(String text)
-- this showToPlayer(Player-J p, String callback)
-- this showToPlayerCallLambda(Player p, Function fun)
+- this button1(String text)
+- this button2(String text)
+- this setAction(String callbackFunctionName/F function)
+- this action(String callbackFunctionName/F function)
+- this showToPlayer(Player p)
+- this showToPlayer(Player p,boolean acceptClose)
+- this showToPlayer(Player p,String callbackFunctionName/F function)
+- this showToPlayer(Player p,String callbackFunctionName/F function,boolean acceptClose)
+- this show(Player p)
+- this show(Player p,boolean accpetClose)
+- this show(Player p,String callbackFunctionName/F function)
+- this show(Player p,String callbackFunctionName/F function,boolean acceptClose)
 
-3.Simple-J
-- this setTitle(String title)
-- this setContext(String context)
+3.Simple
 - this buildButton(String text,String img)
-- this showToPlayer(Player-J p,String callback)
-- this showToPlayerCallLambda(Player p, Function fun)
+- this button(String text,String img)
+- this button(String text)
+- this setAction(String actionFunctionName/F function)
+- this action(String actionFunctionName/F function)
+- this setTitle(String title)
+- this title(String title)
+- this setContext(String context)
+- this context(String context)
+- this showToPlayer(Player p)
+- this showToPlayer(Player p,boolean acceptClose)
+- this showToPlayer(Player p,String callbackFunctionName/F function)
+- this showToPlayer(Player p,String callbackFunctionName/F function,boolean acceptClose)
+- this show(Player p)
+- this show(Player p,boolean accpetClose)
+- this show(Player p,String callbackFunctionName/F function)
+- this show(Player p,String callbackFunctionName/F function,boolean acceptClose)
 
 ### logger常用招式
 - void info(String s)
@@ -505,6 +649,18 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |isEntityRideOn|Entity entity|boolean|获取实体是否骑在npc上面|
 |setEntityRideOff|Entity entity|void|让实体entity从npc上面下来|
 |getRidingPlayer|void|Player|获取骑在npc上面的玩家|
+|addExtraDropItem|Item item|void|为bnnpc添加死亡时额外的掉落物|
+|hasDropItem|Item item|boolean|获取bnnpc死亡是是否会额外掉落此物品|
+|removeExtraDropItem|Item item|void|为bnnpc移除死亡时指定额外的掉落物|
+|getExtraDropItems|void|Array<Item>|获取bnnpc死亡时的额外掉落物|
+|getDropItems|void|Array<Item>|获取当前bnnpc死亡时的所有掉落物|
+|setDropHand|boolean drop/void|void|设置是否死亡时掉落手中物品，参数不填时默认为true|
+|setDropOffhand|boolean drop/void|void|设置是否死亡时掉落副手物品，参数不填时默认为true|
+|addDropSlot|int slot|void|指定背包槽位死亡时掉落|
+|getDropSlots|void|Array<int>|获取所有死亡时掉落的背包槽位|
+|removeDropSlot|int slot|void|移除死亡时掉落的背包槽位|
+|doEmote|String action/void|void|让npc执行指定的表情动作,action可以是 Wave Punch Clap OverThere Hammer Fall Diamond Pickaxe,也可以填写对应的中文 挥手 拳击 鼓掌 在那 锤子 摔倒 钻石,不填的话将上面的动作中任选一个|
+|directMove|Position to|boolean|bnnpc直线移动到某处|
 
 例子：（在world,128,64,128处生成一个yj皮肤的npc，并且使得它可以被攻击）
 1. 准备：
@@ -524,6 +680,71 @@ npc.setEnableHurt(true)
 ~~~
 npc.start()
 ~~~
+
+### bn插件与java联合开发
+
+可以通过导出标记将bn插件中的函数导出到全局环境中，然后即可使用java来快速调用bn插件
+命令exportdevjar <BN插件名>将可以导出bn插件中的函数头到一个jar包里面便于开发
+
+javascript:
+```javascript
+export function MyFun(arg1,arg2,arg3){}
+```
+
+python:
+```python
+@export
+def MyFun(arg1,arg2,arg3):
+    pass
+```
+
+lua:
+```lua
+function BlockPlaceEvent(ent)-->export
+
+end
+```
+
+php:
+```php
+static function PlayerJoinEvent($event){
+    
+}
+```
+
+### C/C++开发
+
+C/C++
+
+更新了基于webassembly技术栈的C/C++插件编写支持，可以调用bn基对象。
+可以直接调用java并于java进行交互，一次编译，处处运行，支持windows linux macos
+详细教程请看：[bn教程库-C/C++插件开发](http://www.blocklynukkit.info/2105692)
+
+### bn插件包功能
+
+bn插件包功能可以将多个互相具有依赖关系的插件文件以及附属的资源文件打成一个包，这样分发的时候只需分发一个文件即可，打成的插件包文件也可以继续打包为`jar`文件。  
+bn插件包有两种格式，一种是`.bnp`文件，另一种是`.bnpx`文件，`.bnp`文件是单纯把各个插件文件和资源文件拼凑起来，而`.bnpx`是把它们压缩并归档成的文件，只有`.bnp`文件能继续达成`jar`包。
+
+打包需要使用bn提供的`bnp`命令，`bnp build 构建清单路径`即可构建一个bn插件包。
+
+makefile是一个json格式的包配置文件，由name,compress,plugins三个字段组成，其中：
+
+- name为打包的插件包的名字(字符串)
+- compress为是否打出压缩插件包(boolean)
+- plugins是一个字符串数组，里面标注要打进包中的bn插件的路径，加载时从上到下加载，也可以打进去json yml xml txt格式的资源文件，资源文件将会被按顺序解压到打包时与nk核心的相对位置解压。
+
+示例：
+```
+{
+	"name":"demo",
+	"compress":false,
+	"plugins":[
+		"./plugins/BlocklyNukkit/mod.py",
+		"./plugins/BlocklyNukkit/test.lua"
+	]
+}
+```
+
 
 
 ## 事件回调函数
