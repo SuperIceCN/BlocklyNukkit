@@ -48,8 +48,8 @@
 				}else if(f.name.indexOf("-")!=-1){
 					mdui.alert("您选择的文件名含有非法字符！这会导致编译系统错误，请改文件名后重新选择！","选择失败");
 					f=null;
-				}else if(f.size>=1024*128){
-					mdui.alert('您选择的文件大小'+(f.size/1024).toFixed(2)+"KB,文件大小限制128KB以内！", '选择失败');
+				}else if(f.size>=1024*1024){
+					mdui.alert('您选择的文件大小'+(f.size/1024).toFixed(2)+"KB,文件大小限制1024KB以内！", '选择失败');
 					f=null;
 				}else{
 					document.getElementById("uploadbtn").innerHTML=f.name+" "+(f.size/1024).toFixed(2)+"KB";
@@ -136,11 +136,11 @@
 					  <div class="mdui-panel-item">
 					    <div class="mdui-panel-item-header"><i class="mdui-icon material-icons">&#xe24d;</i> 源文件</div>
 					    <div class="mdui-panel-item-body">
-					      <p>文件限制格式: .js / .py / .lua</p>
+					      <p>文件限制格式: .js / .py / .lua / .php / .bnp</p>
 					      <p>文件限制编码: utf-8</p>
-					      <p>文件限制大小: 128KB</p>
+					      <p>文件限制大小: 1024KB</p>
 						  <button class="mdui-btn mdui-color-theme-accent mdui-ripple" onclick="clicksefile()" id="uploadbtn">选择上传文件</button>
-						  <input type="file" style="visibility: hidden;" accept=".js,.py,.lua" id="sefile" onchange="changefile()"></input>
+						  <input type="file" style="visibility: hidden;" accept=".js,.py,.lua,php,bnp" id="sefile" onchange="changefile()"></input>
 					    </div>
 					  </div>
 					  
