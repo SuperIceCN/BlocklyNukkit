@@ -1046,7 +1046,6 @@
 		<script>
 			window.setInterval("checkbaseobj()",5000)
 			
-			/* TODO: Change toolbox XML ID if necessary. Can export toolbox XML from Workspace Factory. */
 			var toolbox = document.getElementById("toolbox");
 			
 			var options = { 
@@ -1074,20 +1073,15 @@
 				}
 			};
 			
-			/* Inject your workspace */ 
 			var workspace = Blockly.inject('blocklyDiv', options);
 			
-			/* Load Workspace Blocks from XML to workspace. Remove all code below if no blocks to load */
-			
-			/* TODO: Change workspace blocks XML ID if necessary. Can export workspace blocks XML from Workspace Factory. */
 			var workspaceBlocks = document.getElementById("workspaceBlocks"); 
 			
-			/* Load blocks to workspace. */
 			Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
-			//
+			
 			window.setTimeout(BlocklyStorage.restoreBlocks, 0);
 			BlocklyStorage.backupOnUnload();
-			//
+
 			function myUpdateFunction(event) {
 			  var code = Blockly.JavaScript.workspaceToCode(workspace);
 			  document.getElementById('jspreview').innerHTML = code;
@@ -1107,7 +1101,6 @@
 				  }
 			  }
 			}
-			
 		</script>
 		<script>
 		var jsnum1;

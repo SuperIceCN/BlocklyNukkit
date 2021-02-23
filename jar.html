@@ -41,16 +41,16 @@
 				}
 				if(isChinese(f.name)){
 					mdui.alert("您选择的文件名含有中文！这会导致编译系统错误，请改文件名后重新选择！","选择失败");
-					f=null;
+					f=null;document.getElementById("sefile").files=[];
 				}else if(numstart(f.name)){
 					mdui.alert("您选择的文件名以数字开头！这会导致编译系统错误，请改文件名后重新选择！","选择失败");
-					f=null;
+					f=null;document.getElementById("sefile").files=[];
 				}else if(f.name.indexOf("-")!=-1){
 					mdui.alert("您选择的文件名含有非法字符！这会导致编译系统错误，请改文件名后重新选择！","选择失败");
-					f=null;
+					f=null;document.getElementById("sefile").files=[];
 				}else if(f.size>=1024*1024){
 					mdui.alert('您选择的文件大小'+(f.size/1024).toFixed(2)+"KB,文件大小限制1024KB以内！", '选择失败');
-					f=null;
+					f=null;document.getElementById("sefile").files=[];
 				}else{
 					document.getElementById("uploadbtn").innerHTML=f.name+" "+(f.size/1024).toFixed(2)+"KB";
 					changed=true;
