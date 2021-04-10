@@ -8,9 +8,9 @@
 
 |对象名|解释|
 |------|---|
-|server|服务器对象<Server-J>|
-|plugin|blocklynukkit自身<Plugin-J>|
-|logger|控制台输出器实例<PluginLogger-J>|
+|server|服务器对象<Server>|
+|plugin|blocklynukkit自身<Plugin>|
+|logger|控制台输出器实例<PluginLogger>|
 |\_\_NAME\_\_|插件的名称，指代字符串<String>|
 
 
@@ -43,6 +43,13 @@
 |函数名|参数|返回值|解释|
 |-|-|-|-|
 |F|匿名函数或闭包|参数的函数名|用于把匿名函数或者闭包传入BNAPI中需要填写回调函数名的地方使用|
+
+
+#### **js专用**
+
+|函数名|参数|返回值|解释|
+|-|-|-|-|
+|require|String java类名、其他插件的模块名或文件名|java类对象、其他插件的导出模块|用于从js调用java或者调用其他bn插件|
 
 
 #### PHP模块一览  
@@ -97,48 +104,48 @@
 > 注:   
 > \<E\> 指泛型，可以被替换为Number,String,Boolean,Position,Player,Block,Item  
 > \<E+\> 指完全泛型，所有类型都可以  
-> 带有-J的类型指Java对象，可以在js中直接使用java对象的成员函数  
 > 带有-C的类型指Java类，可以直接new一个java对象在js中使用，也可以世界使用static的java类成员函数  
-> Array<*>代表一个都是\*类型的元素组成的数组,由于js与java的互操作问题,传参需要把js数组转换为java对象,比如向函数传入Array<Item-J>类型的参数需要使用Java.to(array,\'cn.nukkit.item.Item[]\')转换后才能传入,具体用法参见图形编辑器自动生成的代码  
+> Array<*>代表一个都是\*类型的元素组成的数组,由于js与java的互操作问题,传参需要把js数组转换为java对象,比如向函数传入Array<Item>类型的参数需要使用Java.to(array,\'cn.nukkit.item.Item[]\')转换后才能传入,具体用法参见图形编辑器自动生成的代码  
 
 
 ### manager基对象  
 
 |方法名|参数|返回值|解释|
 |-----|-----|-----|----|
-|getFile|String dir,String filename|File-J|获取bn目录下dir文件夹的filename文件(可为不存在文件)|
+|getFile|String dir,String filename|File|获取bn目录下dir文件夹的filename文件(可为不存在文件)|
 |time|int second|String|将秒数转为时:分:秒字符串|
-|createConfig|File-J file,int type|Config-J|在虚拟文件file处构建种类type(yaml==2)的配置文件|
+|createConfig|File file,int type|Config|在虚拟文件file处构建种类type(yaml==2)的配置文件|
 |createCommand|String name,String des,String call|void|创建名称为name,描述为des的命令，回调函数的函数名为call|
 |createCommand|String name,String des,String call,String per|void|同上，但是仅限有per权限的玩家可用|
 |addCommandCompleter|String cmd,String id,String completer|void|创建命令补全器，将被发送给玩家用作命令提示和tab补全,cmd为要添加给的命令的名称，id为补全器标识符，随意只要不重复即可，completer是补全器内容|
-|createTask|String functionName, int delay, \<E+\>... args|TaskHandler-J|延迟dalay刻调用函数名functionName的函数(不会阻塞),args是在调用函数时向函数传递的参数，可没有|
-|createLoopTask|String functionName, int delay, \<E+\>... args|TaskHandler-J|每dalay刻重复调用函数名functionNmae的函数,args是在调用函数时向函数传递的参数，可没有|
-|getTaskId|TaskHandler-J handler|int|获取handler的任务id|
+|createTask|String functionName, int delay, \<E+\>... args|TaskHandler|延迟dalay刻调用函数名functionName的函数(不会阻塞),args是在调用函数时向函数传递的参数，可没有|
+|createLoopTask|String functionName, int delay, \<E+\>... args|TaskHandler|每dalay刻重复调用函数名functionNmae的函数,args是在调用函数时向函数传递的参数，可没有|
+|getTaskId|TaskHandler handler|int|获取handler的任务id|
 |cancelTask|int id|void|取消任务ID为id的任务|
-|getPlugin|String name|Plugin-J|获取注册名称为name的插件对象|
-|plugin|void|Plugin-J|获取plugin基对象(有点多余)|
-|buildskin|Player-J player,String skin|void|将玩家的皮肤设置为BlocklyNukkit/skin文件夹下的同名皮肤(自动识别4D)|
-|buildskinfor|Player-J player,String skin,Player to|void|同上，但只展示给to玩家|
-|getMoney|Player-J/String player|double|获取玩家player金钱(EconomyAPI)|
-|reduceMoney|Player-J/String player,double money|void|给玩家减去money金钱(可减为负数)|
-|addMoney|Player-J/String player,double money|void|给玩家加上money金钱|
-|setMoney|Player-J/String player,double money|void|设置玩家的金钱为money|
-|getAllKeyInConfig|Config-J config|Array|获取config配置文件的所有键|
+|getPlugin|String name|Plugin|获取注册名称为name的插件对象|
+|plugin|void|Plugin|获取plugin基对象(有点多余)|
+|buildskin|Player player,String skin|void|将玩家的皮肤设置为BlocklyNukkit/skin文件夹下的同名皮肤(自动识别4D)|
+|buildskinfor|Player player,String skin,Player to|void|同上，但只展示给to玩家|
+|getMoney|Player/String player|double|获取玩家player金钱(EconomyAPI)|
+|reduceMoney|Player/String player,double money|void|给玩家减去money金钱(可减为负数)|
+|addMoney|Player/String player,double money|void|给玩家加上money金钱|
+|setMoney|Player/String player,double money|void|设置玩家的金钱为money|
+|getAllKeyInConfig|Config config|Array|获取config配置文件的所有键|
 |putEasy|String string,\<E\> val|void|存入临时存储->键string,值为泛型val|
 |getEasy\<E\>|String string|\<E\>|获取临时存储->键string|
 |setPrivateCall|String event,String callname|void|将event事件回调在本插件映射到callname函数|
-|PlayerIsOP|Player-J player|boolean|获取player是否是op|
-|getPlayerGameMode|Player-J player|int|获取玩家的游戏模式id(0-生存 1-创造 2-冒险 3-观察者)|
-|kickPlayer|Player-J player,String reason|void|踢出玩家player并发送踢出原因reason|
+|PlayerIsOP|Player player|boolean|获取player是否是op|
+|getPlayerGameMode|Player player|int|获取玩家的游戏模式id(0-生存 1-创造 2-冒险 3-观察者)|
+|kickPlayer|Player player,String reason|void|踢出玩家player并发送踢出原因reason|
 |setHTMLPlaceholder|String key,String value|void|设置速建官网功能的自定义placeholder|
-|getPlayerArea|Player-J player|String|获取玩家的地理位置字符串|
-|checkIsBear|Player-J player|String|使用BlackBE云黑检查玩家是否为熊孩子|
-|buildvec3|double x,double y,double z|Vector3-J|从xyz构建三维向量|
+|getPlayerArea|Player player|String|获取玩家的地理位置字符串|
+|checkIsBear|Player player|String|使用BlackBE云黑检查玩家是否为熊孩子|
+|buildvec3|double x,double y,double z|Vector3|从xyz构建三维向量|
 |httpRequest|String method,String url,String data|String|发送method(GET/POST)类型的http请求并获取返回值|
 |callFunction|String fun,\<E+\> args...|<E>|调用函数名为fun的函数并获取返回值(直接写函数名调用所有插件中同名的函数,可以在开头加入xxx.js::函数名这样指定调用xxx.js下面的函数),注入参数为args,args参数不限类型,不限数量(0-1024),但是需要保证和被调用的函数参数一致|
 |readFile|String path|String|以文本格式自适应编码读取path路径的文件返回字符串内容|
 |writeFile|String path,String text|void|向path路径的文件(不存在自动创建)以utf8编码写入text|
+|appendFile|String path,String text|void|向path路径的文件以utf-8编码追加写入文件内容|
 |isFileSame|String p1,String p2|boolean|比较p1路径和p2路径的文件是否相同|
 |JSONtoYAML|String json|String|将json字符串转为yaml字符串|
 |YAMLtoJSON|String yaml|String|将yaml字符串转为json字符串|
@@ -163,8 +170,8 @@
 |getCPUCores|void|int|获取服务器核心数量|
 |getMemoryTotalSizeMB|void|double|获取服务器总内存|
 |getMemoryUsedSizeMB|void|double|获取服务器已用内存|
-|forceDisconnect|Player-J player|void|立即让服务器停止响应player的数据，玩家会以为自己网卡了|
-|getEventFunctions|Event-J event|Array\<String\>|获取event事件可用的成员函数名称|
+|forceDisconnect|Player player|void|立即让服务器停止响应player的数据，玩家会以为自己网卡了|
+|getEventFunctions|Event event|Array\<String\>|获取event事件可用的成员函数名称|
 |qq.startBot|void|void|启动qq机器人进程|
 |qq.stopBot|void|void|停止qq机器人进程|
 |qq.reDirectBot|String ip|void|将机器人重定向到指定ip地址，并使用那台电脑的小栗子qq机器人框架。要求目标电脑开放8404-TCP端口，并且在小栗子的tcpapi插件中允许远程控制|
@@ -198,65 +205,74 @@
 |copyFile|String fromPath,String toPath|void|把fromPath的文件复制到toPath|
 |interrupt|String info|void|强制中断当前函数运行并发出info作为原因提示，如果不在函数内部使用将直接中断整个插件运行|
 |downloadFromURL|String url,String saveDir,String saveName|void|把url下载到saveDir文件夹中，以saveName作为文件名保存|
-|runThread|String functionName,\<E+\> args|Thread|在新线程中执行名为functionName函数并同步返回这个线程|
+|runThread|String functionName,\<E+> args|Thread|在新线程中执行名为functionName函数并同步返回这个线程|
 |requireMinVersion|String minVersion,String failMessage|void|检查bn解释器版本，如果太低停止运行并发出failMessage|
+|removeCommand|String name|void|移除名为name的命令|
+|syncCallFunction|String functionName,\<E+>... args|\<E>|强制在主线程同步调用函数并获取返回值|
+|jvmGC|void|void|垃圾回收，释放无用内存|
+|getPlayerDeviceOS|Player player|String|获取玩家的设备的操作系统名称|
+|createHttpServer|int port|boolean|在指定端口上创建http服务器|
+|startHttpServer|int port|void|启动指定端口上已经创建了的http服务器|
+|attachHandlerToHttpServer|int port,String path,String functionName|boolean|在指定端口的http服务器上绑定请求处理器，当请求path路径时该处理器被调用，路径指去掉域名和端口后面，?的前面的部分，以/开头，返回是否绑定成功|
 
 
 ### algorithm基对象  
 
 |方法名|参数|返回值|解释|
 |-----|-----|-----|----|
-|buildPositionfromPlayer|Player-J p|Position-J|获取玩家p的位置|
-|buildPositionfromBlock|Block-J b|Position-J|获取方块b的位置|
-|buildPositionfromEntity|Entity-J e|Position-J|获取实体e的位置|
-|forEachBlockInArea|Position-J a, Position-J b,boolean isair,String callback|void|为位置a到位置b的每一个isair包括空气的方块回调函数名callback函数(注入参数一个:Block-J b,当前方块)|
-|forLinkedBlock|Position-J a,String callback|void|对于位置a相邻的所有同种方块的位置调用函数名callback函数(注入参数一个:Position-J p,当前位置)|
+|buildPositionfromPlayer|Player p|Position|获取玩家p的位置|
+|buildPositionfromBlock|Block b|Position|获取方块b的位置|
+|buildPositionfromEntity|Entity e|Position|获取实体e的位置|
+|forEachBlockInArea|Position a, Position b,boolean isair,String callback|void|为位置a到位置b的每一个isair包括空气的方块回调函数名callback函数(注入参数一个:Block b,当前方块)|
+|forLinkedBlock|Position a,String callback|void|对于位置a相邻的所有同种方块的位置调用函数名callback函数(注入参数一个:Position p,当前位置)|
+|buildPosition|double x,double y,double z,Level level|Position|从xyz和世界构建坐标对象|
 
 
 ### blockitem基对象  
 
 |方法名|参数|返回值|解释|
 |-----|-----|-----|----|
-|makeSound|Position-J pos,String s|void|在位置pos播放s对应的声音(跟原版命令类似,点击进入[声音列表](https://ci.opencollab.dev/job/NukkitX/job/Nukkit/job/master/javadoc/cn/nukkit/level/Sound.html))|
-|makeExpBall|Position-J pos,int exp|void|在位置pos生成包含exp点经验值的经验球|
-|makeDropItem|Position-J pos,Item-J i|void|在位置pos生成与i相同的物品堆|
-|getBlock|Position-J pos|Block-J|获取位置pos的方块|
-|getLevelEntities|Position-J pos|Array|获取位置所在世界的实体列表|
-|getLevelPlayers|Position-J pos|Array|获取位置所在世界的玩家列表|
-|getIsSunny|Position-J pos|boolean|获取位置所在世界是否为晴天|
-|setLevelWeather|Position-J p,String m|void|设置p所在世界天气为m("clear","thunder","rain")|
-|isDay|Position-J pos|boolean|获取pos所在世界是否为白天|
-|setBlock|Position-J p,Block-J b,boolean par|void|设置p处方块为b,par指定是否生成破坏粒子|
-|getItemInHand|Player-J p|Item-J|获取玩家p手中的物品堆|
-|setItemInHand|Player-J p,Item-J i|void|设置玩家p手上的物品为i|
-|addItemToPlayer|Player-J p,Item-J i|void|向玩家p背包添加物品i|
-|hasItemToPlayer|Player-J p,Item-J i|boolean|检查玩家p是否有物品i|
-|removeItemToPlayer|Player-J p,Item-J i|void|移除玩家p背包里的物品i|
-|getDropItems|Position-J pos|Array|获取pos所在世界的掉落物实体数组|
-|getLevelName|Level-J l|String|获取世界l的的名称|
-|buildBlock|int id,int data|Block-J|构建ID为id，数据值data的方块|
-|buildItem|int id,int data,int count|Item-J|构建ID为id，数据值为data，数量为count的物品堆|
-|buildItemFromBlock|Block-J block|Item-J|将方块转为物品|
-|getItemLore|Item-J item|String|获取物品item的lore(多行lore用";"连接,"\\"可转义)|
-|addToCreativeBar|Item-J item|void|把物品堆添加到创造物品栏|
-|setItemLore|Item-J item,String str|void|设置物品item的lore为str(多行lore用";"连接)|
-|addShapelessCraft|Array<Item-J> i,Item-J o|void|添加无序合成,原料列表i,产物o|
-|addFurnaceCraft|Item-J i,Item-J o|void|添加熔炉配方,原料i,产物o|
-|addShapedCraft|Array<String> shape,Item-J output,Array<Item-J> append|void|添加有序合成(详见图形编辑器)|
-|addItemEnchant|Item-J item,int i,int l|void|给item添加ID为i,等级为l的附魔(可去wiki查找id)|
+|makeSound|Position pos,String s|void|在位置pos播放s对应的声音(跟原版命令类似,点击进入[声音列表](https://ci.opencollab.dev/job/NukkitX/job/Nukkit/job/master/javadoc/cn/nukkit/level/Sound.html))|
+|makeExpBall|Position pos,int exp|void|在位置pos生成包含exp点经验值的经验球|
+|makeDropItem|Position pos,Item i|void|在位置pos生成与i相同的物品堆|
+|getBlock|Position pos|Block|获取位置pos的方块|
+|getLevelEntities|Position pos|Array|获取位置所在世界的实体列表|
+|getLevelPlayers|Position pos|Array|获取位置所在世界的玩家列表|
+|getIsSunny|Position pos|boolean|获取位置所在世界是否为晴天|
+|setLevelWeather|Position p,String m|void|设置p所在世界天气为m("clear","thunder","rain")|
+|isDay|Position pos|boolean|获取pos所在世界是否为白天|
+|setBlock|Position p,Block b,boolean par|void|设置p处方块为b,par指定是否生成破坏粒子|
+|getItemInHand|Player p|Item|获取玩家p手中的物品堆|
+|setItemInHand|Player p,Item i|void|设置玩家p手上的物品为i|
+|addItemToPlayer|Player p,Item i|void|向玩家p背包添加物品i|
+|hasItemToPlayer|Player p,Item i|boolean|检查玩家p是否有物品i|
+|removeItemToPlayer|Player p,Item i|void|移除玩家p背包里的物品i|
+|getDropItems|Position pos|Array|获取pos所在世界的掉落物实体数组|
+|getLevelName|Level l|String|获取世界l的的名称|
+|buildBlock|int id,int data|Block|构建ID为id，数据值data的方块|
+|buildItem|int id,int data,int count|Item|构建ID为id，数据值为data，数量为count的物品堆|
+|buildItemFromBlock|Block block|Item|将方块转为物品|
+|getItemLore|Item item|String|获取物品item的lore(多行lore用";"连接,"\\"可转义)|
+|addToCreativeBar|Item item|void|把物品堆添加到创造物品栏|
+|setItemLore|Item item,String str|void|设置物品item的lore为str(多行lore用";"连接)|
+|addShapelessCraft|Array<Item> i,Item o|void|添加无序合成,原料列表i,产物o|
+|addFurnaceCraft|Item i,Item o|void|添加熔炉配方,原料i,产物o|
+|addShapedCraft|Array<String> shape,Item output,Array<Item> append|void|添加有序合成(详见图形编辑器)|
+|addItemEnchant|Item item,int i,int l|void|给item添加ID为i,等级为l的附魔(可去wiki查找id)|
 |isSame|Item i1,Item i2,boolean d,boolean n|boolean|检测i1和i2是否相同(d是否毕竟数据值,n是否比较nbt,数量不会比较)|
-|addBNCraft|String t,String d,Array<Item-J> i,Array<Item-J> o,int de,double p|void|添加一个种类为t,描述为d,原材料为i,产物为o,合成用时de,成功率p(0-1)的bn高级合成|
-|openBNCraftForPlayer|String type, Player-J player|void|给玩家打开种类的type的合成高级合成ui|
+|addBNCraft|String t,String d,Array<Item> i,Array<Item> o,int de,double p|void|添加一个种类为t,描述为d,原材料为i,产物为o,合成用时de,成功率p(0-1)的bn高级合成|
+|openBNCraftForPlayer|String type, Player player|void|给玩家打开种类的type的合成高级合成ui|
 |PositionMove|Position pos,double x,double y,double z|void|让pos偏移xyz|
-|getNBTString|Item-J item|String|获取物品堆item的nbt字符串|
-|putinNBTString|Item-J item,String nbt|void|向item注入NBT字符串nbt|
-|getItemEnchant|Item-J item|Array<Enchantment-J>|获取item的附魔列表|
-|getEnchantID|Enchantment-J enc|int|获取附魔对象enc的附魔id|
-|getEnchantLevel|Enchantment-J enc|int|获取附魔对象enc的附魔等级|
-|setItemColor|Item-J item,int r,int g,int b|void|设置物品item的自定义颜色|
+|getNBTString|Item item|String|获取物品堆item的nbt字符串|
+|putinNBTString|Item item,String nbt|void|向item注入NBT字符串nbt|
+|getItemEnchant|Item item|Array<Enchantment>|获取item的附魔列表|
+|getEnchantID|Enchantment enc|int|获取附魔对象enc的附魔id|
+|getEnchantLevel|Enchantment enc|int|获取附魔对象enc的附魔等级|
+|setItemColor|Item item,int r,int g,int b|void|设置物品item的自定义颜色|
 |setItemUnbreakable|Item item,boolean unbreakable|void|设置物品item是否不可破坏|
 |registerSolidBlock|int id,String name,double hardness,double resistance,int toolType,boolean isSilkTouchable,int dropMinExp,int dropMaxExp,int mineTier|void|注册固体方块，参数分别为方块id(只能覆写教育版方块)，方块名称，方块硬度，方块抗爆炸度，挖掘工具，是否受精准采集影响，最小掉落经验，最大掉落经验，挖掘等级，方块硬度越大挖掘时间越长，抗爆炸度越高越不容易被炸，挖掘工具0-无,1-剑,2-铲,3-镐,4-斧,5-剪刀，挖掘等级0-空手,1-木,2-金,3-石,4-铁,5-钻石|
 |registerSimpleItem|int id,String name|void|注册简单的物品堆，只能覆写教育版物品|
+|addFishingResult|String type,Item item,double chance|void|添加钓鱼产物，type为新增产物种类，item是产物物品，changce是概率权重，type可以取TREASURES;宝藏;JUNKS;垃圾;FISHES;鱼类，中英文皆可|
 
 
 ### database基对象  
@@ -283,84 +299,93 @@
 
 |方法名|参数|返回值|解释|
 |-----|-----|-----|----|
-|getDropItemStack|EntityItem-J/Entity-J e|Item-J|获取掉落物实体e的物品堆|
-|removeEntity|Entity-J e|void|移除生物e|
-|setEntityName|Entity-J e,String name|void|设置e的名称为name|
-|setEntityNameTagAlwaysVisable|Entity-J e,boolean b|void|设置e的名称是否一直高亮|
-|setEntityHealth|Entity-J e,float h|void|设置e的血量为h|
-|setEntityMaxHealth|Entity-J e,float h|void|设置e的血量上限为h|
-|getEntityHealth|Entity-J e|float|获取e的血量|
-|getEntityMaxHealth|Entity-J e|float|获取e的血量上限|
-|clearEntityEffect|Entity-J entity|void|清空entity的所有药水效果|
-|addEntityEffect|Entity-J entity,int id,int level,int tick|void|给entity添加药水ID为id等级为level，持续时间为tick的药水效果|
-|addEntityEffect|Entity-J entity,int id,int level,int tick,int r,int g,int b|void|同上，不同是还会显示rgb颜色的药水气泡，解释器自动根据参数数量判断函数|
-|getEntityID|Entity-J entity|String|获取entity的实体标志id|
-|getEntityByLevelAndID|Level-J level,String id|Entity-J|获取世界level中标志为id的实体，没有则返回空(null)|
-|getEntityLevel|Entity-J entity|Level-J|获取entity所在的世界|
-|getEntityName|Entity-J entity|String|获取entity的名字|
-|getEntityPosition|Entity-J entity|Position-J|获取实体位置|
-|setEntityPosition|Entity-J entity,Position-J pos|void|设置实体位置|
-|buildFloatingText|String text,Position-J pos,int tick,String callback|Entity-J|构建文字为text位置为pos的浮空字实体,并每tick刻回调一次callback函数,注入参数entity(浮空字实体)|
-|startDisplayFloatingText|Entity-J entity|void|启动浮空字实体的显示(entity必须是构建的浮空字实体！)|
-|getLevelFloatingText|Level-J level|Array<Entity>|获取世界level的所有浮空字实体列表|
-|getEntityEffect|Entity-J entity|Array<Effect>|获取实体entity的全部药水效果列表|
-|getEffectLevel|Effect-J effect|int|获取effect药水效果的等级|
-|getEffectID|Effect-J effect|int|获取effect的药水id(前往mcwiki查看id表)|
-|getEffectTime|Effect-J effect|int|获取effect药水效果剩余持续的时间|
+|getDropItemStack|EntityItem/Entity e|Item|获取掉落物实体e的物品堆|
+|removeEntity|Entity e|void|移除生物e|
+|setEntityName|Entity e,String name|void|设置e的名称为name|
+|setEntityNameTagAlwaysVisable|Entity e,boolean b|void|设置e的名称是否一直高亮|
+|setEntityHealth|Entity e,float h|void|设置e的血量为h|
+|setEntityMaxHealth|Entity e,float h|void|设置e的血量上限为h|
+|getEntityHealth|Entity e|float|获取e的血量|
+|getEntityMaxHealth|Entity e|float|获取e的血量上限|
+|clearEntityEffect|Entity entity|void|清空entity的所有药水效果|
+|addEntityEffect|Entity entity,int id,int level,int tick|void|给entity添加药水ID为id等级为level，持续时间为tick的药水效果|
+|addEntityEffect|Entity entity,int id,int level,int tick,int r,int g,int b|void|同上，不同是还会显示rgb颜色的药水气泡，解释器自动根据参数数量判断函数|
+|getEntityID|Entity entity|String|获取entity的实体标志id|
+|getEntityByLevelAndID|Level level,String id|Entity|获取世界level中标志为id的实体，没有则返回空(null)|
+|getEntityLevel|Entity entity|Level|获取entity所在的世界|
+|getEntityName|Entity entity|String|获取entity的名字|
+|getEntityPosition|Entity entity|Position|获取实体位置|
+|setEntityPosition|Entity entity,Position pos|void|设置实体位置|
+|buildFloatingText|String text,Position pos,int tick,String callback|Entity|构建文字为text位置为pos的浮空字实体,并每tick刻回调一次callback函数,注入参数entity(浮空字实体)|
+|startDisplayFloatingText|Entity entity|void|启动浮空字实体的显示(entity必须是构建的浮空字实体！)|
+|getLevelFloatingText|Level level|Array<Entity>|获取世界level的所有浮空字实体列表|
+|getEntityEffect|Entity entity|Array<Effect>|获取实体entity的全部药水效果列表|
+|getEffectLevel|Effect effect|int|获取effect药水效果的等级|
+|getEffectID|Effect effect|int|获取effect的药水id(前往mcwiki查看id表)|
+|getEffectTime|Effect effect|int|获取effect药水效果剩余持续的时间|
 |getNetworkID|Entity entity|int|获取实体的网络id，用于确认或者比较实体类型，网络id表wiki可查|
 |getIDName|Entity entity|String|获取实体的字符串ID，如Pig,Sheep，用法同上|
 |spawnEntity|String id,Position pos|Entity|在pos生成字符串id为id的生物并返回|
-|buildNPC|Position-J pos,String name,String skinID|BNNPC-J|构建一个NPC，位置在于pos，名称为name，皮肤为skinID的皮肤|
-|buildNPC|Position-J pos,String name,String skinID,int calltick,String callfunction|BNNPC-J|构建一个NPC，位置在于pos，名称为name，皮肤为skinID的皮肤，每隔calltick刻调用一次callfunction函数，注入参数bnnpc实体,当前tick|
-|buildNPC|Position-J pos,String name,String skinID,int calltick,String callfunction,String attackfunction|BNNPC-J|同上，被打时调用attackfunction函数名的函数，转入参数bnnpc实体|
+|buildNPC|Position pos,String name|BNNPC|构建一个NPC，位置在于pos，名称为name，皮肤为史蒂夫|
+|buildNPC|Position pos,String name,String skinID|BNNPC|构建一个NPC，位置在于pos，名称为name，皮肤为skinID的皮肤|
+|buildNPC|Position pos,String name,String skinID,int calltick,String callfunction|BNNPC|构建一个NPC，位置在于pos，名称为name，皮肤为skinID的皮肤，每隔calltick刻调用一次callfunction函数，注入参数bnnpc实体,当前tick|
+|buildNPC|Position pos,String name,String skinID,int calltick,String callfunction,String attackfunction|BNNPC|同上，被打时调用attackfunction函数名的函数，转入参数bnnpc实体|
 |皮肤skinID，即为./plugins/BlocklyNukkit/skin文件夹下面的皮肤文件名字|无后缀名，3D皮肤直接输入png文件名字，4D皮肤需要将json文件命名为与png文件相同的名字|详见BN专有对象方法文档中的BNNPC章节|
-|showFloatingItem|Position-J pos,Item item|void|在pos处展示item浮空物品|
-|removeFloatingItem|Position-J pos,Item item|void|取消在pos处item的浮空物品展示|
-|isPlayer|Entity-J e|boolean|获取实体e是否为玩家|
-|spawnFallingBlock|Position-J pos, Block-J block, boolean enableGravity,boolean canBePlaced|void|在pos生成实体掉落方块，材质为block，enableGravity是否开启重力，canBePlaced是否在地上自动从实体变成方块|
-|setPlayerExp|Player-J player,int exp|void|设置玩家经验点|
-|getPlayerExp|Player-J player|int|获取玩家经验点|
-|setPlayerExpLevel|Player-J player,int lel|void|设置玩家经验等级|
-|getPlayerExpLevel|Player-J player|int|获取玩家经验等级|
+|showFloatingItem|Position pos,Item item|void|在pos处展示item浮空物品|
+|removeFloatingItem|Position pos,Item item|void|取消在pos处item的浮空物品展示|
+|isPlayer|Entity e|boolean|获取实体e是否为玩家|
+|spawnFallingBlock|Position pos, Block block, boolean enableGravity,boolean canBePlaced|Entity|在pos生成实体掉落方块，材质为block，enableGravity是否开启重力，canBePlaced是否在地上自动从实体变成方块，返回生成的实体掉落方块|
+|setPlayerExp|Player player,int exp|void|设置玩家经验点|
+|getPlayerExp|Player player|int|获取玩家经验点|
+|setPlayerExpLevel|Player player,int lel|void|设置玩家经验等级|
+|getPlayerExpLevel|Player player|int|获取玩家经验等级|
 |setPlayerHunger|Player player,int hunger|void|设置玩家饥饿度|
-|getPlayerHunger|Player-J player|int|获取玩家饥饿度|
+|getPlayerHunger|Player player|int|获取玩家饥饿度|
 |makeSoundToPlayer|Player player,String sound|void|给指定玩家播放sound字符串对应的声音|
-|shootArrow|Position from,Position to|void|从from向to射击箭矢|
-|shootArrow|Position from,Position to,boolean canPickUp|void|从from向to射击箭矢,canPickUp是否能被捡起|
-|shootArrow|Position from,Position to,double multiply|void|从from向to射击箭矢,mutiply发射速度倍率,倍率越大,伤害越高|
-|shootArrow|Position from,Position to,boolean canPickUp,double multiply|void|从from向to射击箭矢,canPickUp是否能被捡起,mutiply发射速度倍率|
+|shootArrow|Position from,Position to|EntityArrow|从from向to射击箭矢|
+|shootArrow|Position from,Position to,boolean canPickUp|EntityArrow|从from向to射击箭矢,canPickUp是否能被捡起|
+|shootArrow|Position from,Position to,double multiply|EntityArrow|从from向to射击箭矢,mutiply发射速度倍率,倍率越大,伤害越高|
+|shootArrow|Position from,Position to,boolean canPickUp,double multiply|EntityArrow|从from向to射击箭矢,canPickUp是否能被捡起,mutiply发射速度倍率|
+|shootArrow|Position from,Position to,Entity shooter,boolean canPickUp,double multiply|EntityArrow|从from向to射击箭矢并标注发射者为shooter,canPickUp是否能被捡起,mutiply发射速度倍率|
+|shootSnowball|Position from,Position to|EntitySnowball|从from向to射击雪球|
+|shootSnowball|Position from,Position to,boolean canPickUp|EntitySnowball|从from向to射击雪球,canPickUp是否能被捡起|
+|shootSnowball|Position from,Position to,double multiply|EntitySnowball|从from向to射击雪球,mutiply发射速度倍率,倍率越大,伤害越高|
+|shootSnowball|Position from,Position to,boolean canPickUp,double multiply|EntitySnowball|从from向to射击雪球,canPickUp是否能被捡起,mutiply发射速度倍率|
+|shootSnowball|Position from,Position to,Entity shooter,boolean canPickUp,double multiply|EntitySnowball|从from向to射击雪球并标注发射者为shooter,canPickUp是否能被捡起,mutiply发射速度倍率|
 |lookAt|Entity e,Position pos|void|让实体e看向pos处|
+|displayHurt|Entity e|void|让实体e显示受伤动画|
+|displayDie|Entity e|void|让实体e显示死亡动画|
 
 
 ### inventory基对象  
 
 |方法名|参数|返回值|解释|
 |-----|-----|-----|----|
-|addInv|boolean d, Array<Item-J> i,String n|Inventory-J|构建虚拟标题n的物品栏,d控制是否大箱子,i是物品栏的物品列表|
-|getItemsInInv|Inventory-J inv|Array|获取inv的所有物品|
-|showFakeInv|Player-J player,Inventory-J inv|void|向玩家player展示物品栏inv|
-|editInv|Inventory-J inv, Array<Item> item|Inventory-J|设置物品栏inv的物品为item|
-|editInvBySlot|Inventory-J inv, int slot, Array<Item> item|Inventory-J|设置物品栏inv第slot个槽位的物品为item|
-|addItemToInv|Inventory-J inv, Item-J item|Inventory-J|向inv添加物品item|
-|removeItemFromInv|Inventory-J inv, Item-J item|Inventory-J|从inv移除物品item|
-|containsItemInInv|Inventory-J inv, Item-J item|boolean|检测inv里是否有足够的item|
-|getBlockInv|Position-J pos|Inventory-J|获取pos位置的方块的物品栏(箱子等)|
-|setBlockInv|Position-J pos,Inventory-J inv|void|设置pos位置的方块的物品栏为inv|
-|getPlayerInv|Player-J p|Inventory-J|获取玩家p的物品栏|
-|setPlayerInv|Player-J p,Inventory-J inv|void|设置玩家p的物品栏为inv|
-|getEntityHelmet|Entity-J entity|Item|获取npc或玩家实体的的头盔栏物品|
-|getEntityChestplate|Entity-J entity|Item|获取npc或玩家实体的胸甲栏的物品|
-|getEntityLeggings|Entity-J entity|Item|获取npc或玩家实体的护腿栏的物品|
-|getEntityBoots|Entity-J entity|Item|获取npc或玩家实体的靴子栏的物品|
-|getEntityItemInHand|Entity-J entity|Item|获取npc或玩家实体的手上的物品|
-|getEntityItemInOffHand|Entity-J entity|Item|获取npc或玩家实体的副手上的物品|
-|setEntityItemHelmet|Entity-J entity,Item-J item|void|设置npc或玩家实体的头盔栏上的物品|
-|setEntityItemChestplate|Entity-J entity,Item-J item|void|设置npc或玩家实体的胸甲栏上的物品|
-|setEntityItemLeggings|Entity-J entity,Item-J item|void|设置npc或玩家实体的护腿栏上的物品|
-|setEntityItemBoots|Entity-J entity,Item-J item|void|设置npc或玩家实体的靴子栏上的物品|
-|setEntityItemInHand|Entity-J entity,Item-J item|void|设置npc或玩家实体的手上的物品|
-|setEntityItemInOffHand|Entity-J entity,Item-J item|void|设置npc或玩家实体的副手上的物品|
-|getInventorySlot|Inventory-J inv,int slot|Item-J|获取物品栏inv第slot个槽位的物品对象|
+|addInv|boolean d, Array<Item> i,String n|Inventory|构建虚拟标题n的物品栏,d控制是否大箱子,i是物品栏的物品列表|
+|getItemsInInv|Inventory inv|Array|获取inv的所有物品|
+|showFakeInv|Player player,Inventory inv|void|向玩家player展示物品栏inv|
+|editInv|Inventory inv, Array<Item> item|Inventory|设置物品栏inv的物品为item|
+|editInvBySlot|Inventory inv, int slot, Array<Item> item|Inventory|设置物品栏inv第slot个槽位的物品为item|
+|addItemToInv|Inventory inv, Item item|Inventory|向inv添加物品item|
+|removeItemFromInv|Inventory inv, Item item|Inventory|从inv移除物品item|
+|containsItemInInv|Inventory inv, Item item|boolean|检测inv里是否有足够的item|
+|getBlockInv|Position pos|Inventory|获取pos位置的方块的物品栏(箱子等)|
+|setBlockInv|Position pos,Inventory inv|void|设置pos位置的方块的物品栏为inv|
+|getPlayerInv|Player p|Inventory|获取玩家p的物品栏|
+|setPlayerInv|Player p,Inventory inv|void|设置玩家p的物品栏为inv|
+|getEntityHelmet|Entity entity|Item|获取npc或玩家实体的的头盔栏物品|
+|getEntityChestplate|Entity entity|Item|获取npc或玩家实体的胸甲栏的物品|
+|getEntityLeggings|Entity entity|Item|获取npc或玩家实体的护腿栏的物品|
+|getEntityBoots|Entity entity|Item|获取npc或玩家实体的靴子栏的物品|
+|getEntityItemInHand|Entity entity|Item|获取npc或玩家实体的手上的物品|
+|getEntityItemInOffHand|Entity entity|Item|获取npc或玩家实体的副手上的物品|
+|setEntityItemHelmet|Entity entity,Item item|void|设置npc或玩家实体的头盔栏上的物品|
+|setEntityItemChestplate|Entity entity,Item item|void|设置npc或玩家实体的胸甲栏上的物品|
+|setEntityItemLeggings|Entity entity,Item item|void|设置npc或玩家实体的护腿栏上的物品|
+|setEntityItemBoots|Entity entity,Item item|void|设置npc或玩家实体的靴子栏上的物品|
+|setEntityItemInHand|Entity entity,Item item|void|设置npc或玩家实体的手上的物品|
+|setEntityItemInOffHand|Entity entity,Item item|void|设置npc或玩家实体的副手上的物品|
+|getInventorySlot|Inventory inv,int slot|Item|获取物品栏inv第slot个槽位的物品对象|
 
 
 ### world基对象  
@@ -369,11 +394,11 @@
 |-----|-----|-----|----|
 |genLevel|String name,int seed,String gen|void|生成名称name种子seed,种类为gen(FLAT,NETHER,VOID,NORMAL,OCEAN,SKYLAND)的世界|
 |loadLevel|String s|void|强制加载名称为s的世界|
-|getServerLevels|void|Array<Level-J>|获取服务器的所有世界|
+|getServerLevels|void|Array<Level>|获取服务器的所有世界|
 |setSkyLandGenerator|int seaHeight,int movey,boolean enableOre,int coalcount,int coalsize,int coalmin,int coalmax,int ironcount,int ironsize,int ironmin,int ironmax,int redstonecount,int redstonesize,int redstonemin,int redstonemax,int lapiscount,int lapissize,int lapismin,int lapismax,int goldcount,int goldsize,int goldmin,int goldmax,int diamondcount,int diamondsize,int diamondmin,int diamondmax,int dirtcount,int dirtsize,int dirtmin,int dirtmax,int gravelcount,int gravelsize,int gravelmin,int gravelmax,int granitecount,int granitesize,int granitemin,int granitemax,int dioritecount,int dioritesize,int dioritemin,int dioritemax,int andesitecount,int andesitesize,int andesitemin,int andesitemax,boolean enableCave,boolean enableBiome,boolean enableOcean|void|设置镜像天域的生成器参数|
 |setOceanGenerator|int seaHeight|void|设置海洋世界生成器海平面高度|
-|loadScreenTP|Player-J player,Position-J pos|void|把玩家传送到pos位置，传送时显示维度切换动画|
-|clearChunk|Position-J pos|void|清空pos所在的区块|
+|loadScreenTP|Player player,Position pos|void|把玩家传送到pos位置，传送时显示维度切换动画|
+|clearChunk|Position pos|void|清空pos所在的区块|
 |regenerateChunk|Position pos|void|重新生成pos所在的区块|
 |defineChunkRenderByName|String forLevel,String callback,int priority/void|void|forLevel是渲染器能够渲染的指定世界名称，callback是渲染器回调函数，priority是优先级，优先级越大先调用，不填默认为0|
 |drawPic|Position pos1,Position pos2,String img,int faceData|void|从pos1到pos2绘制img路径上的图片，faceData指定物品展示框的朝向，pos1和pos2必须在同一垂直面上|
@@ -383,22 +408,22 @@
 
 |方法名|参数|返回值|解释|
 |-----|-----|-----|----|
-|getSongFromFile|String name|Song-J|从notemusic文件夹的name文件解析红石音乐|
-|getSongTitle|Song-J song|String|获取歌曲的标题|
-|getSongDescription|Song-J song|String|获取歌曲的描述|
-|getSongAuthor|Song-J song|String|获取歌曲的作者|
-|getSongLength|Song-J song|String|获取歌曲长度|
-|buildRadio|Song-J song,boolean isloop,boolean isautodestroy|RadioSongPlayer-J|构建一个红石音乐电台,song播放歌曲,isloop是否循环,isautodestroy是否无人听自动摧毁|
-|addPlayerToRadio|RadioSongPlayer-J radio, Player-J player|void|向radio添加player|
-|removePlayerToRadio|RadioSongPlayer-J radio, Player-J player|void|从radio移除player|
-|getPlayerInRadio|RadioSongPlayer-J radio|Array|void|获取radio的所有听众|
-|getSongInRadio|RadioSongPlayer-J radio|Song-J|获取radio播放的歌曲|
+|getSongFromFile|String name|Song|从notemusic文件夹的name文件解析红石音乐|
+|getSongTitle|Song song|String|获取歌曲的标题|
+|getSongDescription|Song song|String|获取歌曲的描述|
+|getSongAuthor|Song song|String|获取歌曲的作者|
+|getSongLength|Song song|String|获取歌曲长度|
+|buildRadio|Song song,boolean isloop,boolean isautodestroy|RadioSongPlayer|构建一个红石音乐电台,song播放歌曲,isloop是否循环,isautodestroy是否无人听自动摧毁|
+|addPlayerToRadio|RadioSongPlayer radio, Player player|void|向radio添加player|
+|removePlayerToRadio|RadioSongPlayer radio, Player player|void|从radio移除player|
+|getPlayerInRadio|RadioSongPlayer radio|Array|void|获取radio的所有听众|
+|getSongInRadio|RadioSongPlayer radio|Song|获取radio播放的歌曲|
 |setRadioStatus|RadioSongPlayer radio,boolean isplaying|void|设置radio的播放状态|
 |buildHorn|Song song, Position pos, boolean isloop, boolean isautodestroy|HornSongPlayer|构建一个红石音乐喇叭,song播放歌曲,isloop是否循环,isautodestroy是否无人听自动摧毁|
 |addPlayerToHorn|HornSongPlayer horn, Player player|void|让player能听到horn的声音|
 |removePlayerToHorn|HornSongPlayer horn, Player player|void|让player不再听到horn的声音|
-|getPlayerInHorn|HornSongPlayer-J horn|Array|void|获取horn的所有听众|
-|getSongInHorn|HornSongPlayer-J horn|Song-J|获取horn播放的歌曲|
+|getPlayerInHorn|HornSongPlayer horn|Array|void|获取horn的所有听众|
+|getSongInHorn|HornSongPlayer horn|Song|获取horn播放的歌曲|
 |setHornStatus|HornSongPlayer horn,boolean isplaying|void|设置horn的播放状态|
 
 
@@ -408,23 +433,23 @@
 |-----|-----|-----|----|
 |updateAllScoreBoard|String title,String text|void|给所有玩家更新计分板信息,多行用\';\'连接,"\\"可转义|
 |updateOneScoreBoard|String title,String text,Player p|void|给玩家p更新计分板信息,多行用\';\'连接,"\\"可转义|
-|getSimpleWindowBuilder|String title,String context|Simple-J|构建标题title,内容文字为context(非按钮)的简单窗口管理器|
-|getModalWindowBuilder|String title,String context|Modal-J|构建标题title,内容文字为context的对话框窗口管理器|
-|getCustomWindowBuilder|String title|Custom-J|构建标题title的高级窗口管理器|
-|getEventResponseText|Event-J e|String|获取e中简单窗口点击的按钮文本|
-|getEventResponseModal|Event-J e|String|获取e中对话框点击的按钮文本|
-|getEventResponseIndex|Event-J e|int|获取e中简单窗口或对话框点击的按钮序号，从0开始|
-|getEventCustomVar|Event-J e,int id,String mode|String|获取e中高级窗口ID为id的mode(input,toggle,dropdown,slider,stepslider)元素的值|
-|setPlayerBossBar|Player-J player,String text,float len|Array\<int>|设置玩家的boss血条文字和剩余血量百分比len(0-100),text参数中使用;来添加多个bossbar|
-|removePlayerBossBar|Player-J player|void|移除玩家所有的boss血条|
-|removePlayerBossBar|Player-J player,int id|void|移除玩家指定id的boss血条|
-|getLengthOfPlayerBossBar|Player-J player|double|获取玩家最上方的boss血条剩余血量百分比|
-|getLengthOfPlayerBossBar|Player-J player,int id|double|获取玩家指定id的boss血条剩余血量百分比|
-|getTextOfPlayerBossBar|Player-J player|String|获取玩家boss血条的文字|
-|setBelowName|Player-J player,String str|void|设置玩家名字下方的计分板文字|
+|getSimpleWindowBuilder|String title,String context|Simple|构建标题title,内容文字为context(非按钮)的简单窗口管理器|
+|getModalWindowBuilder|String title,String context|Modal|构建标题title,内容文字为context的对话框窗口管理器|
+|getCustomWindowBuilder|String title|Custom|构建标题title的高级窗口管理器|
+|getEventResponseText|Event e|String|获取e中简单窗口点击的按钮文本|
+|getEventResponseModal|Event e|String|获取e中对话框点击的按钮文本|
+|getEventResponseIndex|Event e|int|获取e中简单窗口或对话框点击的按钮序号，从0开始|
+|getEventCustomVar|Event e,int id,String mode|String|获取e中高级窗口ID为id的mode(input,toggle,dropdown,slider,stepslider)元素的值|
+|setPlayerBossBar|Player player,String text,float len|Array\<int>|设置玩家的boss血条文字和剩余血量百分比len(0-100),text参数中使用;来添加多个bossbar|
+|removePlayerBossBar|Player player|void|移除玩家所有的boss血条|
+|removePlayerBossBar|Player player,int id|void|移除玩家指定id的boss血条|
+|getLengthOfPlayerBossBar|Player player|double|获取玩家最上方的boss血条剩余血量百分比|
+|getLengthOfPlayerBossBar|Player player,int id|double|获取玩家指定id的boss血条剩余血量百分比|
+|getTextOfPlayerBossBar|Player player|String|获取玩家boss血条的文字|
+|setBelowName|Player player,String str|void|设置玩家名字下方的计分板文字|
 |makeTipsVar|String varname,String provider|void|为tips提供一个变量，变量名为varname(要替换掉的字符串)，provider是回调函数名，tips显示时会调用这个函数，注入一个参数player玩家类型，然后返回值会作为被替换成的字符串|
 |makeTipsStatic|String varname,String toReplace|void|为tips提供一个静态变量，变量名为varname，要替换成的字符串为tpReplace|
-|forceClearWindow|Player-J player|void|强制关闭玩家客户端上面所有正在显示的物品栏和表单|
+|forceClearWindow|Player player|void|强制关闭玩家客户端上面所有正在显示的物品栏和表单|
 |setPauseScreenList|String list|void|设置暂停界面右侧显示在线玩家区域的文字，用;分割多行，用"\\"转义分号|
 |sendPlayerXboxInfo|Player from,Player to|void|向to玩家展示from玩家的xbox信息|
 |startEndPoem|Player player|void|让玩家屏幕上开始展示终末之诗|
@@ -436,11 +461,20 @@
 
 |方法名|参数|返回值|解释|
 |-----|-----|-----|----|
-|drawCircle|Position-J pos,double radius,int pid,double sep|void|在pos处以radius为半径水平用粒子ID为pid的粒子以每隔sep格放置一个的距离绘制圆|
-|drawLine|Position-J pos1,Position-J pos2,double sep,int pid|void|从pos1到pos2(必须同世界)每隔sep格放置一个粒子ID为pid的粒子来绘制直线|
-|drawFireWork|Position-J pos,int colornum,boolean flick,boolean trail,int shape,int second|void|在pos处生成一个飞行时间为second的烟花,colornum指定颜色,flick指定是否闪烁,trail指定是否留有轨迹,shape指定形状,详见本节附表|
-|drawBlockBreak|Position-J pos, Block-J block|void|在pos处绘制block对应的方块被破坏的粒子|
-|drawParticleFactoryMcFunction|String fun,Position-J pos,double turn|void|在pos处释放名为fun(无后缀)的mcfunction文件存储的粒子工厂自定义粒子,释放时旋转角度为turn度|
+|drawCircle|Position pos,double radius,int pid,double sep|void|在pos处以radius为半径水平用粒子ID为pid的粒子以每隔sep格放置一个的距离绘制圆|
+|drawLine|Position pos1,Position pos2,double sep,int pid|void|从pos1到pos2(必须同世界)每隔sep格放置一个粒子ID为pid的粒子来绘制直线|
+|drawFireWork|Position pos,int colornum,boolean flick,boolean trail,int shape,int second|void|在pos处生成一个飞行时间为second的烟花,colornum指定颜色,flick指定是否闪烁,trail指定是否留有轨迹,shape指定形状,详见本节附表|
+|drawBlockBreak|Position pos, Block block|void|在pos处绘制block对应的方块被破坏的粒子|
+|drawParticleFactoryMcFunction|String fun,Position pos,double turn|void|在pos处释放名为fun(无后缀)的mcfunction文件存储的粒子工厂自定义粒子,释放时旋转角度为turn度|
+|drawDot|Position pos,int pid,int r,int g,int b,Player toPlayer|void|在pos出绘制粒子id为pid的粒子，仅玩家toPlayer能看到，并尝试设置粒子的颜色为rgb|
+|drawDot|Position pos,int pid,int data,Player toPlayer|void|在pos出绘制粒子id为pid的粒子，仅玩家toPlayer能看到，并尝试设置粒子的特殊值为data|
+|drawDot|Position pos,int pid,int r,int g,int b,Player toPlayer|void|在pos出绘制粒子id为pid的粒子，并尝试设置粒子的颜色为rgb|
+|drawDot|Position pos,int pid,int data,Player toPlayer|void|在pos出绘制粒子id为pid的粒子，并尝试设置粒子的特殊值为data|
+|drawDot|Position pos,int pid,Player toPlayer|void|在pos出绘制粒子id为pid的粒子，仅玩家toPlayer能看到|
+|drawDot|Position pos,int pid|void|在pos出绘制粒子id为pid的粒子|
+|drawEmitter|Position pos|void|在pos出绘制一个随机的粒子发生器|
+|drawEmitter|Position pos,String id|void|在pos出绘制指定id的粒子发生器,id见表|
+|drawEmitter|Position pos,String id,Player toPlayer|void|在pos出绘制指定id的粒子发生器,仅玩家toPlayer可见，id见表|
 
 
 附表:粒子id表(有些粒子我没见过，所以描述很神奇，大家帮忙贡献更好的描述，谢谢)  
@@ -533,6 +567,47 @@
 |星形|2|
 |苦力怕型|3|
 |爆裂型|4|
+
+
+附录：粒子发生器id表  
+
+> minecraft:arrow_spell_emitter, minecraft:balloon_gas_particle, minecraft:basic_bubble_particle,  
+> minecraft:basic_bubble_particle_manual, minecraft:basic_crit_particle, minecraft:basic_flame_particle,  
+> minecraft:basic_portal_particle, minecraft:basic_smoke_particle, minecraft:bleach,  
+> minecraft:block_destruct, minecraft:block_slide, minecraft:blue_flame_particle, minecraft:breaking_item_icon,  
+> minecraft:breaking_item_terrain, minecraft:bubble_column_bubble, minecraft:bubble_column_down_particle,  
+> minecraft:bubble_column_up_particle, minecraft:camera_shoot_explosion, minecraft:campfire_smoke_particle,  
+> minecraft:campfire_tall_smoke_particle, minecraft:cauldron_spell_emitter, minecraft:cauldron_bubble_particle,  
+> minecraft:cauldron_splash_particle, minecraft:colored_flame_particle, minecraft:conduit_particle,  
+> minecraft:conduit_absorb_particle, minecraft:conduit_attack_emitter, minecraft:critical_hit_emitter,  
+> minecraft:crop_growth_emitter, minecraft:dolphin_move_particle, minecraft:dragon_breath_fire, minecraft:dragon_breath_lingering,  
+> minecraft:dragon_breath_trail, minecraft:dragon_death_explosion_emitter, minecraft:dragon_destroy_block,  
+> minecraft:dragon_dying_explosion, minecraft:enchanting_table_particle, minecraft:endrod, minecraft:end_chest,  
+> minecraft:elephant_tooth_paste_vapor_particle, minecraft:evocation_fang_particle, minecraft:evoker_spell,  
+> minecraft:cauldron_explosion_emitter, minecraft:death_explosion_emitter, minecraft:egg_destroy_emitter,  
+> minecraft:eyeofender_death_explode_particle, minecraft:misc_fire_vapor_particle, minecraft:explosion_particle,  
+> minecraft:explosion_manual, minecraft:eye_of_ender_bubble_particle, minecraft:falling_border_dust_particle,  
+> minecraft:falling_dust, minecraft:falling_dust_concrete_powder_particle, minecraft:falling_dust_dragon_egg_particle,  
+> minecraft:falling_dust_gravel_particle, minecraft:falling_dust_red_sand_particle, minecraft:falling_dust_sand_particle,  
+> minecraft:falling_dust_scaffolding_particle, minecraft:falling_dust_top_snow_particle, minecraft:fish_hook_particle,  
+> minecraft:fish_pos_particle, minecraft:guardian_attack_particle, minecraft:guardian_water_move_particle,  
+> minecraft:heart_particle, minecraft:honey_drip_particle, minecraft:huge_explosion_lab_misc_emitter,  
+> minecraft:huge_explosion_emitter, minecraft:ice_evaporation_emitter, minecraft:ink_emitter, minecraft:knockback_roar_particle,  
+> minecraft:lab_table_heatblock_dust_particle, minecraft:lab_table_misc_mystical_particle, minecraft:large_explosion,   
+> minecraft:lava_drip_particle, minecraft:lava_particle, minecraft:llama_spit_smoke, minecraft:magnesium_salts_emitter,  
+> minecraft:mobflame_emitter, minecraft:mobflame_single, minecraft:mobspell_emitter, minecraft:mob_block_spawn_emitter,   
+> minecraft:mob_portal, minecraft:mycelium_dust_particle, minecraft:nectar_drip_particle, minecraft:note_particle,   
+> minecraft:obsidian_glow_dust_particle, minecraft:obsidian_tear_particle, minecraft:phantom_trail_particle,   
+> minecraft:portal_directional, minecraft:portal_east_west, minecraft:portal_north_south, minecraft:portal_reverse_particle,   
+> minecraft:rain_splash_particle, minecraft:redstone_ore_dust_particle, minecraft:redstone_repeater_dust_particle,   
+> minecraft:redstone_torch_dust_particle, minecraft:redstone_wire_dust_particle, minecraft:rising_border_dust_particle,   
+> minecraft:shulker_bullet, minecraft:silverfish_grief_emitter, minecraft:soul_particle, minecraft:sparkler_emitter,   
+> minecraft:splash_spell_emitter, minecraft:sponge_absorb_water_particle, minecraft:squid_flee_particle,   
+> minecraft:squid_ink_bubble, minecraft:squid_move_particle, minecraft:stunned_emitter, minecraft:totem_particle,   
+> minecraft:totem_manual, minecraft:underwater_torch_particle, minecraft:villager_angry, minecraft:villager_happy,   
+> minecraft:water_drip_particle, minecraft:water_evaporation_actor_emitter, minecraft:water_evaporation_bucket_emitter,   
+> minecraft:water_evaporation_manual, minecraft:water_splash_particle_manual, minecraft:water_splash_particle,   
+> minecraft:water_wake_particle, minecraft:wither_boss_invulnerable  
 
 
 ### gameapi基对象  
@@ -657,8 +732,8 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |displayHurt|void|void|强制显示npc受伤动画(并不会真的减血)|
 |setEnableGravity|boolean gravity/void|void|设置npc是否收到重力影响，无参数默认为true|
 |setG|double g|void|设置该npc的重力加速度(默认9.8)|
-|lookAt|Position-J pos|void|让npc看向pos处|
-|getNearestPlayer|void|Player-J|获取离npc最近的玩家，如果没有玩家返回空|
+|lookAt|Position pos|void|让npc看向pos处|
+|getNearestPlayer|void|Player|获取离npc最近的玩家，如果没有玩家返回空|
 |isSneak|void|boolean|获取npc是否在潜行|
 |setSneak|boolean sneak/void|void|设置npc是否在潜行，如果不填参数默认切换潜行状态|
 |jump|void|void|让npc跳跃一次，如果npc正在寻路并移动或正在跳跃会忽略此函数调用|
@@ -667,10 +742,10 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 |setKnockBase|double base|void|设置npc被击退时的击飞距离，默认为1.2|
 |setRouteMax|int m|void|设置寻路递归上限，默认50，越大寻路范围越广越精确，但会加重服务器负担|
 |setSpeed|double speed|void|设置npc自动寻路移动的速度，默认为3|
-|canMoveTo|Position-J pos|boolean|检查npc是否能够通过自动寻路到达pos处，返回是否可以到达|
-|findAndMove|Position-J pos|boolean|让npc自己寻路到pos，如果寻路成功就开始移动到pos并返回true，否则false|
+|canMoveTo|Position pos|boolean|检查npc是否能够通过自动寻路到达pos处，返回是否可以到达|
+|findAndMove|Position pos|boolean|让npc自己寻路到pos，如果寻路成功就开始移动到pos并返回true，否则false|
 |stopMove|void|void|让npc停止寻路移动|
-|hit|Entity-J e|void|让npc打实体e|
+|hit|Entity e|void|让npc打实体e|
 |displaySwing|void|void|让npc挥动手臂一次|
 |setSwim|boolean swim/void|void|设置npc是否在游泳，无参数默认切换状态|
 |setTickCallback|String c|void|设置npc的tick回调函数名称|
@@ -725,10 +800,11 @@ npc.setEnableHurt(true)
 npc.start()
 ~~~
 
-### bn插件与java联合开发  
+### bn模块  
 
-可以通过导出标记将bn插件中的函数导出到全局环境中，然后即可使用java来快速调用bn插件，
-命令exportdevjar <BN插件名>将可以导出bn插件中的函数头到一个jar包里面便于开发
+一个bn插件文件就是一个模块，其默认的模块名就是其文件名，每个模块默认不会有任何内容  
+您可以通过在函数上面加上导出标记来将这个函数标记为模块导出函数，这样以后，其他插件可以通过模块系统来调用您插件中的导出函数，函数加上导出标记之后，除了能够被其他插件调用，不会有任何行为上的变化  
+各语言具体方式如下：  
 
 javascript:  
 ```javascript
@@ -756,6 +832,73 @@ static function PlayerJoinEvent($event){
 }
 ```
 
+您也可以通过语法宏注释来定义此插件的自定义模块名，这样模块名称就不会因文件名改变而改变。  
+各语言具体方式如下(xxxxx指模块名)：  
+
+javascript:  
+```javascript
+//pragma module xxxxx
+```
+
+python:  
+```python
+#pragma module xxxxx
+```
+
+lua:  
+```lua
+--pragma module xxxxx
+```
+
+php:  
+```php
+//pragma module xxxxx
+```
+
+您可以导入其他模块，并且调用其中的导出函数、获取返回值，请注意，务必在要导入的模块已经被加载的情况下导入，在BNInitializedEvent事件中执行是安全的做法。 
+各语言具体方式如下(xxxxx指模块名、fun指导出函数的名称、a,b,c指传入函数的参数，参数个数可以是任意的，也可没有、val指导出函数的返回值)：
+
+javascript:  
+```javascript
+function BNInitializedEvent(event){
+    const mymodule = require("xxxxx");
+    var val;
+    val = mymodule.call("fun",a,b,c); //推荐方式
+    val = mymodule.fun(a,b,c); //简化方式
+}
+
+```
+
+python:  
+```python
+def BNInitializedEvent(event):
+    import xxxxx
+    val = xxxxx.call("fun",a,b,c) #推荐方式
+    val = xxxxx.fun(a,b,c) #简化方式
+```
+
+lua:  
+```lua
+function BNInitializedEvent(event)
+    mymodule = lujava.bindClass("xxx")
+    val = mymodule:call("fun",a,b,c) --推荐方式
+    val = mymodule:fun(a,b,c) --简化方式
+```
+
+php:  
+```php
+function BNInitializedEvent($event){
+    import xxxxx;
+    $val = xxxxx::call("fun",$a,$b,$c); //推荐方式
+    $val = xxxxx::fun($a,$b,$c); //简化方式
+}
+```
+
+### 从java调用bn函数
+
+可以通过导出标记将bn插件中的函数导出到全局环境中，然后即可使用java来快速调用bn插件，
+命令exportdevjar <BN插件名>将可以导出bn插件中的函数头到一个jar包里面便于开发
+
 ### C/C++开发  
 
 C/C++  
@@ -780,7 +923,7 @@ makefile是一个json格式的包配置文件，由name,compress,plugins三个�
 
 示例：  
 
-```
+```json
 {
 	"name":"demo",
 	"compress":false,
@@ -791,6 +934,15 @@ makefile是一个json格式的包配置文件，由name,compress,plugins三个�
 }
 ```
 
+### bnpm插件管理器  
+
+BNPM插件管理器，用于一键安装、更新，快速分发插件  
+
+- 命令：
+  - bnpm install 插件名 -安装或更新指定插件
+  - bnpm delete 插件名 -卸载指定插件
+- 相关链接：
+  - bnpm插件中心：https://wiki.blocklynukkit.com/bnpm/viewPlugin
 
 
 ## 事件回调函数  
@@ -950,7 +1102,6 @@ makefile是一个json格式的包配置文件，由name,compress,plugins三个�
 ## 常用java类/对象的成员函数  
 
 注:这部分由于不属于bn类库范畴,所以不会加说明,应该看参数和函数名能看懂,不懂的看图形编辑器生成的代码或者直接qq联系开发组或者issue,谢谢    
-注:这部分的java对象不加-J了,因为太多  
 注:xxx[]代表xxx类型的数组,需要使用Java基对象的方法转换  
 注:bn解释器会自动执行部分类型转换,比如js的数字转为java的整形int,浮点型float,双精度型double,Player转为CommandSender等等,如果不能自动转会报错  
 注:标注static的函数是直接从类调用而不是对象,未标注static是从对象调用的  
