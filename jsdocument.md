@@ -1097,6 +1097,9 @@ BNPM插件管理器，用于一键安装、更新，快速分发插件
 |机器人收到qq群消息事件|QQGroupMessageEvent|
 |机器人收到qq好友消息事件|QQFriendMessageEvent|
 |机器人其他qq操作事件|QQOtherEvent|
+|插件初始化完成事件|BNInitializedEvent|
+|插件即将被关闭事件|BNClosedEvent|
+|玩家钓鱼事件|StartFishingEvent|
 
 
 ## 常用java类/对象的成员函数  
