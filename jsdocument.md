@@ -258,6 +258,7 @@
 |addShapelessCraft|Array<Item> i,Item o|void|添加无序合成,原料列表i,产物o|
 |addFurnaceCraft|Item i,Item o|void|添加熔炉配方,原料i,产物o|
 |addShapedCraft|Array<String> shape,Item output,Array<Item> append|void|添加有序合成(详见图形编辑器)|
+|addShapedCraft|String shape,Item output,(String key,Item value)...|void|添加有序合成(详见bnwiki#编程开发文档#专题#物品与方块§添加合成)|
 |addItemEnchant|Item item,int i,int l|void|给item添加ID为i,等级为l的附魔(可去wiki查找id)|
 |isSame|Item i1,Item i2,boolean d,boolean n|boolean|检测i1和i2是否相同(d是否毕竟数据值,n是否比较nbt,数量不会比较)|
 |addBNCraft|String t,String d,Array<Item> i,Array<Item> o,int de,double p|void|添加一个种类为t,描述为d,原材料为i,产物为o,合成用时de,成功率p(0-1)的bn高级合成|
