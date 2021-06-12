@@ -214,6 +214,7 @@
 |createHttpServer|int port|boolean|在指定端口上创建http服务器|
 |startHttpServer|int port|void|启动指定端口上已经创建了的http服务器|
 |attachHandlerToHttpServer|int port,String path,String functionName|boolean|在指定端口的http服务器上绑定请求处理器，当请求path路径时该处理器被调用，路径指去掉域名和端口后面，?的前面的部分，以/开头，返回是否绑定成功|
+|isPowerNukkit|void|boolean|是否运行在PowerNukkit上|
 
 
 ### algorithm基对象  
@@ -272,8 +273,18 @@
 |setItemColor|Item item,int r,int g,int b|void|设置物品item的自定义颜色|
 |setItemUnbreakable|Item item,boolean unbreakable|void|设置物品item是否不可破坏|
 |registerSolidBlock|int id,String name,double hardness,double resistance,int toolType,boolean isSilkTouchable,int dropMinExp,int dropMaxExp,int mineTier|void|注册固体方块，参数分别为方块id(只能覆写教育版方块)，方块名称，方块硬度，方块抗爆炸度，挖掘工具，是否受精准采集影响，最小掉落经验，最大掉落经验，挖掘等级，方块硬度越大挖掘时间越长，抗爆炸度越高越不容易被炸，挖掘工具0-无,1-剑,2-铲,3-镐,4-斧,5-剪刀，挖掘等级0-空手,1-木,2-金,3-石,4-铁,5-钻石|
-|registerSimpleItem|int id,String name|void|注册简单的物品堆，只能覆写教育版物品|
 |addFishingResult|String type,Item item,double chance|void|添加钓鱼产物，type为新增产物种类，item是产物物品，changce是概率权重，type可以取TREASURES;宝藏;JUNKS;垃圾;FISHES;鱼类，中英文皆可|
+|registerSimpleItem|int id,String name,int stackSize,String type,boolean isDisplayAsTool,boolean canOnOffhand|void|注册自定义简单物品，id为新物品id，stackSize为最大堆叠数量，name为新物品注册名(仅小写英文和下划线),type为种类(可选construction nature equipment items)，canOnOffhand是否能装备在副手|
+|registerToolItem|int id,String name,String toolType,int toolTier,int durability,int attackDamage,boolean canOnOffhand|void|注册自定义工具物品，id为新物品id，name为新物品注册名(仅小写英文和下划线),toolType为种类(可选sword shovel pickaxe axe hoe),toolTier挖掘等级(0-空手,1-木,2-金,3-石,4-铁,5-钻石,6-下界合金),durability为耐久值,attackDamage为攻击伤害|
+|registerDrinkItem|int id,String name,int stackSize,int nutrition,int drinkTime,boolean canOnOffhand|void|注册自定义饮品，id为新物品id，name为新物品注册名(仅小写英文和下划线)，stackSize为最大堆叠数量，nutrition为恢复饥饿值，drinkTime为饮用时间|
+|registerFoodItem|int id,String name,int stackSize,int nutrition,int drinkTime,boolean canOnOffhand|void|注册自定义食物，id为新物品id，name为新物品注册名(仅小写英文和下划线)，stackSize为最大堆叠数量，nutrition为恢复饥饿值，drinkTime为食用时间|
+|registerArmorItem|int id,String name,String armorType,int armorTier,int durability,int armorPoint,boolean canOnOffhand|void|注册自定义盔甲，id为新物品id，name为新物品注册名(仅小写英文和下划线)，armorType为种类(可为helmet chest leggings boots)，armorTier盔甲等级(0-无,1-皮革,2-铁,3-锁链,4-金,5-钻石,6-下界合金),durability为耐久值，armorPoint为盔甲值|
+|addItemTexture|int id,String path|void|添加新的物品材质，id为物品id，path为材质图片路径|
+|addArmorTexture|int id,String inventoryPath,String modelPath|void|添加新的盔甲材质，id为物品id，inventoryPath为物品栏材质，modelPath为穿着后模型材质|
+|addItemChineseTranslation|int id,String name|void|为id物品添加中文翻译|
+|addItemEnglishTranslation|int id,String name|void|为id物品添加英文翻译|
+|addResourcePackJsonEntry|String entry,String json|void|为材质包中entry路径添加json内容|
+|addResourcePackPictureEntry|String entry,String path|void|为材质包中entry路径添加服务器上path路径上的图片|
 
 
 ### database基对象  
@@ -331,6 +342,7 @@
 |buildNPC|Position pos,String name,String skinID|BNNPC|构建一个NPC，位置在于pos，名称为name，皮肤为skinID的皮肤|
 |buildNPC|Position pos,String name,String skinID,int calltick,String callfunction|BNNPC|构建一个NPC，位置在于pos，名称为name，皮肤为skinID的皮肤，每隔calltick刻调用一次callfunction函数，注入参数bnnpc实体,当前tick|
 |buildNPC|Position pos,String name,String skinID,int calltick,String callfunction,String attackfunction|BNNPC|同上，被打时调用attackfunction函数名的函数，转入参数bnnpc实体|
+|buildModel|Position pos,String modelSkinID,double length,double width,double height,double scale,String tickCallback,int callTick,String attackCallback,String interactCallback|BNModel|在pos构建一个4d皮肤展示模型|
 |皮肤skinID，即为./plugins/BlocklyNukkit/skin文件夹下面的皮肤文件名字|无后缀名，3D皮肤直接输入png文件名字，4D皮肤需要将json文件命名为与png文件相同的名字|详见BN专有对象方法文档中的BNNPC章节|
 |showFloatingItem|Position pos,Item item|void|在pos处展示item浮空物品|
 |removeFloatingItem|Position pos,Item item|void|取消在pos处item的浮空物品展示|
@@ -363,6 +375,7 @@
 |方法名|参数|返回值|解释|
 |-----|-----|-----|----|
 |addInv|boolean d, Array<Item> i,String n|Inventory|构建虚拟标题n的物品栏,d控制是否大箱子,i是物品栏的物品列表|
+|addHopperInv|Array<Item> i, String n|Inventory|构建虚拟标题n的漏斗物品栏，i是物品栏的物品列表|
 |getItemsInInv|Inventory inv|Array|获取inv的所有物品|
 |showFakeInv|Player player,Inventory inv|void|向玩家player展示物品栏inv|
 |editInv|Inventory inv, Array<Item> item|Inventory|设置物品栏inv的物品为item|
@@ -402,6 +415,7 @@
 |clearChunk|Position pos|void|清空pos所在的区块|
 |regenerateChunk|Position pos|void|重新生成pos所在的区块|
 |defineChunkRenderByName|String forLevel,String callback,int priority/void|void|forLevel是渲染器能够渲染的指定世界名称，callback是渲染器回调函数，priority是优先级，优先级越大先调用，不填默认为0|
+|defineChunkRenderAll|String callback,int priority/void|void|callback是渲染器回调函数，priority是优先级，优先级越大先调用，不填默认为0|
 |drawPic|Position pos1,Position pos2,String img,int faceData|void|从pos1到pos2绘制img路径上的图片，faceData指定物品展示框的朝向，pos1和pos2必须在同一垂直面上|
 
 
