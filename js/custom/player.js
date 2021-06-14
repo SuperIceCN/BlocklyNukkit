@@ -45,7 +45,7 @@ Blockly.JavaScript['player_playedbefore'] = function(block) {
   //String or array length.
   var valtmp = Blockly.JavaScript.valueToCode(block, 'VAL',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text=valtmp+".playedBefore()";
+  var text=valtmp+".hasPlayedBefore()";
   return [text, Blockly.JavaScript.ORDER_MEMBER];
 };
 Blockly.Blocks['player_getbyuuid'] = {

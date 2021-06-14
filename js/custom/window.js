@@ -693,7 +693,7 @@ Blockly.JavaScript['window_buildSlider'] = function(block) {
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   var maxtmp = Blockly.JavaScript.valueToCode(block, 'MAX',
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-  var text=buildertmp+".buildSlider("+texttmp+","+mintmp+","+maxtmp+");\n"
+  var text=buildertmp+".buildSlider("+texttmp+","+mintmp+","+maxtmp+", 1);\n"
   return text;
 };
 Blockly.Blocks['window_buildStepSlider'] = {
