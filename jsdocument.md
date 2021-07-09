@@ -215,6 +215,11 @@
 |startHttpServer|int port|void|启动指定端口上已经创建了的http服务器|
 |attachHandlerToHttpServer|int port,String path,String functionName|boolean|在指定端口的http服务器上绑定请求处理器，当请求path路径时该处理器被调用，路径指去掉域名和端口后面，?的前面的部分，以/开头，返回是否绑定成功|
 |isPowerNukkit|void|boolean|是否运行在PowerNukkit上|
+|concurrentRun|String functionName,\<E+> args|void|并行执行名为functionName函数，args为调用此函数的参数|
+|jvm.close|int/void returnCode|void|强制关闭jvm并返回返回值，可不填，默认为0|
+|jvm.getMemory|void|JMemory|获取jvm内存管理器|
+|jvm.getJVMClass|String className|Class|根据类名获取jvm类对象|
+|jvm.newJVMClass|String className,String/void extendFromClass,String.../void interfaceClasses|JClass|创建新的java类构造器，className为新类的java类名，extendFromClass继承自的父类类名，可不填，interfaceClasses实现的接口类名，可不填|
 
 
 ### algorithm基对象  
@@ -280,11 +285,13 @@
 |registerFoodItem|int id,String name,int stackSize,int nutrition,int drinkTime,boolean canOnOffhand|void|注册自定义食物，id为新物品id，name为新物品注册名(仅小写英文和下划线)，stackSize为最大堆叠数量，nutrition为恢复饥饿值，drinkTime为食用时间|
 |registerArmorItem|int id,String name,String armorType,int armorTier,int durability,int armorPoint,boolean canOnOffhand|void|注册自定义盔甲，id为新物品id，name为新物品注册名(仅小写英文和下划线)，armorType为种类(可为helmet chest leggings boots)，armorTier盔甲等级(0-无,1-皮革,2-铁,3-锁链,4-金,5-钻石,6-下界合金),durability为耐久值，armorPoint为盔甲值|
 |addItemTexture|int id,String path|void|添加新的物品材质，id为物品id，path为材质图片路径|
-|addArmorTexture|int id,String inventoryPath,String modelPath|void|添加新的盔甲材质，id为物品id，inventoryPath为物品栏材质，modelPath为穿着后模型材质|
+|addArmorTexture|int id,String inventoryPath,String modelPath,String/void modelJSONPath|void|添加新的盔甲材质，id为物品id，inventoryPath为物品栏材质，modelPath为穿着后模型材质，modelJSONPath为4d盔甲模型文件，可不填|
 |addItemChineseTranslation|int id,String name|void|为id物品添加中文翻译|
 |addItemEnglishTranslation|int id,String name|void|为id物品添加英文翻译|
 |addResourcePackJsonEntry|String entry,String json|void|为材质包中entry路径添加json内容|
 |addResourcePackPictureEntry|String entry,String path|void|为材质包中entry路径添加服务器上path路径上的图片|
+|isBlockWaterLogged|Block block|boolean|检测指定方块是否为含水方块|
+|addSoundFile|String soundName, String fileName|void|向材质包添加声音文件|
 
 
 ### database基对象  
@@ -368,6 +375,7 @@
 |lookAt|Entity e,Position pos|void|让实体e看向pos处|
 |displayHurt|Entity e|void|让实体e显示受伤动画|
 |displayDie|Entity e|void|让实体e显示死亡动画|
+|buildRouteFinder|Entity entity|RouteFinder|为实体构建寻路器，RouteFinder具体用法见下文|
 
 
 ### inventory基对象  
@@ -739,7 +747,7 @@ js可以这样无缝连接java,这为bn的js开服提供了强大的类库支持
 
 |方法名|参数|返回值|解释|
 |-----|-----|-----|----|
-|start|void|void|启动这个npc实体|
+|start|Player/void player|void|启动这个npc实体，指定player玩家可见，可不填参数，默认为所有玩家可见|
 |turnRound|double yaw|void|让实体水平视角旋转yaw度|
 |headUp|double pitch|void|让实体垂直视角旋转pitch度|
 |setEnableAttack|boolean attack/void|void|设置npc是否能够接受伤害,无参数默认为true|
@@ -814,6 +822,69 @@ npc.setEnableHurt(true)
 ~~~
 npc.start()
 ~~~
+
+
+### RouteFinder使用方法
+
+- Entity getEntity()
+- void setSearchLimit(int searchLimit)
+- int getSearchLimit()
+- void setStart(Vector3 start)
+- Vector3 getStart()
+- void setDestination(Vector3 destination)
+- Vector3 getDestination()
+- void setLevel(Level level)
+- Level getLevel()
+- void setBoundingBox(AxisAlignedBB bb)
+- AxisAlignedBB getBoundingBox()
+- boolean hasNext()
+- Node next()
+- boolean hasReachedNode(Vector3 vec)
+- Node get()
+- void forceStop()
+- void arrived()
+- boolean hasRoute()
+- boolean search()
+- boolean research()
+- boolean isSearching()
+- boolean isSuccess()
+
+### JClass使用方法
+
+- JClass addConstructor(String modifier, String proxyFunction, String... argumentClasses)
+  - 为新java类添加构造函数
+  - modifier是构造函数修饰符，如public final等等
+  - proxyFunction是对应处理的bn插件函数名，调用时传入构造函数的所有参数，第一个参数永远是类自身，其余为自定义参数
+  - argumentClasses是构造函数自定义参数的类名
+  - 返回自身，便于链式调用
+- JClass addField(String modifier, String fieldClass, String fieldName, Object defaultValue / void)
+  - 为新java类添加字段（又称属性或成员变量）
+  - modifier是字段修饰符，如public final等等
+  - fieldClass是字段类名
+  - fieldName是字段名称，需遵守java规范
+  - defaultValue是字段的默认值，可以不填，默认没有默认值而非默认值为null
+  - 返回自身，便于链式调用
+- JClass addMethod(String modifier, String returnClass, String methodName, String proxyFunction, String... argumentClasses)
+  - 为新java类添加方法（又称成员函数）
+  - modifier是方法修饰符，如public final等等
+  - returnClass是方法返回值，无返回值填入void即可
+  - methodName是方法名称
+  - proxyFunction是对应处理的bn插件函数名，调用时传入方法的所有参数，第一个参数永远是类自身，其余为自定义参数
+  - argumentClasses是构造函数自定义参数的类名
+  - 返回自身，便于链式调用
+- JClass finish()
+  - 完成java类构造，此时java类才可以使用，且不可再次更改
+  - 返回自身，便于链式调用
+- Object newInstance(Object... args)
+  - 实例化自身，即对自身构建的java类进行new
+  - 必须在finish之后才能使用！
+
+### JMemory使用方法
+
+- long getMax() --获取JVM最大可用内存大小
+- long getFree() --获取JVM剩余内存大小
+- long getTotal() --获取JVM总内存大小
+- void gc() --进行内存清理
 
 ### bn模块  
 
