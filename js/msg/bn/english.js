@@ -4,7 +4,43 @@
 //the return value will be used as the final show for users
 //if you want to translate the text on toolbox or edit a custom toolbox, edit the function
 function translateToolBox(xml){
-	return xml;//return the xml string of toolbox without translate
+	xml = xml.replace("核心","Core Functions")
+	xml = xml.replace("逻辑","Logic")
+	xml = xml.replace("循环","Loops")
+	xml = xml.replace("数学","Math")
+	xml = xml.replace("字符串","Strings")
+	xml = xml.replace("列表","Lists")
+	xml = xml.replace("动态","Dynamic")
+	xml = xml.replace("变量","Variable")
+	xml = xml.replace("函数","Function")
+	xml = xml.replace("插件","Plugin")
+	xml = xml.replace("BN插件","BNPlugin")
+	xml = xml.replace("玩家","Player")
+	xml = xml.replace("事件","Event")
+	xml = xml.replace("位置","Position")
+	xml = xml.replace("创世","World Creation")
+	xml = xml.replace("窗口","Window")
+	xml = xml.replace("方块物品","Block")
+	xml = xml.replace("物品栏","Inventory")
+	xml = xml.replace("生物","Entity")
+	xml = xml.replace("粒子","Particle")
+	xml = xml.replace("粒子id,颜色码,形状码请去bn文档查看","For particle ID, color code, shape code, please go to BN document to view (Put a link)")
+	xml = xml.replace("拓展","Additional")
+	xml = xml.replace("实用工具","Utilities")
+	xml = xml.replace("请注意,此模块处于测试中","This module is undergoing testing.")
+	xml = xml.replace("我们不保证这些块一定正常工作","We cannot guarantee that these blocks will work.")
+	xml = xml.replace("如有问题,请随时联系我们","Feel free to contact us regarding bugs")
+	xml = xml.replace("数据库功能目前不稳定,慎用","The database function is unstable. Use with caution.")
+	xml = xml.replace("设置自定义服务器网站placeholder","Construire un site internet personnalisé placeholder")
+	xml = xml.replace("这些是一bn联合第三方API提供的服务","These are the services provided by a BlocklyNukkit joint Third-Party API.")
+	xml = xml.replace("GET的数据将追加在url?后,POST类型会放在body里面","The GET data will be appended to the url, and the POST type will be placed in the body.")
+	xml = xml.replace("添加自定义JavaScript脚本到代码里。","Add custom JavaScript to the code.")
+	xml = xml.replace("注意，这里声明的变量不会显示在BN编辑器的变量选项卡中。","The variables declared here will not be displayed in the Variables tab of the BlocklyNukkit editor.")
+	xml = xml.replace("另外，这里不能直接声明中文变量。否则会出错。","The declared variable must be in English.")
+	xml = xml.replace("起床战争","Bedwars")
+	xml = xml.replace("红石音乐","Redstone Music")
+	xml = xml.replace("功能测试中,可能不稳定","This function is undergoing testing and may be unstable.")
+	return xml;
 }
 //translateHTMLtoken
 //when a html element with Chinese is shown, this function will be called
@@ -12,7 +48,86 @@ function translateToolBox(xml){
 //the return value will be used as the text which will be shown on the page
 //if you want to translate the text on the html page, edit the function
 function translateHTMLtoken(str){
-	return str;//return the Chinese without translate
+	str = str.replace("BlocklyNukkit.jar最新版是","The latest version of BlocklyNukkit.jar is ")
+	str = str.replace("更新","")
+	str = str.replace("下载插件","Download the plugin")
+	str = str.replace("下载前置","Download the attached plugin")
+	str = str.replace("保存脚本","Save the project as *.js")
+	str = str.replace("云端同步","Cloud Sync")
+	str = str.replace("新建工程","Build a Project")
+	str = str.replace("导入工程","Import a Project")
+	str = str.replace("导出工程","Export a Project")
+	str = str.replace("打开教程","Open Tutorial")
+	str = str.replace("仓库主页","Github of BN")
+	str = str.replace("JS编辑器","JavaScript Editor")
+	str = str.replace("在线编译","Online Compiler")
+	str = str.replace("官方论坛","Official Forum")
+	str = str.replace("更换背景","Change Background")
+	str = str.replace("工程切换","Change Project")
+	str = str.replace("管理插件","Manage Plugins")
+	str = str.replace("功能待定","Function To Be Determined")
+	str = str.replace("关闭","Close")
+	str = str.replace("功能","Functions")
+	str = str.replace("更换BlocklyNukkit编辑器背景","Change the background of the BlocklyNukkit Editor")
+	str = str.replace("请在下方输入完整的图片网址","Please enter the image URL below.")
+	str = str.replace("如：http://www.xxx.com/xx.jpg 或 https://www.xxx.com/xxx.png","For example：http://www.xxx.com/xx.jpg or https://www.xxx.com/xxx.png")
+	str = str.replace("注意，保存后将自动刷新界面，请提前保存自己的工程，以免工程丢失。","Attention, the interface will be refreshed automatically after saving. Please save your project in advance to avoid losing work.")
+	str = str.replace("请在此输入完整的图片网址","Please enter the image url.")
+	str = str.replace("更换!","Replace!")
+	str = str.replace("还原白色背景","Restore the white background")
+	str = str.replace("关闭","Close")
+	str = str.replace("点击下方按钮在多个工程间切换","Click the button below to switch between multiple projects")
+	str = str.replace("只要不清除浏览器缓存，各个工程是可以独立保存的。","As long as the browser cache is not cleared, each project can be saved independently.")
+	str = str.replace("到工程一","To project 1")
+	str = str.replace("到工程二","To project 2")
+	str = str.replace("到工程三","To project 3")
+	str = str.replace("到工程四","To project 4")
+	str = str.replace("到工程五","To project 5")
+	str = str.replace("到工程六","To project 6")
+	str = str.replace("到工程七","To project 7")
+	str = str.replace("到工程八","To project 8")
+	str = str.replace("关闭","Close")
+	str = str.replace("新建工程","Please enter the plugin link")
+	str = str.replace("添加","Add")
+	str = str.replace("请输入插件链接","Build a project")
+	str = str.replace("是否决定新建工程？新建工程将会清空当前项目！","Are you sure you want to build a new project? The current project will be cleared!")
+	str = str.replace("是否决定Build a Project？Please enter the plugin link将会清空当前项目！","Are you sure you want to build a new project? The current project will be cleared!")
+	str = str.replace("不不不✖","No✖")
+	str = str.replace("我决定了✔","Yes✔")
+	str = str.replace("导入工程","Import a project")
+	str = str.replace("导入本地工程(*.bn)","Import a local project (*.bn)")
+	str = str.replace("确认导入","Confirm")
+	str = str.replace("关闭","Close")
+	str = str.replace("保存脚本","Save the project as *.js")
+	str = str.replace("保存JavaScript脚本到本地","Save the JavaScript file to local device")
+	str = str.replace("在输入框输入欲保存的文件名，不需要输入.js文件后缀。","Enter the name of the file you want to save in the input box.")
+	str = str.replace("请输入您的文件名:","Enter the name of your file:")
+	str = str.replace("保存!","Save!")
+	str = str.replace("关闭","Close")
+	str = str.replace("云端同步","Cloud sync")
+	str = str.replace("同步JavaScript脚本到云端","Sync the JavaScript code to the BN Cloud.")
+	str = str.replace("在输入框输入欲同步的文件名，不需要输入.js文件后缀。","Enter the file name to be synced in the input box.")
+	str = str.replace("请输入您的文件名:","Please enter your file name:")
+	str = str.replace("同步!","Sync!")
+	str = str.replace("关闭","Close")
+	str = str.replace("同步成功","Sync succeeded")
+	str = str.replace("您的文件名为：","Your file name is:")
+	str = str.replace("关闭","Close")
+	str = str.replace("导出工程","Export a project")
+	str = str.replace("导出BlocklyNukkit(*.bn)工程到本地以便下次编辑","Export BlocklyNukkit(*.bn) project to local for editing later.")
+	str = str.replace("在输入框输入欲导出的文件名，不需要输入文件后缀。","Enter the name of the project to be exported.")
+	str = str.replace("请输入您的文件名:","Please enter your file name:")
+	str = str.replace("导出!","Export!")
+	str = str.replace("关闭","Close")
+	str = str.replace("导出成功","Export succeeded")
+	str = str.replace("您的工程文件名为：","Your project file name is:")
+	str = str.replace("关闭","Close")
+	//这里开始的不确定是不是该放在这个函数里
+	str = str.replace("请输入文件名，不需要文件后缀。例如输入'myjs","Enter the file name. Ex:'myPlugin'")
+	str = str.replace("您的变量中含有与基对象重名的变量","Your variable contains a variable with the same name as the base object.")
+	str = str.replace("这会使得解释器崩溃,请您及时修改!","This could break the BlocklyNukkit interpreter, please change it to something else.")
+	str = str.replace("输入背景图片链接:","Enter the background image link:")
+	return str;
 }
 //blockanditem.js
 //generated by python reMoudle
@@ -466,7 +581,7 @@ var window_line_197 = "getCustomWindowBuilder(getCustomWindowBuilder)"
 var window_line_211 = "Adds a text element with %2 content to the advanced window %1 "
 var window_line_227 = "buildLabel(buildLabel)"
 var window_line_244 = "Adds an input box element with %2 prompt %3 to the advanced window %1 "
-var window_line_265 = "添加输入框元素(buildInput)"
+var window_line_265 = "Add input box element(buildInput)"
 var window_line_284 = "Adds a switch element with the title %2 to the advanced window %1 "
 var window_line_300 = "buildToggle(buildToggle)"
 var window_line_317 = "Adds a selection box element with the title %2 option %3 to the advanced window %1 "

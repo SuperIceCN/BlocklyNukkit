@@ -1,5 +1,7 @@
 # BlocklyNukkit
 
+[English](README.en.md)
+
 #### 介绍
 我们的在线使用网址：[点击进入](https://tools.blocklynukkit.com)  
 
