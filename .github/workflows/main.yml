@@ -7,12 +7,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Deploy static to Tencent CloudBase
-        id: deployStatic
-        uses: TencentCloudBase/cloudbase-action@v1.1.1
+      - name: Setup node
+        uses: actions/setup-node@v1
         with:
-          secretId: ${{ secrets.SECRET_ID }}
-          secretKey: ${{ secrets.SECRET_KEY }}
-          envId: ${{ secrets.ENV_ID }}
-          staticSrcPath: ./
-          staticIgnore: .git,.github,node_modules,oldversions,./oldversions,mdui,./mdui,libs,./libs,./js/demos,./js/SoftKey,./js/tests,./js/core,./js/media,./js/generators/python,./js/generators/javascript,./js/generators/dart,./js/generators/lua,./js/generators/php,./js/web,./js/closure,./js/package,./js/typings,./js/externs,./js/i18n,./js/theme_scripts,LICENSE,/assets,.gitignore,.eslintignore,.eslintrc.json,.jshintignore,.npmrc
+          node-version: "10.x"
+      - name: Upload COS
+        uses: zkqiang/tencent-cos-action@v0.1.0
+        with:
+          args: upload -r ./ / --ignore *.git,.github/*,node_modules/*,oldversions/*,./oldversions/*,mdui/*,./mdui/*,libs/*,./libs/*,./js/demos/*,./js/SoftKey/*,./js/tests/*,./js/core/*,./js/media/*,./js/generators/python/*,./js/generators/javascript/*,./js/generators/dart/*,./js/generators/lua/*,./js/generators/php/*,./js/web/*,./js/closure/*,./js/package/*,./js/typings/*,./js/externs/*,./js/theme_scripts/*,LICENSE,/assets/*,.gitignore,.eslintignore,.eslintrc.json,.jshintignore,.npmrc
+          secret_id: ${{ secrets.SECRET_ID }}
+          secret_key: ${{ secrets.SECRET_KEY }}
+          bucket: ${{ secrets.ENV_ID }}
+          region: ap-hongkong
